@@ -1,7 +1,6 @@
 <script lang="ts">
 export type ImageContext = {
   state: Ref<'loading' | 'error' | 'success'>
-  setState: (state: 'loading' | 'error' | 'success') => void
 };
 
 export const [injectImageContext, provideImageContext] = createContext<ImageContext>('ImageContext');
@@ -23,14 +22,11 @@ const state = ref<'loading' | 'error' | 'success'>('loading')
 
 provideImageContext({
   state,
-  setState(value) {
-    state.value = value
-  }
 })
 </script>
 
 <template>
-  <Primitive :as="as" :as-child="asChild" data-slot="image-zoom-container" :class="cn('overflow-hidden relative w-fit', props.class)">
+  <Primitive :as="as" :as-child="asChild" data-slot="image-root" :class="cn('overflow-hidden relative w-fit', props.class)">
     <slot />
   </Primitive>
 </template>

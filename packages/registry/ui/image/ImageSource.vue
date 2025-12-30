@@ -11,18 +11,19 @@ const props = defineProps<{
 
 const { src } = toRefs(props)
 
-const { state, setState } = injectImageContext()
+const { state } = injectImageContext()
 
-useImage(() => ({
-  src: src.value,
-}), {
-    onSuccess() {
-        setState('success')
-    },
-    onError() {
-        setState('error')
+useImage(
+    () => ({ src: src.value }), 
+    {
+      onSuccess() {
+        state.value = 'success'
+      },
+      onError() {
+        state.value = 'error'
+      }
     }
-})
+)
 </script>
 
 <template>

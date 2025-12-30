@@ -7,18 +7,21 @@ definePage({
 </script>
 
 <template>
-  <div class="space-y-12">
+  <div class="space-y-4">
     <h1 class="text-3xl font-bold">Image</h1>
 
     <div class="space-y-4">
-        <h2 class="text-lg font-bold">Example</h2>
+        <h2 class="text-xl font-bold">Example</h2>
 
         <div class="grid grid-cols-1 gap-4">
             <h3 class="text-lg font-bold">Basic Image</h3>
+
             <Image class="w-[600px]">
                 <ImageSource src="https://images.pexels.com/photos/34937374/pexels-photo-34937374.jpeg" />
                 <ImageFallback>
-                    Hello World
+                    <div class="aspec-3/2 w-96">
+                        Hello World
+                    </div>
                 </ImageFallback>
             </Image>
 

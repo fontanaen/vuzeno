@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import ImageFallback from './ImageFallback.vue';
 </script>
 
 <template>
-    <slot />
+    <ImageFallback>
+        <slot />
+    </ImageFallback>
 </template>
