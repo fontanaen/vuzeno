@@ -9,7 +9,9 @@ defineProps<{
     alt?: string
 }>()
 
-const { scale, onZoomIn, onZoomOut, zoomOnClick, zoomDirection, zoomContainerRef, followCursor, zoomTranslate: translate, resetOnClickOutside } = injectImageZoomProviderContext()
+const { scale, onZoomIn, onZoomOut, zoomOnClick, zoomDirection, zoomContainerRef, followCursor, zoomTranslate: translate, resetOnClickOutside, useZoomImageSourceRef } = injectImageZoomProviderContext()
+
+useZoomImageSourceRef('imageSourceRef')
 
 const { elementX: x, elementY: y, elementWidth: width, elementHeight: height, isOutside } = useMouseInElement(zoomContainerRef, { handleOutside: false })
 
@@ -86,6 +88,7 @@ watchThrottled([x, y, scale], () => {
 
 <template>
     <ImageSource
+      ref="imageSourceRef"
       :data-zooming="isZooming" 
       :class="cursor" 
       :src="src" 

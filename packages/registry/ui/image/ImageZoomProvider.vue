@@ -1,7 +1,8 @@
 <script lang="ts">
 import { whenever } from "@vueuse/core"
 import { createContext, Primitive } from "reka-ui"
-import { ref, toRefs, type Ref } from "vue"
+import { onMounted, ref, toRefs, useTemplateRef, type Ref } from "vue"
+import type ImageZoomSource from "./ImageZoomSource.vue"
 
 export type ImageZoomDirection = 'in' | 'out'
 
@@ -75,6 +76,8 @@ export type ImageZoomProviderContext<P extends ImageZoomProviderProps> = {
   zoomContainerRef: Ref<HTMLElement | null | undefined>
   zoomTranslate: Ref<{ x: number, y: number, z: number }>
   resetOnClickOutside: Ref<NonNullable<P['resetOnClickOutside']>>
+  zoomImageSourceRef: Ref<typeof ImageZoomSource | null | undefined>
+  useZoomImageSourceRef: (key: string) => void
   onUpdateScale: (value: number) => number
   onZoomIn: () => void
   onZoomOut: () => void
@@ -105,6 +108,7 @@ const { mode, maxScale, step, disabled, zoomOnClick, resetOnClickOutside } = toR
 const followCursor = ref(props.followCursor)
 const zoomDirection = ref<ImageZoomDirection>('in')
 const zoomContainerRef = ref<HTMLElement | null | undefined>(null)
+const zoomImageSourceRef = ref<typeof ImageZoomSource | null | undefined>(null)
 const zoomTranslate = ref({ x: 0, y: 0, z: 0 })
 
 function onUpdateScale(value: number) {
@@ -123,6 +127,14 @@ provideImageZoomProviderContext({
   zoomContainerRef,
   zoomTranslate,
   resetOnClickOutside,
+  zoomImageSourceRef,
+  useZoomImageSourceRef(key) {
+    const ref = useTemplateRef<typeof ImageZoomSource>(key);
+
+    onMounted(() => {
+      zoomImageSourceRef.value = ref.value
+    })
+  },
   onZoomIn() {
     onUpdateScale(scale.value + step.value)
   },
