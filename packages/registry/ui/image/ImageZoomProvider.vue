@@ -1,6 +1,6 @@
 <script lang="ts">
 import { whenever } from "@vueuse/core"
-import { createContext } from "reka-ui"
+import { createContext, Primitive } from "reka-ui"
 import { ref, toRefs, type Ref } from "vue"
 
 export type ImageZoomDirection = 'in' | 'out'
@@ -124,16 +124,13 @@ provideImageZoomProviderContext({
   zoomTranslate,
   resetOnClickOutside,
   onZoomIn() {
-    zoomDirection.value = 'in'
     onUpdateScale(scale.value + step.value)
   },
   onZoomOut() {
-    zoomDirection.value = 'out'
     onUpdateScale(scale.value - step.value)
   },
   onZoomReset() {
     onUpdateScale(1)
-    zoomDirection.value = 'in'
   },
   onUpdateScale
 })
@@ -143,5 +140,7 @@ whenever(() => scale.value === maxScale.value, () => zoomDirection.value = 'out'
 </script>
 
 <template>
-  <slot />
+  <Primitive>
+    <slot />
+  </Primitive>
 </template>

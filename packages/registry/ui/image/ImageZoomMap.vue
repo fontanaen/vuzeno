@@ -60,7 +60,7 @@ const onMoveThrottled = useThrottleFn((e: PointerEvent) => {
     zoomTranslate.value = convertMapPositionToZoomTranslate(e.clientX - mapContainerX.value - mapThumbSize.value.width / 2, e.clientY - mapContainerY.value - mapThumbSize.value.height / 2)
 }, 10)
 
-usePointerSwipe(mapThumbRef, {
+const { isSwiping } = usePointerSwipe(mapThumbRef, {
     onSwipe: onMoveThrottled,
     threshold: 10,
 });
@@ -80,6 +80,7 @@ watchThrottled([zoomTranslate], () => {
         <div 
             ref="mapThumbRef" 
             class="absolute inset-1 bg-white/50 rounded-sm shadow-sm" 
+            :class="{'cursor-grabbing': isSwiping && scale > 1, 'cursor-grab': !isSwiping && scale > 1 }"
             :style="{ width:`${mapThumbSize.width}px`, height:`${mapThumbSize.height}px`, transformOrigin: '0 0', transform: `translate3D(${mapThumbPositionOffset.x}px, ${mapThumbPositionOffset.y}px, ${mapThumbPositionOffset.z}px)` }"
         />
     </div>
