@@ -1,0 +1,19 @@
+{
+  "name": "@vuetella/tailwind-config",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./style.css": "./style.css"
+  },
+  "dependencies": {
+    "tailwindcss": "catalog:",
+    "tailwindcss-animate": "catalog:",
+    "tw-animate-css": "catalog:"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

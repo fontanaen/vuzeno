@@ -1,0 +1,21 @@
+{
+  "name": "@vuetella/registry",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./ui/*": "./ui/*/index.ts",
+    "./blocks/*": "./ui/*/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@vuetella/ui": "workspace:*",
+    "@vueuse/core": "catalog:",
+    "lucide-vue-next": "^0.562.0",
+    "vue": "^3.5.24"
+  }
+}

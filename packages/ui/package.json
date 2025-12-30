@@ -1,0 +1,38 @@
+{
+  "name": "@vuetella/ui",
+  "type": "module",
+  "private": true,
+  "imports": {
+    "#*": "./src/*"
+  },
+  "exports": {
+    "./lib/*": {
+      "types": "./dist/src/lib/*.d.ts",
+      "default": "./src/lib/*.ts"
+    },
+    "./components/*": "./src/components/*/index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@unovis/ts": "^1.6.2",
+    "@unovis/vue": "^1.6.2",
+    "@vee-validate/zod": "^4.15.1",
+    "@vueuse/core": "^14.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "embla-carousel-vue": "^8.6.0",
+    "lucide-vue-next": "^0.562.0",
+    "reka-ui": "^2.6.1",
+    "tailwind-merge": "catalog:",
+    "tw-animate-css": "catalog:",
+    "vaul-vue": "^0.4.1",
+    "vee-validate": "^4.15.1",
+    "vue-sonner": "^2.0.9",
+    "zod": "^4.2.1"
+  }
+}
