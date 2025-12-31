@@ -6,7 +6,7 @@ import { onMounted, ref, useTemplateRef } from 'vue';
 const props = withDefaults(defineProps<{
     orientation?: 'horizontal' | 'vertical'
 }>(), {
-    orientation: 'vertical'
+    orientation: 'horizontal'
 })
 
 const { scale, maxScale, onUpdateScale, followCursor } = injectImageZoomProviderContext()

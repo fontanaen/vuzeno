@@ -27,7 +27,7 @@ definePage({
 
             <h3 class="text-lg font-bold">Image + Zoom</h3>
 
-            <ImageZoomProvider class="grid grid-cols-2 gap-4" mode="zoom" :scale="1" :step="1">
+            <ImageZoomProvider class="grid grid-cols-2 gap-4" :scale="1" :step="1">
                 <ImageZoomContainer>
                     <ImageZoomSource src="https://images.pexels.com/photos/34937374/pexels-photo-34937374.jpeg" />
                     <ImageZoomFallback>
@@ -40,7 +40,7 @@ definePage({
                         <ImageZoomReset variant="ghost" />
                     </div>
                 </ImageZoomContainer>
-                <ImageZoomSlider />
+                <ImageZoomSlider orientation="vertical" />
                 <ImageZoomMap />
             </ImageZoomProvider>
         </div>

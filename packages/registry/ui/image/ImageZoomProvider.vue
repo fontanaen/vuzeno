@@ -8,12 +8,6 @@ export type ImageZoomDirection = 'in' | 'out'
 
 export type ImageZoomProviderProps = {
   /**
-   * The mode of the zoom.
-   * @defaultValue 'zoom'
-   */
-    mode: 'zoom' | 'magnifier'
-
-  /**
    * The current scale of the zoom.
    * @defaultValue 1
    */
@@ -65,7 +59,6 @@ export type ImageZoomProviderEmits = {
 }
 
 export type ImageZoomProviderContext<P extends ImageZoomProviderProps> = {
-  mode: Ref<P['mode']>
   scale: Ref<NonNullable<P['scale']>>
   maxScale: Ref<NonNullable<P['maxScale']>>
   step: Ref<NonNullable<P['step']>>
@@ -89,7 +82,6 @@ export const [injectImageZoomProviderContext, provideImageZoomProviderContext] =
 
 <script setup lang="ts">
 const props = withDefaults(defineProps<ImageZoomProviderProps>(), {
-  mode: 'zoom',
   scale: 1,
   maxScale: 3,
   step: 2,
@@ -103,7 +95,7 @@ const scale = defineModel<number>('scale', {
   default: 1,
 })
 
-const { mode, maxScale, step, disabled, zoomOnClick, resetOnClickOutside } = toRefs(props)
+const { maxScale, step, disabled, zoomOnClick, resetOnClickOutside } = toRefs(props)
 
 const followCursor = ref(props.followCursor)
 const zoomDirection = ref<ImageZoomDirection>('in')
@@ -116,7 +108,6 @@ function onUpdateScale(value: number) {
 }
 
 provideImageZoomProviderContext({
-  mode,
   scale,
   maxScale,
   step,
