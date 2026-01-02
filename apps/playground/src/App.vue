@@ -14,8 +14,12 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@vuetella/ui/components/sidebar'
-import { ImageIcon } from 'lucide-vue-next'
-import { RouterLink } from 'vue-router';
+import { Button } from '@vuetella/ui/components/button'
+import { ImageIcon, Moon, Sun } from 'lucide-vue-next'
+import { RouterLink } from 'vue-router'
+import { useTheme } from './composables/useDark'
+
+const { isDark, toggleDark } = useTheme()
 </script>
 
 <template>
@@ -59,6 +63,15 @@ import { RouterLink } from 'vue-router';
         <div class="flex-1">
           <h1 class="text-lg font-semibold">Playground</h1>
         </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          @click="toggleDark()"
+          aria-label="Toggle dark mode"
+        >
+          <Sun v-if="isDark" class="size-4" />
+          <Moon v-else class="size-4" />
+        </Button>
       </header>
       <main class="flex-1 overflow-auto p-6">
         <div class="mx-auto max-w-4xl space-y-6">
