@@ -16,6 +16,11 @@ import {
 } from '@vuetella/ui/components/sidebar'
 import { ImageIcon } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router';
+
+const navItems = [
+  { label: 'Filter', to: { name: 'components.filter' } },
+  { label: 'Image', to: { name: 'components.image' } },
+]
 </script>
 
 <template>
@@ -37,10 +42,9 @@ import { RouterLink } from 'vue-router';
           <SidebarGroupLabel>Components</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton :as="RouterLink" :to="{ name: 'components.image' }">
-                  <ImageIcon />
-                  <span>Image</span>
+              <SidebarMenuItem v-for="item in navItems" :key="item.label">
+                <SidebarMenuButton :as="RouterLink" :to="item.to">
+                  <span>{{ item.label }}</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
