@@ -1,71 +1,77 @@
 import type { FunctionalComponent, VNode } from "vue";
+import type { Operator } from "./operator";
 
-export type Operator = {
-    /**
-     * The display name of the operator
-     */
-    name: string;
-
-    /**
-     * The value of the operator
-     */
-    value: string;
-    
-    /**
-     * Whether the operator is the default operator
-     * @defaultValue false
-     */
-    default?: boolean;
-    
-    /**
-     * The default value of the operator
-     * @defaultValue undefined
-     */
-    defaultValue?: string | string[];
-
-    /**
-     * Whether you can select multiple values
-     * @defaultValue false
-     */
-    multiple?: boolean;
-
-    /**
-     * Whether you can use a custom value (via text input)
-     * @defaultValue false
-     */
-    custom?: boolean;
-};
+export type FieldOption<T> = {
+    label: string;
+    value: T;
+}
 
 export type FieldGroup = {
     group: string;
     fields: Field[];
 }
 
-export type Field = TextField | DateField;
-
-interface BaseField {
+export type Field<V = any, T = any> = {
+    /**
+     * The field key (will be used as the filter field key)
+     */
     key: string;
+
+    /**
+     * The field display name
+     */
     name: string;
+
+    /**
+     * The field type (will be used to determine the input type)
+     */
+    type: 'text' | 'date' | 'number' | 'boolean';
+
+    /**
+     * The field icon (will be used to display the field in the filter menu and filter items)
+     */
     icon?: FunctionalComponent | (() => VNode)
-    multiple?: boolean;
-    operators: Operator[];
-    options?: (string | number)[];
-    optionDisplay?: ((option: string | number) => VNode | string);
-}
 
-interface TextField extends BaseField {
-    type: 'text';
+    /**
+     * Whether the field is multiple (will be used to determine if the field can have multiple values)
+     */
     multiple?: boolean;
-    operators: Operator[];
-}
 
-interface DateField extends BaseField {
-    name: string;
-    type: 'date';
-    min: string;
-    max: string;
-    multiple: boolean;
-    operators: Operator[];
+    /**
+     * The field operators (will be used to determine the operators that can be used for the field)
+     */
+    operators: Operator<V>[];
+
+    /**
+     * The minimum value for the field
+     */
+    min?: T;
+
+    /**
+     * The maximum value for the field
+     */
+    max?: T;
+
+    /**
+     * The step value for the field
+     */
+    step?: number;
+
+    /**
+     * The number format for the field
+     */
+    numberFormat?: Intl.NumberFormatOptions;
+
+    /**
+     * The field options (will be used to determine the options that can be used for the field)
+     */
+    options?: {
+        items?: FieldOption<V>[];
+        searchable?: boolean;
+        minSelections?: number;
+        maxSelections?: number;
+        optionDisplay?: ((option: FieldOption<V>) => VNode | string);
+    }
 }
 
 export function isFieldGroup(item: FieldGroup | Field): item is FieldGroup {
@@ -74,37 +80,4 @@ export function isFieldGroup(item: FieldGroup | Field): item is FieldGroup {
 
 export function isField(item: FieldGroup | Field): item is Field {
     return 'key' in item;
-}
-
-/** Example fields */
-
-const textField: TextField = {
-    key: 'text-field',
-    name: 'text-field',
-    type: 'text',
-    multiple: false, // boolean or function
-    options: ['value1', 'value2'],
-    operators: [
-        { name: 'is', value: 'eq', default: true },
-        { name: 'is not', value: 'neq' },
-        { name: 'between', value: 'between' },
-        { name: 'include', value: 'in', defaultValue: 'value1' },
-        { name: 'not include', value: 'nin', defaultValue: 'value2' },
-    ]
-}
-
-const dateField: DateField = {
-    key: 'date-field',
-    name: 'date-field',
-    type: 'date',
-    multiple: false, // boolean or function
-    min: '2025-01-01',
-    max: '2025-01-01',
-    operators: [
-        { name: 'is', value: 'eq', default: true },
-        { name: 'is not', value: 'neq' },
-        { name: 'between', value: 'between' },
-        { name: 'before', value: 'lt', defaultValue: '2025-01-01' },
-        { name: 'after', value: 'gt', defaultValue: '2025-01-01' },
-    ]
 }

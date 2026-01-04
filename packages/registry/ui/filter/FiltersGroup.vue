@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type Field, isField, isFieldGroup } from './field';
-import FilterItem from './FilterItem.vue';
-import { injectFilterContext } from './FilterProvider.vue';
+import FilterItem from './FiltersItem.vue';
+import { injectFilterContext } from './FiltersProvider.vue';
 
 const { filters, fields } = injectFilterContext();
 
@@ -23,7 +23,7 @@ function getField(key: string): Field {
 <template>
     <div class="flex flex-wrap items-center gap-2">
         <template v-for="filter in filters" :key="filter.field">
-            <FilterItem :filter="filter" :field="getField(filter.field)" @delete="filters.splice(filters.indexOf(filter), 1)" />
+            <FilterItem v-if="!filter.hidden" :filter="filter" :field="getField(filter.field)" @delete="filters.splice(filters.indexOf(filter), 1)" />
         </template>
     </div>
 </template>

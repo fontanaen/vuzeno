@@ -8,6 +8,11 @@ import { cn } from '#/lib/utils'
 const props = defineProps<SliderRootProps & { class?: HTMLAttributes["class"] }>()
 const emits = defineEmits<SliderRootEmits>()
 
+const modelValue = defineModel<number[]>()
+
+console.log(modelValue.value, 'modelValue', props)
+console.log(props.defaultValue, 'defaultValue')
+
 const delegatedProps = reactiveOmit(props, "class")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
@@ -24,8 +29,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <SliderTrack class="relative h-2 w-full data-[orientation=vertical]:w-2 grow overflow-hidden rounded-full bg-secondary">
       <SliderRange class="absolute h-full data-[orientation=vertical]:w-full bg-primary" />
     </SliderTrack>
+    
     <SliderThumb
-      v-for="(_, key) in modelValue"
+      v-for="(_, key) in modelValue ?? defaultValue"
       :key="key"
       class="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
     />

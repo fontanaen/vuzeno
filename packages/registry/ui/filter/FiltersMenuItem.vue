@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from '@vuetella/ui/components/dropdown-menu';
-import { injectFilterContext } from './FilterProvider.vue';
-import type { Field, Operator } from './field';
-import { computed } from 'vue';
+import { injectFilterContext } from './FiltersProvider.vue';
+import type { Field } from './field';
+import { OperatorDefaultValue, type Operator } from './operator';
+import { computed, isVNode } from 'vue';
+import type { FilterValue } from './filter';
 
 const props = defineProps<{
     field: Field;
@@ -10,7 +12,7 @@ const props = defineProps<{
 
 const { filters } = injectFilterContext();
 
-const defaultOperator = computed<Operator>(() => {
+const defaultOperator = computed<Operator<any>>(() => {
     const operator = props.field.operators.find(operator => operator.default) ?? props.field.operators[0];
 
     if (!operator) {
@@ -25,10 +27,14 @@ const disabled = computed<boolean>(() => {
 })
 
 function addFilter() {
-    filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: defaultOperator.value.defaultValue ?? '' });
+    filters.value.push({ 
+        field: props.field.key, 
+        operator: defaultOperator.value.value, 
+        value: defaultOperator.value.defaultValue ?? OperatorDefaultValue[defaultOperator.value.inputType as keyof typeof OperatorDefaultValue]
+    });
 }
 
-function addFilterWithValue(value: string | number) {
+function addFilterWithValue(value: FilterValue) {
     filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
 }
 </script>
@@ -42,9 +48,22 @@ function addFilterWithValue(value: string | number) {
         <DropdownMenuSubTrigger :disabled="disabled" class="data-disabled:opacity-50">
             <component :is="field.icon" class="size-4 mr-2 text-muted-foreground" /> {{ field.name }}
         </DropdownMenuSubTrigger>
+
         <DropdownMenuPortal>
             <DropdownMenuSubContent>
-                <DropdownMenuItem v-for="option in field.options" :disabled="disabled" :key="option" @click="addFilterWithValue(option)">{{ option }}</DropdownMenuItem>
+                <DropdownMenuItem v-for="option in field.options?.items" :disabled="disabled" :key="option?.value" @click="addFilterWithValue(option?.value)">
+                    <template v-if="field.options?.optionDisplay">
+                        <template v-if="isVNode(field.options?.optionDisplay(option))">
+                            <component :is="field.options?.optionDisplay(option)" />
+                        </template>
+                        <template v-else>
+                            {{ field.options?.optionDisplay(option) }}
+                        </template>
+                    </template>
+                    <template v-else>
+                        {{ option?.label }}
+                    </template>
+                </DropdownMenuItem>
             </DropdownMenuSubContent>
         </DropdownMenuPortal>
     </DropdownMenuSub>
