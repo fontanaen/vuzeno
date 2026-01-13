@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ImageFallback from './ImageFallback.vue';
+import ImageFallback from "./ImageFallback.vue";
 </script>
 
 <template>

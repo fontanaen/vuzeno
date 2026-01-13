@@ -1,34 +1,37 @@
 <script setup lang="ts">
-import { computed, isVNode } from 'vue';
-import type { Field, FieldOption } from './field';
-import { Popover, PopoverContent, PopoverTrigger } from '@vuetella/ui/components/popover';
-import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from '@vuetella/ui/components/command';
-import { Button } from '@vuetella/ui/components/button';
-import { Badge } from '@vuetella/ui/components/badge';
-import { CheckIcon } from 'lucide-vue-next';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { computed, isVNode } from "vue";
+import type { Field, FieldOption } from "./field";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@vuetella/ui/components/command";
+import { Button } from "@vuetella/ui/components/button";
+import { Badge } from "@vuetella/ui/components/badge";
+import { CheckIcon } from "lucide-vue-next";
+import type { FilterVariant } from "./FiltersProvider.vue";
 
 const props = defineProps<{
-    field: Field;
-    variant: FilterVariant;
-}>()
+  field: Field;
+  variant: FilterVariant;
+}>();
 
 const modelValue = defineModel<any[]>({ default: () => [] });
 
 const visibleValues = computed<FieldOption<any>[]>(() => {
-    if (!Array.isArray(modelValue.value)) {
-        return [];
-    }
+  if (!Array.isArray(modelValue.value)) {
+    return [];
+  }
 
-    return modelValue.value.slice(0, 2).map(item => props.field.options?.items?.find(option => option.value === item)).filter(Boolean) as FieldOption<any>[];
-})
+  return modelValue.value
+    .slice(0, 2)
+    .map((item) => props.field.options?.items?.find((option) => option.value === item))
+    .filter(Boolean) as FieldOption<any>[];
+});
 
 function toogleValue(value: string) {
-    if (modelValue.value.includes(value)) {
-        modelValue.value = modelValue.value.filter(item => item !== value);
-    } else {
-        modelValue.value = [...modelValue.value, value];
-    }
+  if (modelValue.value.includes(value)) {
+    modelValue.value = modelValue.value.filter((item) => item !== value);
+  } else {
+    modelValue.value = [...modelValue.value, value];
+  }
 }
 </script>
 

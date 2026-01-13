@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from '@vuetella/ui/components/dropdown-menu';
-import { injectFilterContext } from './FiltersProvider.vue';
-import type { Field } from './field';
-import { OperatorDefaultValue, type Operator } from './operator';
-import { computed, isVNode } from 'vue';
-import type { FilterValue } from './filter';
+import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from "@vuetella/ui/components/dropdown-menu";
+import { injectFilterContext } from "./FiltersProvider.vue";
+import type { Field } from "./field";
+import { OperatorDefaultValue, type Operator } from "./operator";
+import { computed, isVNode } from "vue";
+import type { FilterValue } from "./filter";
 
 const props = defineProps<{
-    field: Field;
-}>()
+  field: Field;
+}>();
 
 const { filters } = injectFilterContext();
 
 const defaultOperator = computed<Operator<any>>(() => {
-    const operator = props.field.operators.find(operator => operator.default) ?? props.field.operators[0];
+  const operator = props.field.operators.find((operator) => operator.default) ?? props.field.operators[0];
 
-    if (!operator) {
-        throw new Error('No default operator found');
-    }
+  if (!operator) {
+    throw new Error("No default operator found");
+  }
 
-    return operator;
-})
+  return operator;
+});
 
 const disabled = computed<boolean>(() => {
-    return !props.field.multiple && filters.value.some(filter => filter.field === props.field.key) || false;
-})
+  return (!props.field.multiple && filters.value.some((filter) => filter.field === props.field.key)) || false;
+});
 
 function addFilter() {
-    filters.value.push({ 
-        field: props.field.key, 
-        operator: defaultOperator.value.value, 
-        value: defaultOperator.value.defaultValue ?? OperatorDefaultValue[defaultOperator.value.inputType as keyof typeof OperatorDefaultValue]
-    });
+  filters.value.push({
+    field: props.field.key,
+    operator: defaultOperator.value.value,
+    value: defaultOperator.value.defaultValue ?? OperatorDefaultValue[defaultOperator.value.inputType as keyof typeof OperatorDefaultValue],
+  });
 }
 
 function addFilterWithValue(value: FilterValue) {
-    filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
+  filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
 }
 </script>
 

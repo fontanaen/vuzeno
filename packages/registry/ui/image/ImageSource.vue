@@ -1,29 +1,26 @@
 <script setup lang="ts">
-import { useImage } from '@vueuse/core';
-import { toRefs, type HTMLAttributes } from 'vue';
-import { injectImageContext } from './Image.vue';
+import { useImage } from "@vueuse/core";
+import { toRefs, type HTMLAttributes } from "vue";
+import { injectImageContext } from "./Image.vue";
 
 const props = defineProps<{
-    src: string
-    alt?: string
-    class?: HTMLAttributes["class"]
-}>()
+  src: string;
+  alt?: string;
+  class?: HTMLAttributes["class"];
+}>();
 
-const { src } = toRefs(props)
+const { src } = toRefs(props);
 
-const { state } = injectImageContext()
+const { state } = injectImageContext();
 
-useImage(
-    () => ({ src: src.value }), 
-    {
-      onSuccess() {
-        state.value = 'success'
-      },
-      onError() {
-        state.value = 'error'
-      }
-    }
-)
+useImage(() => ({ src: src.value }), {
+  onSuccess() {
+    state.value = "success";
+  },
+  onError() {
+    state.value = "error";
+  },
+});
 </script>
 
 <template>

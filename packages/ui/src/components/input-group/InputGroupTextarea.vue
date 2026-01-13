@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from "vue"
-import { cn } from '#/lib/utils'
-import { Textarea } from '#/components/textarea'
+import type { HTMLAttributes } from "vue";
+import { cn } from "#/lib/utils";
+import { Textarea } from "#/components/textarea";
 
 const props = defineProps<{
-  class?: HTMLAttributes["class"]
-}>()
+  class?: HTMLAttributes["class"];
+}>();
 </script>
 
 <template>

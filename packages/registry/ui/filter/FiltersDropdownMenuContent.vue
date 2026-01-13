@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from '@vuetella/ui/components/dropdown-menu';
-import { injectFilterContext } from './FiltersProvider.vue';
-import FiltersMenuItem from './FiltersMenuItem.vue';
-import { isField, isFieldGroup } from './field';
+import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from "@vuetella/ui/components/dropdown-menu";
+import { injectFilterContext } from "./FiltersProvider.vue";
+import FiltersMenuItem from "./FiltersMenuItem.vue";
+import { isField, isFieldGroup } from "./field";
 
 const { fields } = injectFilterContext();
 </script>

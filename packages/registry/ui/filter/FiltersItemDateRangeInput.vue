@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import { RangeCalendar } from '@vuetella/ui/components/range-calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@vuetella/ui/components/popover';
-import { Button } from '@vuetella/ui/components/button';
-import { CalendarIcon } from 'lucide-vue-next';
-import type { DateRange } from 'reka-ui';
-import type { Field } from './field';
-import { isFilterRangeValue, type FilterRangeValue } from './filter';
-import { CalendarDate, getLocalTimeZone, type DateValue } from '@internationalized/date';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { RangeCalendar } from "@vuetella/ui/components/range-calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { Button } from "@vuetella/ui/components/button";
+import { CalendarIcon } from "lucide-vue-next";
+import type { DateRange } from "reka-ui";
+import type { Field } from "./field";
+import { isFilterRangeValue, type FilterRangeValue } from "./filter";
+import { CalendarDate, getLocalTimeZone, type DateValue } from "@internationalized/date";
+import type { FilterVariant } from "./FiltersProvider.vue";
 
 const props = defineProps<{
-    field: Field;
-    variant: FilterVariant;
-}>()
+  field: Field;
+  variant: FilterVariant;
+}>();
 
 const value = defineModel<FilterRangeValue<CalendarDate>>();
 
 function onDateRangeChange(dates?: DateRange) {
-    if (dates && dates.start instanceof CalendarDate && dates.end instanceof CalendarDate) {
-        value.value = {
-            start: dates.start,
-            end: dates.end,
-        };
-    }
+  if (dates && dates.start instanceof CalendarDate && dates.end instanceof CalendarDate) {
+    value.value = {
+      start: dates.start,
+      end: dates.end,
+    };
+  }
 }
 </script>
 

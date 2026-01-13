@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { Calendar } from '@vuetella/ui/components/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@vuetella/ui/components/popover';
-import { Button } from '@vuetella/ui/components/button';
-import { CalendarIcon } from 'lucide-vue-next';
-import type { Field } from './field';
-import { CalendarDate, getLocalTimeZone, type DateValue } from '@internationalized/date';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { Calendar } from "@vuetella/ui/components/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { Button } from "@vuetella/ui/components/button";
+import { CalendarIcon } from "lucide-vue-next";
+import type { Field } from "./field";
+import { CalendarDate, getLocalTimeZone, type DateValue } from "@internationalized/date";
+import type { FilterVariant } from "./FiltersProvider.vue";
 
 const props = defineProps<{
-    field: Field<CalendarDate>;
-    variant: FilterVariant;
-}>()
+  field: Field<CalendarDate>;
+  variant: FilterVariant;
+}>();
 
 const value = defineModel<CalendarDate>();
 
 function onDateChange(date?: DateValue) {
-    if (date && date instanceof CalendarDate) {
-        value.value = date;
-    }
+  if (date && date instanceof CalendarDate) {
+    value.value = date;
+  }
 }
 </script>
 

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Field } from './field';
-import { NumberField, NumberFieldContent, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement } from '@vuetella/ui/components/number-field';
-import type { FilterVariant } from './FiltersProvider.vue';
+import type { Field } from "./field";
+import { NumberField, NumberFieldContent, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement } from "@vuetella/ui/components/number-field";
+import type { FilterVariant } from "./FiltersProvider.vue";
 
 const props = defineProps<{
-    field: Field<number[], number>;
-    variant: FilterVariant;
-}>()
+  field: Field<number[], number>;
+  variant: FilterVariant;
+}>();
 
 const modelValue = defineModel<number | null>();
 </script>

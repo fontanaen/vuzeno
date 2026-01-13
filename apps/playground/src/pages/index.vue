@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePage({
-    name: 'home'
-})
+  name: "home",
+});
 </script>
 
 <template>

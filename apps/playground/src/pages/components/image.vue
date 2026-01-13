@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import { Image, ImageSource, ImageFallback, ImageZoomProvider, ImageZoomInControl, ImageZoomOutControl, ImageZoomSource, ImageZoomFallback, ImageZoomReset, ImageZoomContainer, ImageZoomSlider, ImageZoomMap } from '@vuetella/registry/ui/image'
+import {
+  Image,
+  ImageSource,
+  ImageFallback,
+  ImageZoomProvider,
+  ImageZoomInControl,
+  ImageZoomOutControl,
+  ImageZoomSource,
+  ImageZoomFallback,
+  ImageZoomReset,
+  ImageZoomContainer,
+  ImageZoomSlider,
+  ImageZoomMap,
+} from "@vuetella/registry/ui/image";
 
 definePage({
-  name: 'components.image'
-})
+  name: "components.image",
+});
 </script>
 
 <template>

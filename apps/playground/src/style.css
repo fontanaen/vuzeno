@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "@vuetella/tailwind-config/style.css";
 
 /**
@@ -8,5 +8,5 @@
  * For more details, see:
  * https://github.com/tailwindlabs/tailwindcss/issues/16733
  */
- @source '../../../packages/ui';
- @source '../../../packages/registry';
+@source "../../../packages/ui";
+@source "../../../packages/registry";

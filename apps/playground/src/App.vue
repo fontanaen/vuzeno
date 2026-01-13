@@ -13,18 +13,18 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from '@vuetella/ui/components/sidebar'
-import { Button } from '@vuetella/ui/components/button'
-import { Moon, Sun } from 'lucide-vue-next'
-import { RouterLink } from 'vue-router'
-import { useTheme } from './composables/useDark'
+} from "@vuetella/ui/components/sidebar";
+import { Button } from "@vuetella/ui/components/button";
+import { Moon, Sun } from "lucide-vue-next";
+import { RouterLink } from "vue-router";
+import { useTheme } from "./composables/useDark";
 
-const { isDark, toggleDark } = useTheme()
+const { isDark, toggleDark } = useTheme();
 
 const navItems = [
-  { label: 'Filter', to: { name: 'components.filter' } },
-  { label: 'Image', to: { name: 'components.image' } },
-]
+  { label: "Filter", to: { name: "components.filter" } },
+  { label: "Image", to: { name: "components.image" } },
+];
 </script>
 
 <template>

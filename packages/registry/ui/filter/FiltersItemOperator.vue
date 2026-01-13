@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem } from '@vuetella/ui/components/dropdown-menu';
-import { Button } from '@vuetella/ui/components/button';
-import type { Operator } from './operator';
-import { CheckIcon } from 'lucide-vue-next';
-import { injectFilterContext, type FilterVariant, type FilterSize } from './FiltersProvider.vue';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem } from "@vuetella/ui/components/dropdown-menu";
+import { Button } from "@vuetella/ui/components/button";
+import type { Operator } from "./operator";
+import { CheckIcon } from "lucide-vue-next";
+import { injectFilterContext, type FilterVariant, type FilterSize } from "./FiltersProvider.vue";
 
 defineProps<{
-    options: Operator<any>[];
-}>()
+  options: Operator<any>[];
+}>();
 
 const modelValue = defineModel<string>();
 
 const { variant, size } = injectFilterContext();
 
 const sizeVariant: Record<FilterSize, string> = {
-    'sm': 'text-xs',
-    'default': 'text-sm',
-    'lg': 'text-sm',
+  sm: "text-xs",
+  default: "text-sm",
+  lg: "text-sm",
 } as const;
 </script>
 
