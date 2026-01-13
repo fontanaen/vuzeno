@@ -12,7 +12,7 @@ definePage({
 })
 
 const variant = ref('outline');
-const size = ref('md');
+const size = ref('default');
 
 const fields = ref<FieldGroup[]>([
    {
