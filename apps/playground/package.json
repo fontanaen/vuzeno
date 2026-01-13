@@ -13,6 +13,7 @@
     "@vuetella/tailwind-config": "workspace:*",
     "@vuetella/ui": "workspace:*",
     "@vuetella/registry": "workspace:*",
+    "@internationalized/date": "catalog:",
     "@vueuse/core": "catalog:",
     "lucide-vue-next": "^0.562.0",
     "tailwindcss": "catalog:",
