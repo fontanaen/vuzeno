@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import type { Field } from './field';
-import { Popover, PopoverContent, PopoverTrigger } from '@vuetella/ui/components/popover';
-import { Button } from '@vuetella/ui/components/button';
-import { Slider } from '@vuetella/ui/components/slider';
-import { computed } from 'vue';
-import { MoveHorizontalIcon } from 'lucide-vue-next';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { Button } from "@vuetella/ui/components/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { Slider } from "@vuetella/ui/components/slider";
+import { MoveHorizontalIcon } from "lucide-vue-next";
+import { computed } from "vue";
+import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
 
 const props = defineProps<{
-    field: Field<number[], number>;
-    variant: FilterVariant;
-}>()
+  field: Field<number[], number>;
+  variant: FilterVariant;
+}>();
 
 const modelValue = defineModel<number[]>();
 
 const fromValue = computed<number>(() => {
-    return modelValue.value?.[0] ?? props.field.min ?? 0;
-})
+  return modelValue.value?.[0] ?? props.field.min ?? 0;
+});
 
 const toValue = computed<number>(() => {
-    return modelValue.value?.[1] ?? props.field.max ?? 100;
-})
+  return modelValue.value?.[1] ?? props.field.max ?? 100;
+});
 
 const numberFormat = computed<Intl.NumberFormat>(() => {
-    return new Intl.NumberFormat('en-US', props.field.numberFormat ?? { style: 'decimal' });
-})
+  return new Intl.NumberFormat("en-US", props.field.numberFormat ?? { style: "decimal" });
+});
 </script>
 
 <template>

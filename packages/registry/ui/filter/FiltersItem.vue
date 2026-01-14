@@ -1,54 +1,54 @@
 <script setup lang="ts">
-import { ButtonGroup } from '@vuetella/ui/components/button-group';
-import FilterItemField from './FiltersItemField.vue';
-import FilterItemOperator from './FiltersItemOperator.vue';
-import FilterItemValue from './FiltersItemValue.vue';
-import { Button } from '@vuetella/ui/components/button';
-import { XIcon } from 'lucide-vue-next';
-import type { Filter } from './filter';
-import type { Field } from './field';
-import { computed } from 'vue';
-import { type Operator, OperatorDefaultValue } from './operator';
-import { injectFilterContext, type FilterSize } from './FiltersProvider.vue';
-import { cn } from '@vuetella/ui/lib/utils';
+import { Button } from "@vuetella/ui/components/button";
+import { ButtonGroup } from "@vuetella/ui/components/button-group";
+import { cn } from "@vuetella/ui/lib/utils";
+import { XIcon } from "lucide-vue-next";
+import { computed } from "vue";
+import FilterItemField from "./FiltersItemField.vue";
+import FilterItemOperator from "./FiltersItemOperator.vue";
+import FilterItemValue from "./FiltersItemValue.vue";
+import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
+import type { Field } from "./field";
+import type { Filter, FilterValue } from "./filter";
+import { type Operator, OperatorDefaultValue } from "./operator";
 
-const props = defineProps<{ field: Field }>()
-const emits = defineEmits<(e: 'delete') => void>()
+const props = defineProps<{ field: Field }>();
+const emits = defineEmits<(e: "delete") => void>();
 
-const filter = defineModel<Filter>('filter', { required: true });
+const filter = defineModel<Filter>("filter", { required: true });
 
 const { variant, size } = injectFilterContext();
 
 const sizeVariant: Record<FilterSize, string> = {
-    'sm': 'h-7',
-    'default': 'h-8',
-    'lg': 'h-10',
+  sm: "h-7",
+  default: "h-8",
+  lg: "h-10",
 } as const;
 
-function getOperator(operatorValue: string): Operator<any> {
-    const operator = props.field.operators.find(operator => operator.value === operatorValue) ?? props.field.operators[0];
+function getOperator(operatorValue: string): Operator<unknown> {
+  const operator = props.field.operators.find((operator) => operator.value === operatorValue) ?? props.field.operators[0];
 
-    if (!operator) {
-        throw new Error('No operator found');
-    }
+  if (!operator) {
+    throw new Error("No operator found");
+  }
 
-    return operator;
+  return operator;
 }
 
 const operator = computed(() => getOperator(filter.value.operator));
 
 function onOperatorChange(operatorValue: string | undefined) {
-    if (!operatorValue) {
-        return;
-    }
+  if (!operatorValue) {
+    return;
+  }
 
-    const newOperator = getOperator(operatorValue);
+  const newOperator = getOperator(operatorValue);
 
-    if (newOperator.inputType !== operator.value.inputType) {
-        filter.value.value = newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? props.field.type as keyof typeof OperatorDefaultValue];
-    }
+  if (newOperator.inputType !== operator.value.inputType) {
+    filter.value.value = (newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? (props.field.type as keyof typeof OperatorDefaultValue)]) as FilterValue;
+  }
 
-    filter.value.operator = operatorValue;
+  filter.value.operator = operatorValue;
 }
 </script>
 

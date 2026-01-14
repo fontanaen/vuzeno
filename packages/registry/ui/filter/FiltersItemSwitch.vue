@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Field } from './field';
-import { Button } from '@vuetella/ui/components/button';
-import { Switch } from '@vuetella/ui/components/switch';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { Button } from "@vuetella/ui/components/button";
+import { Switch } from "@vuetella/ui/components/switch";
+import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
 
 const props = defineProps<{
-    field: Field;
-    variant: FilterVariant;
-}>()
+  field: Field;
+  variant: FilterVariant;
+}>();
 
 const modelValue = defineModel<boolean>({ default: false });
 </script>

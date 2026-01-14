@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from '@vuetella/ui/components/dropdown-menu';
-import { injectFilterContext } from './FiltersProvider.vue';
-import type { Field } from './field';
-import { OperatorDefaultValue, type Operator } from './operator';
-import { computed, isVNode } from 'vue';
-import type { FilterValue } from './filter';
+import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from "@vuetella/ui/components/dropdown-menu";
+import { computed, isVNode } from "vue";
+import { injectFilterContext } from "./FiltersProvider.vue";
+import type { Field } from "./field";
+import type { FilterValue } from "./filter";
+import { type Operator, OperatorDefaultValue } from "./operator";
 
 const props = defineProps<{
-    field: Field;
-}>()
+  field: Field;
+}>();
 
 const { filters } = injectFilterContext();
 
-const defaultOperator = computed<Operator<any>>(() => {
-    const operator = props.field.operators.find(operator => operator.default) ?? props.field.operators[0];
+const defaultOperator = computed<Operator<unknown>>(() => {
+  const operator = props.field.operators.find((operator) => operator.default) ?? props.field.operators[0];
 
-    if (!operator) {
-        throw new Error('No default operator found');
-    }
+  if (!operator) {
+    throw new Error("No default operator found");
+  }
 
-    return operator;
-})
+  return operator;
+});
 
 const disabled = computed<boolean>(() => {
-    return !props.field.multiple && filters.value.some(filter => filter.field === props.field.key) || false;
-})
+  return (!props.field.multiple && filters.value.some((filter) => filter.field === props.field.key)) || false;
+});
 
 function addFilter() {
-    filters.value.push({ 
-        field: props.field.key, 
-        operator: defaultOperator.value.value, 
-        value: defaultOperator.value.defaultValue ?? OperatorDefaultValue[defaultOperator.value.inputType as keyof typeof OperatorDefaultValue]
-    });
+  filters.value.push({
+    field: props.field.key,
+    operator: defaultOperator.value.value,
+    value: (defaultOperator.value.defaultValue ?? OperatorDefaultValue[defaultOperator.value.inputType as keyof typeof OperatorDefaultValue]) as FilterValue,
+  });
 }
 
 function addFilterWithValue(value: FilterValue) {
-    filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
+  filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
 }
 </script>
 
@@ -51,7 +51,7 @@ function addFilterWithValue(value: FilterValue) {
 
         <DropdownMenuPortal>
             <DropdownMenuSubContent>
-                <DropdownMenuItem v-for="option in field.options?.items" :disabled="disabled" :key="option?.value" @click="addFilterWithValue(option?.value)">
+                <DropdownMenuItem v-for="option in field.options?.items" :disabled="disabled" :key="option?.value?.toString()" @click="addFilterWithValue(option?.value as FilterValue)">
                     <template v-if="field.options?.optionDisplay">
                         <template v-if="isVNode(field.options?.optionDisplay(option))">
                             <component :is="field.options?.optionDisplay(option)" />

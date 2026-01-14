@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { computed, isVNode } from 'vue';
-import type { Field } from './field';
-import { type FilterValue } from './filter';
-import { Popover, PopoverContent, PopoverTrigger } from '@vuetella/ui/components/popover';
-import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from '@vuetella/ui/components/command';
-import { Button } from '@vuetella/ui/components/button';
-import { CheckIcon } from 'lucide-vue-next';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { Button } from "@vuetella/ui/components/button";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vuetella/ui/components/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { CheckIcon } from "lucide-vue-next";
+import { computed, isVNode } from "vue";
+import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
+import { type FilterValue } from "./filter";
 
 const props = defineProps<{
-    field: Field;
-    variant: FilterVariant;
-}>()
+  field: Field;
+  variant: FilterVariant;
+}>();
 
 const modelValue = defineModel<FilterValue>();
 
 const selectedOption = computed(() => {
-    return props.field.options?.items?.find(option => option?.value === modelValue.value);
-})
+  return props.field.options?.items?.find((option) => option?.value === modelValue.value);
+});
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script lang="ts">
 export type ImageContext = {
-  state: Ref<'loading' | 'error' | 'success'>
+  state: Ref<"loading" | "error" | "success">;
 };
 
-export const [injectImageContext, provideImageContext] = createContext<ImageContext>('ImageContext');
+export const [injectImageContext, provideImageContext] = createContext<ImageContext>("ImageContext");
 </script>
 
 <script setup lang="ts">

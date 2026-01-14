@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { Calendar } from '@vuetella/ui/components/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@vuetella/ui/components/popover';
-import { Button } from '@vuetella/ui/components/button';
-import { CalendarIcon } from 'lucide-vue-next';
-import type { Field } from './field';
-import { CalendarDate, getLocalTimeZone, type DateValue } from '@internationalized/date';
-import type { FilterVariant } from './FiltersProvider.vue';
+import { CalendarDate, type DateValue, getLocalTimeZone } from "@internationalized/date";
+import { Button } from "@vuetella/ui/components/button";
+import { Calendar } from "@vuetella/ui/components/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { CalendarIcon } from "lucide-vue-next";
+import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
 
 const props = defineProps<{
-    field: Field<CalendarDate>;
-    variant: FilterVariant;
-}>()
+  field: Field<CalendarDate>;
+  variant: FilterVariant;
+}>();
 
 const value = defineModel<CalendarDate>();
 
 function onDateChange(date?: DateValue) {
-    if (date && date instanceof CalendarDate) {
-        value.value = date;
-    }
+  if (date && date instanceof CalendarDate) {
+    value.value = date;
+  }
 }
 </script>
 
@@ -38,8 +38,8 @@ function onDateChange(date?: DateValue) {
             <Calendar
                 :model-value="value"
                 layout="month-and-year"
-                :min-value="field.min"
-                :max-value="field.max"
+                :min-value="(field.min as CalendarDate | undefined)"
+                :max-value="(field.max as CalendarDate | undefined)"
                 @update:model-value="onDateChange"
             />
         </PopoverContent>

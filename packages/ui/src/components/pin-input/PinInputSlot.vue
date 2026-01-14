@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { PinInputInputProps } from "reka-ui"
-import type { HTMLAttributes } from "vue"
-import { reactiveOmit } from "@vueuse/core"
-import { PinInputInput, useForwardProps } from "reka-ui"
-import { cn } from '#/lib/utils'
+import { reactiveOmit } from "@vueuse/core";
+import type { PinInputInputProps } from "reka-ui";
+import { PinInputInput, useForwardProps } from "reka-ui";
+import type { HTMLAttributes } from "vue";
+import { cn } from "#/lib/utils";
 
-const props = defineProps<PinInputInputProps & { class?: HTMLAttributes["class"] }>()
+const props = defineProps<PinInputInputProps & { class?: HTMLAttributes["class"] }>();
 
-const delegatedProps = reactiveOmit(props, "class")
+const delegatedProps = reactiveOmit(props, "class");
 
-const forwardedProps = useForwardProps(delegatedProps)
+const forwardedProps = useForwardProps(delegatedProps);
 </script>
 
 <template>

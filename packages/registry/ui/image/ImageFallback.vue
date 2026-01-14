@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { injectImageContext } from './Image.vue';
+import { injectImageContext } from "./Image.vue";
 
-const { state } = injectImageContext()
+const { state } = injectImageContext();
 </script>
 
 <template>

@@ -1,24 +1,29 @@
 <script setup lang="ts">
 import { cn } from "@vuetella/ui/lib/utils";
-import type { PrimitiveProps } from "reka-ui"
-import { onMounted, useTemplateRef, type HTMLAttributes } from "vue";
+import type { PrimitiveProps } from "reka-ui";
+import { type HTMLAttributes, onMounted, useTemplateRef } from "vue";
 import Image from "./Image.vue";
 import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 
-const props = withDefaults(defineProps<{
-  class?: HTMLAttributes["class"]
-} & PrimitiveProps>(), {
-  as: 'div',
-  asChild: false,
-})
+const props = withDefaults(
+  defineProps<
+    {
+      class?: HTMLAttributes["class"];
+    } & PrimitiveProps
+  >(),
+  {
+    as: "div",
+    asChild: false,
+  },
+);
 
-const { zoomContainerRef } = injectImageZoomProviderContext()
+const { zoomContainerRef } = injectImageZoomProviderContext();
 
-const imageRef = useTemplateRef<typeof Image>('zoomContainerRef')
+const imageRef = useTemplateRef<typeof Image>("zoomContainerRef");
 
 onMounted(() => {
-  zoomContainerRef.value = imageRef.value?.$el
-})
+  zoomContainerRef.value = imageRef.value?.$el;
+});
 </script>
 
 <template>
