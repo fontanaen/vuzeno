@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 import { onMounted, ref, useTemplateRef } from "vue";
+import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 
 const props = withDefaults(
   defineProps<{

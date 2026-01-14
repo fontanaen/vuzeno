@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ButtonGroupText } from "@vuetella/ui/components/button-group";
 import { Label } from "@vuetella/ui/components/label";
-import { injectFilterContext, type FilterVariant, type FilterSize } from "./FiltersProvider.vue";
 import { cn } from "@vuetella/ui/lib/utils";
+import { type FilterSize, type FilterVariant, injectFilterContext } from "./FiltersProvider.vue";
 
 const { variant, size } = injectFilterContext();
 

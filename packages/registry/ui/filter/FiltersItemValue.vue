@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import { Input } from "@vuetella/ui/components/input";
-import { h, computed } from "vue";
-import type { Field } from "./field";
-import { OperatorInputType, type Operator } from "./operator";
-import type { FilterValue } from "./filter";
-import FiltersItemSelect from "./FiltersItemSelect.vue";
-import FiltersItemMultiSelect from "./FiltersItemMultiSelect.vue";
+import { computed, h } from "vue";
 import FiltersItemDateInput from "./FiltersItemDateInput.vue";
 import FiltersItemDateRangeInput from "./FiltersItemDateRangeInput.vue";
-import FiltersItemNumberRangeInput from "./FiltersItemNumberRangeInput.vue";
+import FiltersItemMultiSelect from "./FiltersItemMultiSelect.vue";
 import FiltersItemNumberInput from "./FiltersItemNumberInput.vue";
+import FiltersItemNumberRangeInput from "./FiltersItemNumberRangeInput.vue";
+import FiltersItemSelect from "./FiltersItemSelect.vue";
 import FiltersItemSwitch from "./FiltersItemSwitch.vue";
 import { injectFilterContext } from "./FiltersProvider.vue";
+import type { Field } from "./field";
+import type { FilterValue } from "./filter";
+import { type Operator, OperatorInputType } from "./operator";
 
 const props = defineProps<{
   field: Field;
-  operator: Operator<any>;
+  operator: Operator<unknown>;
 }>();
 
 const value = defineModel<FilterValue>();

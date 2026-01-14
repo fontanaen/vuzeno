@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, ref, useTemplateRef, type HTMLAttributes } from "vue";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
-import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
 import { cn } from "@vuetella/ui/lib/utils";
+import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
+import { computed, type HTMLAttributes, ref, useTemplateRef } from "vue";
+import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];

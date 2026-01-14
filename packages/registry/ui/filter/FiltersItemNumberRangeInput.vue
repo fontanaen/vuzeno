@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Field } from "./field";
-import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
 import { Button } from "@vuetella/ui/components/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
 import { Slider } from "@vuetella/ui/components/slider";
-import { computed } from "vue";
 import { MoveHorizontalIcon } from "lucide-vue-next";
+import { computed } from "vue";
 import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
 
 const props = defineProps<{
   field: Field<number[], number>;

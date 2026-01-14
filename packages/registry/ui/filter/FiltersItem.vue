@@ -1,16 +1,16 @@
 <script setup lang="ts">
+import { Button } from "@vuetella/ui/components/button";
 import { ButtonGroup } from "@vuetella/ui/components/button-group";
+import { cn } from "@vuetella/ui/lib/utils";
+import { XIcon } from "lucide-vue-next";
+import { computed } from "vue";
 import FilterItemField from "./FiltersItemField.vue";
 import FilterItemOperator from "./FiltersItemOperator.vue";
 import FilterItemValue from "./FiltersItemValue.vue";
-import { Button } from "@vuetella/ui/components/button";
-import { XIcon } from "lucide-vue-next";
-import type { Filter } from "./filter";
+import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
 import type { Field } from "./field";
-import { computed } from "vue";
+import type { Filter, FilterValue } from "./filter";
 import { type Operator, OperatorDefaultValue } from "./operator";
-import { injectFilterContext, type FilterSize } from "./FiltersProvider.vue";
-import { cn } from "@vuetella/ui/lib/utils";
 
 const props = defineProps<{ field: Field }>();
 const emits = defineEmits<(e: "delete") => void>();
@@ -25,7 +25,7 @@ const sizeVariant: Record<FilterSize, string> = {
   lg: "h-10",
 } as const;
 
-function getOperator(operatorValue: string): Operator<any> {
+function getOperator(operatorValue: string): Operator<unknown> {
   const operator = props.field.operators.find((operator) => operator.value === operatorValue) ?? props.field.operators[0];
 
   if (!operator) {
@@ -45,7 +45,7 @@ function onOperatorChange(operatorValue: string | undefined) {
   const newOperator = getOperator(operatorValue);
 
   if (newOperator.inputType !== operator.value.inputType) {
-    filter.value.value = newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? (props.field.type as keyof typeof OperatorDefaultValue)];
+    filter.value.value = (newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? (props.field.type as keyof typeof OperatorDefaultValue)]) as FilterValue;
   }
 
   filter.value.operator = operatorValue;

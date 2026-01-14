@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { FiltersGroup, FiltersMenu, FiltersProvider, FiltersClear } from "@vuetella/registry/ui/filter";
-import { computed, h, ref, type Ref } from "vue";
-import type { FieldGroup, Filter } from "@vuetella/registry/ui/filter";
-import { ButtonGroup } from "@vuetella/ui/components/button-group";
-import { Button } from "@vuetella/ui/components/button";
-import { CalendarIcon, DollarSignIcon, TagIcon, UserIcon, ToggleRightIcon } from "lucide-vue-next";
 import { CalendarDate } from "@internationalized/date";
+import type { FieldGroup, Filter } from "@vuetella/registry/ui/filter";
+import { FiltersClear, FiltersGroup, FiltersMenu, FiltersProvider } from "@vuetella/registry/ui/filter";
+import { Button } from "@vuetella/ui/components/button";
+import { ButtonGroup } from "@vuetella/ui/components/button-group";
+import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from "lucide-vue-next";
+import { computed, h, type Ref, ref } from "vue";
 
 definePage({
   name: "components.filter",

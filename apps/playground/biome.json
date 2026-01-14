@@ -1,4 +1,12 @@
 {
   "root": false,
-  "extends": "//"
+  "extends": "//",
+
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
+  }
 }

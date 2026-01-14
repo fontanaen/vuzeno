@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
-import type { EmptyMediaVariants } from ".";
 import { cn } from "#/lib/utils";
+import type { EmptyMediaVariants } from ".";
 import { emptyMediaVariants } from ".";
 
 const props = defineProps<{

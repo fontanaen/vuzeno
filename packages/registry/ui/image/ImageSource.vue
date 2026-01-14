@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useImage } from "@vueuse/core";
-import { toRefs, type HTMLAttributes } from "vue";
+import { type HTMLAttributes, toRefs } from "vue";
 import { injectImageContext } from "./Image.vue";
 
 const props = defineProps<{

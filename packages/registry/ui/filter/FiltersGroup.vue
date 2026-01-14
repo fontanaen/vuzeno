@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { type Field, isField, isFieldGroup } from "./field";
 import FilterItem from "./FiltersItem.vue";
 import { injectFilterContext } from "./FiltersProvider.vue";
+import { type Field, isField, isFieldGroup } from "./field";
 
 const { filters, fields } = injectFilterContext();
 

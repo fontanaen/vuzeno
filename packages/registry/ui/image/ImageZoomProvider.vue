@@ -1,7 +1,7 @@
 <script lang="ts">
 import { whenever } from "@vueuse/core";
 import { createContext, Primitive } from "reka-ui";
-import { onMounted, ref, toRefs, useTemplateRef, type Ref } from "vue";
+import { onMounted, type Ref, ref, toRefs, useTemplateRef } from "vue";
 import type ImageZoomSource from "./ImageZoomSource.vue";
 
 export type ImageZoomDirection = "in" | "out";

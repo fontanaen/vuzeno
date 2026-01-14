@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem } from "@vuetella/ui/components/dropdown-menu";
 import { Button } from "@vuetella/ui/components/button";
-import type { Operator } from "./operator";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@vuetella/ui/components/dropdown-menu";
 import { CheckIcon } from "lucide-vue-next";
-import { injectFilterContext, type FilterVariant, type FilterSize } from "./FiltersProvider.vue";
+import { type FilterSize, type FilterVariant, injectFilterContext } from "./FiltersProvider.vue";
+import type { Operator } from "./operator";
 
 defineProps<{
-  options: Operator<any>[];
+  options: Operator<unknown>[];
 }>();
 
 const modelValue = defineModel<string>();

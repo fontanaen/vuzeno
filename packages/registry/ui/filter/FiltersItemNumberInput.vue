@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Field } from "./field";
-import { NumberField, NumberFieldContent, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement } from "@vuetella/ui/components/number-field";
+import { NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncrement, NumberFieldInput } from "@vuetella/ui/components/number-field";
 import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
 
 const props = defineProps<{
   field: Field<number[], number>;

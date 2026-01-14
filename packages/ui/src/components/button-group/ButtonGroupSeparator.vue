@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { reactiveOmit } from "@vueuse/core";
 import type { SeparatorProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { reactiveOmit } from "@vueuse/core";
-import { cn } from "#/lib/utils";
 import { Separator } from "#/components/separator";
+import { cn } from "#/lib/utils";
 
 const props = withDefaults(defineProps<SeparatorProps & { class?: HTMLAttributes["class"] }>(), {
   orientation: "vertical",

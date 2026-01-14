@@ -40,7 +40,7 @@ export const OperatorInputType = {
   NONE: "none",
 } as const;
 
-export const OperatorDefaultValue: Record<(typeof OperatorInputType)[keyof typeof OperatorInputType], any | any[]> = {
+export const OperatorDefaultValue: Record<(typeof OperatorInputType)[keyof typeof OperatorInputType], unknown | unknown[]> = {
   [OperatorInputType.SELECT]: null,
   [OperatorInputType.TEXT]: null,
   [OperatorInputType.BOOLEAN]: false,

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cn } from "@vuetella/ui/lib/utils";
 import type { PrimitiveProps } from "reka-ui";
-import { onMounted, useTemplateRef, type HTMLAttributes } from "vue";
+import { type HTMLAttributes, onMounted, useTemplateRef } from "vue";
 import Image from "./Image.vue";
 import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { RangeCalendar } from "@vuetella/ui/components/range-calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { CalendarDate, type DateValue, getLocalTimeZone } from "@internationalized/date";
 import { Button } from "@vuetella/ui/components/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuetella/ui/components/popover";
+import { RangeCalendar } from "@vuetella/ui/components/range-calendar";
 import { CalendarIcon } from "lucide-vue-next";
 import type { DateRange } from "reka-ui";
-import type { Field } from "./field";
-import { isFilterRangeValue, type FilterRangeValue } from "./filter";
-import { CalendarDate, getLocalTimeZone, type DateValue } from "@internationalized/date";
 import type { FilterVariant } from "./FiltersProvider.vue";
+import type { Field } from "./field";
+import { type FilterRangeValue, isFilterRangeValue } from "./filter";
 
 const props = defineProps<{
   field: Field;
@@ -48,8 +48,8 @@ function onDateRangeChange(dates?: DateRange) {
             <RangeCalendar
                 :model-value="value ?? undefined"
                 layout="month-and-year"
-                :min-value="field.min"
-                :max-value="field.max"
+                :min-value="(field.min as CalendarDate | undefined)"
+                :max-value="(field.max as CalendarDate | undefined)"
                 @update:model-value="onDateRangeChange"
             />
         </PopoverContent>

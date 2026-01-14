@@ -1,8 +1,8 @@
 <script lang="ts">
 import { createContext } from "reka-ui";
-import { toRefs, type Ref } from "vue";
-import type { Filter } from "./filter";
+import { type Ref, toRefs } from "vue";
 import type { Field, FieldGroup } from "./field";
+import type { Filter } from "./filter";
 
 export type FilterVariant = "outline" | "secondary";
 export type FilterSize = "sm" | "default" | "lg";

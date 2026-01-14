@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Button } from "@vuetella/ui/components/button";
-import { FunnelXIcon } from "lucide-vue-next";
-import { injectFilterContext, type FilterSize } from "./FiltersProvider.vue";
-import type { HTMLAttributes } from "vue";
 import { cn } from "@vuetella/ui/lib/utils";
+import { FunnelXIcon } from "lucide-vue-next";
+import type { HTMLAttributes } from "vue";
+import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];

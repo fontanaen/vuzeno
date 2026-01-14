@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useMouseInElement, watchThrottled, whenever } from "@vueuse/core";
+import { computed, ref } from "vue";
 import ImageSource from "./ImageSource.vue";
 import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
-import { computed, ref } from "vue";
 
 defineProps<{
   src: string;

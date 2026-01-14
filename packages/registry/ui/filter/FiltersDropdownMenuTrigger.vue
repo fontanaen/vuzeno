@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Button } from "@vuetella/ui/components/button";
 import { DropdownMenuTrigger } from "@vuetella/ui/components/dropdown-menu";
-import { ListFilterPlusIcon } from "lucide-vue-next";
-import { injectFilterContext, type FilterSize } from "./FiltersProvider.vue";
 import { cn } from "@vuetella/ui/lib/utils";
+import { ListFilterPlusIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
+import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];

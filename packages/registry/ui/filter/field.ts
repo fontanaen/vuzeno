@@ -11,7 +11,7 @@ export type FieldGroup = {
   fields: Field[];
 };
 
-export type Field<V = any, T = any> = {
+export type Field<V = unknown, T = unknown> = {
   /**
    * The field key (will be used as the filter field key)
    */

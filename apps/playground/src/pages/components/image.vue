@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import {
   Image,
-  ImageSource,
   ImageFallback,
-  ImageZoomProvider,
-  ImageZoomInControl,
-  ImageZoomOutControl,
-  ImageZoomSource,
-  ImageZoomFallback,
-  ImageZoomReset,
+  ImageSource,
   ImageZoomContainer,
-  ImageZoomSlider,
+  ImageZoomFallback,
+  ImageZoomInControl,
   ImageZoomMap,
+  ImageZoomOutControl,
+  ImageZoomProvider,
+  ImageZoomReset,
+  ImageZoomSlider,
+  ImageZoomSource,
 } from "@vuetella/registry/ui/image";
 
 definePage({
