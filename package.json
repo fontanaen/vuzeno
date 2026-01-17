@@ -17,7 +17,8 @@
       "tailwindcss-animate": "^1.0.7",
       "@vueuse/core": "^14.1.0",
       "reka-ui": "^2.7.0",
-      "@internationalized/date": "^3.10.1"
+      "@internationalized/date": "^3.10.1",
+      "libphonenumber-js": "^1.12.34"
     }
   },
   "devDependencies": {
