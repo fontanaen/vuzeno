@@ -8,7 +8,7 @@ definePage({
 });
 
 const countryCode = ref<string>("FR");
-const phone = ref<string>("");
+const phone = ref<string>("+330771");
 
 const size = ref<"sm" | "default" | "lg">("default");
 

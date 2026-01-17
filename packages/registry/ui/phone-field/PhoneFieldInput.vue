@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { InputGroup, InputGroupInput } from "@vuetella/ui/components/input-group";
 import { cn } from "@vuetella/ui/lib/utils";
+import { watchImmediate } from "@vueuse/core";
 import { type CountryCode } from "libphonenumber-js";
-import { type HTMLAttributes, ref, watch } from "vue";
+import { type HTMLAttributes, ref } from "vue";
 import { phoneFieldSizeVariants } from ".";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import {
@@ -65,7 +66,9 @@ function onKeyDown(event: KeyboardEvent) {
   const input = event.target as HTMLInputElement;
   const pos = input.selectionStart ?? 0;
 
-  if (pos === 0) return;
+  if (pos === 0) {
+    return;
+  }
 
   const charBefore = input.value[pos - 1];
 
@@ -77,7 +80,9 @@ function onKeyDown(event: KeyboardEvent) {
 
   const previousDigitIndex = findPreviousDigitIndex(input.value, pos);
 
-  if (previousDigitIndex === -1) return;
+  if (previousDigitIndex === -1) {
+    return;
+  }
 
   const digitsBeforeTarget = countDigitsBefore(input.value, previousDigitIndex);
   const sanitized = sanitizePhoneInput(input.value);
@@ -93,7 +98,7 @@ function onKeyDown(event: KeyboardEvent) {
   rawValue.value = parsed?.number ?? newSanitized;
 }
 
-watch(rawValue, (newVal) => {
+watchImmediate(rawValue, (newVal) => {
   formattedPhone.value = getFormattedValue(newVal ?? "", countryCode.value, format.value);
 });
 </script>
@@ -102,6 +107,7 @@ watch(rawValue, (newVal) => {
     <InputGroup :class="cn(phoneFieldSizeVariants[size])">
         <InputGroupInput
             type="tel"
+            inputmode="tel"
             :model-value="formattedPhone"
             :placeholder="placeholder"
             :disabled="disabled"

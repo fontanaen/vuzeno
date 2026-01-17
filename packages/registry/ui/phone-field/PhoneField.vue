@@ -2,11 +2,20 @@
 import { toRefs } from "@vueuse/core";
 import { type CountryCode, getCountryCallingCode } from "libphonenumber-js";
 import { createContext } from "reka-ui";
-import { computed, type Ref } from "vue";
+import { computed, type Ref, watch } from "vue";
 
 export type PhoneFieldProps = {
   countryCode?: CountryCode | string;
+  /**
+   * The default country code to use when no country code is provided
+   * @default undefined
+   */
   defaultCountryCode?: CountryCode | string;
+  /**
+   * Reset the phone number when the country changes
+   * @default false
+   */
+  resetOnCountryChange?: boolean;
 
   modelValue?: string;
   /**
@@ -15,14 +24,25 @@ export type PhoneFieldProps = {
    */
   format?: "international" | "national" | "e164";
   size?: "sm" | "default" | "lg";
+  /**
+   * Preferred countries to show first in the country select
+   */
   preferredCountries?: string[];
+  /**
+   * Your list of available countries
+   */
   availableCountries?: string[];
+  /**
+   * The countries to hide in the country select
+   * @default ['AC', 'TA']
+   */
   ignoredCountries?: string[];
 };
 
 export type PhoneFieldContext<P extends PhoneFieldProps> = {
   countryCode: Ref<CountryCode>;
   callingCode: Ref<string>;
+  resetOnCountryChange: Ref<NonNullable<P["resetOnCountryChange"]>>;
   size: Ref<NonNullable<P["size"]>>;
   ignoredCountries: Ref<P["ignoredCountries"]>;
   preferredCountries: Ref<P["preferredCountries"]>;
@@ -41,11 +61,12 @@ const props = withDefaults(defineProps<PhoneFieldProps>(), {
     format: "international",
     ignoredCountries: () => ['AC', 'TA'],
     size: "default",
+    resetOnCountryChange: false,
 });
 
 const phone = defineModel<string>();
 const countryCode = defineModel<string>('countryCode');
-const { ignoredCountries, preferredCountries, availableCountries, format, size } = toRefs(props);
+const { ignoredCountries, preferredCountries, availableCountries, format, size, resetOnCountryChange } = toRefs(props);
 
 const callingCode = computed(() => {
   return getCountryCallingCode(countryCode.value as CountryCode);
@@ -54,12 +75,19 @@ const callingCode = computed(() => {
 providePhoneFieldContext({
     countryCode: countryCode as Ref<CountryCode>,
     callingCode,
+    resetOnCountryChange,
     size,
     ignoredCountries,
     preferredCountries,
     availableCountries,
     rawValue: phone,
     format: format,
+});
+
+watch(countryCode, () => {
+  if (resetOnCountryChange.value) {
+    phone.value = "";
+  }
 });
 </script>
     
