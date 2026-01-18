@@ -37,6 +37,12 @@ export type PhoneFieldProps = {
    * @default ['AC', 'TA']
    */
   ignoredCountries?: string[];
+
+  /**
+   * The locale to format country names (e.g. "en", "fr", "en-US", "fr-FR", etc.)
+   * @default "en"
+   */
+  locale?: string;
 };
 
 export type PhoneFieldContext<P extends PhoneFieldProps> = {
@@ -49,6 +55,7 @@ export type PhoneFieldContext<P extends PhoneFieldProps> = {
   availableCountries: Ref<P["availableCountries"]>;
   rawValue: Ref<P["modelValue"]>;
   format: Ref<NonNullable<P["format"]>>;
+  locale: Ref<NonNullable<P["locale"]>>;
 };
 
 export const [injectPhoneFieldContext, providePhoneFieldContext] = createContext<PhoneFieldContext<PhoneFieldProps>>("PhoneFieldContext");
@@ -62,11 +69,12 @@ const props = withDefaults(defineProps<PhoneFieldProps>(), {
     ignoredCountries: () => ['AC', 'TA'],
     size: "default",
     resetOnCountryChange: false,
+    locale: "en",
 });
 
 const phone = defineModel<string>();
 const countryCode = defineModel<string>('countryCode');
-const { ignoredCountries, preferredCountries, availableCountries, format, size, resetOnCountryChange } = toRefs(props);
+const { ignoredCountries, preferredCountries, availableCountries, format, size, resetOnCountryChange, locale } = toRefs(props);
 
 const callingCode = computed(() => {
   return getCountryCallingCode(countryCode.value as CountryCode);
@@ -82,6 +90,7 @@ providePhoneFieldContext({
     availableCountries,
     rawValue: phone,
     format: format,
+    locale,
 });
 
 watch(countryCode, () => {

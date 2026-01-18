@@ -91,3 +91,8 @@ export function removeDigitAtIndex(value: string, digitIndex: number): string {
   }
   return value;
 }
+
+export function getFlagUnicode(countryCode: CountryCode): string {
+  const codePoints = [...countryCode.toUpperCase()].map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}

@@ -9,25 +9,31 @@ import { computed } from "vue";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 
-defineProps<{
-  searchPlaceholder?: string;
-}>();
+withDefaults(
+  defineProps<{
+    searchPlaceholder?: string;
+    flagType?: "cdn" | "unicode";
+  }>(),
+  {
+    flagType: "cdn",
+  },
+);
 
-const { countryCode, ignoredCountries, preferredCountries, availableCountries, size } = injectPhoneFieldContext()!;
+const { countryCode, ignoredCountries, preferredCountries, availableCountries, size, locale } = injectPhoneFieldContext()!;
 
 const countries = computed(() => {
   return Array.from(new Set([...(preferredCountries.value ?? []), ...(availableCountries.value ?? getCountries())]))
     .filter((country) => !ignoredCountries.value?.includes(country))
     .map((country) => {
       return {
-        code: country,
+        code: country as CountryCode,
         callingCode: getCountryCallingCode(country as CountryCode),
       };
     });
 });
 
 const countryNameFormatter = computed(() => {
-  return new Intl.DisplayNames(["en"], { type: "region" });
+  return new Intl.DisplayNames([locale.value], { type: "region" });
 });
 </script>
     
@@ -36,7 +42,7 @@ const countryNameFormatter = computed(() => {
         <PopoverTrigger as-child>
             <Button variant="outline" :size="size" class="dark:bg-muted">
                 <template v-if="countryCode">
-                    <PhoneFieldCountryFlag :country-code="countryCode" type="cdn" :alt="countryNameFormatter.of(countryCode) ?? ''" />
+                    <PhoneFieldCountryFlag :country-code="countryCode" :type="flagType" :alt="countryNameFormatter.of(countryCode) ?? ''" />
                 </template>
                 <template v-else>
                     <div class="bg-muted-foreground rounded-xs w-5 h-3.5"></div>
@@ -60,7 +66,7 @@ const countryNameFormatter = computed(() => {
                             :key="country.code"
                             :value="country.code"
                         >
-                            <PhoneFieldCountryFlag :country-code="country.code" type="cdn" :alt="countryNameFormatter.of(country.code)!" />
+                            <PhoneFieldCountryFlag :country-code="country.code" :type="flagType" :alt="countryNameFormatter.of(country.code)!" />
 
                             <span class="font-medium">{{ countryNameFormatter.of(country.code) }}</span> 
                             <span class="text-muted-foreground text-xs tabular-nums">(+{{ country.callingCode }})</span>
