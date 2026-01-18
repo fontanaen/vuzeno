@@ -91,15 +91,3 @@ export function removeDigitAtIndex(value: string, digitIndex: number): string {
   }
   return value;
 }
-
-export function isValidPhoneNumber(phone: string): boolean {
-  const parsed = parsePhoneNumber(phone);
-
-  return parsed?.isValid() ?? false;
-}
-
-export function isValidPhoneNumberForCountry(phone: string, country: string): boolean {
-  const parsed = parsePhoneNumber(phone, { defaultCountry: country as CountryCode });
-
-  return parsed?.isValid() ?? false;
-}

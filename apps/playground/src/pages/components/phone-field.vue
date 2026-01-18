@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldIndicator, PhoneFieldInput } from "@vuetella/registry/ui/phone-field";
+import { PhoneField, PhoneFieldCountrySelect, PhoneFieldIndicator, PhoneFieldInput, validatePhoneNumber } from "@vuetella/registry/ui/phone-field";
 import { ToggleGroup, ToggleGroupItem } from "@vuetella/ui/components/toggle-group";
 import { ref } from "vue";
 
