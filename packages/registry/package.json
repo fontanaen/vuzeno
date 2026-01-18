@@ -16,6 +16,7 @@
     "@vuetella/ui": "workspace:*",
     "@vueuse/core": "catalog:",
     "@internationalized/date": "catalog:",
+    "libphonenumber-js": "catalog:",
     "reka-ui": "catalog:",
     "lucide-vue-next": "^0.562.0",
     "vue": "^3.5.24"

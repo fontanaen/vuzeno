@@ -8,7 +8,7 @@ import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from
 import { computed, h, type Ref, ref } from "vue";
 
 definePage({
-  name: "components.filter",
+  name: "components.filters",
 });
 
 const variant = ref("outline");

@@ -22,8 +22,9 @@ import { useTheme } from "./composables/useDark";
 const { isDark, toggleDark } = useTheme();
 
 const navItems = [
-  { label: "Filter", to: { name: "components.filter" } },
+  { label: "Filters", to: { name: "components.filters" } },
   { label: "Image", to: { name: "components.image" } },
+  { label: "Phone Field", to: { name: "components.phone-field" } },
 ];
 </script>
 
