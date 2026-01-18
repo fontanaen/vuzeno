@@ -32,7 +32,7 @@ const formattedPhone = ref("");
 function getFormattedValue(value: string, country: CountryCode, phoneFormat: PhoneFormat): string {
   const sanitized = sanitizePhoneInput(value);
   const parsed = parsePhone(sanitized, country);
-  return formatPhoneNumber(parsed, phoneFormat) ?? sanitized;
+  return formatPhoneNumber(parsed, country, phoneFormat) ?? sanitized;
 }
 
 function calculateNewCursorPosition(oldValue: string, newValue: string, oldCursorPos: number, sanitized: string): number {

@@ -1,4 +1,4 @@
-import parsePhoneNumber, { AsYouType, type CountryCode, type PhoneNumber } from "libphonenumber-js";
+import parsePhoneNumber, { AsYouType, type CountryCode, type PhoneNumber, parseIncompletePhoneNumber } from "libphonenumber-js";
 
 export type PhoneFormat = "international" | "national" | "e164";
 
@@ -9,20 +9,20 @@ export function sanitizePhoneInput(value: string): string {
 }
 
 export function parsePhone(value: string, countryCode: CountryCode): PhoneNumber | null {
-  return parsePhoneNumber(value, { defaultCountry: countryCode, extract: false }) ?? null;
+  return parsePhoneNumber(parseIncompletePhoneNumber(value), countryCode) ?? null;
 }
 
-export function formatPhoneNumber(phone: PhoneNumber | null, format: PhoneFormat): string | null {
+export function formatPhoneNumber(phone: PhoneNumber | null, countryCode: CountryCode, format: PhoneFormat): string | null {
   if (!phone) return null;
 
-  const formatter = new AsYouType(phone.country);
+  const formatter = new AsYouType(countryCode);
 
   if (format === "international") {
     return formatter.input(phone.formatInternational());
   }
 
   if (format === "national") {
-    return formatter.input(phone.formatNational());
+    return phone.isValid() ? phone.formatNational() : formatter.input(phone.nationalNumber);
   }
 
   return formatter.input(phone.number);
