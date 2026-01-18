@@ -9,6 +9,10 @@ import { computed } from "vue";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 
+defineProps<{
+  searchPlaceholder?: string;
+}>();
+
 const { countryCode, ignoredCountries, preferredCountries, availableCountries, size } = injectPhoneFieldContext()!;
 
 const countries = computed(() => {
@@ -42,8 +46,12 @@ const countryNameFormatter = computed(() => {
         </PopoverTrigger>
 
         <PopoverContent align="start" class="w-auto p-0">
-            <Command v-model="countryCode" highlight-on-hover>
-                <CommandInput class="h-9" placeholder="Search country..." />
+            <Command 
+                :model-value="countryCode" 
+                highlight-on-hover
+                @update:model-value="$event && (countryCode = $event as CountryCode)"
+            >
+                <CommandInput class="h-9" :placeholder="searchPlaceholder" />
                 <CommandList>
                     <CommandEmpty>No country found.</CommandEmpty>
                     <CommandGroup>

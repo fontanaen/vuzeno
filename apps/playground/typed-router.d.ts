@@ -30,9 +30,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    'components.filter': RouteRecordInfo<
-      'components.filter',
-      '/components/filter',
+    'components.filters': RouteRecordInfo<
+      'components.filters',
+      '/components/filters',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -70,9 +70,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/components/filter.vue': {
+    'src/pages/components/filters.vue': {
       routes:
-        | 'components.filter'
+        | 'components.filters'
       views:
         | never
     }
