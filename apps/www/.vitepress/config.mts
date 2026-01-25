@@ -7,6 +7,7 @@ export default defineConfig({
   description: "A Shadcn Vue registry.",
   srcDir: "./pages",
   appearance: "dark",
+  cleanUrls: true,
   vite: {
     plugins: [tailwindcss()],
   },
