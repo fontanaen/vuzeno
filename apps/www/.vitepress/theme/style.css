@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "@vuetella/tailwind-config/style.css";
+@plugin "@tailwindcss/typography";
+
+[class*="language-"] {
+  @apply flex items-start gap-3 flex-row-reverse relative w-full;
+
+  & .lang {
+    @apply hidden;
+  }
+
+  & button.copy {
+    @apply absolute top-2 right-4 z-10;
+  }
+
+  & .vp-code {
+    @apply p-0 m-0 bg-muted/50 flex-1 pr-20 py-4 max-h-96 border-none;
+  }
+
+  & .line-numbers-wrapper {
+    @apply hidden;
+    @apply leading-6 pl-4 text-right py-4;
+  }
+
+  & .line-number {
+    @apply text-sm font-mono text-muted-foreground;
+  }
+
+  & .line::before {
+    content: attr(data-line);
+    @apply inline-block w-8 mr-4 text-right text-sm font-mono text-muted-foreground select-none;
+  }
+}
+
+.prose {
+  :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after,
+  :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
+    content: "";
+  }
+
+  :where(code):not(:where([class~="shiki"] *)) {
+    @apply bg-secondary py-1 px-2 text-xs font-mono font-semibold rounded-md;
+  }
+}
+
+@source "../**/*.{js,ts,vue,md}";
+@source "../../../../packages/ui";
+@source "../../../../packages/registry";
