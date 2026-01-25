@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { cn } from "@vuetella/ui/lib/utils";
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
-import { onMounted, ref, useTemplateRef } from "vue";
+import { type HTMLAttributes, onMounted, ref, useTemplateRef } from "vue";
 import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 
 const props = withDefaults(
   defineProps<{
+    class?: HTMLAttributes["class"];
     orientation?: "horizontal" | "vertical";
   }>(),
   {
@@ -131,7 +133,7 @@ onMounted(() => {
     <div 
         ref="sliderRef" 
         :data-orientation="props.orientation" 
-        class="data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-8 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-8 bg-muted rounded-md relative p-1 overflow-hidden" 
+        :class="cn('data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-8 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-8 bg-muted rounded-md relative p-1 overflow-hidden', props.class)" 
         @mousedown.self="handleThumbMove"
     >
         <div 

@@ -1,0 +1,25 @@
+{
+  "name": "@vuetella/www",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@vuetella/ui": "workspace:*",
+    "@vuetella/registry": "workspace:*",
+    "@vuetella/tailwind-config": "workspace:*",
+    "@tailwindcss/vite": "^4.1.16",
+    "vitepress": "catalog:",
+    "tailwindcss": "catalog:",
+    "@vueuse/core": "catalog:",
+    "vue": "catalog:",
+    "reka-ui": "catalog:",
+    "lucide-vue-next": "^0.562.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19"
+  }
+}
