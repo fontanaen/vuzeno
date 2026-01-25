@@ -26,6 +26,7 @@ export default defineConfig({
       {
         text: "Components",
         items: [
+          { text: "Autocomplete", tag: "new", link: "/components/autocomplete" },
           { text: "Filters", tag: "new", link: "/components/filters" },
           { text: "Image", tag: "new", link: "/components/image" },
           { text: "Phone Field", tag: "new", link: "/components/phone-field" },
