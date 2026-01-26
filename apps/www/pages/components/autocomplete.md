@@ -48,9 +48,11 @@ const filteredItems = computed(() => {
     <Autocomplete v-model="value" v-model:search-term="searchTerm" class="w-96">
         <AutocompleteControl>
             <AutocompleteInput placeholder="Search fruits..." />
-            <InputGroupAddon>
-                <SearchIcon class="size-4" />
-            </InputGroupAddon>
+            <AutocompleteTrigger>
+                <InputGroupAddon>
+                    <SearchIcon class="size-4" />
+                </InputGroupAddon>
+            </AutocompleteControl>
         </AutocompleteControl>
 
         <AutocompleteContent class="w-96">
@@ -282,9 +284,11 @@ watch(searchTerm, (newValue) => {
                 placeholder="Search users..." 
                 :display-value="(v) => v?.name || ''"
             />
-            <InputGroupAddon>
-                <SearchIcon class="size-4" />
-            </InputGroupAddon>
+            <AutocompleteTrigger as-child>
+                <InputGroupAddon>
+                    <SearchIcon class="size-4" />
+                </InputGroupAddon>
+            </AutocompleteTrigger>
         </AutocompleteControl>
 
         <AutocompleteContent class="w-96">
@@ -333,17 +337,16 @@ Organize items into labeled groups for better organization and navigation.
 
 Add icons or buttons to the input field using `InputGroupAddon` within `AutocompleteControl`.
 
-```vue{8-10}
-<script setup lang="ts">
-</script>
-
+```vue{6-8}
 <template>
     <Autocomplete>
         <AutocompleteControl>
             <AutocompleteInput />
-            <InputGroupAddon>
-                <SearchIcon class="size-4" />
-            </InputGroupAddon>
+            <AutocompleteTrigger>
+                <InputGroupAddon>
+                    <SearchIcon class="size-4" />
+                </InputGroupAddon>
+            </AutocompleteTrigger>
         </AutocompleteControl>
 
         <AutocompleteContent class="w-96">

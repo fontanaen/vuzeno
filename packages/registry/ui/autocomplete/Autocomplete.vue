@@ -26,7 +26,7 @@ export { useAutocompleteContext, provideAutocompleteContext };
 
 <script setup lang="ts">
 import { Combobox } from "@vuetella/ui/components/combobox";
-import { createContext, type ComboboxRootProps, type AcceptableValue } from "reka-ui";
+import { createContext, type ComboboxRootProps, type AcceptableValue, type ComboboxRootEmits, useForwardPropsEmits } from "reka-ui";
 import type { Ref } from "vue";
 
 const props = withDefaults(
@@ -36,8 +36,11 @@ const props = withDefaults(
   },
 );
 
-const modelValue = defineModel<AcceptableValue | AcceptableValue[]>();
+const emits = defineEmits<ComboboxRootEmits>();
+
 const searchTerm = defineModel<string>("searchTerm", { default: "" });
+
+const forwarded = useForwardPropsEmits(props, emits);
 
 provideAutocompleteContext({
   searchTerm,
@@ -46,11 +49,8 @@ provideAutocompleteContext({
 
 <template>
   <Combobox
-    v-model="modelValue"
+    v-bind="forwarded"
     class="relative"
-    by="label"
-    :highlight-on-hover="highlightOnHover"
-    :ignore-filter="ignoreFilter"
   >
     <slot />
   </Combobox>

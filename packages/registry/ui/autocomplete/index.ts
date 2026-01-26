@@ -6,3 +6,4 @@ export { default as AutocompleteInput } from "./AutocompleteInput.vue";
 export { default as AutocompleteItem } from "./AutocompleteItem.vue";
 export { default as AutocompleteLabel } from "./AutocompleteLabel.vue";
 export { default as AutocompleteStatus } from "./AutocompleteStatus.vue";
+export { default as AutocompleteTrigger } from "./AutocompleteTrigger.vue";

@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import { Autocomplete, AutocompleteContent, AutocompleteControl, AutocompleteGroup, AutocompleteInput, AutocompleteItem, AutocompleteLabel, AutocompleteStatus } from "@vuetella/registry/ui/autocomplete";
+import {
+  Autocomplete,
+  AutocompleteContent,
+  AutocompleteControl,
+  AutocompleteGroup,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteLabel,
+  AutocompleteStatus,
+  AutocompleteTrigger,
+} from "@vuetella/registry/ui/autocomplete";
 import { InputGroupAddon } from "@vuetella/ui/components/input-group";
 import { SearchIcon } from "lucide-vue-next";
 import { useFilter } from "reka-ui";
@@ -30,9 +40,11 @@ const filteredItems = computed(() => {
     <Autocomplete v-model="value" v-model:search-term="searchTerm" class="w-96">
         <AutocompleteControl>
             <AutocompleteInput placeholder="Search fruits..." />
-            <InputGroupAddon>
-                <SearchIcon class="size-4" />
-            </InputGroupAddon>
+            <AutocompleteTrigger as-child>
+                <InputGroupAddon>
+                    <SearchIcon class="size-4" />
+                </InputGroupAddon>
+            </AutocompleteTrigger>
         </AutocompleteControl>
 
         <AutocompleteContent class="w-96">
