@@ -333,6 +333,26 @@ Organize items into labeled groups for better organization and navigation.
 
 Add icons or buttons to the input field using `InputGroupAddon` within `AutocompleteControl`.
 
+```vue{8-10}
+<script setup lang="ts">
+</script>
+
+<template>
+    <Autocomplete>
+        <AutocompleteControl>
+            <AutocompleteInput />
+            <InputGroupAddon>
+                <SearchIcon class="size-4" />
+            </InputGroupAddon>
+        </AutocompleteControl>
+
+        <AutocompleteContent class="w-96">
+            ...
+        </AutocompleteContent>
+    </Autocomplete>
+</template>
+```
+
 ## Accessibility
 
 <!-- @todo: Document accessibility features -->

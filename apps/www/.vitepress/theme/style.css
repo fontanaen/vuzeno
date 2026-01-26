@@ -14,7 +14,7 @@
   }
 
   & .vp-code {
-    @apply p-0 m-0 bg-muted/50 flex-1 pr-20 py-4 max-h-96 border-none;
+    @apply p-0 m-0 bg-muted/50 flex-1 w-[calc(100%-5rem)] py-4 max-h-96 border-none;
   }
 
   & .line-numbers-wrapper {
@@ -29,6 +29,10 @@
   & .line::before {
     content: attr(data-line);
     @apply inline-block w-8 mr-4 text-right text-sm font-mono text-muted-foreground select-none;
+  }
+
+  & .line.highlighted {
+    @apply inline-flex items-center w-full bg-primary/30;
   }
 }
 
