@@ -8,6 +8,7 @@ export default defineConfig({
   srcDir: "./pages",
   appearance: "dark",
   cleanUrls: true,
+  scrollOffset: 75,
   vite: {
     plugins: [tailwindcss()],
   },

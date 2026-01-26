@@ -5,13 +5,7 @@ defineProps<{
   headers: Header[];
   root?: boolean;
 }>();
-
-function onClick({ target: el }: Event) {
-  const id = (el as HTMLAnchorElement).href!.split("#")[1];
-  const heading = document.getElementById(decodeURIComponent(id));
-  heading?.focus({ preventScroll: true });
-}
-</script>
+</script> 
   
 <template>
   <ul :class="root ? 'root' : 'nested'">
@@ -24,7 +18,6 @@ function onClick({ target: el }: Event) {
         :class="{ 'font-medium': root }"
         :href="link"
         :title="title"
-        @click="onClick"
       >
         {{ title }}
       </a>

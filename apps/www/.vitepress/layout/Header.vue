@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Button } from "@vuetella/ui/components/button";
 import { Separator } from "@vuetella/ui/components/separator";
-import { GithubIcon } from "lucide-vue-next";
+import { GitHubIcon, XIcon } from "vue3-simple-icons";
 import SearchDialog from "../components/SearchDialog.vue";
 import ThemeToggle from "../components/ThemeToggle.vue";
 </script>
@@ -37,9 +37,15 @@ import ThemeToggle from "../components/ThemeToggle.vue";
         
         <Separator orientation="vertical" class="data-[orientation=vertical]:h-6" />
 
+        <div class="flex items-center gap-2">
           <Button class="rounded-full" variant="outline" size="icon-sm" as="a" href="https://github.com/fontanaen/vuetella" target="_blank">
-          <GithubIcon />
-        </Button>
+            <GitHubIcon class="size-4 fill-foreground" />
+          </Button>
+          
+          <Button class="rounded-full" variant="outline" size="icon-sm" as="a" href="https://x.com/fontanaen11" target="_blank">
+            <XIcon class="size-4 fill-foreground" />
+          </Button>
+        </div>
       </div>
     </div>
   </header>

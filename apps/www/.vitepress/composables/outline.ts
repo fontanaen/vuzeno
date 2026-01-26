@@ -153,6 +153,8 @@ export function useActiveAnchor(container: Ref<HTMLElement>, marker: Ref<HTMLEle
       .filter(({ top }) => !Number.isNaN(top))
       .sort((a, b) => a.top - b.top);
 
+    console.log(headers);
+
     // no headers available for active link
     if (!headers.length) {
       activateLink(null);
@@ -190,6 +192,7 @@ export function useActiveAnchor(container: Ref<HTMLElement>, marker: Ref<HTMLEle
     if (hash == null) {
       prevActiveLink = null;
     } else {
+      console.log(decodeURIComponent(hash));
       prevActiveLink = container.value.querySelector(`a[href="${decodeURIComponent(hash)}"]`);
     }
 
