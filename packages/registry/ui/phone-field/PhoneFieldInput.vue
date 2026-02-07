@@ -4,7 +4,7 @@ import { cn } from "@vuetella/ui/lib/utils";
 import { watchImmediate } from "@vueuse/core";
 import { type CountryCode } from "libphonenumber-js";
 import { type HTMLAttributes, ref } from "vue";
-import { phoneFieldSizeVariants } from ".";
+import { phoneFieldVariants } from ".";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import {
   countDigitsBefore,
@@ -25,7 +25,7 @@ const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { rawValue, countryCode, format, size } = injectPhoneFieldContext()!;
+const { rawValue, countryCode, format, size, disabled } = injectPhoneFieldContext()!;
 
 const formattedPhone = ref("");
 
@@ -104,18 +104,18 @@ watchImmediate(rawValue, (newVal) => {
 </script>
 
 <template>
-    <InputGroup :class="cn(phoneFieldSizeVariants[size])">
-        <InputGroupInput
-            type="tel"
-            inputmode="tel"
-            :model-value="formattedPhone"
-            :placeholder="placeholder"
-            :disabled="disabled"
-            :class="props.class"
-            @input="onInput($event)"
-            @keydown="onKeyDown($event)"
-        />
+  <InputGroup :class="cn(phoneFieldVariants({ size }))">
+    <InputGroupInput
+      type="tel"
+      inputmode="tel"
+      :model-value="formattedPhone"
+      :placeholder="placeholder"
+      :disabled="props.disabled || disabled"
+      :class="props.class"
+      @input="onInput($event)"
+      @keydown="onKeyDown($event)"
+    />
 
-        <slot />
-    </InputGroup>
+    <slot />
+  </InputGroup>
 </template>
