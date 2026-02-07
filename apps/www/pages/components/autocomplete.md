@@ -229,8 +229,7 @@ import { LoaderIcon, SearchIcon } from "lucide-vue-next";
 import { ref, watch } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 
-// Mock API data - in a real app, this would come from an API
-const allUsers = [
+const users = [
   { id: 1, name: "Alice Johnson", email: "alice@example.com" },
   { id: 2, name: "Bob Smith", email: "bob@example.com" },
   { id: 3, name: "Charlie Brown", email: "charlie@example.com" },
@@ -246,18 +245,15 @@ const value = ref();
 const filteredItems = ref([]);
 const isLoading = ref(false);
 
-// Simulate API call with debouncing
 const fetchUsers = useDebounceFn(async (query: string) => {
   isLoading.value = true;
   
-  // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 800));
   
   if (!query.trim()) {
     filteredItems.value = [];
   } else {
-    // Simulate server-side filtering
-    filteredItems.value = allUsers.filter((user) =>
+    filteredItems.value = users.filter((user) =>
       user.name.toLowerCase().includes(query.toLowerCase()) ||
       user.email.toLowerCase().includes(query.toLowerCase())
     );
@@ -356,10 +352,6 @@ Add icons or buttons to the input field using `InputGroupAddon` within `Autocomp
 </template>
 ```
 
-## Accessibility
-
-<!-- @todo: Document accessibility features -->
-
 ## API Reference
 
 ### Exports
@@ -374,6 +366,7 @@ Add icons or buttons to the input field using `InputGroupAddon` within `Autocomp
         { name: 'AutocompleteGroup', description: 'Item group container' },
         { name: 'AutocompleteLabel', description: 'Group label' },
         { name: 'AutocompleteStatus', description: 'Status message container' },
+        { name: 'AutocompleteTrigger', description: 'Show/Hide dropdown content' },
         { name: 'useAutocompleteContext', description: 'Composable to access autocomplete context' }
     ]"
 />

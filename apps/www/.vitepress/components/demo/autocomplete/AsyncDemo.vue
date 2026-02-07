@@ -11,8 +11,9 @@ import {
   AutocompleteTrigger,
 } from "@vuetella/registry/ui/autocomplete";
 import { InputGroupAddon } from "@vuetella/ui/components/input-group";
+import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@vuetella/ui/components/item";
 import { useDebounceFn } from "@vueuse/core";
-import { LoaderIcon, SearchIcon } from "lucide-vue-next";
+import { LoaderIcon, SearchIcon, UserIcon } from "lucide-vue-next";
 import { ref, watch } from "vue";
 
 // Mock API data - in a real app, this would come from an API
@@ -34,13 +35,11 @@ const isLoading = ref(false);
 
 // Simulate API call with debouncing
 const fetchUsers = useDebounceFn(async (query: string) => {
-  isLoading.value = true;
-
   // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 800));
 
   if (!query.trim()) {
-    filteredItems.value = [];
+    filteredItems.value = allUsers;
   } else {
     // Simulate server-side filtering
     filteredItems.value = allUsers.filter((user) => user.name.toLowerCase().includes(query.toLowerCase()) || user.email.toLowerCase().includes(query.toLowerCase()));
@@ -53,6 +52,7 @@ const fetchUsers = useDebounceFn(async (query: string) => {
 watch(
   searchTerm,
   (newValue) => {
+    isLoading.value = true;
     fetchUsers(newValue);
   },
   { immediate: false },
@@ -99,10 +99,15 @@ watch(
                     :key="user.id" 
                     :value="user"
                 >
-                    <div class="flex flex-col">
-                        <span class="font-medium">{{ user.name }}</span>
-                        <span class="text-xs text-muted-foreground">{{ user.email }}</span>
-                    </div>
+                    <Item class="p-0">
+                      <ItemMedia class="h-10 w-10 rounded-full border border-border bg-background">
+                        <UserIcon class="size-4" />
+                      </ItemMedia>
+                      <ItemContent>
+                        <ItemTitle>{{ user.name }}</ItemTitle>
+                        <ItemDescription>{{ user.email }}</ItemDescription>
+                      </ItemContent>
+                    </Item>
                 </AutocompleteItem>
             </AutocompleteGroup>
         </AutocompleteContent>

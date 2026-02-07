@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import { Autocomplete, AutocompleteContent, AutocompleteControl, AutocompleteGroup, AutocompleteInput, AutocompleteItem, AutocompleteLabel, AutocompleteStatus } from "@vuetella/registry/ui/autocomplete";
+import {
+  Autocomplete,
+  AutocompleteContent,
+  AutocompleteControl,
+  AutocompleteGroup,
+  AutocompleteInput,
+  AutocompleteItem,
+  AutocompleteLabel,
+  AutocompleteStatus,
+  AutocompleteTrigger,
+} from "@vuetella/registry/ui/autocomplete";
 import { InputGroupAddon } from "@vuetella/ui/components/input-group";
 import { LoaderIcon, SearchIcon } from "lucide-vue-next";
 import { ref, watch } from "vue";
@@ -44,7 +54,32 @@ watch(searchTerm2, () => {
     <div class="flex flex-col gap-4 w-96">
       <Autocomplete v-model="value" v-model:search-term="searchTerm" :items="items" :is-loading="isLoading">
         <AutocompleteControl>
-          <AutocompleteInput />
+          <AutocompleteInput placeholder="Search" />
+
+          <InputGroupAddon>
+            <AutocompleteTrigger as-child>
+              <SearchIcon class="size-4" />
+            </AutocompleteTrigger>
+          </InputGroupAddon>
+        </AutocompleteControl>
+
+        <AutocompleteContent class="w-96">
+          <AutocompleteStatus v-if="filteredItems.length === 0">
+            <span>No results found</span>
+          </AutocompleteStatus>
+
+          <AutocompleteGroup>
+            <AutocompleteLabel>Items</AutocompleteLabel>
+            <AutocompleteItem v-for="item in items" :key="item.value" :text-value="item.label" :value="item.value">
+              <span>{{ item.value }}</span>
+            </AutocompleteItem>
+          </AutocompleteGroup>
+        </AutocompleteContent>
+      </Autocomplete>
+
+      <Autocomplete disabled>
+        <AutocompleteControl>
+          <AutocompleteInput placeholder="Disabled" />
 
           <InputGroupAddon>
             <SearchIcon class="size-4" />
@@ -67,7 +102,7 @@ watch(searchTerm2, () => {
 
       <Autocomplete v-model="value2" v-model:search-term="searchTerm2" :items="filteredItems" :is-loading="isLoading" ignore-filter>
         <AutocompleteControl>
-          <AutocompleteInput :display-value="(v) => v?.label" />
+          <AutocompleteInput :display-value="(v) => v?.label" placeholder="Async Search" />
 
           <InputGroupAddon>
             <SearchIcon class="size-4" />
