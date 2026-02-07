@@ -7,6 +7,8 @@ export default defineConfig({
   description: "A Shadcn Vue registry.",
   srcDir: "./pages",
   appearance: "dark",
+  cleanUrls: true,
+  scrollOffset: 75,
   vite: {
     plugins: [tailwindcss()],
   },
@@ -25,6 +27,7 @@ export default defineConfig({
       {
         text: "Components",
         items: [
+          { text: "Autocomplete", tag: "new", link: "/components/autocomplete" },
           { text: "Filters", tag: "new", link: "/components/filters" },
           { text: "Image", tag: "new", link: "/components/image" },
           { text: "Phone Field", tag: "new", link: "/components/phone-field" },
@@ -61,9 +64,9 @@ export default defineConfig({
         // Get the original rendered output
         let output = originalFence(...args);
         let lineNumber = 0;
-        output = output.replace(/<span class="line"/g, () => {
+        output = output.replace(/<span class="line([^"]*)"/g, (_, additionalClasses) => {
           lineNumber++;
-          return `<span class="line" data-line="${lineNumber}"`;
+          return `<span class="line${additionalClasses}" data-line="${lineNumber}"`;
         });
 
         return output;

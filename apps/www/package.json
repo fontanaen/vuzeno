@@ -8,16 +8,17 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "@vuetella/ui": "workspace:*",
+    "@tailwindcss/vite": "^4.1.16",
     "@vuetella/registry": "workspace:*",
     "@vuetella/tailwind-config": "workspace:*",
-    "@tailwindcss/vite": "^4.1.16",
-    "vitepress": "catalog:",
-    "tailwindcss": "catalog:",
+    "@vuetella/ui": "workspace:*",
     "@vueuse/core": "catalog:",
-    "vue": "catalog:",
+    "lucide-vue-next": "^0.562.0",
     "reka-ui": "catalog:",
-    "lucide-vue-next": "^0.562.0"
+    "tailwindcss": "catalog:",
+    "vitepress": "catalog:",
+    "vue": "catalog:",
+    "vue3-simple-icons": "^15.6.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19"

@@ -8,10 +8,10 @@ defineProps<{
   collapsible?: boolean;
 }>();
 
-const { page, frontmatter, theme } = useData();
+const { page } = useData();
 
 onContentUpdated(() => {
-  getHeaders(frontmatter.value.outline ?? theme.value.outline);
+  getHeaders([2, 3]);
 });
 
 const container = ref();
@@ -34,7 +34,7 @@ useActiveAnchor(container, marker);
       v-if="!collapsible"
       id="doc-outline-aria-label"
       aria-level="2"
-      class="font-bold text-sm mb-2 trunc"
+      class="font-bold text-sm mb-2 truncate"
       role="heading"
     >
       On this page

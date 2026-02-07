@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { Badge } from "@vuetella/ui/components/badge";
 import { Button } from "@vuetella/ui/components/button";
-import { Card, CardDescription, CardHeader, CardTitle } from "@vuetella/ui/components/card";
-import { Separator } from "@vuetella/ui/components/separator";
-import { ArrowRightIcon, CodeIcon, CopyIcon, FilterIcon, GithubIcon, ImageIcon, MoonStarIcon, PaletteIcon, PhoneIcon, SparklesIcon } from "lucide-vue-next";
+import { ArrowRightIcon } from "lucide-vue-next";
+import { GitHubIcon, XIcon } from "vue3-simple-icons";
 </script>
 
 <template>
@@ -84,12 +82,19 @@ import { ArrowRightIcon, CodeIcon, CopyIcon, FilterIcon, GithubIcon, ImageIcon, 
               Components
             </a>
             <a 
-              href="https://github.com" 
+              href="https://github.com/fontanaen/vuetella" 
               target="_blank"
               rel="noopener noreferrer"
-              class="text-muted-foreground hover:text-foreground transition-colors"
             >
-              <GithubIcon class="w-5 h-5" />
+              <GitHubIcon class="size-4 fill-foreground" />
+            </a>
+
+            <a 
+              href="https://x.com/fontanaen11" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <XIcon class="size-4 fill-foreground" />
             </a>
           </div>
         </div>

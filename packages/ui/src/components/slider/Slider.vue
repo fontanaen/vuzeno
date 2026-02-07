@@ -10,9 +10,6 @@ const emits = defineEmits<SliderRootEmits>();
 
 const modelValue = defineModel<number[]>();
 
-console.log(modelValue.value, "modelValue", props);
-console.log(props.defaultValue, "defaultValue");
-
 const delegatedProps = reactiveOmit(props, "class");
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits);

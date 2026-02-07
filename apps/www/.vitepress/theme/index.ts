@@ -12,6 +12,7 @@ import InstallationTabs from "../components/InstallationTabs.vue";
 import PropsTable from "../components/PropsTable.vue";
 
 export default {
+  // extends: DefaultTheme,
   Layout,
   enhanceApp({ app, router, siteData }) {
     app.component("CopyButton", CopyButton);

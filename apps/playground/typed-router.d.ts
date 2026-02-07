@@ -30,6 +30,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.autocomplete': RouteRecordInfo<
+      'components.autocomplete',
+      '/components/autocomplete',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'components.filters': RouteRecordInfo<
       'components.filters',
       '/components/filters',
@@ -67,6 +74,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index.vue': {
       routes:
         | 'home'
+      views:
+        | never
+    }
+    'src/pages/components/autocomplete.vue': {
+      routes:
+        | 'components.autocomplete'
       views:
         | never
     }
