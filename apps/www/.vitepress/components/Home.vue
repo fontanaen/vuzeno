@@ -48,11 +48,11 @@ import { GitHubIcon, XIcon } from "vue3-simple-icons";
 
           <!-- CTAs -->
           <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 300ms">
-            <Button as="a" href="/overview/getting-started" size="lg" class="group">
+            <Button as="a" href="/docs/getting-started" size="lg" class="group">
               Get Started
               <ArrowRightIcon class="transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" as="a" href="/components/filters" size="lg">
+            <Button variant="outline" as="a" href="/docs/components/filters" size="lg">
               Browse Components
             </Button>
           </div>
@@ -70,13 +70,13 @@ import { GitHubIcon, XIcon } from "vue3-simple-icons";
           
           <div class="flex items-center gap-6">
             <a 
-              href="/overview/introduction" 
+              href="/docs/introduction" 
               class="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Docs
             </a>
             <a 
-              href="/components/filters" 
+              href="/docs/components/filters" 
               class="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Components

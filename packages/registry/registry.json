@@ -20,7 +20,7 @@
         { "path": "default/autocomplete/AutocompleteLabel.vue", "type": "registry:component" },
         { "path": "default/autocomplete/AutocompleteStatus.vue", "type": "registry:component" },
         { "path": "default/autocomplete/AutocompleteTrigger.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/index.ts", "type": "registry:lib" }
+        { "path": "default/autocomplete/index.ts", "type": "registry:ui" }
       ]
     },
     {
@@ -50,10 +50,10 @@
         { "path": "default/filters/FiltersItemValue.vue", "type": "registry:component" },
         { "path": "default/filters/FiltersMenu.vue", "type": "registry:component" },
         { "path": "default/filters/FiltersMenuItem.vue", "type": "registry:component" },
-        { "path": "default/filters/field.ts", "type": "registry:lib" },
-        { "path": "default/filters/filter.ts", "type": "registry:lib" },
-        { "path": "default/filters/operator.ts", "type": "registry:lib" },
-        { "path": "default/filters/index.ts", "type": "registry:lib" }
+        { "path": "default/filters/field.ts", "type": "registry:ui" },
+        { "path": "default/filters/filter.ts", "type": "registry:ui" },
+        { "path": "default/filters/operator.ts", "type": "registry:ui" },
+        { "path": "default/filters/index.ts", "type": "registry:ui" }
       ]
     },
     {
@@ -76,7 +76,7 @@
         { "path": "default/image/ImageZoomReset.vue", "type": "registry:component" },
         { "path": "default/image/ImageZoomSlider.vue", "type": "registry:component" },
         { "path": "default/image/ImageZoomSource.vue", "type": "registry:component" },
-        { "path": "default/image/index.ts", "type": "registry:lib" }
+        { "path": "default/image/index.ts", "type": "registry:ui" }
       ]
     },
     {
@@ -92,9 +92,9 @@
         { "path": "default/phone-field/PhoneFieldCountrySelect.vue", "type": "registry:component" },
         { "path": "default/phone-field/PhoneFieldIndicator.vue", "type": "registry:component" },
         { "path": "default/phone-field/PhoneFieldInput.vue", "type": "registry:component" },
-        { "path": "default/phone-field/utils.ts", "type": "registry:lib" },
-        { "path": "default/phone-field/validation.ts", "type": "registry:lib" },
-        { "path": "default/phone-field/index.ts", "type": "registry:lib" }
+        { "path": "default/phone-field/utils.ts", "type": "registry:ui" },
+        { "path": "default/phone-field/validation.ts", "type": "registry:ui" },
+        { "path": "default/phone-field/index.ts", "type": "registry:ui" }
       ]
     }
   ]

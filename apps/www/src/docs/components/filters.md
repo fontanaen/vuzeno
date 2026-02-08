@@ -5,7 +5,7 @@ name: filters
 ---
 
 <script setup lang="ts">
-import FiltersDemo from "../../.vitepress/components/demo/FiltersDemo.vue"
+import FiltersDemo from "../../../.vitepress/components/demo/FiltersDemo.vue"
 </script>
 
 # Filters

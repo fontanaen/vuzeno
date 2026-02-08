@@ -5,7 +5,7 @@ name: phone-field
 ---
 
 <script setup lang="ts">
-import PhoneFieldDemo from "../../.vitepress/components/demo/PhoneFieldDemo.vue"
+import PhoneFieldDemo from "../../../.vitepress/components/demo/PhoneFieldDemo.vue"
 </script>
 
 # Phone Field

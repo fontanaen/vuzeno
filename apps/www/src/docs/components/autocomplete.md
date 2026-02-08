@@ -5,8 +5,8 @@ name: autocomplete
 ---
 
 <script setup lang="ts">
-import BasicDemo from "../../.vitepress/components/demo/autocomplete/BasicDemo.vue"
-import AsyncDemo from "../../.vitepress/components/demo/autocomplete/AsyncDemo.vue"
+import BasicDemo from "../../../.vitepress/components/demo/autocomplete/BasicDemo.vue"
+import AsyncDemo from "../../../.vitepress/components/demo/autocomplete/AsyncDemo.vue"
 </script>
 
 # Autocomplete

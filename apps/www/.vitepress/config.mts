@@ -6,7 +6,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Vuetella",
   description: "A Shadcn Vue registry.",
-  srcDir: "./pages",
+  srcDir: "./src",
   appearance: "dark",
   cleanUrls: true,
   scrollOffset: 75,
@@ -26,17 +26,17 @@ export default defineConfig({
       {
         text: "Overview",
         items: [
-          { text: "Introduction", link: "/overview/introduction" },
-          { text: "Getting Started", link: "/overview/getting-started" },
+          { text: "Introduction", link: "/docs/introduction" },
+          { text: "Getting Started", link: "/docs/getting-started" },
         ],
       },
       {
         text: "Components",
         items: [
-          { text: "Autocomplete", tag: "new", link: "/components/autocomplete" },
-          { text: "Filters", tag: "new", link: "/components/filters" },
-          { text: "Image", tag: "new", link: "/components/image" },
-          { text: "Phone Field", tag: "new", link: "/components/phone-field" },
+          { text: "Autocomplete", tag: "new", link: "/docs/components/autocomplete" },
+          { text: "Filters", tag: "new", link: "/docs/components/filters" },
+          { text: "Image", tag: "new", link: "/docs/components/image" },
+          { text: "Phone Field", tag: "new", link: "/docs/components/phone-field" },
         ],
       },
     ],

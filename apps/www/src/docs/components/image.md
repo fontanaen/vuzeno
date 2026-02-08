@@ -5,8 +5,8 @@ name: image
 ---
 
 <script setup lang="ts">
-import ImageDemo from "../../.vitepress/components/demo/ImageDemo.vue"
-import ImageZoomDemo from "../../.vitepress/components/demo/ImageZoomDemo.vue"
+import ImageDemo from "../../../.vitepress/components/demo/ImageDemo.vue"
+import ImageZoomDemo from "../../../.vitepress/components/demo/ImageZoomDemo.vue"
 </script>
 
 
