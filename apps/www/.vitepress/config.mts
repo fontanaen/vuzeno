@@ -1,3 +1,4 @@
+import path from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitepress";
 
@@ -11,6 +12,11 @@ export default defineConfig({
   scrollOffset: 75,
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@/components/ui": path.resolve(__dirname, "../../../packages/ui/src/components"),
+      },
+    },
   },
   outline: {
     level: [2, 3],

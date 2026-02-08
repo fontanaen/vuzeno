@@ -28,7 +28,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "../button": ["@vuetella/ui/components/button/index.ts"]
+      "@/components/ui/*": ["../ui/src/components/*"],
+      "@/lib/*": ["../ui/src/lib/*"]
     }
   }
 }

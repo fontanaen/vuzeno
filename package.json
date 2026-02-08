@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "playground:dev": "bun run --filter=@vuetella/playground dev",
-    "docs:dev": "bun run --filter=@vuetella/www dev"
+    "docs:dev": "bun run --filter=@vuetella/www dev",
+    "registry:build": "bun run --filter=@vuetella/registry build"
   },
   "workspaces": {
     "packages": [
@@ -30,5 +31,8 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "shadcn-vue": "^2.4.3"
   }
 }
