@@ -20,19 +20,27 @@ If you haven't set up shadcn-vue yet, follow their [installation guide](https://
 
 ## Installation
 
-::: info Registry CLI Coming Soon
-We're working on a CLI that will let you install components directly, similar to `npx shadcn-vue add`. Stay tuned!
-:::
+Vuetella is a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). Install components with the shadcn-vue CLI by passing the registry URL for the component you want.
 
-For now, you can browse the component documentation and copy the code directly into your project.
+**Requirements:** Your project must already be set up with shadcn-vue (run `bunx shadcn-vue@latest init` if needed) and have a `components.json` file.
 
-### Manual Installation
+Add a Vuetella component:
 
-Each component page includes:
+```bash
+bunx shadcn-vue@latest add https://vuetella.dev/r/[component].json
+```
 
-1. **Dependencies** — Any additional packages required (e.g., `libphonenumber-js` for Phone Field)
-2. **Source code** — Copy the component files into your project
-3. **Usage examples** — How to use the component in your templates
+Replace `[component]` with the component name: `autocomplete`, `filters`, `image`, or `phone-field`. Example for Phone Field:
+
+```bash
+bunx shadcn-vue@latest add https://vuetella.dev/r/phone-field.json
+```
+
+The CLI will install the component and its registry dependencies (e.g. shadcn-vue Combobox, Input Group) into your project. Some components list extra npm dependencies on their docs (e.g. `libphonenumber-js` for Phone Field)—install those if prompted or as shown on the component page.
+
+### Manual installation
+
+You can also copy component source code from the docs into your project. Each component page includes dependencies, source snippets, and usage examples.
 
 ## TypeScript
 

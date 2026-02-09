@@ -46,10 +46,15 @@ const countryCode = ref<string>("FR");
 - **Validation utilities** — Ready-to-use validation functions
 - **Composable** — Flexible slot-based architecture
 
+## Installation
+
+Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
+
+<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/phone-field.json" />
 
 ## Dependencies
 
-This component requires `libphonenumber-js` as a peer dependency:
+This component requires `libphonenumber-js` as a peer dependency. Install it if the CLI didn't add it:
 
 <InstallationTabs value="libphonenumber-js" />
 

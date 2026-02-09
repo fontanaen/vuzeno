@@ -91,7 +91,9 @@ const filteredItems = computed(() => {
 
 ## Installation
 
-<!-- @todo: Add installation instructions -->
+Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
+
+<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/autocomplete.json" />
 
 ## Components
 

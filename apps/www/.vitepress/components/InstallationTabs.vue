@@ -6,13 +6,19 @@ import { CheckIcon, CopyIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const PACKAGE_MANAGERS = ["bun", "npm", "yarn"];
-const COMMANDS = {
+const EXEC_PREFIXES = {
+  bun: "bunx",
+  npm: "npx",
+  yarn: "yarn dlx",
+};
+const INSTALL_PREFIXES = {
   bun: "bun add",
   npm: "npm install",
   yarn: "yarn add",
 };
 
 const props = defineProps<{
+  exec?: boolean;
   value: string;
 }>();
 
@@ -70,11 +76,12 @@ function copyToClipboard(command: string) {
         <div class="p-4 text-sm space-x-2 flex items-center justify-between">
           <div class="space-x-2 text-amber-400">
             <span>$</span>
-            <span class="font-mono">{{ COMMANDS[pkg] }} {{ value }}</span>
+            <span v-if="exec" class="font-mono">{{ EXEC_PREFIXES[pkg] }} {{ value }}</span>
+            <span v-else class="font-mono">{{ INSTALL_PREFIXES[pkg] }} {{ value }}</span>
           </div>
 
-          <Button class="no-prose" variant="outline" size="icon" @click="copyToClipboard(COMMANDS[pkg] + ' ' + value)">
-            <CopyIcon v-if="!isCopied" class="animate-in fade-in size-4" />
+          <Button class="no-prose" variant="outline" size="icon" @click="copyToClipboard(exec ? EXEC_PREFIXES[pkg] + ' ' + value : INSTALL_PREFIXES[pkg] + ' ' + value)">
+            <CopyIcon v-if="!isCopied" class="size-4" />
             <CheckIcon v-else class="animate-in fade-in size-4" />
           </Button>
         </div>
