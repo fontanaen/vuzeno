@@ -58,67 +58,6 @@ This component requires `libphonenumber-js` as a peer dependency. Install it if 
 
 <InstallationTabs value="libphonenumber-js" />
 
-
-## Components
-
-### PhoneField
-
-The root component that provides context to all child components.
-
-<PropsTable 
-    :data="[    
-        { name: 'modelValue', type: 'string', default: null, description: 'The phone number value' },
-        { name: 'countryCode', type: 'string', default: null, description: 'The selected country code' },
-        { name: 'defaultCountryCode', type: 'string', default: null, description: 'Default country code when none is provided' },
-        { name: 'format', type: 'international | national | e164', default: 'international', description: 'Display format of the phone number' },
-        { name: 'size', type: 'sm | default | lg', default: 'default', description: 'Size variant' },
-        { name: 'resetOnCountryChange', type: 'boolean', default: 'false', description: 'Clear phone number when country changes' },
-        { name: 'preferredCountries', type: 'string[]', default: null, description: 'Countries to display first in the list' },
-        { name: 'availableCountries', type: 'string[]', default: null, description: 'Restrict to only these countries' },
-        { name: 'ignoredCountries', type: 'string[]', default: `['AC', 'TA']`, description: 'Countries to hide from the list' },
-        { name: 'locale', type: 'string', default: 'en', description: 'Locale for country name formatting' }
-    ]"
-/>
-
-### PhoneFieldCountrySelect
-
-A searchable country dropdown with flag display.
-
-<PropsTable 
-    :data="[
-        { name: 'searchPlaceholder', type: 'string', default: null, description: 'Placeholder text for the search input' },
-        { name: 'flagType', type: 'cdn | unicode', default: 'cdn', description: 'How to display the flag' }
-    ]"
-/>
-
-### PhoneFieldInput
-
-The phone number input field with auto-formatting.
-
-<PropsTable 
-    :data="[
-        { name: 'placeholder', type: 'string', default: null, description: 'Input placeholder text' },
-        { name: 'disabled', type: 'boolean', default: null, description: 'Disable the input' },
-        { name: 'class', type: 'string', default: null, description: 'Additional CSS classes' }
-    ]"
-/>
-
-### PhoneFieldCountryFlag
-
-Displays a country flag.
-
-<PropsTable 
-    :data="[
-        { name: 'countryCode', type: 'CountryCode', default: null, description: 'The country code to display' },
-        { name: 'type', type: 'cdn | unicode', default: 'cdn', description: 'Flag display type' },
-        { name: 'alt', type: 'string', default: null, description: 'Alt text for the flag image' }
-    ]"
-/>
-
-### PhoneFieldIndicator
-
-Displays a checkmark icon when the phone number is valid. No props required — it reads from the parent context.
-
 ## Formats
 
 The `format` prop controls how the phone number is displayed:
@@ -199,51 +138,4 @@ validate: (value) => {
 }
 ```
 
-## Examples
 
-### Basic phone input with country selector
-
-A simple phone field with country dropdown and input.
-
-### Phone input with validation indicator
-
-Include the `PhoneFieldIndicator` to show a checkmark when the number is valid.
-
-### Custom country list
-
-Use `preferredCountries` to prioritize common choices, and `ignoredCountries` to hide irrelevant options.
-
-### Different formats
-
-Compare international vs national formatting for different user experiences.
-
-### Form integration with validation
-
-Use `validatePhoneNumber` with TanStack Form or other form libraries for complete form validation.
-
-### Localized country names
-
-Set the `locale` prop to display country names in the user's language.
-
-## Accessibility
-
-<!-- @todo: Document accessibility features -->
-
-## API Reference
-
-### Exports
-
-<ExportsTable 
-    :data="[
-        { name: 'PhoneField', description: 'Root provider component' },
-        { name: 'PhoneFieldCountrySelect', description: 'Country selector dropdown' },
-        { name: 'PhoneFieldInput', description: 'Phone input field' },
-        { name: 'PhoneFieldCountryFlag', description: 'Flag display' },
-        { name: 'PhoneFieldIndicator', description: 'Validation indicator' },
-        { name: 'CountryCode', description: 'Re-exported from libphonenumber-js' },
-        { name: 'validatePhoneNumber', description: 'Detailed validation' },
-        { name: 'isValidPhoneNumber', description: 'Simple boolean validation' },
-        { name: 'isValidPhoneNumberForCountry', description: 'Country-specific validation' },
-        { name: 'phoneFieldSizeVariants', description: 'Size variant CSS classes' }
-    ]"
-/>

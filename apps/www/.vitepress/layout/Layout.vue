@@ -40,7 +40,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
           <div class="h-6 w-full" />
         </aside>
 
-        <div class="px-6 md:px-12 py-6 md:py-8 overflow-x-hidden flex-1 h-full">
+        <div class="px-6 md:px-24 py-6 md:py-8 overflow-x-hidden flex-1 h-full">
           <Collapsible
             :key="path"
             class="block xl:hidden mb-4"
