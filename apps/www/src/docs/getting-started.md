@@ -26,15 +26,9 @@ Vuetella is a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). I
 
 Add a Vuetella component:
 
-```bash
-bunx shadcn-vue@latest add https://vuetella.dev/r/[component].json
-```
+<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/[component].json" />
 
-Replace `[component]` with the component name: `autocomplete`, `filters`, `image`, or `phone-field`. Example for Phone Field:
-
-```bash
-bunx shadcn-vue@latest add https://vuetella.dev/r/phone-field.json
-```
+Replace `[component]` with the component name: `autocomplete`, `filters`, `image`, or `phone-field`.
 
 The CLI will install the component and its registry dependencies (e.g. shadcn-vue Combobox, Input Group) into your project. Some components list extra npm dependencies on their docs (e.g. `libphonenumber-js` for Phone Field)—install those if prompted or as shown on the component page.
 
