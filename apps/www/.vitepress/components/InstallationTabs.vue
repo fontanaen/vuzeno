@@ -88,7 +88,7 @@ function copyToClipboard() {
           <span v-if="exec">
             {{ EXEC_PREFIXES[pkg] }} {{ value }}
           </span>
-          <code v-else class="font-mono">{{ INSTALL_PREFIXES[pkg] }} {{ value }}</code>
+          <span v-else class="font-mono">{{ INSTALL_PREFIXES[pkg] }} {{ value }}</span>
         </div>
       </TabsContent>
     </div>

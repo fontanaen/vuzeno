@@ -7,7 +7,7 @@ import ThemeToggle from "../components/ThemeToggle.vue";
 </script>
 
 <template>
-  <header class="py-4 px-14 w-full sticky top-0 z-10 bg-background/25 backdrop-blur-xl">
+  <header class="py-4 px-14 w-full sticky top-0 z-20 bg-background/25 backdrop-blur-xl">
     <div class="max-w-[1440px] mx-auto flex items-center justify-between">
       
       <div class="flex items-center gap-6">
@@ -29,7 +29,7 @@ import ThemeToggle from "../components/ThemeToggle.vue";
           <h1 class="text-2xl font-bold">Vuzeno UI</h1>
         </a>
 
-        <SearchDialog />
+        <!-- <SearchDialog /> -->
       </div>
 
       <div class="flex items-center gap-6">
