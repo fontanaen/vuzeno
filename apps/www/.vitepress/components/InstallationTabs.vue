@@ -5,28 +5,40 @@ import { useStorage } from "@vueuse/core";
 import { CheckIcon, CopyIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
-const PACKAGE_MANAGERS = ["bun", "npm", "yarn"];
-const COMMANDS = {
+const PACKAGE_MANAGERS = ["bun", "npm", "yarn", "pnpm"];
+const EXEC_PREFIXES = {
+  bun: "bunx --bun",
+  npm: "npx",
+  yarn: "yarn dlx",
+  pnpm: "pnpm dlx",
+};
+const INSTALL_PREFIXES = {
   bun: "bun add",
   npm: "npm install",
   yarn: "yarn add",
+  pnpm: "pnpm add",
 };
 
 const props = defineProps<{
+  exec?: boolean;
   value: string;
 }>();
 
-const packageManager = useStorage<"bun" | "npm" | "yarn">("packageManager", "bun");
+const packageManager = useStorage<(typeof PACKAGE_MANAGERS)[number]>("packageManager", "bun");
 
 const isCopied = ref(false);
 const timeout = ref<NodeJS.Timeout | null>(null);
 
-function copyToClipboard(command: string) {
+function copyToClipboard() {
   if (timeout.value) {
     clearTimeout(timeout.value);
   }
 
-  navigator.clipboard.writeText(command);
+  if (props.exec) {
+    navigator.clipboard.writeText(`${EXEC_PREFIXES[packageManager.value]} ${props.value}`);
+  } else {
+    navigator.clipboard.writeText(`${INSTALL_PREFIXES[packageManager.value]} ${props.value}`);
+  }
 
   isCopied.value = true;
 
@@ -43,17 +55,22 @@ function copyToClipboard(command: string) {
   >
     <div class="bg-[hsl(60,15%,5%)] border-b border-[hsl(0_0%_15%)] flex pr-2">
       <div class="flex justify-between items-center w-full text-[13px]">
-        <TabsList class="flex bg-transparent p-0">
+        <TabsList class="flex gap-2 bg-transparent p-2">
           <TabsTrigger
             v-for="(pkg, index) in PACKAGE_MANAGERS"
             :key="index"
             :value="pkg"
             tabindex="-1"
-            class="rounded-none text-white/70 py-2.5 px-4 data-[state=active]:shadow-[0_1px_0_#ffff9b] data-[state=active]:font-medium data-[state=active]:text-white hover:text-white"
+            class="transition-colors duration-200 bg-transparent data-[state=active]:bg-primary/30 py-1.5 rounded-sm"
           >
             {{ pkg }}
           </TabsTrigger>
         </TabsList>
+
+        <Button class="no-prose" variant="ghost" size="icon-sm" @click="copyToClipboard()">
+          <CopyIcon v-if="!isCopied" class="animate-in fade-in size-4" />
+          <CheckIcon v-else class="animate-in fade-in size-4" />
+        </Button>
       </div>
     </div>
 
@@ -67,16 +84,11 @@ function copyToClipboard(command: string) {
         :value="pkg"
         as-child
       >
-        <div class="p-4 text-sm space-x-2 flex items-center justify-between">
-          <div class="space-x-2 text-amber-400">
-            <span>$</span>
-            <span class="font-mono">{{ COMMANDS[pkg] }} {{ value }}</span>
-          </div>
-
-          <Button class="no-prose" variant="outline" size="icon" @click="copyToClipboard(COMMANDS[pkg] + ' ' + value)">
-            <CopyIcon v-if="!isCopied" class="animate-in fade-in size-4" />
-            <CheckIcon v-else class="animate-in fade-in size-4" />
-          </Button>
+        <div class="p-4 text-sm space-x-2 text-[#FFC799] font-mono">
+          <span v-if="exec">
+            {{ EXEC_PREFIXES[pkg] }} {{ value }}
+          </span>
+          <span v-else class="font-mono">{{ INSTALL_PREFIXES[pkg] }} {{ value }}</span>
         </div>
       </TabsContent>
     </div>

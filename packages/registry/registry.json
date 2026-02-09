@@ -1,0 +1,101 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry.json",
+  "name": "vuetella",
+  "homepage": "https://vuetella.dev",
+  "items": [
+    {
+      "name": "autocomplete",
+      "type": "registry:ui",
+      "title": "Autocomplete",
+      "description": "A flexible autocomplete component with async support.",
+      "dependencies": ["reka-ui"],
+      "registryDependencies": ["combobox", "input-group"],
+      "files": [
+        { "path": "default/autocomplete/Autocomplete.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteContent.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteControl.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteGroup.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteInput.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteItem.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteLabel.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteStatus.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/AutocompleteTrigger.vue", "type": "registry:component" },
+        { "path": "default/autocomplete/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "filters",
+      "type": "registry:ui",
+      "title": "Filters",
+      "description": "A powerful filtering system with multiple input types.",
+      "dependencies": ["reka-ui", "@internationalized/date"],
+      "registryDependencies": ["button", "button-group", "dropdown-menu", "popover", "command", "input", "label", "badge", "switch", "slider", "number-field", "calendar", "range-calendar"],
+      "files": [
+        { "path": "default/filters/FiltersProvider.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersClear.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersDropdownMenu.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersDropdownMenuContent.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersDropdownMenuTrigger.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersGroup.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItem.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemDateInput.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemDateRangeInput.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemField.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemMultiSelect.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemNumberInput.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemNumberRangeInput.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemOperator.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemSelect.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemSwitch.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersItemValue.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersMenu.vue", "type": "registry:component" },
+        { "path": "default/filters/FiltersMenuItem.vue", "type": "registry:component" },
+        { "path": "default/filters/field.ts", "type": "registry:ui" },
+        { "path": "default/filters/filter.ts", "type": "registry:ui" },
+        { "path": "default/filters/operator.ts", "type": "registry:ui" },
+        { "path": "default/filters/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "image",
+      "type": "registry:ui",
+      "title": "Image",
+      "description": "An image component with zoom and pan capabilities.",
+      "dependencies": ["reka-ui"],
+      "registryDependencies": ["button"],
+      "files": [
+        { "path": "default/image/Image.vue", "type": "registry:component" },
+        { "path": "default/image/ImageFallback.vue", "type": "registry:component" },
+        { "path": "default/image/ImageSource.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomContainer.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomFallback.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomInControl.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomMap.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomOutControl.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomProvider.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomReset.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomSlider.vue", "type": "registry:component" },
+        { "path": "default/image/ImageZoomSource.vue", "type": "registry:component" },
+        { "path": "default/image/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "phone-field",
+      "type": "registry:ui",
+      "title": "Phone Field",
+      "description": "An international phone number input with country selection.",
+      "dependencies": ["libphonenumber-js", "reka-ui"],
+      "registryDependencies": ["button", "button-group", "input-group", "command", "popover"],
+      "files": [
+        { "path": "default/phone-field/PhoneField.vue", "type": "registry:component" },
+        { "path": "default/phone-field/PhoneFieldCountryFlag.vue", "type": "registry:component" },
+        { "path": "default/phone-field/PhoneFieldCountrySelect.vue", "type": "registry:component" },
+        { "path": "default/phone-field/PhoneFieldIndicator.vue", "type": "registry:component" },
+        { "path": "default/phone-field/PhoneFieldInput.vue", "type": "registry:component" },
+        { "path": "default/phone-field/utils.ts", "type": "registry:ui" },
+        { "path": "default/phone-field/validation.ts", "type": "registry:ui" },
+        { "path": "default/phone-field/index.ts", "type": "registry:ui" }
+      ]
+    }
+  ]
+}

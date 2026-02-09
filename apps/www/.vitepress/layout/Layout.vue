@@ -15,7 +15,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
 
 <template>
   <div class="flex flex-col items-center min-h-screen h-full">
-    <div class="h-screen w-screen fixed top-10 left-1/2 -translate-x-1/2 bg-linear-to-br from-transparent from-15% via-amber-500/5 to-amber-900/5 -z-10" />
+    <!-- <div class="h-screen w-screen fixed top-10 left-1/2 -translate-x-1/2 bg-linear-to-br from-transparent from-15% via-amber-500/5 to-amber-900/5 -z-10" /> -->
 
     <Header />
 

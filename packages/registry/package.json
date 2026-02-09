@@ -3,8 +3,11 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./ui/*": "./ui/*/index.ts",
-    "./blocks/*": "./ui/*/index.ts"
+    "./ui/*": "./default/*/index.ts",
+    "./blocks/*": "./default/*/index.ts"
+  },
+  "scripts": {
+    "build": "shadcn-vue build --output ../../apps/www/src/public/r"
   },
   "devDependencies": {
     "@types/bun": "latest"

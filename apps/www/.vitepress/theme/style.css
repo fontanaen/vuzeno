@@ -14,7 +14,7 @@
   }
 
   & .vp-code {
-    @apply p-0 m-0 bg-muted/50 flex-1 w-[calc(100%-5rem)] py-4 max-h-96 border-none;
+    @apply p-0 m-0 bg-black dark:bg-muted/50 flex-1 w-[calc(100%-5rem)] py-4 max-h-96 border-none rounded-none;
   }
 
   & .line-numbers-wrapper {
