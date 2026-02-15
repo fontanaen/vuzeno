@@ -93,24 +93,7 @@ const filteredItems = computed(() => {
 
 Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
 
-<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/autocomplete.json" />
-
-## Search and Filtering
-
-The autocomplete component supports two filtering modes:
-
-### Client-side Filtering (Default)
-
-By default, the component filters items automatically based on the `searchTerm`. Items are matched using the `by` prop (defaults to `"label"`).
-
-### Server-side Filtering
-
-Set `ignoreFilter` to `true` to disable built-in filtering. This allows you to:
-- Fetch filtered results from an API
-- Implement custom filtering logic
-- Control the filtering behavior completely
-
-Watch the `searchTerm` model to trigger your own filtering or API calls.
+<InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/autocomplete.json" />
 
 ## Examples
 
@@ -251,3 +234,19 @@ Add icons or buttons to the input field using `InputGroupAddon` within `Autocomp
 </template>
 ```
 
+## Search and Filtering
+
+The autocomplete component supports two filtering modes:
+
+### Client-side Filtering (Default)
+
+By default, the component filters items automatically based on the `searchTerm`. Items are matched using the `by` prop (defaults to `"label"`).
+
+### Server-side Filtering
+
+Set `ignoreFilter` to `true` to disable built-in filtering. This allows you to:
+- Fetch filtered results from an API
+- Implement custom filtering logic
+- Control the filtering behavior completely
+
+Watch the `searchTerm` model to trigger your own filtering or API calls.

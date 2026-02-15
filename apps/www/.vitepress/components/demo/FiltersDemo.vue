@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CalendarDate, today } from "@internationalized/date";
 import type { FieldGroup, Filter } from "@vuetella/registry/ui/filters";
-import { FiltersClear, FiltersGroup, FiltersMenu, FiltersProvider } from "@vuetella/registry/ui/filters";
+import { FiltersClear, FiltersGroup, FiltersItem, FiltersMenu, FiltersProvider } from "@vuetella/registry/ui/filters";
 import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from "lucide-vue-next";
 import { computed, h, type Ref, ref } from "vue";
 
@@ -86,7 +86,7 @@ const fields = ref<FieldGroup[]>([
         icon: ToggleRightIcon,
         type: "boolean",
         operators: [
-          { label: "is", value: "eq" },
+          { label: "is", value: "eq", defaultValue: true },
           { label: "is not", value: "neq" },
         ],
       },
@@ -123,7 +123,17 @@ const filtersJson = computed(() =>
   <div class="min-w-96 space-y-4">
     <FiltersProvider v-model:filters="filters" :fields="fields">
       <FiltersMenu />
-      <FiltersGroup />
+
+      <FiltersGroup v-slot="{ removeFilter }">
+        <template v-for="(filter, index) in filters" :key="filter.field">
+          <FiltersItem
+            v-if="!filter.hidden"
+            :filter="filter"
+            @delete="removeFilter(index)"
+          />
+        </template>
+      </FiltersGroup>
+      
       <FiltersClear v-if="filters.length > 0" />
     </FiltersProvider>
     <pre class="bg-muted rounded-md p-4 text-xs">{{ filtersJson }}</pre>

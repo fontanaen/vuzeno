@@ -120,7 +120,17 @@ const filters: Ref<Filter[]> = ref([
 <template>
   <FiltersProvider v-model:filters="filters" :fields="fields">
     <FiltersMenu />
-    <FiltersGroup />
+
+    <FiltersGroup v-slot="{ removeFilter }">
+      <template v-for="(filter, index) in filters" :key="filter.field">
+        <FiltersItem
+          v-if="!filter.hidden"
+          :filter="filter"
+          @delete="removeFilter(index)"
+        />
+      </template>
+    </FiltersGroup>
+    
     <FiltersClear v-if="filters.length > 0" />
   </FiltersProvider>
 </template>
@@ -143,7 +153,7 @@ const filters: Ref<Filter[]> = ref([
 
 Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
 
-<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/filters.json" />
+<InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/filters.json" />
 
 ## Fields configuration
 

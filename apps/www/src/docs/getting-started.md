@@ -26,7 +26,7 @@ Vuetella is a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). I
 
 Add a Vuetella component:
 
-<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/[component].json" />
+<InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/[component].json" />
 
 Replace `[component]` with the component name: `autocomplete`, `filters`, `image`, or `phone-field`.
 

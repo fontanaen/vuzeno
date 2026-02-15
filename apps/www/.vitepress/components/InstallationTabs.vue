@@ -51,7 +51,7 @@ function copyToClipboard() {
 <template>
   <Tabs
     v-model="packageManager"
-    class="bg-[hsl(60,15%,5%)] border border-[hsl(0_0%_15%)] rounded-lg overflow-hidden"
+    class="dark bg-[hsl(60,15%,5%)] border border-[hsl(0_0%_15%)] rounded-lg overflow-hidden"
   >
     <div class="bg-[hsl(60,15%,5%)] border-b border-[hsl(0_0%_15%)] flex pr-2">
       <div class="flex justify-between items-center w-full text-[13px]">

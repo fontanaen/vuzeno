@@ -47,11 +47,9 @@ import { Image, ImageSource, ImageFallback } from "@/components/ui/phone-field"
 
 Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
 
-<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/image.json" />
+<InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/image.json" />
 
-## Usage
-
-### Zoomable Image
+## Zoomable Image
 
 <ComponentPreview :component="ImageZoomDemo">
 

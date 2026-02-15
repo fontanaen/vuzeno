@@ -5,7 +5,10 @@ name: phone-field
 ---
 
 <script setup lang="ts">
-import PhoneFieldDemo from "../../../.vitepress/components/demo/PhoneFieldDemo.vue"
+import PhoneFieldDemo from "../../../.vitepress/components/demo/phone-field/BasicDemo.vue"
+import PhoneFieldWithIndicatorDemo from "../../../.vitepress/components/demo/phone-field/WithIndicatorDemo.vue"
+import PhoneFieldSizesDemo from "../../../.vitepress/components/demo/phone-field/SizesDemo.vue"
+import PhoneFieldFormatsDemo from "../../../.vitepress/components/demo/phone-field/FormatsDemo.vue"
 </script>
 
 # Phone Field
@@ -26,9 +29,7 @@ const countryCode = ref<string>("FR");
 <template>
     <PhoneField v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
         <PhoneFieldCountrySelect flag-type="cdn" />
-        <PhoneFieldInput placeholder="Enter your phone number">
-            <PhoneFieldIndicator />
-        </PhoneFieldInput>
+        <PhoneFieldInput placeholder="Enter your phone number" />
     </PhoneField>
 </template>
 ```
@@ -50,23 +51,50 @@ const countryCode = ref<string>("FR");
 
 Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
 
-<InstallationTabs exec value="shadcn-vue@latest add https://vuetella.dev/r/phone-field.json" />
+<InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/phone-field.json" />
 
 ## Dependencies
 
-This component requires `libphonenumber-js` as a peer dependency. Install it if the CLI didn't add it:
+This component requires `libphonenumber-js` as a peer dependency:
 
 <InstallationTabs value="libphonenumber-js" />
 
-## Formats
+## Examples
+
+### With indicator
+
+<ComponentPreview :component="PhoneFieldWithIndicatorDemo">
+
+```vue:line-numbers{13}
+<script setup lang="ts">
+import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput, PhoneFieldIndicator } from "@/components/ui/phone-field"
+import { ref } from "vue";
+
+const phone = ref<string>("");
+const countryCode = ref<string>("FR");
+</script>
+
+<template>
+    <PhoneField v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
+        <PhoneFieldCountrySelect flag-type="cdn" />
+        <PhoneFieldInput placeholder="Enter your phone number">
+            <PhoneFieldIndicator />
+        </PhoneFieldInput>
+    </PhoneField>
+</template>
+```
+
+</ComponentPreview>
+
+### Sizes
+
+<ComponentPreview :component="PhoneFieldSizesDemo" />
+
+### Formats
 
 The `format` prop controls how the phone number is displayed:
 
-| Format | Example (France) | Description |
-|--------|------------------|-------------|
-| `international` | +33 6 12 34 56 78 | Includes country calling code with formatting |
-| `national` | 06 12 34 56 78 | Local format without country code |
-| `e164` | +33612345678 | Standard E.164 format (no spaces) |
+<ComponentPreview :component="PhoneFieldFormatsDemo" />
 
 > **Note:** The `modelValue` always stores the full E.164 number regardless of display format.
 
@@ -125,17 +153,41 @@ Boolean check for a specific country. Useful when validating national format num
 
 The validation utilities can be used with `@tanstack/vue-form` by calling them inside a field validator:
 
-```ts
-import { validatePhoneNumber } from "@vuetella/registry/ui/phone-field"
+```vue{9-14}
+<script>
+import { validatePhoneNumber } from "@/components/ui/phone-field"
+</script>
 
-// In your form field validator
-validate: (value) => {
-  const result = validatePhoneNumber(value)
-  if (!result.success) {
-    return "Invalid phone number"
-  }
-  return undefined
-}
+<template>
+  <form.Field 
+    name="phone"
+    :validators="
+      onChange: ({ value }) => {
+        const result = validatePhoneNumber(value)
+        if (!result.success) {
+          return "Invalid phone number"
+        }
+      }
+    "
+    v-slot="{ field }"
+  >
+    <Field>
+      <FieldLabel>Phone number</FieldLabel>
+      <PhoneField
+        :model-value="field.state.value" 
+        default-country-code="FR"
+        @update:model-value="field.handleChange"
+      >
+        <PhoneFieldCountrySelect flag-type="cdn" />
+        <PhoneFieldInput placeholder="Enter your phone number">
+          <PhoneFieldIndicator />
+        </PhoneFieldInput>
+      </PhoneField>
+
+      <FieldError :errors="field.state.errors" />
+    </Field>
+  </form.Field>
+</template>
 ```
 
 
