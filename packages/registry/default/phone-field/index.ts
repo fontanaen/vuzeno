@@ -13,7 +13,7 @@ export const phoneFieldVariants = cva(undefined, {
   variants: {
     size: {
       default: "h-10",
-      sm: "h-9 ",
+      sm: "h-9",
       lg: "h-11",
     },
   },

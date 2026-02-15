@@ -8,16 +8,15 @@ import FilterItemField from "./FiltersItemField.vue";
 import FilterItemOperator from "./FiltersItemOperator.vue";
 import FilterItemValue from "./FiltersItemValue.vue";
 import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
-import type { Field } from "./field";
+import { type Field, isField, isFieldGroup } from "./field";
 import type { Filter, FilterValue } from "./filter";
 import { type Operator, OperatorDefaultValue } from "./operator";
 
-const props = defineProps<{ field: Field }>();
 const emits = defineEmits<(e: "delete") => void>();
 
 const filter = defineModel<Filter>("filter", { required: true });
 
-const { variant, size } = injectFilterContext();
+const { variant, size, fields } = injectFilterContext();
 
 const sizeVariant: Record<FilterSize, string> = {
   sm: "h-7",
@@ -25,8 +24,22 @@ const sizeVariant: Record<FilterSize, string> = {
   lg: "h-10",
 } as const;
 
+const field = computed(() => {
+  for (const field of fields.value) {
+    if (isFieldGroup(field) && field.fields.some((field) => field.key === filter.value.field)) {
+      return field.fields.find((field) => field.key === filter.value.field) as Field;
+    }
+
+    if (isField(field) && field.key === filter.value.field) {
+      return field;
+    }
+  }
+
+  throw new Error(`Field with key ${filter.value.field} not found`);
+});
+
 function getOperator(operatorValue: string): Operator<unknown> {
-  const operator = props.field.operators.find((operator) => operator.value === operatorValue) ?? props.field.operators[0];
+  const operator = field.value.operators.find((operator) => operator.value === operatorValue) ?? field.value.operators[0];
 
   if (!operator) {
     throw new Error("No operator found");
@@ -55,7 +68,7 @@ function onOperatorChange(operatorValue: string | undefined) {
 <template>
     <ButtonGroup :class="cn(sizeVariant[size], 'w-fit')">
         <FilterItemField :variant="variant">
-            <component :is="field.icon" class="size-4 text-muted-foreground" /> {{ props.field.name }}
+            <component :is="field.icon" class="size-4 text-muted-foreground" /> {{ field.name }}
         </FilterItemField>
         
         <FilterItemOperator 

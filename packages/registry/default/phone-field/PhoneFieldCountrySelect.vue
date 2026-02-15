@@ -40,7 +40,7 @@ const countryNameFormatter = computed(() => {
 <template>
   <Popover>
     <PopoverTrigger as-child :disabled="disabled">
-      <Button variant="outline" :size="size" class="dark:bg-muted">
+      <Button variant="outline" :size="size" :class="cn('dark:bg-muted', size === 'lg' && 'px-5')">
         <template v-if="countryCode">
           <PhoneFieldCountryFlag :country-code="countryCode" :type="flagType" :alt="countryNameFormatter.of(countryCode) ?? ''" />
         </template>

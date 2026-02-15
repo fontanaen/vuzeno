@@ -1,29 +1,21 @@
 <script setup lang="ts">
-import FilterItem from "./FiltersItem.vue";
+import { cn } from "@vuetella/ui/lib/utils";
+import type { HTMLAttributes } from "vue";
 import { injectFilterContext } from "./FiltersProvider.vue";
-import { type Field, isField, isFieldGroup } from "./field";
 
-const { filters, fields } = injectFilterContext();
+const props = defineProps<{
+  class?: HTMLAttributes["class"];
+}>();
 
-function getField(key: string): Field {
-  for (const field of fields.value) {
-    if (isFieldGroup(field) && field.fields.some((field) => field.key === key)) {
-      return field.fields.find((field) => field.key === key) as Field;
-    }
+const { filters } = injectFilterContext();
 
-    if (isField(field) && field.key === key) {
-      return field;
-    }
-  }
-
-  throw new Error(`Field with key ${key} not found`);
+function removeFilter(index: number) {
+  filters.value.splice(index, 1);
 }
 </script>
 
 <template>
-    <div class="flex flex-wrap items-center gap-2">
-        <template v-for="filter in filters" :key="filter.field">
-            <FilterItem v-if="!filter.hidden" :filter="filter" :field="getField(filter.field)" @delete="filters.splice(filters.indexOf(filter), 1)" />
-        </template>
-    </div>
+  <div :class="cn('flex flex-wrap items-center gap-2', props.class)">
+    <slot :remove-filter="removeFilter" />
+  </div>
 </template>
