@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldIndicator, PhoneFieldInput } from "@vuetella/registry/ui/phone-field";
+import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput } from "@vuetella/registry/ui/phone-field";
 import { ref } from "vue";
 
 const phone = ref<string>("");

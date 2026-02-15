@@ -3,14 +3,58 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitepress";
 import llmstxt, { copyOrDownloadAsMarkdownButtons } from "vitepress-plugin-llms";
 
+const SITE_URL = "https://vuzeno.com";
+const DEFAULT_OG_IMAGE_PATH = "/social/og.png";
+
+function toCanonicalPath(relativePath: string): string {
+  const withoutExtension = relativePath.replace(/\.md$/, "");
+  const normalized = withoutExtension.endsWith("/index") ? withoutExtension.slice(0, -"/index".length) : withoutExtension;
+
+  if (!normalized || normalized === "index") {
+    return "/";
+  }
+
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Vuetella",
+  lang: "en-US",
+  title: "Vuzeno",
+  titleTemplate: "Vuzeno | :title",
   description: "A Shadcn Vue registry.",
   srcDir: "./src",
   appearance: "dark",
   cleanUrls: true,
   scrollOffset: 75,
+  sitemap: {
+    hostname: SITE_URL,
+  },
+  head: [
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:site_name", content: "Vuzeno" }],
+    ["meta", { property: "og:image", content: `${SITE_URL}${DEFAULT_OG_IMAGE_PATH}` }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+    ["meta", { name: "twitter:site", content: "@fontanaen11" }],
+    ["meta", { name: "twitter:creator", content: "@fontanaen11" }],
+    ["meta", { name: "twitter:image", content: `${SITE_URL}${DEFAULT_OG_IMAGE_PATH}` }],
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+  ],
+  transformHead: ({ pageData }) => {
+    const canonicalPath = toCanonicalPath(pageData.relativePath);
+    const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+    const title = pageData.title ? `Vuzeno | ${pageData.title}` : "Vuzeno";
+    const description = pageData.description || "A Shadcn Vue registry.";
+
+    return [
+      ["link", { rel: "canonical", href: canonicalUrl }],
+      ["meta", { property: "og:url", content: canonicalUrl }],
+      ["meta", { property: "og:title", content: title }],
+      ["meta", { property: "og:description", content: description }],
+      ["meta", { name: "twitter:title", content: title }],
+      ["meta", { name: "twitter:description", content: description }],
+    ];
+  },
   vite: {
     plugins: [tailwindcss(), llmstxt()],
     resolve: {
