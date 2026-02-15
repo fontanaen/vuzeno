@@ -17,6 +17,7 @@
     "reka-ui": "catalog:",
     "tailwindcss": "catalog:",
     "vitepress": "catalog:",
+    "vitepress-plugin-llms": "^1.11.0",
     "vue": "catalog:",
     "vue3-simple-icons": "^15.6.0"
   },

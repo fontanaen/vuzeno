@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
 @import "tailwindcss";
 @import "@vuetella/tailwind-config/style.css";
 @plugin "@tailwindcss/typography";
+
+body {
+  @apply font-["Host_Grotesk"];
+}
 
 [class*="language-"] {
   @apply flex items-start gap-3 flex-row-reverse relative w-full;

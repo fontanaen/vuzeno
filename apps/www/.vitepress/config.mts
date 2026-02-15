@@ -1,6 +1,7 @@
 import path from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitepress";
+import llmstxt, { copyOrDownloadAsMarkdownButtons } from "vitepress-plugin-llms";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -11,7 +12,7 @@ export default defineConfig({
   cleanUrls: true,
   scrollOffset: 75,
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), llmstxt()],
     resolve: {
       alias: {
         "@/components/ui": path.resolve(__dirname, "../../../packages/ui/src/components"),
@@ -47,6 +48,8 @@ export default defineConfig({
       level: [2, 3],
     },
     config: (md) => {
+      md.use(copyOrDownloadAsMarkdownButtons);
+
       // Save the original fence renderer (which includes VitePress's wrapper)
       const originalFence = md.renderer.rules.fence!;
 
