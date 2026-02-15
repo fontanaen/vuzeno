@@ -17,15 +17,13 @@ import { GitHubIcon, XIcon } from "vue3-simple-icons";
       <!-- Hero Section -->
       <section class="max-w-3xl mx-auto py-20 md:py-32 h-[calc(100vh-13rem)]">
         <div class="flex flex-col gap-8 animate-fade-in-up">
-            <div class="absolute top-0 right-0 blur-xl">
-            <svg class="w-96 h-auto" width="24" height="13" viewBox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 13L0 0H4L9 7L14 0H18L9 13Z" fill="#FFB300"/>
-                <path d="M11 0L9 3L7 0H4L9 7L14 0H11Z" fill="#734700"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M21 13L22.3333 11H15L22 1H14.2852L12.8555 3H17.9231L11 13H21Z" fill="#FFB300"/>
-                <path d="M15 11H22.3333L23 10H17L21.8571 3L23.2857 1L24 0H20H15L14.2852 1H22L15 11Z" fill="#FFB300"/>
-            </svg>
-
-
+            <div class="absolute top-0 right-0 blur-xl hidden md:block">
+              <svg class="w-96 h-auto" width="24" height="13" viewBox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 13L0 0H4L9 7L14 0H18L9 13Z" fill="#FFB300"/>
+                  <path d="M11 0L9 3L7 0H4L9 7L14 0H11Z" fill="#734700"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21 13L22.3333 11H15L22 1H14.2852L12.8555 3H17.9231L11 13H21Z" fill="#FFB300"/>
+                  <path d="M15 11H22.3333L23 10H17L21.8571 3L23.2857 1L24 0H20H15L14.2852 1H22L15 11Z" fill="#FFB300"/>
+              </svg>
             </div>
           <!-- Badge -->
           <div class="flex items-center gap-3 animate-fade-in-up" style="animation-delay: 100ms">
@@ -46,8 +44,7 @@ import { GitHubIcon, XIcon } from "vue3-simple-icons";
             </p>
           </div>
 
-          <!-- CTAs -->
-          <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 300ms">
+          <div class="flex flex-wrap gap-4 animate-fade-in-up md:flex-row flex-col" style="animation-delay: 300ms">
             <Button as="a" href="/docs/getting-started" size="lg" class="group">
               Get Started
               <ArrowRightIcon class="transition-transform group-hover:translate-x-1" />

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Button } from "@vuetella/ui/components/button";
+import { useToggle } from "@vueuse/core";
 import { MoonStarIcon, SunIcon } from "lucide-vue-next";
 import { SwitchRoot, SwitchThumb } from "reka-ui";
 import { useData } from "vitepress";
@@ -6,6 +8,7 @@ import { ref, watchPostEffect } from "vue";
 
 const { isDark } = useData();
 
+const toggleTheme = useToggle(isDark);
 const switchTitle = ref("");
 
 watchPostEffect(() => {
@@ -17,7 +20,7 @@ watchPostEffect(() => {
   <SwitchRoot
     id="theme-toggle"
     v-model="isDark"
-    class="w-11 h-6 flex bg-muted border border-muted-foreground/10 rounded-full relative shrink-0"
+    class="hidden md:flex w-11 h-6 bg-muted border border-muted-foreground/10 rounded-full relative shrink-0"
     :aria-label="switchTitle"
   >
     <SwitchThumb
@@ -27,4 +30,9 @@ watchPostEffect(() => {
       <SunIcon v-else class="size-3" />
     </SwitchThumb>
   </SwitchRoot>
+
+  <Button class="rounded-full md:hidden" variant="ghost" size="icon" @click="toggleTheme()">
+    <MoonStarIcon v-if="isDark" />
+    <SunIcon v-else />
+  </Button>
 </template>

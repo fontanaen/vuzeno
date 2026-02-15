@@ -26,7 +26,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 </script>
 
 <template>
-  <ComboboxList v-bind="forwarded" :class="cn('min-w-[200px]', props.class)">
+  <ComboboxList v-bind="forwarded" :class="cn('min-w-[200px] border border-accent', props.class)">
     <slot />
   </ComboboxList>
 </template>

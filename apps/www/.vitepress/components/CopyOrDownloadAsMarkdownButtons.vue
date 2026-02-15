@@ -71,7 +71,7 @@ function openInAI(provider: (typeof aiProviders)[0]) {
 </script>
 
 <template>
-  <ButtonGroup class="absolute top-0 right-0">
+  <ButtonGroup class="md:absolute top-0 right-0">
     <Button variant="secondary" size="sm" class="text-xs [&>svg]:size-3 h-8" @click="copyAsMarkdown">
       <CopyIcon v-if="!copied" class="ml-auto" />
       <CheckIcon v-else class="ml-auto" />

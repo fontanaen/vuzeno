@@ -15,8 +15,6 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
 
 <template>
   <div class="flex flex-col items-center min-h-screen h-full">
-    <!-- <div class="h-screen w-screen fixed top-10 left-1/2 -translate-x-1/2 bg-linear-to-br from-transparent from-15% via-amber-500/5 to-amber-900/5 -z-10" /> -->
-
     <Header />
 
     <div
@@ -41,10 +39,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
         </aside>
 
         <div class="px-6 md:px-24 py-6 md:py-8 overflow-x-hidden flex-1 h-full">
-          <Collapsible
-            :key="path"
-            class="block xl:hidden mb-4"
-          >
+          <Collapsible class="block xl:hidden mb-4">
             <CollapsibleTrigger class="text-sm rounded-lg border border-muted px-4 py-2 mb-2 bg-card data-[state=open]:bg-muted">
               On this page
             </CollapsibleTrigger>
@@ -53,10 +48,6 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
               <DocOutline collapsible />
             </CollapsibleContent>
           </Collapsible>
-
-          <div class="font-bold text-primary mb-2 text-sm">
-            <!-- {{ activeSection?.text }} -->
-          </div>
 
           <article class="w-full prose prose-stone dark:prose-invert max-w-none">
             <Content />

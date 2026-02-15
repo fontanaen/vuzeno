@@ -39,7 +39,7 @@ const filteredItems = computed(() => {
 <template>
     <Autocomplete v-model="value" v-model:search-term="searchTerm" class="w-96">
         <AutocompleteControl>
-            <AutocompleteInput placeholder="Search fruits..." :display-value="(v) => v.label" />
+            <AutocompleteInput placeholder="Search fruits..." :display-value="(v) => v?.label" />
             <AutocompleteTrigger as-child>
                 <InputGroupAddon>
                     <SearchIcon class="size-4" />

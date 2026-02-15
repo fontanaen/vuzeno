@@ -8,7 +8,7 @@ const countryCode = ref<string>("FR");
 
 <template>
     <PhoneField v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
-        <PhoneFieldCountrySelect flag-type="cdn" />
+        <PhoneFieldCountrySelect search-placeholder="Search country" flag-type="cdn" />
         <PhoneFieldInput placeholder="Enter your phone number" />
     </PhoneField>
 </template>
