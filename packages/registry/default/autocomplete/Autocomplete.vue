@@ -26,7 +26,7 @@ export { useAutocompleteContext, provideAutocompleteContext };
 
 <script setup lang="ts">
 import { Combobox } from "@/components/ui/combobox";
-import { createContext, type ComboboxRootProps, type AcceptableValue, type ComboboxRootEmits, useForwardPropsEmits } from "reka-ui";
+import { createContext, type ComboboxRootProps, type ComboboxRootEmits, useForwardPropsEmits } from "reka-ui";
 import type { Ref } from "vue";
 
 const props = withDefaults(

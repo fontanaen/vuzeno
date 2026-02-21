@@ -17,8 +17,8 @@ A composable filter system to build dynamic filter UIs. Define fields (optionall
 ```vue
 <script setup lang="ts">
 import { CalendarDate, today } from "@internationalized/date";
-import type { FieldGroup, Filter } from "@vuetella/registry/ui/filter";
-import { FiltersClear, FiltersGroup, FiltersMenu, FiltersProvider } from "@vuetella/registry/ui/filter";
+import type { FieldGroup, Filter } from "@/components/ui/filter";
+import { FiltersClear, FiltersGroup, FiltersMenu, FiltersProvider } from "@/components/ui/filter";
 import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from "lucide-vue-next";
 import { computed, h, type Ref, ref } from "vue";
 
@@ -151,7 +151,7 @@ const filters: Ref<Filter[]> = ref([
 
 ## Installation
 
-Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
+Install from the Vuzeno registry with the shadcn-vue CLI:
 
 <InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/filters.json" />
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { cn } from "@vuetella/ui/lib/utils";
 import { reactiveOmit } from "@vueuse/core";
 import type { ComboboxInputEmits, ComboboxInputProps } from "reka-ui";
 import { useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { ComboboxInput } from "@/components/ui/combobox";
+import { cn } from "@/lib/utils";
 import { useAutocompleteContext } from "./Autocomplete.vue";
 
 const props = defineProps<

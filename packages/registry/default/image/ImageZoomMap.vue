@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from "@vuetella/ui/lib/utils";
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
 import { computed, type HTMLAttributes, ref, useTemplateRef } from "vue";
+import { cn } from "@/lib/utils";
 import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
 
 const props = defineProps<{

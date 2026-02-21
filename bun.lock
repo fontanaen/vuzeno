@@ -46,6 +46,7 @@
     "apps/www": {
       "name": "@vuetella/www",
       "dependencies": {
+        "@internationalized/date": "catalog:",
         "@tailwindcss/vite": "^4.1.16",
         "@vuetella/registry": "workspace:*",
         "@vuetella/tailwind-config": "workspace:*",

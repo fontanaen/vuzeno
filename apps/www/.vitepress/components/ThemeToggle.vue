@@ -4,34 +4,15 @@ import { useToggle } from "@vueuse/core";
 import { MoonStarIcon, SunIcon } from "lucide-vue-next";
 import { SwitchRoot, SwitchThumb } from "reka-ui";
 import { useData } from "vitepress";
-import { ref, watchPostEffect } from "vue";
+import { ref } from "vue";
 
 const { isDark } = useData();
 
 const toggleTheme = useToggle(isDark);
-const switchTitle = ref("");
-
-watchPostEffect(() => {
-  switchTitle.value = isDark.value ? "Switch to light theme" : "Switch to dark theme";
-});
 </script>
   
 <template>
-  <SwitchRoot
-    id="theme-toggle"
-    v-model="isDark"
-    class="hidden md:flex w-11 h-6 bg-muted border border-muted-foreground/10 rounded-full relative shrink-0"
-    :aria-label="switchTitle"
-  >
-    <SwitchThumb
-      class="w-5 h-5 my-auto bg-background text-xs flex items-center justify-center text-muted-foreground border border-muted rounded-full transition-transform! translate-x-0.5 will-change-transform data-[state=checked]:translate-x-5"
-    >
-      <MoonStarIcon v-if="isDark" class="size-3" />
-      <SunIcon v-else class="size-3" />
-    </SwitchThumb>
-  </SwitchRoot>
-
-  <Button class="rounded-full md:hidden" variant="ghost" size="icon" @click="toggleTheme()">
+  <Button class="rounded-full" variant="secondary" size="icon-sm" @click="toggleTheme()">
     <MoonStarIcon v-if="isDark" />
     <SunIcon v-else />
   </Button>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { cn } from "@vuetella/ui/lib/utils";
 import { type CountryCode, getCountries, getCountryCallingCode } from "libphonenumber-js";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { Button } from "@/components/ui/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 

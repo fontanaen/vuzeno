@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { cn } from "@vuetella/ui/lib/utils";
 import { XIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
+import { cn } from "@/lib/utils";
 import FilterItemField from "./FiltersItemField.vue";
 import FilterItemOperator from "./FiltersItemOperator.vue";
 import FilterItemValue from "./FiltersItemValue.vue";

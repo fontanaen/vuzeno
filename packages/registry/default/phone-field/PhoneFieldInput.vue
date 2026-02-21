@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { cn } from "@vuetella/ui/lib/utils";
 import { watchImmediate } from "@vueuse/core";
 import { type CountryCode } from "libphonenumber-js";
 import { type HTMLAttributes, ref } from "vue";
 import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 import { phoneFieldVariants } from ".";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import {

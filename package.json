@@ -4,6 +4,8 @@
   "scripts": {
     "playground:dev": "bun run --filter=@vuetella/playground dev",
     "docs:dev": "bun run --filter=@vuetella/www dev",
+    "docs:preview": "bun run --filter=@vuetella/www preview",
+    "docs:build": "bun run --filter=@vuetella/www build",
     "registry:build": "bun run --filter=@vuetella/registry build"
   },
   "workspaces": {

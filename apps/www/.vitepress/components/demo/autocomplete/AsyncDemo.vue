@@ -16,7 +16,6 @@ import { useDebounceFn } from "@vueuse/core";
 import { LoaderIcon, SearchIcon, UserIcon } from "lucide-vue-next";
 import { ref, watch } from "vue";
 
-// Mock API data - in a real app, this would come from an API
 const allUsers = [
   { id: 1, name: "Alice Johnson", email: "alice@example.com" },
   { id: 2, name: "Bob Smith", email: "bob@example.com" },
@@ -33,22 +32,18 @@ const value = ref();
 const filteredItems = ref<typeof allUsers>([]);
 const isLoading = ref(false);
 
-// Simulate API call with debouncing
 const fetchUsers = useDebounceFn(async (query: string) => {
-  // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 800));
 
   if (!query.trim()) {
     filteredItems.value = allUsers;
   } else {
-    // Simulate server-side filtering
     filteredItems.value = allUsers.filter((user) => user.name.toLowerCase().includes(query.toLowerCase()) || user.email.toLowerCase().includes(query.toLowerCase()));
   }
 
   isLoading.value = false;
 }, 300);
 
-// Watch search term and fetch results
 watch(
   searchTerm,
   (newValue) => {
@@ -60,56 +55,60 @@ watch(
 </script>
 
 <template>
-    <Autocomplete 
-        v-model="value" 
-        v-model:search-term="searchTerm" 
-        ignore-filter 
-        class="w-96"
-    >
-        <AutocompleteControl>
-            <AutocompleteInput 
-                placeholder="Search users..." 
-                :display-value="(v) => v?.name || ''"
-            />
-            <AutocompleteTrigger as-child>
-                <InputGroupAddon>
-                    <SearchIcon class="size-4" />
-                </InputGroupAddon>
-            </AutocompleteTrigger>
-        </AutocompleteControl>
+  <Autocomplete 
+    v-model="value" 
+    v-model:search-term="searchTerm" 
+    ignore-filter 
+    class="w-96"
+  >
+    <AutocompleteControl>
+      <AutocompleteInput 
+        placeholder="Search users..." 
+        :display-value="(v) => v?.name || ''"
+      />
+      <AutocompleteTrigger as-child>
+        <InputGroupAddon>
+          <SearchIcon class="size-4" />
+        </InputGroupAddon>
+      </AutocompleteTrigger>
+    </AutocompleteControl>
 
-        <AutocompleteContent class="w-96">
-            <AutocompleteStatus v-if="isLoading" class="flex items-center gap-2">
-                <LoaderIcon class="size-4 animate-spin" />
-                <span>Searching...</span>
-            </AutocompleteStatus>
+    <AutocompleteContent class="w-96">
+      <AutocompleteStatus v-if="isLoading" class="flex items-center gap-2">
+        <LoaderIcon class="size-4 animate-spin" />
+        <span>Searching...</span>
+      </AutocompleteStatus>
 
-            <AutocompleteStatus v-else-if="!isLoading && searchTerm && filteredItems.length === 0">
-                <span>No users found</span>
-            </AutocompleteStatus>
+      <AutocompleteStatus v-else-if="!isLoading && searchTerm && filteredItems.length === 0">
+        <span>No users found</span>
+      </AutocompleteStatus>
 
-            <AutocompleteStatus v-else-if="!isLoading && filteredItems.length > 0">
-                {{ filteredItems.length }} {{ filteredItems.length === 1 ? 'user' : 'users' }} found
-            </AutocompleteStatus>
+      <AutocompleteStatus v-else-if="!isLoading && filteredItems.length > 0">
+        {{ filteredItems.length }} {{ filteredItems.length === 1 ? 'user' : 'users' }} found
+      </AutocompleteStatus>
 
-            <AutocompleteGroup v-if="!isLoading && filteredItems.length > 0">
-                <AutocompleteLabel>Users</AutocompleteLabel>
-                <AutocompleteItem 
-                    v-for="user in filteredItems" 
-                    :key="user.id" 
-                    :value="user"
-                >
-                    <Item class="p-0">
-                      <ItemMedia class="h-10 w-10 rounded-full border border-border bg-background">
-                        <UserIcon class="size-4" />
-                      </ItemMedia>
-                      <ItemContent>
-                        <ItemTitle>{{ user.name }}</ItemTitle>
-                        <ItemDescription>{{ user.email }}</ItemDescription>
-                      </ItemContent>
-                    </Item>
-                </AutocompleteItem>
-            </AutocompleteGroup>
-        </AutocompleteContent>
-    </Autocomplete>
+      <AutocompleteStatus v-else>
+        <span>Type minimum 1 characters to search</span>
+      </AutocompleteStatus>
+
+      <AutocompleteGroup v-if="!isLoading && filteredItems.length > 0">
+        <AutocompleteLabel>Users</AutocompleteLabel>
+        <AutocompleteItem 
+          v-for="user in filteredItems" 
+          :key="user.id" 
+          :value="user"
+        >
+          <Item class="p-0">
+            <ItemMedia class="h-10 w-10 rounded-full border border-border bg-background">
+              <UserIcon class="size-4" />
+            </ItemMedia>
+            <ItemContent>
+              <ItemTitle>{{ user.name }}</ItemTitle>
+              <ItemDescription>{{ user.email }}</ItemDescription>
+            </ItemContent>
+          </Item>
+        </AutocompleteItem>
+      </AutocompleteGroup>
+    </AutocompleteContent>
+  </Autocomplete>
 </template>

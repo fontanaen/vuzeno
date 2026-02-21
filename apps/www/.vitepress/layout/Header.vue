@@ -50,11 +50,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
         </Sheet>
       </div>
 
-      <div class="flex items-center gap-6">
-        <ThemeToggle />
-        
-        <Separator orientation="vertical" class="data-[orientation=vertical]:h-6 hidden md:block" />
-
+      <div class="flex items-center gap-4">
         <div class="hidden md:flex items-center gap-2">
           <Button class="rounded-full" variant="outline" size="icon-sm" as="a" href="https://github.com/fontanaen/vuetella" target="_blank">
             <GitHubIcon class="size-4 fill-foreground" />
@@ -64,6 +60,10 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
             <XIcon class="size-4 fill-foreground" />
           </Button>
         </div>
+
+        <Separator orientation="vertical" class="data-[orientation=vertical]:h-6 hidden md:block" />
+        
+        <ThemeToggle />
       </div>
     </div>
   </header>

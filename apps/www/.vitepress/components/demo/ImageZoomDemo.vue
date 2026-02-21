@@ -3,7 +3,7 @@ import { ImageZoomContainer, ImageZoomFallback, ImageZoomInControl, ImageZoomOut
 </script>
 
 <template>
-    <ImageZoomProvider class="flex gap-4" :scale="1" :step="1">
+    <ImageZoomProvider class="flex gap-4" :scale="1" :step="1" :follow-cursor="false" :zoom-on-click="false" :reset-on-click-outside="false">
         <ImageZoomContainer>
             <ImageZoomSource src="https://picsum.photos/id/229/600/400" alt="..." />
             <ImageZoomFallback>

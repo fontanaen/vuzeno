@@ -45,7 +45,7 @@ import { Image, ImageSource, ImageFallback } from "@/components/ui/phone-field"
 
 ## Installation
 
-Install from the Vuetella registry with the shadcn-vue CLI (requires an existing shadcn-vue project with `components.json`):
+Install from the Vuzeno registry with the shadcn-vue CLI:
 
 <InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/image.json" />
 

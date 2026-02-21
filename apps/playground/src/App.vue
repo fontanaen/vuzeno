@@ -38,7 +38,7 @@ const navItems = [
             <span class="text-sm font-semibold">V</span>
           </div>
           <div class="flex flex-col">
-            <span class="text-sm font-semibold">Vuetella</span>
+            <span class="text-sm font-semibold">Vuzeno UI</span>
             <span class="text-xs text-muted-foreground">Playground</span>
           </div>
         </div>
@@ -59,7 +59,7 @@ const navItems = [
       </SidebarContent>
       <SidebarFooter>
         <div class="px-2 py-2 text-xs text-muted-foreground">
-          © 2024 Vuetella
+          © 2024 Vuzeno UI
         </div>
       </SidebarFooter>
     </Sidebar>
