@@ -2,6 +2,7 @@ import path from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitepress";
 import llmstxt, { copyOrDownloadAsMarkdownButtons } from "vitepress-plugin-llms";
+import { componentPreviewPlugin, preprocessComponentPreview2 } from "./plugins/component-preview-plugin.ts";
 
 const SITE_URL = "https://vuzeno.com";
 const DEFAULT_OG_IMAGE_PATH = "/social/og.png";
@@ -56,7 +57,7 @@ export default defineConfig({
     ];
   },
   vite: {
-    plugins: [tailwindcss(), llmstxt()],
+    plugins: [componentPreviewPlugin(), tailwindcss(), llmstxt()],
     resolve: {
       alias: {
         "@/components/ui": path.resolve(__dirname, "../../../packages/ui/src/components"),
@@ -112,6 +113,11 @@ export default defineConfig({
       };
     },
     preConfig(md) {
+      const originalParse = md.parse.bind(md);
+      md.parse = (src: string, env: object) => {
+        return originalParse(preprocessComponentPreview2(src), env);
+      };
+
       const originalFence = md.renderer.rules.fence!;
 
       md.renderer.rules.fence = (...args) => {

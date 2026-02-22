@@ -31,7 +31,7 @@
       "#/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.md"],
+  "include": ["src/**/*.vue", "src/**/*.ts", "src/**/*.md"],
   "vueCompilerOptions": {
     "vitePressExtensions": [".md"]
   }

@@ -4,34 +4,11 @@ description: A composable image component with loading states, fallback support,
 name: image
 ---
 
-<script setup lang="ts">
-import ImageDemo from "../../../.vitepress/components/demo/ImageDemo.vue"
-import ImageZoomDemo from "../../../.vitepress/components/demo/ImageZoomDemo.vue"
-</script>
-
-
 # Image
 
 A fully-featured image component with loading state management, fallback support, and an interactive zoom system. Perfect for product galleries, image viewers, and any scenario requiring image inspection.
 
-<ComponentPreview :component="ImageDemo">
-
-```vue:line-numbers
-<script setup lang="ts">
-import { Image, ImageSource, ImageFallback } from "@/components/ui/phone-field"
-</script>
-
-<template>
-    <Image>
-        <ImageSource src="..." alt="..." />
-        <ImageFallback>
-            <!-- Loading/error content -->
-        </ImageFallback>
-    </Image>
-</template>
-```
-
-</ComponentPreview>
+<ComponentPreview name="ImageDemo" />
 
 ## Features
 
@@ -51,46 +28,7 @@ Install from the Vuzeno registry with the shadcn-vue CLI:
 
 ## Zoomable Image
 
-<ComponentPreview :component="ImageZoomDemo">
-
-```vue:line-numbers
-<script setup lang="ts">
-import { 
-    ImageZoomProvider, 
-    ImageZoomContainer, 
-    ImageZoomSource, 
-    ImageZoomFallback, 
-    ImageZoomMap, 
-    ImageZoomSlider, 
-    ImageZoomInControl, 
-    ImageZoomOutControl, 
-    ImageZoomReset 
-} from "@/components/ui/image"
-</script>
-
-<template>
-    <ImageZoomProvider class="flex gap-4" :scale="1" :step="1">
-        <ImageZoomContainer>
-            <ImageZoomSource src="https://picsum.photos/id/229/600/400" alt="..." />
-            <ImageZoomFallback>
-            <!-- Loading/error content -->
-            </ImageZoomFallback>
-
-            <div class="flex p-1 invert bg-background/75 rounded-lg absolute bottom-2 right-2 pointer-events-auto backdrop-blur-lg">
-                <ImageZoomInControl variant="ghost" />
-                <ImageZoomOutControl variant="ghost" />
-                <ImageZoomReset variant="ghost" />
-            </div>
-        </ImageZoomContainer>
-        <div>
-            <ImageZoomSlider orientation="vertical" />
-        </div>
-    </ImageZoomProvider>
-</template>
-```
-
-</ComponentPreview>
-
+<ComponentPreview name="ImageZoomDemo" />
 
 ## Cursor Following Behavior
 

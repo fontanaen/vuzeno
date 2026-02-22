@@ -2,13 +2,24 @@
 import { Button } from "@vuetella/ui/components/button";
 import { Separator } from "@vuetella/ui/components/separator";
 import { useMediaQuery, useToggle } from "@vueuse/core";
-import { type FunctionalComponent, useSlots } from "vue";
+import { defineAsyncComponent, useSlots } from "vue";
 
 const props = defineProps<{
-  component: FunctionalComponent;
+  name: string;
 }>();
 
 const slots = useSlots();
+
+const demos = import.meta.glob("./demo/**/*.vue");
+
+const demoComponent = defineAsyncComponent(() => {
+  const path = `./demo/${props.name}.vue`;
+  const loader = demos[path];
+  if (!loader) {
+    return Promise.reject(new Error(`Demo not found: ${path}`));
+  }
+  return loader() as Promise<{ default: object }>;
+});
 
 const isMobile = useMediaQuery("(max-width: 768px)");
 const [isOpen, toggleOpen] = useToggle(false);
@@ -17,7 +28,7 @@ const [isOpen, toggleOpen] = useToggle(false);
 <template>
   <div class="flex flex-col gap-0 border border-border rounded-xl overflow-hidden">
     <div class="flex items-center justify-center bg-background px-4 py-12 not-prose min-h-40">
-      <component :is="component" />
+      <component :is="demoComponent" />
     </div>
     <template v-if="slots.default">
       <Separator />

@@ -2,8 +2,8 @@
 import { Button } from "@vuetella/ui/components/button";
 import { ButtonGroup, ButtonGroupSeparator } from "@vuetella/ui/components/button-group";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vuetella/ui/components/dropdown-menu";
-import { CheckIcon, ChevronDownIcon, CopyIcon, ExternalLinkIcon } from "lucide-vue-next";
-import { ref } from "vue";
+import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-vue-next";
+import { onMounted, ref } from "vue";
 import { ClaudeIcon, MarkdownIcon, OpenAiIcon } from "vue3-simple-icons";
 
 const aiProviders = [
@@ -13,7 +13,7 @@ const aiProviders = [
 
 const copied = ref(false);
 
-const currentURL = window.location.origin + window.location.pathname;
+const currentURL = ref<string>("");
 
 function removeHtmlExtension(pathSegment: string): string {
   const lastSlashIndex = pathSegment.lastIndexOf("/");
@@ -47,7 +47,7 @@ function resolveMarkdownPageURL(url: string): string {
 }
 
 function copyAsMarkdown() {
-  fetch(resolveMarkdownPageURL(currentURL))
+  fetch(resolveMarkdownPageURL(currentURL.value))
     .then((r) => r.text())
     .then((text) => navigator.clipboard.writeText(text))
     .then(() => {
@@ -60,14 +60,18 @@ function copyAsMarkdown() {
 }
 
 function viewAsMarkdown() {
-  window.open(resolveMarkdownPageURL(currentURL), "_blank");
+  window.open(resolveMarkdownPageURL(currentURL.value), "_blank");
 }
 
 function openInAI(provider: (typeof aiProviders)[0]) {
-  const markdownUrl = resolveMarkdownPageURL(currentURL);
+  const markdownUrl = resolveMarkdownPageURL(currentURL.value);
   const prompt = `Read from ${markdownUrl} so I can ask questions about it.`;
   window.open(provider.url + encodeURIComponent(prompt), "_blank");
 }
+
+onMounted(() => {
+  currentURL.value = window.location.origin + window.location.pathname;
+});
 </script>
 
 <template>

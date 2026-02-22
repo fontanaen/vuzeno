@@ -4,38 +4,11 @@ description: A composable phone input component with country selection, auto-for
 name: phone-field
 ---
 
-<script setup lang="ts">
-import PhoneFieldDemo from "../../../.vitepress/components/demo/phone-field/BasicDemo.vue"
-import PhoneFieldWithIndicatorDemo from "../../../.vitepress/components/demo/phone-field/WithIndicatorDemo.vue"
-import PhoneFieldSizesDemo from "../../../.vitepress/components/demo/phone-field/SizesDemo.vue"
-import PhoneFieldFormatsDemo from "../../../.vitepress/components/demo/phone-field/FormatsDemo.vue"
-</script>
-
 # Phone Field
 
 A fully-featured phone number input component built on top of `libphonenumber-js`. It provides automatic formatting as you type, a searchable country selector, and built-in validation utilities.
 
-<ComponentPreview :component="PhoneFieldDemo">
-
-```vue:line-numbers
-<script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput, PhoneFieldIndicator } from "@/components/ui/phone-field"
-import { ref } from "vue";
-
-const phone = ref<string>("");
-const countryCode = ref<string>("FR");
-</script>
-
-<template>
-    <PhoneField v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
-        <PhoneFieldCountrySelect flag-type="cdn" />
-        <PhoneFieldInput placeholder="Enter your phone number" />
-    </PhoneField>
-</template>
-```
-
-</ComponentPreview>
-
+<ComponentPreview name="phone-field/BasicDemo" />
 
 ## Features
 
@@ -63,38 +36,17 @@ This component requires `libphonenumber-js` as a peer dependency:
 
 ### With indicator
 
-<ComponentPreview :component="PhoneFieldWithIndicatorDemo">
-
-```vue:line-numbers{13}
-<script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput, PhoneFieldIndicator } from "@/components/ui/phone-field"
-import { ref } from "vue";
-
-const phone = ref<string>("");
-const countryCode = ref<string>("FR");
-</script>
-
-<template>
-    <PhoneField v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
-        <PhoneFieldCountrySelect flag-type="cdn" />
-        <PhoneFieldInput placeholder="Enter your phone number">
-            <PhoneFieldIndicator />
-        </PhoneFieldInput>
-    </PhoneField>
-</template>
-```
-
-</ComponentPreview>
+<ComponentPreview name="phone-field/WithIndicatorDemo" />
 
 ### Sizes
 
-<ComponentPreview :component="PhoneFieldSizesDemo" />
+<ComponentPreview name="phone-field/SizesDemo" />
 
 ### Formats
 
 The `format` prop controls how the phone number is displayed:
 
-<ComponentPreview :component="PhoneFieldFormatsDemo" />
+<ComponentPreview name="phone-field/FormatsDemo" />
 
 > **Note:** The `modelValue` always stores the full E.164 number regardless of display format.
 
