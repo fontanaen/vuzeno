@@ -66,9 +66,10 @@
       "files": [
         { "path": "default/image/Image.vue", "type": "registry:component" },
         { "path": "default/image/ImageFallback.vue", "type": "registry:component" },
+        { "path": "default/image/ImageLoading.vue", "type": "registry:component" },
+        { "path": "default/image/ImageError.vue", "type": "registry:component" },
         { "path": "default/image/ImageSource.vue", "type": "registry:component" },
         { "path": "default/image/ImageZoomContainer.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomFallback.vue", "type": "registry:component" },
         { "path": "default/image/ImageZoomInControl.vue", "type": "registry:component" },
         { "path": "default/image/ImageZoomMap.vue", "type": "registry:component" },
         { "path": "default/image/ImageZoomOutControl.vue", "type": "registry:component" },
