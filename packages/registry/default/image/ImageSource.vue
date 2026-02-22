@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useImage } from "@vueuse/core";
+import { useImage, whenever } from "@vueuse/core";
 import { type HTMLAttributes, toRefs } from "vue";
 import { injectImageContext } from "./Image.vue";
 
@@ -13,13 +13,17 @@ const { src } = toRefs(props);
 
 const { state } = injectImageContext();
 
-useImage(() => ({ src: src.value }), {
+const { isLoading } = useImage(() => ({ src: src.value }), {
   onSuccess() {
     state.value = "success";
   },
   onError() {
     state.value = "error";
   },
+});
+
+whenever(isLoading, () => {
+  state.value = "loading";
 });
 </script>
 

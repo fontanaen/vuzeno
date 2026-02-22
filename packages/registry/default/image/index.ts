@@ -1,8 +1,9 @@
 export { default as Image } from "./Image.vue";
+export { default as ImageError } from "./ImageError.vue";
 export { default as ImageFallback } from "./ImageFallback.vue";
+export { default as ImageLoading } from "./ImageLoading.vue";
 export { default as ImageSource } from "./ImageSource.vue";
 export { default as ImageZoomContainer } from "./ImageZoomContainer.vue";
-export { default as ImageZoomFallback } from "./ImageZoomFallback.vue";
 export { default as ImageZoomInControl } from "./ImageZoomInControl.vue";
 export { default as ImageZoomMap } from "./ImageZoomMap.vue";
 export { default as ImageZoomOutControl } from "./ImageZoomOutControl.vue";

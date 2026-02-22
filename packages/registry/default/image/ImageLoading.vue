@@ -13,7 +13,7 @@ const { state } = injectImageContext();
 </script>
 
 <template>
-    <Primitive v-if="['loading', 'error'].includes(state)" :class="props.class" :as="as" :as-child="asChild">
-      <slot />
-    </Primitive>
+  <Primitive v-if="state === 'loading'" :class="props.class" :as="as" :as-child="asChild">
+    <slot />
+  </Primitive>
 </template>

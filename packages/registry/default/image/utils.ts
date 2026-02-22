@@ -1,148 +1,206 @@
 import { type MaybeRefOrGetter, type Ref, ref, toValue } from "vue";
 
-export type PinchZoomProps = {
+export type Point = { x: number; y: number };
+
+export type Size = { width: number; height: number };
+
+export type Translate = { x: number; y: number; z: number };
+
+export function calculateDistance(a: Point, b: Point): number {
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+export function calculatePinchScale(initialDistance: number, currentDistance: number, initialScale: number, maxScale: number): number {
+  const ratio = currentDistance / initialDistance;
+  return Math.max(1, Math.min(initialScale * ratio, maxScale));
+}
+
+export function clampTranslate(translate: Point, container: Size, scale: number): Point {
+  const minX = container.width - container.width * scale;
+  const minY = container.height - container.height * scale;
+  return {
+    x: Math.max(minX, Math.min(0, translate.x)),
+    y: Math.max(minY, Math.min(0, translate.y)),
+  };
+}
+
+export function calculateCursorTranslate(cursor: Point, container: Size, scale: number): Translate {
+  if (scale === 1) {
+    return { x: 0, y: 0, z: 0 };
+  }
+  const raw = {
+    x: -cursor.x * (scale - 1),
+    y: -cursor.y * (scale - 1),
+  };
+  const clamped = clampTranslate(raw, container, scale);
+  return { ...clamped, z: 0 };
+}
+
+export function calculatePanTranslate(initialTouch: Point, currentTouch: Point, initialTranslate: Point): Point {
+  return {
+    x: initialTranslate.x + (currentTouch.x - initialTouch.x),
+    y: initialTranslate.y + (currentTouch.y - initialTouch.y),
+  };
+}
+
+export function calculatePinchCenter(a: Point, b: Point): Point {
+  return {
+    x: (a.x + b.x) / 2,
+    y: (a.y + b.y) / 2,
+  };
+}
+
+function clampPoint(point: Point, container: Size): Point {
+  return {
+    x: Math.max(0, Math.min(point.x, container.width)),
+    y: Math.max(0, Math.min(point.y, container.height)),
+  };
+}
+
+function getContainerRect(el: HTMLElement | null | undefined): DOMRect | null {
+  return el?.getBoundingClientRect() ?? null;
+}
+
+function touchToPoint(touch: Touch, containerRect: DOMRect): Point {
+  return {
+    x: touch.clientX - containerRect.left,
+    y: touch.clientY - containerRect.top,
+  };
+}
+
+export type TouchZoomProps = {
   scale: Ref<number>;
   maxScale: Ref<number>;
   zoomContainerRef: Ref<HTMLElement | null | undefined>;
-  zoomTranslate: Ref<{ x: number; y: number; z: number }>;
+  zoomTranslate: Ref<Translate>;
+  isTouching: Ref<boolean>;
   enabled?: MaybeRefOrGetter<boolean>;
 };
 
-export function usePinchZoom(props: PinchZoomProps) {
-  const enabled = toValue(props.enabled) ?? true;
+export function useTouchZoom(props: TouchZoomProps) {
+  const enabled = () => toValue(props.enabled) ?? true;
 
-  const initialDistance = ref<number>(0);
-  const initialScale = ref<number>(props.scale.value);
+  const initialDistance = ref(0);
+  const initialScale = ref(1);
+  const initialTouch = ref<Point>({ x: 0, y: 0 });
+  const initialTranslate = ref<Point>({ x: 0, y: 0 });
+  const initialCenter = ref<Point>({ x: 0, y: 0 });
 
-  const initialTouch = ref<{ x: number; y: number }>({ x: 0, y: 0 });
-  const initialTranslate = ref<{ x: number; y: number }>({ x: 0, y: 0 });
-
-  function calculateDistance(ev: TouchEvent) {
-    if (ev.touches.length !== 2) {
-      return 0;
-    }
-
-    return Math.sqrt((ev.touches[0]!.clientX - ev.touches[1]!.clientX) ** 2 + (ev.touches[0]!.clientY - ev.touches[1]!.clientY) ** 2);
+  function getContainer(): Size {
+    const el = props.zoomContainerRef.value;
+    return {
+      width: el?.clientWidth ?? 0,
+      height: el?.clientHeight ?? 0,
+    };
   }
 
-  function handlePinchStart(ev: TouchEvent) {
+  function handleTouchStart(ev: TouchEvent) {
+    if (!enabled()) {
+      return;
+    }
+
     ev.preventDefault();
     ev.stopPropagation();
 
-    if (ev.touches.length === 1) {
-      initialTouch.value = {
-        x: ev.touches[0]!.clientX,
-        y: ev.touches[0]!.clientY,
-      };
+    props.isTouching.value = true;
 
+    const rect = getContainerRect(props.zoomContainerRef.value);
+    const container = getContainer();
+    if (!rect) return;
+
+    if (ev.touches.length === 1) {
+      initialTouch.value = clampPoint(touchToPoint(ev.touches[0]!, rect), container);
       initialTranslate.value = {
         x: props.zoomTranslate.value.x,
         y: props.zoomTranslate.value.y,
       };
-
       return;
     }
 
-    if (ev.touches.length !== 2) {
-      return;
+    if (ev.touches.length === 2) {
+      const aRaw = touchToPoint(ev.touches[0]!, rect);
+      const bRaw = touchToPoint(ev.touches[1]!, rect);
+      const aClamped = clampPoint(aRaw, container);
+      const bClamped = clampPoint(bRaw, container);
+      initialDistance.value = calculateDistance(aRaw, bRaw);
+      initialScale.value = props.scale.value;
+      initialCenter.value = calculatePinchCenter(aClamped, bClamped);
+      initialTranslate.value = {
+        x: props.zoomTranslate.value.x,
+        y: props.zoomTranslate.value.y,
+      };
     }
-
-    initialDistance.value = calculateDistance(ev);
-    initialScale.value = props.scale.value;
   }
 
-  function handlePinchZoom(ev: TouchEvent) {
+  function handleTouchMove(ev: TouchEvent) {
+    if (!enabled()) {
+      return;
+    }
+
     ev.preventDefault();
     ev.stopPropagation();
+
+    const rect = getContainerRect(props.zoomContainerRef.value);
+    const container = getContainer();
+    if (!rect) {
+      return;
+    }
 
     if (ev.touches.length === 1) {
-      const point = ev.touches[0]!;
-
-      //   const translate = calculateTranslate({
-      //     width: props.zoomContainerRef.value?.clientWidth ?? 0,
-      //     height: props.zoomContainerRef.value?.clientHeight ?? 0,
-      //     scale: props.scale.value,
-      //     mouseX: props.zoomContainerRef.value!.clientLeft - point.clientX,
-      //     mouseY: props.zoomContainerRef.value!.clientTop - point.clientY,
-      //     invert: true,
-      //   });
-
-      props.zoomTranslate.value.x = initialTranslate.value.x + (point.clientX - initialTouch.value.x);
-      props.zoomTranslate.value.y = initialTranslate.value.y + (point.clientY - initialTouch.value.y);
-      props.zoomTranslate.value.z = 0;
+      const currentTouch = clampPoint(touchToPoint(ev.touches[0]!, rect), container);
+      const raw = calculatePanTranslate(initialTouch.value, currentTouch, initialTranslate.value);
+      const clamped = clampTranslate(raw, container, props.scale.value);
+      props.zoomTranslate.value = { ...clamped, z: 0 };
+      return;
     }
 
-    if (ev.targetTouches.length === 2) {
-      // Check if the two target touches are the same ones that started
-      // the 2-touch
-      const point1 = ev.touches[0]!;
-      const point2 = ev.touches[1]!;
+    if (ev.touches.length === 2) {
+      const aPoint = touchToPoint(ev.touches[0]!, rect);
+      const bPoint = touchToPoint(ev.touches[1]!, rect);
+      const aClamped = clampPoint(aPoint, container);
+      const bClamped = clampPoint(bPoint, container);
+      const currentDistance = calculateDistance(aPoint, bPoint);
+      const currentCenter = calculatePinchCenter(aClamped, bClamped);
 
-      const center = {
-        x: (props.zoomContainerRef.value!.clientLeft - point1.clientX + (props.zoomContainerRef.value!.clientLeft - point2.clientX)) / 2,
-        y: (props.zoomContainerRef.value!.clientTop - point1.clientY + (props.zoomContainerRef.value!.clientTop - point2.clientY)) / 2,
-      };
-
-      const currentDistance = calculateDistance(ev);
-
-      const newScale = Math.max(Math.min(initialScale.value + (currentDistance - initialDistance.value) / 100, props.maxScale.value), 1);
-
+      const newScale = calculatePinchScale(initialDistance.value, currentDistance, initialScale.value, props.maxScale.value);
       props.scale.value = newScale;
-      props.zoomTranslate.value = calculateTranslate({
-        width: props.zoomContainerRef.value?.clientWidth ?? 0,
-        height: props.zoomContainerRef.value?.clientHeight ?? 0,
-        scale: newScale,
-        mouseX: center.x,
-        mouseY: center.y,
-      });
+
+      const ratio = newScale / initialScale.value;
+      const raw = {
+        x: currentCenter.x - (initialCenter.value.x - initialTranslate.value.x) * ratio,
+        y: currentCenter.y - (initialCenter.value.y - initialTranslate.value.y) * ratio,
+      };
+      const clamped = clampTranslate(raw, container, newScale);
+      props.zoomTranslate.value = { ...clamped, z: 0 };
     }
   }
 
-  function handlePinchEnd(ev: TouchEvent) {
+  function handleTouchEnd(ev: TouchEvent) {
     ev.preventDefault();
     ev.stopPropagation();
 
-    initialDistance.value = 0;
-    initialScale.value = props.scale.value;
+    if (ev.touches.length === 0) {
+      props.isTouching.value = false;
+      initialDistance.value = 0;
+      initialScale.value = props.scale.value;
+      return;
+    }
+
+    if (ev.touches.length === 1) {
+      const rect = getContainerRect(props.zoomContainerRef.value);
+      if (rect) {
+        initialTouch.value = touchToPoint(ev.touches[0]!, rect);
+        initialTranslate.value = {
+          x: props.zoomTranslate.value.x,
+          y: props.zoomTranslate.value.y,
+        };
+      }
+    }
   }
 
   return {
-    handlePinchStart,
-    handlePinchZoom,
-    handlePinchEnd,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
   };
-}
-
-export function calculateTranslate({ width, height, scale, mouseX, mouseY, invert = false }: { width: number; height: number; scale: number; mouseX: number; mouseY: number; invert?: boolean }) {
-  if (scale === 1) {
-    return { x: 0, y: 0, z: 0 };
-  }
-
-  // Calculate scaled dimensions
-  const scaledWidth = width * scale;
-  const scaledHeight = height * scale;
-
-  if (invert) {
-    const top = -mouseY * (scale - 1) - scaledHeight / 2;
-    const left = -mouseX * (scale - 1) - scaledWidth / 2;
-
-    const leftOffset = Math.max(Math.min(left, 0), -scaledWidth + width);
-    const topOffset = Math.max(Math.min(top, 0), -scaledHeight + height);
-
-    return { x: leftOffset, y: topOffset, z: 0 };
-  }
-
-  // Calculate the translation needed to keep mouse point fixed
-  // With transform-origin at 0,0, scaling moves points away from origin
-  // To keep mouse point fixed, we translate by: -mouseX * (scale - 1)
-  const left = -mouseX * (scale - 1);
-  const top = -mouseY * (scale - 1);
-
-  // Clamp translation to prevent overflow (image going outside container)
-  // left must be between (width - scaledWidth) and 0
-  // When scale > 1: width - scaledWidth is negative, so we clamp between that and 0
-  const leftOffset = Math.max(Math.min(left, 0), width - scaledWidth);
-  const topOffset = Math.max(Math.min(top, 0), height - scaledHeight);
-
-  return { x: leftOffset, y: topOffset, z: 0 };
 }

@@ -8,7 +8,7 @@ name: image
 
 A fully-featured image component with loading state management, fallback support, and an interactive zoom system. Perfect for product galleries, image viewers, and any scenario requiring image inspection.
 
-<ComponentPreview name="ImageDemo" />
+<ComponentPreview name="image/ImageDemo" />
 
 ## Features
 
@@ -28,7 +28,7 @@ Install from the Vuzeno registry with the shadcn-vue CLI:
 
 ## Zoomable Image
 
-<ComponentPreview name="ImageZoomDemo" />
+<ComponentPreview name="image/ImageZoomDemo" />
 
 ## Cursor Following Behavior
 
