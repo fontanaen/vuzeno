@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput } from "@vuetella/registry/ui/phone-field";
-import { Field, FieldGroup, FieldLabel } from "@vuetella/ui/components/field";
+import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput } from "@vuzeno/registry/ui/phone-field";
+import { Field, FieldGroup, FieldLabel } from "@vuzeno/ui/components/field";
 import { ref } from "vue";
 
 const phone = ref<string>("");

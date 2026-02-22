@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CalendarDate, today } from "@internationalized/date";
-import type { FieldGroup, Filter } from "@vuetella/registry/ui/filters";
-import { FiltersClear, FiltersGroup, FiltersItem, FiltersMenu, FiltersProvider } from "@vuetella/registry/ui/filters";
+import type { FieldGroup, Filter } from "@vuzeno/registry/ui/filters";
+import { FiltersClear, FiltersGroup, FiltersItem, FiltersMenu, FiltersProvider } from "@vuzeno/registry/ui/filters";
 import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from "lucide-vue-next";
 import { computed, h, type Ref, ref } from "vue";
 

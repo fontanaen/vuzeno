@@ -1,5 +1,5 @@
 {
-  "name": "@vuetella/registry",
+  "name": "@vuzeno/registry",
   "type": "module",
   "private": true,
   "exports": {
@@ -16,7 +16,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@vuetella/ui": "workspace:*",
+    "@vuzeno/ui": "workspace:*",
     "@vueuse/core": "catalog:",
     "@internationalized/date": "catalog:",
     "libphonenumber-js": "catalog:",

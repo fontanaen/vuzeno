@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
-import { Separator } from "@vuetella/ui/components/separator";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@vuetella/ui/components/sheet";
+import { Button } from "@vuzeno/ui/components/button";
+import { Separator } from "@vuzeno/ui/components/separator";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@vuzeno/ui/components/sheet";
 import { MenuIcon } from "lucide-vue-next";
 import { type DefaultTheme, useData } from "vitepress";
 import { computed } from "vue";
@@ -52,7 +52,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
 
       <div class="flex items-center gap-4">
         <div class="hidden md:flex items-center gap-2">
-          <Button class="rounded-full" variant="outline" size="icon-sm" as="a" href="https://github.com/fontanaen/vuetella" target="_blank">
+          <Button class="rounded-full" variant="outline" size="icon-sm" as="a" href="https://github.com/fontanaen/vuzeno" target="_blank">
             <GitHubIcon class="size-4 fill-foreground" />
           </Button>
           

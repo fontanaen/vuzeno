@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDebounceFn } from "@vueuse/core";
 import {
   Autocomplete,
   AutocompleteContent,
@@ -9,10 +10,9 @@ import {
   AutocompleteLabel,
   AutocompleteStatus,
   AutocompleteTrigger,
-} from "@vuetella/registry/ui/autocomplete";
-import { InputGroupAddon } from "@vuetella/ui/components/input-group";
-import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@vuetella/ui/components/item";
-import { useDebounceFn } from "@vueuse/core";
+} from "@vuzeno/registry/ui/autocomplete";
+import { InputGroupAddon } from "@vuzeno/ui/components/input-group";
+import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@vuzeno/ui/components/item";
 import { LoaderIcon, SearchIcon, UserIcon } from "lucide-vue-next";
 import { ref, watch } from "vue";
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldIndicator, PhoneFieldInput, validatePhoneNumber } from "@vuetella/registry/ui/phone-field";
-import { Switch } from "@vuetella/ui/components/switch";
-import { ToggleGroup, ToggleGroupItem } from "@vuetella/ui/components/toggle-group";
+import { PhoneField, PhoneFieldCountrySelect, PhoneFieldIndicator, PhoneFieldInput, validatePhoneNumber } from "@vuzeno/registry/ui/phone-field";
+import { Switch } from "@vuzeno/ui/components/switch";
+import { ToggleGroup, ToggleGroupItem } from "@vuzeno/ui/components/toggle-group";
 import { ref } from "vue";
 
 definePage({

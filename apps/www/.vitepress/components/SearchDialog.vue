@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@vuetella/ui/components/dialog";
-import { InputGroup, InputGroupAddon, InputGroupInput } from "@vuetella/ui/components/input-group";
-import { Kbd } from "@vuetella/ui/components/kbd";
 import { useMagicKeys } from "@vueuse/core";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@vuzeno/ui/components/dialog";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@vuzeno/ui/components/input-group";
+import { Kbd } from "@vuzeno/ui/components/kbd";
 import { SearchIcon } from "lucide-vue-next";
 import { ref, watchEffect } from "vue";
 

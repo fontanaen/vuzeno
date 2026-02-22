@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
-import { Separator } from "@vuetella/ui/components/separator";
 import { useMediaQuery, useToggle } from "@vueuse/core";
+import { Button } from "@vuzeno/ui/components/button";
+import { Separator } from "@vuzeno/ui/components/separator";
 import { defineAsyncComponent, useSlots } from "vue";
 
 const props = defineProps<{

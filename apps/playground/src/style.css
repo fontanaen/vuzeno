@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@vuetella/tailwind-config/style.css";
+@import "@vuzeno/tailwind-config/style.css";
 
 /**
  * This is necessary to load the @repo/ui package when moving from

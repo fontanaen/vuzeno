@@ -1,5 +1,5 @@
 {
-  "name": "@vuetella/tailwind-config",
+  "name": "@vuzeno/tailwind-config",
   "type": "module",
   "private": true,
   "exports": {

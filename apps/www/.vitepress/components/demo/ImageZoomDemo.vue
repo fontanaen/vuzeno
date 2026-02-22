@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ImageZoomContainer, ImageZoomFallback, ImageZoomInControl, ImageZoomOutControl, ImageZoomProvider, ImageZoomReset, ImageZoomSlider, ImageZoomSource } from "@vuetella/registry/ui/image";
+import { ImageZoomContainer, ImageZoomFallback, ImageZoomInControl, ImageZoomOutControl, ImageZoomProvider, ImageZoomReset, ImageZoomSlider, ImageZoomSource } from "@vuzeno/registry/ui/image";
 </script>
 
 <template>

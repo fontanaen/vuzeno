@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vuetella/ui/components/tabs";
 import { useStorage } from "@vueuse/core";
+import { Button } from "@vuzeno/ui/components/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vuzeno/ui/components/tabs";
 import { CheckIcon, CopyIcon } from "lucide-vue-next";
 import { ref } from "vue";
 

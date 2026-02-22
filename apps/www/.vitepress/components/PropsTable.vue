@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vuetella/ui/components/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@vuzeno/ui/components/table";
 
 const props = defineProps<{
   data: {

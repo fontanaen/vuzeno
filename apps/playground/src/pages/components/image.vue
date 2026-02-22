@@ -12,7 +12,7 @@ import {
   ImageZoomReset,
   ImageZoomSlider,
   ImageZoomSource,
-} from "@vuetella/registry/ui/image";
+} from "@vuzeno/registry/ui/image";
 
 definePage({
   name: "components.image",

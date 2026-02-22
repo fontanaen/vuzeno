@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@vuetella/ui/components/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@vuzeno/ui/components/collapsible";
 import { type DefaultTheme, useData } from "vitepress";
 import { computed } from "vue";
 import DocOutline from "../components/DocOutline.vue";

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
+import { Button } from "@vuzeno/ui/components/button";
 import { ArrowRightIcon } from "lucide-vue-next";
 import { GitHubIcon, XIcon } from "vue3-simple-icons";
 </script>
@@ -79,7 +79,7 @@ import { GitHubIcon, XIcon } from "vue3-simple-icons";
               Components
             </a>
             <a 
-              href="https://github.com/fontanaen/vuetella" 
+              href="https://github.com/fontanaen/vuzeno" 
               target="_blank"
               rel="noopener noreferrer"
             >

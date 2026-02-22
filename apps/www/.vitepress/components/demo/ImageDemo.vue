@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Image, ImageFallback, ImageSource } from "@vuetella/registry/ui/image";
+import { Image, ImageFallback, ImageSource } from "@vuzeno/registry/ui/image";
 </script>
     
 <template>

@@ -9,8 +9,8 @@ import {
   AutocompleteLabel,
   AutocompleteStatus,
   AutocompleteTrigger,
-} from "@vuetella/registry/ui/autocomplete";
-import { InputGroupAddon } from "@vuetella/ui/components/input-group";
+} from "@vuzeno/registry/ui/autocomplete";
+import { InputGroupAddon } from "@vuzeno/ui/components/input-group";
 import { LoaderIcon, SearchIcon } from "lucide-vue-next";
 import { ref, watch } from "vue";
 

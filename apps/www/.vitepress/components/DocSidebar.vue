@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@vuetella/ui/components/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@vuzeno/ui/components/collapsible";
 import { ChevronDownIcon } from "lucide-vue-next";
 import type { DefaultTheme } from "vitepress/theme";
 import DocSidebarItem from "./DocSidebarItem.vue";

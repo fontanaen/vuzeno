@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Badge } from "@vuetella/ui/components/badge";
 import { useCurrentElement } from "@vueuse/core";
+import { Badge } from "@vuzeno/ui/components/badge";
 import { computed, watch } from "vue";
 import type { SidebarItem } from "../composables/sidebar";
 import { useSidebarControl } from "../composables/sidebar";

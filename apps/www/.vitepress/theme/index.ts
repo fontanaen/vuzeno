@@ -14,7 +14,7 @@ import PropsTable from "../components/PropsTable.vue";
 export default {
   // extends: DefaultTheme,
   Layout,
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp({ app }) {
     app.component("CopyButton", CopyButton);
     app.component("PropsTable", PropsTable);
     app.component("EventsTable", EventsTable);

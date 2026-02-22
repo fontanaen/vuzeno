@@ -6,8 +6,8 @@ const __dirname = path.dirname(Bun.fileURLToPath(import.meta.url));
 const DEMO_DIR = path.resolve(__dirname, "../components/demo");
 
 const IMPORT_REWRITES: [RegExp, string][] = [
-  [/@vuetella\/registry\/ui\//g, "@/components/ui/"],
-  [/@vuetella\/ui\/components\//g, "@/components/ui/"],
+  [/@vuzeno\/registry\/ui\//g, "@/components/ui/"],
+  [/@vuzeno\/ui\/components\//g, "@/components/ui/"],
 ];
 
 const SELF_CLOSING_PATTERN = /<ComponentPreview\s+name="([^"]+)"\s*\/>/g;

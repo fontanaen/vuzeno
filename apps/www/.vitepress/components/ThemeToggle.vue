@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
 import { useToggle } from "@vueuse/core";
+import { Button } from "@vuzeno/ui/components/button";
 import { MoonStarIcon, SunIcon } from "lucide-vue-next";
 import { SwitchRoot, SwitchThumb } from "reka-ui";
 import { useData } from "vitepress";

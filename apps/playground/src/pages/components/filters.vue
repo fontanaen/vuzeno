@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { CalendarDate } from "@internationalized/date";
-import type { FieldGroup, Filter } from "@vuetella/registry/ui/filter";
-import { FiltersClear, FiltersGroup, FiltersMenu, FiltersProvider } from "@vuetella/registry/ui/filter";
-import { Button } from "@vuetella/ui/components/button";
-import { ButtonGroup } from "@vuetella/ui/components/button-group";
+import type { FieldGroup, Filter } from "@vuzeno/registry/ui/filter";
+import { FiltersClear, FiltersGroup, FiltersMenu, FiltersProvider } from "@vuzeno/registry/ui/filter";
+import { Button } from "@vuzeno/ui/components/button";
+import { ButtonGroup } from "@vuzeno/ui/components/button-group";
 import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from "lucide-vue-next";
 import { computed, h, type Ref, ref } from "vue";
 

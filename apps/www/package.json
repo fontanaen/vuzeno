@@ -1,5 +1,5 @@
 {
-  "name": "@vuetella/www",
+  "name": "@vuzeno/www",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.16",
-    "@vuetella/registry": "workspace:*",
-    "@vuetella/tailwind-config": "workspace:*",
-    "@vuetella/ui": "workspace:*",
+    "@vuzeno/registry": "workspace:*",
+    "@vuzeno/tailwind-config": "workspace:*",
+    "@vuzeno/ui": "workspace:*",
     "@vueuse/core": "catalog:",
     "@internationalized/date": "catalog:",
     "lucide-vue-next": "^0.562.0",

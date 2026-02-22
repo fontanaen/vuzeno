@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
+import { Button } from "@vuzeno/ui/components/button";
 import {
   Sidebar,
   SidebarContent,
@@ -14,7 +14,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@vuetella/ui/components/sidebar";
+} from "@vuzeno/ui/components/sidebar";
 import { Moon, Sun } from "lucide-vue-next";
 import { RouterLink } from "vue-router";
 import { useTheme } from "./composables/useDark";

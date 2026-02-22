@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Button } from "@vuetella/ui/components/button";
-import { ButtonGroup, ButtonGroupSeparator } from "@vuetella/ui/components/button-group";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vuetella/ui/components/dropdown-menu";
+import { Button } from "@vuzeno/ui/components/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@vuzeno/ui/components/button-group";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
 import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
 import { ClaudeIcon, MarkdownIcon, OpenAiIcon } from "vue3-simple-icons";

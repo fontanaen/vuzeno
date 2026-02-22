@@ -1,4 +1,4 @@
-# vuetella
+# vuzeno
 
 To install dependencies:
 
