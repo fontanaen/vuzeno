@@ -46,10 +46,7 @@ export function resolveTitle(theme: DefaultTheme.Config) {
 }
 
 export function getHeaders(range: DefaultTheme.Config["outline"]) {
-  const headers = [
-    // @ts-expect-error copied script
-    ...document.querySelectorAll("article :where(h1,h2,h3,h4,h5,h6)"),
-  ]
+  const headers = [...document.querySelectorAll("article :where(h1,h2,h3,h4,h5,h6)")]
     .filter((el) => el.id && el.hasChildNodes())
     .map((el) => {
       const level = Number(el.tagName[1]);
@@ -66,7 +63,6 @@ export function getHeaders(range: DefaultTheme.Config["outline"]) {
 
 function serializeHeader(h: Element): string {
   let ret = "";
-  // @ts-expect-error copied script
   for (const node of h.childNodes) {
     if (node.nodeType === 1) {
       if ((node as Element).classList.contains("VPBadge") || (node as Element).classList.contains("header-anchor") || (node as Element).classList.contains("ignore-header")) {
@@ -98,7 +94,6 @@ export function resolveHeaders(headers: MenuItem[], range?: DefaultTheme.Config[
   }
 
   const ret: MenuItem[] = [];
-  // eslint-disable-next-line no-labels
   outer: for (let i = 0; i < headers.length; i++) {
     const cur = headers[i];
     if (i === 0) {
@@ -107,8 +102,8 @@ export function resolveHeaders(headers: MenuItem[], range?: DefaultTheme.Config[
       for (let j = i - 1; j >= 0; j--) {
         const prev = headers[j];
         if (prev.level < cur.level) {
-          (prev.children || (prev.children = [])).push(cur);
-          // eslint-disable-next-line no-labels
+          prev.children = prev.children || [];
+          prev.children.push(cur);
           continue outer;
         }
       }
@@ -231,7 +226,12 @@ function throttleAndDebounce(fn: () => void, delay: number): () => void {
 
     if (!called) {
       fn();
-      (called = true) && setTimeout(() => (called = false), delay);
+
+      called = true;
+
+      setTimeout(() => {
+        called = false;
+      }, delay);
     } else {
       timeoutId = setTimeout(fn, delay);
     }

@@ -115,7 +115,7 @@ export function useSidebarControl(item: ComputedRef<DefaultTheme.SidebarItem>): 
   });
 
   const hasChildren = computed(() => {
-    return !!(item.value.items && item.value.items.length);
+    return !!item.value.items?.length;
   });
 
   watchEffect(() => {
@@ -123,7 +123,9 @@ export function useSidebarControl(item: ComputedRef<DefaultTheme.SidebarItem>): 
   });
 
   watchPostEffect(() => {
-    (isActiveLink.value || hasActiveLink.value) && (collapsed.value = false);
+    if (isActiveLink.value || hasActiveLink.value) {
+      collapsed.value = false;
+    }
   });
 
   function toggle() {
@@ -179,7 +181,7 @@ function normalize(path: string): string {
 }
 
 // From https://github.com/vuejs/vitepress/blob/97f9469b6d4eb7ba9de9a1111986581d1f704ec3/src/client/theme-default/support/sidebar.ts
-function containsActiveLink(path: string, items: any | any[]): boolean {
+function containsActiveLink(path: string, items: SidebarItem | SidebarItem[]): boolean {
   if (Array.isArray(items)) {
     return items.some((item) => containsActiveLink(path, item));
   }

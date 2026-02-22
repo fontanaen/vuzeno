@@ -1,0 +1,7 @@
+{
+  "root": false,
+  "extends": "//",
+  "files": {
+    "includes": ["**/*.vue", "**/*.ts", "!!**/*.md", "!!.vitepress/cache", "!!.vitepress/dist", "!!src/public"]
+  }
+}
