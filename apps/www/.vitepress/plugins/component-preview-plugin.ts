@@ -28,13 +28,13 @@ function getDemoPath(name: string): string {
 
 async function readDemoSource(name: string): Promise<string | null> {
   const demoPath = getDemoPath(name);
-  const file = Bun.file(demoPath);
-  const exists = await file.exists();
+  const file = fs.existsSync(demoPath) ? fs.readFileSync(demoPath, "utf-8") : null;
+  const exists = fs.existsSync(demoPath);
   if (!exists) {
     console.warn(`[component-preview-plugin] Demo file not found: ${demoPath}`);
     return null;
   }
-  return file.text();
+  return file ?? null;
 }
 
 function expandTag(name: string, rawSource: string): string {
@@ -48,7 +48,7 @@ ${source}
 </ComponentPreview>`;
 }
 
-/** Transforms raw markdown by replacing ComponentPreview tags with expanded content. Uses node:fs for sync (Bun.file is async-only). */
+/** Transforms raw markdown by replacing ComponentPreview tags with expanded content. */
 export function preprocessComponentPreview2(markdown: string): string {
   let result = markdown;
 
