@@ -67,6 +67,7 @@ export type ImageZoomProviderContext<P extends ImageZoomProviderProps> = {
   zoomDirection: Ref<ImageZoomDirection>;
   zoomContainerRef: Ref<HTMLElement | null | undefined>;
   zoomTranslate: Ref<{ x: number; y: number; z: number }>;
+  isTouching: Ref<boolean>;
   resetOnClickOutside: Ref<NonNullable<P["resetOnClickOutside"]>>;
   zoomImageSourceRef: Ref<typeof ImageZoomSource | null | undefined>;
   useZoomImageSourceRef: (key: string) => void;
@@ -101,6 +102,7 @@ const zoomDirection = ref<ImageZoomDirection>('in')
 const zoomContainerRef = ref<HTMLElement | null | undefined>(null)
 const zoomImageSourceRef = ref<typeof ImageZoomSource | null | undefined>(null)
 const zoomTranslate = ref({ x: 0, y: 0, z: 0 })
+const isTouching = ref(false)
 
 function onUpdateScale(value: number) {
   return scale.value = Math.max(Math.min(value, maxScale.value), 1)
@@ -116,6 +118,7 @@ provideImageZoomProviderContext({
   zoomDirection,
   zoomContainerRef,
   zoomTranslate,
+  isTouching,
   resetOnClickOutside,
   zoomImageSourceRef,
   useZoomImageSourceRef(key) {

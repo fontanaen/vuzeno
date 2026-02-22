@@ -3,13 +3,14 @@ import { useMouseInElement, watchThrottled, whenever } from "@vueuse/core";
 import { computed, ref } from "vue";
 import ImageSource from "./ImageSource.vue";
 import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
+import { calculateCursorTranslate } from "./utils";
 
 defineProps<{
   src: string;
   alt?: string;
 }>();
 
-const { scale, onZoomIn, onZoomOut, zoomOnClick, zoomDirection, zoomContainerRef, followCursor, zoomTranslate: translate, resetOnClickOutside, useZoomImageSourceRef } = injectImageZoomProviderContext();
+const { scale, onZoomIn, onZoomOut, zoomOnClick, zoomDirection, zoomContainerRef, followCursor, zoomTranslate: translate, isTouching, resetOnClickOutside, useZoomImageSourceRef } = injectImageZoomProviderContext();
 
 useZoomImageSourceRef("imageSourceRef");
 
@@ -24,30 +25,6 @@ const cursor = computed(() => {
 
   return "cursor-default";
 });
-
-function calculateTranslate({ width, height, scale, mouseX, mouseY }: { width: number; height: number; scale: number; mouseX: number; mouseY: number }) {
-  if (scale === 1) {
-    return { x: 0, y: 0, z: 0 };
-  }
-
-  // Calculate scaled dimensions
-  const scaledWidth = width * scale;
-  const scaledHeight = height * scale;
-
-  // Calculate the translation needed to keep mouse point fixed
-  // With transform-origin at 0,0, scaling moves points away from origin
-  // To keep mouse point fixed, we translate by: -mouseX * (scale - 1)
-  const left = -mouseX * (scale - 1);
-  const top = -mouseY * (scale - 1);
-
-  // Clamp translation to prevent overflow (image going outside container)
-  // left must be between (width - scaledWidth) and 0
-  // When scale > 1: width - scaledWidth is negative, so we clamp between that and 0
-  const leftOffset = Math.max(Math.min(left, 0), width - scaledWidth);
-  const topOffset = Math.max(Math.min(top, 0), height - scaledHeight);
-
-  return { x: leftOffset, y: topOffset, z: 0 };
-}
 
 function handleClick() {
   if (!zoomOnClick.value) {
@@ -82,6 +59,7 @@ watchThrottled(
 watchThrottled(
   [x, y, scale],
   () => {
+    if (isTouching.value) return;
     if (followCursor.value === false) {
       translate.value = {
         x: (width.value * (1 - scale.value)) / 2,
@@ -91,9 +69,9 @@ watchThrottled(
       return;
     }
 
-    translate.value = calculateTranslate({ width: width.value, height: height.value, scale: scale.value, mouseX: x.value, mouseY: y.value });
+    translate.value = calculateCursorTranslate({ x: x.value, y: y.value }, { width: width.value, height: height.value }, scale.value);
   },
-  { throttle: () => (followCursor.value ? 10 : 0) },
+  { throttle: () => (followCursor.value ? 16 : 0) },
 );
 </script>
 
@@ -104,8 +82,12 @@ watchThrottled(
       :class="cursor" 
       :src="src" 
       :alt="alt"
-      :style="{ transformOrigin: '0 0', transform: `translate3d(${translate.x}px, ${translate.y}px, ${translate.z}px) scale(${scale})` }"
-      class="data-[zooming=true]:transition-transform data-[zooming=true]:duration-100 data-[zooming=true]:ease-in-out" 
+      :style="{
+        transformOrigin: '0 0', 
+        willChange: 'transform',
+        transform: `translate3d(${translate.x}px, ${translate.y}px, ${translate.z}px) scale(${scale})` 
+      }"
+      class="md:data-[zooming=true]:transition-transform md:data-[zooming=true]:duration-100 md:data-[zooming=true]:ease-in-out" 
       @click="handleClick" 
     />
 </template>
