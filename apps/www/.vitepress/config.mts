@@ -82,7 +82,9 @@ export default defineConfig({
         items: [
           { text: "Autocomplete", tag: "new", link: "/docs/components/autocomplete" },
           { text: "Filters", tag: "new", link: "/docs/components/filters" },
+          { text: "Gallery", tag: "new", link: "/docs/components/gallery" },
           { text: "Image", tag: "new", link: "/docs/components/image" },
+          { text: "Image Viewer", tag: "new", link: "/docs/components/image-viewer" },
           { text: "Phone Field", tag: "new", link: "/docs/components/phone-field" },
         ],
       },

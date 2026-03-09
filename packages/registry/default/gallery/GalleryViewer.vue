@@ -9,7 +9,6 @@ export type GalleryViewerProps = {
 export type GalleryViewerContext<P extends GalleryViewerProps> = {
   open: Ref<NonNullable<P["open"]>>;
   sidebarOpen: Ref<NonNullable<P["sidebarOpen"]>>;
-  defaultSidebarOpen: P["defaultSidebarOpen"];
   toggleSidebar: () => void;
 };
 
@@ -25,12 +24,16 @@ const props = withDefaults(defineProps<GalleryViewerProps>(), {
 });
 
 const open = defineModel<boolean>("open", { default: false });
-const sidebarOpen = defineModel<boolean>("sidebarOpen", { default: false });
+const sidebarOpen = defineModel<boolean>("sidebarOpen", { default: undefined });
+
+console.log(sidebarOpen.value, props); 
+if (sidebarOpen.value === undefined) {
+  sidebarOpen.value = props.defaultSidebarOpen ?? false;
+}
 
 provideGalleryViewerContext({
   open,
-  sidebarOpen,
-  defaultSidebarOpen: props.defaultSidebarOpen,
+  sidebarOpen: sidebarOpen as Ref<boolean>,
   toggleSidebar() {
     sidebarOpen.value = !sidebarOpen.value;
   },
