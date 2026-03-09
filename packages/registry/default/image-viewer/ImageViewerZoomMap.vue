@@ -2,13 +2,13 @@
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
 import { computed, type HTMLAttributes, ref, useTemplateRef } from "vue";
 import { cn } from "@/lib/utils";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
+import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { scale, zoomContainerRef, zoomTranslate, zoomImageSourceRef } = injectImageZoomProviderContext();
+const { scale, zoomContainerRef, zoomTranslate, zoomImageSourceRef } = injectImageViewerProviderContext();
 
 const mapThumbPositionOffset = ref({ x: 0, y: 0, z: 0 });
 
