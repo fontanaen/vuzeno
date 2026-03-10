@@ -6,5 +6,4 @@ export { default as ImageViewerSource } from "./ImageViewerSource.vue";
 export { default as ImageViewerZoomInControl } from "./ImageViewerZoomInControl.vue";
 export { default as ImageViewerZoomMap } from "./ImageViewerZoomMap.vue";
 export { default as ImageViewerZoomOutControl } from "./ImageViewerZoomOutControl.vue";
-export { default as ImageViewerZoomReset } from "./ImageViewerZoomReset.vue";
 export { default as ImageViewerZoomSlider } from "./ImageViewerZoomSlider.vue";

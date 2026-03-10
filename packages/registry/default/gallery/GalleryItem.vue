@@ -4,14 +4,14 @@ import { computed } from "vue";
 import { CarouselItem } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { ImageViewerProvider } from "../image-viewer";
-import { injectCarouselViewerContext } from "./Gallery.vue";
+import { injectGalleryContext } from "./Gallery.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
   itemIndex: number;
 }>();
 
-const { selectedIndex, zoomScale, zoomMaxScale, zoomStep, zoomFollowCursor, zoomOnClick, zoomResetOnClickOutside, zoomDisabled } = injectCarouselViewerContext();
+const { selectedIndex, zoomScale, zoomMaxScale, zoomStep, zoomFollowCursor, zoomOnClick, zoomResetOnClickOutside, zoomDisabled } = injectGalleryContext();
 
 const isActive = computed(() => selectedIndex.value === props.itemIndex);
 const disabled = computed(() => !isActive.value || zoomDisabled.value);
@@ -19,6 +19,7 @@ const disabled = computed(() => !isActive.value || zoomDisabled.value);
 
 <template>
   <ImageViewerProvider
+    as-child
     :scale="isActive ? zoomScale : 1"
     :max-scale="zoomMaxScale"
     :step="zoomStep"

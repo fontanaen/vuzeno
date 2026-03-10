@@ -24,101 +24,65 @@ Install from the Vuzeno registry. Requires Image Viewer and its dependencies:
 
 <InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/gallery.json" />
 
-## Basic Carousel
+## Examples
+
+### Regular Carousel
 
 <ComponentPreview name="gallery/GalleryDemo" />
 
 Use `Gallery`, `GalleryContent`, `GalleryItem`, `GalleryImage`, and `GalleryImageSource` for a simple zoomable carousel:
 
 ```vue
-<Gallery v-model:zoom-scale="scale" zoom-on-click>
-  <GalleryContent class="h-64">
-    <GalleryItem v-for="(src, index) in images" :key="index" :item-index="index + 1">
-      <GalleryImage>
-        <GalleryImageSource :src="src" alt="..." />
-      </GalleryImage>
-    </GalleryItem>
-  </GalleryContent>
-  <GalleryPrevious />
-  <GalleryNext />
-</Gallery>
+<template>
+  <Gallery v-model:zoom-scale="scale" zoom-on-click>
+    <GalleryContent class="h-64">
+      <GalleryItem v-for="(src, index) in images" :key="index" :item-index="index + 1">
+        <GalleryImage>
+          <GalleryImageSource :src="src" alt="..." />
+        </GalleryImage>
+      </GalleryItem>
+    </GalleryContent>
+    <GalleryPrevious />
+    <GalleryNext />
+  </Gallery>
+</template>
 ```
 
-## Fullscreen with Sidebar
+### Within Dialog
+
+<ComponentPreview name="gallery/GalleryDialogDemo" />
+
+### Fullscreen with Sidebar
 
 Combine `GalleryViewer`, `GalleryViewerTrigger`, `GalleryViewerContent`, and `GalleryViewerSidebar` for a fullscreen experience with custom sidebar content:
 
 ```vue
-<GalleryViewer v-model:open="open">
-  <GalleryViewerTrigger>
-    <Button>Open Gallery</Button>
-  </GalleryViewerTrigger>
+<template>
+  <GalleryViewer v-model:open="open">
+    <GalleryViewerTrigger>
+      <Button>Open Gallery</Button>
+    </GalleryViewerTrigger>
 
-  <GalleryViewerContent :style="{ '--sidebar-width': '24rem' }">
-    <GalleryViewerGallery>
-      <Gallery v-model:zoom-scale="scale" zoom-on-click>
-        <GalleryContent>...</GalleryContent>
-        <GalleryToolbar>
-          <GalleryZoomInControl />
-          <GalleryZoomOutControl />
-          <GalleryViewerSidebarTrigger />
-          <GalleryViewerClose />
-        </GalleryToolbar>
-        <GalleryPrevious />
-        <GalleryNext />
-      </Gallery>
-    </GalleryViewerGallery>
+    <GalleryViewerContent :style="{ '--sidebar-width': '24rem' }">
+      <GalleryViewerGallery>
+        <Gallery v-model:zoom-scale="scale" zoom-on-click>
+          <GalleryContent>...</GalleryContent>
+          <GalleryToolbar>
+            <GalleryZoomInControl />
+            <GalleryZoomOutControl />
+            <GalleryViewerSidebarTrigger />
+            <GalleryViewerClose />
+          </GalleryToolbar>
+          <GalleryPrevious />
+          <GalleryNext />
+        </Gallery>
+      </GalleryViewerGallery>
 
-    <GalleryViewerSidebar side="right">
-      <SidebarHeader>...</SidebarHeader>
-      <SidebarContent>Custom metadata, details, etc.</SidebarContent>
-    </GalleryViewerSidebar>
-  </GalleryViewerContent>
-</GalleryViewer>
+      <GalleryViewerSidebar side="right">
+        <SidebarHeader>...</SidebarHeader>
+        <SidebarContent>Custom metadata, details, etc.</SidebarContent>
+      </GalleryViewerSidebar>
+    </GalleryViewerContent>
+  </GalleryViewer>
+</template>
 ```
-
-## Props
-
-### Gallery
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `zoomScale` | `number` | `1` | Current zoom scale (v-model) |
-| `zoomMaxScale` | `number` | `3` | Maximum zoom level |
-| `zoomStep` | `number` | `1` | Zoom step for controls |
-| `zoomFollowCursor` | `boolean` | `true` | Zoom centered on cursor |
-| `zoomOnClick` | `boolean` | `false` | Click to zoom on image |
-| `zoomResetOnClickOutside` | `boolean` | `false` | Reset zoom on outside click |
-| `zoomDisabled` | `boolean` | `false` | Disable zoom |
-| `hideNavigationOnZoom` | `boolean` | `true` | Hide prev/next when zoomed |
-| `initialIndex` | `number` | `0` | Initial slide index |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Carousel direction |
-
-### GalleryViewer
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | Controlled open state (v-model) |
-| `defaultOpen` | `boolean` | `false` | Uncontrolled default |
-| `sidebarOpen` | `boolean` | - | Controlled sidebar state (v-model) |
-| `defaultSidebarOpen` | `boolean` | - | Uncontrolled sidebar default |
-
-## Components
-
-| Component | Description |
-|-----------|-------------|
-| `Gallery` | Carousel root with zoom context |
-| `GalleryContent` | Carousel content wrapper |
-| `GalleryItem` | Single carousel slide with zoom |
-| `GalleryImage` | Zoomable image container |
-| `GalleryImageSource` | Image source with zoom |
-| `GalleryPrevious` / `GalleryNext` | Navigation buttons |
-| `GalleryViewer` | Fullscreen dialog root |
-| `GalleryViewerTrigger` | Opens the dialog |
-| `GalleryViewerContent` | Dialog content with sidebar layout |
-| `GalleryViewerGallery` | Main content area |
-| `GalleryViewerSidebar` | Sidebar panel for custom content |
-| `GalleryViewerSidebarTrigger` | Toggle sidebar visibility |
-| `GalleryViewerClose` | Close button |
-| `GalleryToolbar` | Toolbar container |
-| `GalleryZoomInControl` / `GalleryZoomOutControl` | Zoom buttons |

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { whenever } from "@vueuse/core";
-import { createContext, Primitive } from "reka-ui";
+import { createContext, Primitive, type PrimitiveProps } from "reka-ui";
 import { nextTick, onMounted, type Ref, ref, toRefs, useTemplateRef } from "vue";
 import type ImageZoomSource from "./ImageViewerSource.vue";
 
@@ -48,7 +48,7 @@ export type ImageViewerProviderProps = {
    * @defaultValue false
    */
   disabled?: boolean;
-};
+} & PrimitiveProps;
 
 export type ImageViewerProviderEmits = {
   (e: "zoom-in"): void;
@@ -145,7 +145,7 @@ whenever(() => scale.value === maxScale.value, () => zoomDirection.value = 'out'
 </script>
 
 <template>
-  <Primitive as-child>
+  <Primitive v-bind="$attrs" :as="as" :as-child="asChild">
     <slot :is-zooming="scale !== 1" :can-zoom-in="scale < maxScale" :can-zoom-out="scale > 1" />
   </Primitive>
 </template>

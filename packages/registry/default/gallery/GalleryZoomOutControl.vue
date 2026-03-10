@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ZoomInIcon } from "lucide-vue-next";
+import { ZoomOutIcon } from "lucide-vue-next";
 import type { PrimitiveProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { Button, type ButtonVariants } from "@/components/ui/button";
-import { injectCarouselViewerContext } from "./Gallery.vue";
+import { injectGalleryContext } from "./Gallery.vue";
 
 type Props = PrimitiveProps & {
   variant?: ButtonVariants["variant"];
@@ -16,11 +16,11 @@ const props = withDefaults(defineProps<Props>(), {
   size: "icon-sm",
 });
 
-const { zoomIn, zoomDisabled } = injectCarouselViewerContext();
+const { zoomOut, zoomDisabled } = injectGalleryContext();
 </script>
-  
+
 <template>
-  <Button v-bind="props" @click="zoomIn()" class="size-7" :disabled="zoomDisabled">
-    <ZoomInIcon />
+  <Button v-bind="props" @click="zoomOut()" class="size-7" :disabled="zoomDisabled">
+    <ZoomOutIcon />
   </Button>
 </template>

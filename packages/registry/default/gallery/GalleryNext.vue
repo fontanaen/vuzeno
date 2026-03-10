@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
 import { CarouselNext } from "@/components/ui/carousel";
-import { injectCarouselViewerContext } from "./Gallery.vue";
+import { injectGalleryContext } from "./Gallery.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { hideNavigation } = injectCarouselViewerContext();
+const { hideNavigation } = injectGalleryContext();
 </script>
 
 <template>

@@ -86,7 +86,6 @@
         { "path": "default/image-viewer/ImageViewerCarouselContent.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerZoomInControl.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerZoomOutControl.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerZoomReset.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerZoomSlider.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerZoomMap.vue", "type": "registry:component" },
         { "path": "default/image-viewer/utils.ts", "type": "registry:ui" },
@@ -112,8 +111,8 @@
         { "path": "default/gallery/GalleryViewerGallery.vue", "type": "registry:component" },
         { "path": "default/gallery/GalleryViewerSidebarTrigger.vue", "type": "registry:component" },
         { "path": "default/gallery/GalleryViewerToolbar.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerZoomInControl.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerZoomOutControl.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryZoomInControl.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryZoomOutControl.vue", "type": "registry:component" },
         { "path": "default/gallery/index.ts", "type": "registry:ui" }
       ]
     },

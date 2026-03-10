@@ -24,55 +24,46 @@ Install from the Vuzeno registry. Requires the Image component:
 
 <InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/image-viewer.json" />
 
-## Basic Usage
+## Examples
+
+### Basic
 
 Wrap your image with `ImageViewerProvider` and `ImageViewerContainer`, then use `ImageViewerSource`:
 
 ```vue
-<ImageViewerProvider :scale="1" :max-scale="6">
-  <ImageViewerContainer>
-    <ImageViewerSource src="..." alt="..." />
-    <ImageFallback>
-      <div class="p-2 text-center text-muted-foreground bg-muted">Loading...</div>
-    </ImageFallback>
-  </ImageViewerContainer>
-</ImageViewerProvider>
+<template>
+  <ImageViewerProvider :scale="1" :max-scale="6">
+    <ImageViewerContainer>
+      <ImageViewerSource src="..." alt="..." />
+      <ImageFallback>
+        <div class="p-2 text-center text-muted-foreground bg-muted">Loading...</div>
+      </ImageFallback>
+    </ImageViewerContainer>
+  </ImageViewerProvider>
+</template>
 ```
 
-## With Controls
+### With Controls
 
 <ComponentPreview name="image-viewer/ImageViewerControlsDemo" />
 
 Add zoom controls and minimap for full control:
 
 ```vue
-<ImageViewerProvider :scale="1" :max-scale="6">
-  <ImageViewerContainer>
-    <ImageViewerSource src="..." alt="..." />
-    <div class="absolute bottom-2 right-2 flex gap-2">
-      <ImageViewerZoomInControl />
-      <ImageViewerZoomOutControl />
-      <ImageViewerZoomReset />
-    </div>
-  </ImageViewerContainer>
-  <ImageViewerZoomSlider orientation="vertical" />
-  <ImageViewerZoomMap />
-</ImageViewerProvider>
+<template>
+  <ImageViewerProvider :scale="1" :max-scale="6">
+    <ImageViewerContainer>
+      <ImageViewerSource src="..." alt="..." />
+      <div class="absolute bottom-2 right-2 flex gap-2">
+        <ImageViewerZoomInControl />
+        <ImageViewerZoomOutControl />
+      </div>
+    </ImageViewerContainer>
+    <ImageViewerZoomSlider orientation="vertical" />
+    <ImageViewerZoomMap />
+  </ImageViewerProvider>
+</template>
 ```
-
-## Props
-
-### ImageViewerProvider
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `scale` | `number` | `1` | Current zoom scale (v-model) |
-| `maxScale` | `number` | `3` | Maximum zoom level |
-| `step` | `number` | `2` | Zoom step for in/out controls |
-| `followCursor` | `boolean` | `true` | Zoom centered on cursor position |
-| `zoomOnClick` | `boolean` | `true` | Click to zoom in/out on the image |
-| `resetOnClickOutside` | `boolean` | `false` | Reset zoom when clicking outside |
-| `disabled` | `boolean` | `false` | Disable zoom |
 
 ## Cursor Following
 

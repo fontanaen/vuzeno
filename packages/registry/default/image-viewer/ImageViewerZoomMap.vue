@@ -84,7 +84,7 @@ watchThrottled(
         <div
             v-if="scale > 1"
             ref="mapThumbRef"
-            class="absolute inset-1 bg-muted/25 border border-border rounded-sm shadow-sm" 
+            class="absolute inset-1 bg-primary/25 border border-primary rounded-sm shadow-sm" 
             :class="{'cursor-grabbing': isSwiping, 'cursor-grab': !isSwiping }"
             :style="{ width:`${mapThumbSize.width}px`, height:`${mapThumbSize.height}px`, transformOrigin: '0 0', transform: `translate3D(${mapThumbPositionOffset.x}px, ${mapThumbPositionOffset.y}px, ${mapThumbPositionOffset.z}px)` }"
         />

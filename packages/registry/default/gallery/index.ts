@@ -13,5 +13,5 @@ export { default as GalleryViewerContent } from "./GalleryViewerContent.vue";
 export { default as GalleryViewerGallery } from "./GalleryViewerGallery.vue";
 export { default as GalleryViewerSidebarTrigger } from "./GalleryViewerSidebarTrigger.vue";
 export { default as GalleryToolbar } from "./GalleryViewerToolbar.vue";
-export { default as GalleryZoomInControl } from "./GalleryViewerZoomInControl.vue";
-export { default as GalleryZoomOutControl } from "./GalleryViewerZoomOutControl.vue";
+export { default as GalleryZoomInControl } from "./GalleryZoomInControl.vue";
+export { default as GalleryZoomOutControl } from "./GalleryZoomOutControl.vue";

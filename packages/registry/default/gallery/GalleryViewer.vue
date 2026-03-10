@@ -1,8 +1,23 @@
 <script lang="ts">
 export type GalleryViewerProps = {
+  /**
+   * Whether the gallery viewer is open.
+   */
   open?: boolean;
+
+  /**
+   * Whether the gallery viewer is open by default.
+   */
   defaultOpen?: boolean;
+
+  /**
+   * Whether the sidebar is open.
+   */
   sidebarOpen?: boolean;
+
+  /**
+   * Whether the sidebar is open by default.
+   */
   defaultSidebarOpen?: boolean;
 };
 
@@ -26,7 +41,6 @@ const props = withDefaults(defineProps<GalleryViewerProps>(), {
 const open = defineModel<boolean>("open", { default: false });
 const sidebarOpen = defineModel<boolean>("sidebarOpen", { default: undefined });
 
-console.log(sidebarOpen.value, props); 
 if (sidebarOpen.value === undefined) {
   sidebarOpen.value = props.defaultSidebarOpen ?? false;
 }

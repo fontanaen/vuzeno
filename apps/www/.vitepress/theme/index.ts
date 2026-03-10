@@ -3,6 +3,7 @@
 import type { Theme } from "vitepress";
 import Layout from "../layout/Layout.vue";
 import "./style.css";
+import Alert from "../components/Alert.vue";
 import ComponentPreview from "../components/ComponentPreview.vue";
 import CopyButton from "../components/CopyButton.vue";
 import CopyOrDownloadAsMarkdownButtons from "../components/CopyOrDownloadAsMarkdownButtons.vue";
@@ -21,6 +22,8 @@ export default {
     app.component("ExportsTable", ExportsTable);
     app.component("InstallationTabs", InstallationTabs);
     app.component("ComponentPreview", ComponentPreview);
+
+    app.component("Alert", Alert);
 
     app.component("CopyOrDownloadAsMarkdownButtons", CopyOrDownloadAsMarkdownButtons);
   },
