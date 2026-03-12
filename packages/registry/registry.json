@@ -5,7 +5,7 @@
   "items": [
     {
       "name": "autocomplete",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Autocomplete",
       "description": "A flexible autocomplete component with async support.",
       "dependencies": ["reka-ui", "@vueuse/core"],
@@ -25,7 +25,7 @@
     },
     {
       "name": "filters",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Filters",
       "description": "A powerful filtering system with multiple input types.",
       "dependencies": ["reka-ui", "@internationalized/date", "@vueuse/core"],
@@ -58,7 +58,7 @@
     },
     {
       "name": "image",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Image",
       "description": "A composable image component with loading states and fallback support.",
       "dependencies": ["reka-ui", "@vueuse/core"],
@@ -73,11 +73,11 @@
     },
     {
       "name": "image-viewer",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Image Viewer",
       "description": "Zoom and pan capabilities for images with touch support.",
       "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["image", "button"],
+      "registryDependencies": ["https://vuzeno.com/r/image.json", "button"],
       "files": [
         { "path": "default/image-viewer/ImageViewerProvider.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerContainer.vue", "type": "registry:component" },
@@ -94,11 +94,11 @@
     },
     {
       "name": "gallery",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Gallery",
       "description": "A carousel with zoomable images and fullscreen dialog with sidebar.",
       "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["image-viewer", "carousel", "dialog", "sidebar", "button"],
+      "registryDependencies": ["https://vuzeno.com/r/image-viewer.json", "carousel", "dialog", "sidebar", "button"],
       "files": [
         { "path": "default/gallery/Gallery.vue", "type": "registry:component" },
         { "path": "default/gallery/GalleryContent.vue", "type": "registry:component" },
@@ -118,7 +118,7 @@
     },
     {
       "name": "phone-field",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Phone Field",
       "description": "An international phone number input with country selection.",
       "dependencies": ["libphonenumber-js", "reka-ui", "@vueuse/core"],
