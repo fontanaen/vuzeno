@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ZoomOutIcon } from "lucide-vue-next";
+import { ZoomInIcon } from "lucide-vue-next";
 import type { PrimitiveProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { Button, type ButtonVariants } from "@/components/ui/button";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
+import { injectGalleryContext } from "./Gallery.vue";
 
 type Props = PrimitiveProps & {
   variant?: ButtonVariants["variant"];
@@ -12,15 +12,15 @@ type Props = PrimitiveProps & {
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: "secondary",
-  size: "icon",
+  variant: "ghost",
+  size: "icon-sm",
 });
 
-const { onZoomOut } = injectImageZoomProviderContext();
+const { zoomIn, zoomDisabled } = injectGalleryContext();
 </script>
-
+  
 <template>
-  <Button v-bind="props" @click="onZoomOut()">
-    <ZoomOutIcon />
+  <Button v-bind="props" @click="zoomIn()" class="size-7" :disabled="zoomDisabled">
+    <ZoomInIcon />
   </Button>
 </template>

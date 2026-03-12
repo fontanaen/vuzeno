@@ -5,7 +5,7 @@
   "items": [
     {
       "name": "autocomplete",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Autocomplete",
       "description": "A flexible autocomplete component with async support.",
       "dependencies": ["reka-ui", "@vueuse/core"],
@@ -25,7 +25,7 @@
     },
     {
       "name": "filters",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Filters",
       "description": "A powerful filtering system with multiple input types.",
       "dependencies": ["reka-ui", "@internationalized/date", "@vueuse/core"],
@@ -58,31 +58,67 @@
     },
     {
       "name": "image",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Image",
-      "description": "An image component with zoom and pan capabilities.",
+      "description": "A composable image component with loading states and fallback support.",
       "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["button"],
       "files": [
         { "path": "default/image/Image.vue", "type": "registry:component" },
         { "path": "default/image/ImageFallback.vue", "type": "registry:component" },
         { "path": "default/image/ImageLoading.vue", "type": "registry:component" },
         { "path": "default/image/ImageError.vue", "type": "registry:component" },
         { "path": "default/image/ImageSource.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomContainer.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomInControl.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomMap.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomOutControl.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomProvider.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomReset.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomSlider.vue", "type": "registry:component" },
-        { "path": "default/image/ImageZoomSource.vue", "type": "registry:component" },
         { "path": "default/image/index.ts", "type": "registry:ui" }
       ]
     },
     {
+      "name": "image-viewer",
+      "type": "registry:component",
+      "title": "Image Viewer",
+      "description": "Zoom and pan capabilities for images with touch support.",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["https://vuzeno.com/r/image.json", "button"],
+      "files": [
+        { "path": "default/image-viewer/ImageViewerProvider.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerContainer.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerSource.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerCarousel.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerCarouselContent.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerZoomInControl.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerZoomOutControl.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerZoomSlider.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/ImageViewerZoomMap.vue", "type": "registry:component" },
+        { "path": "default/image-viewer/utils.ts", "type": "registry:ui" },
+        { "path": "default/image-viewer/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "gallery",
+      "type": "registry:component",
+      "title": "Gallery",
+      "description": "A carousel with zoomable images and fullscreen dialog with sidebar.",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["https://vuzeno.com/r/image-viewer.json", "carousel", "dialog", "sidebar", "button"],
+      "files": [
+        { "path": "default/gallery/Gallery.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryContent.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryItem.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryNext.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryPrevious.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryViewer.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryViewerClose.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryViewerContent.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryViewerGallery.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryViewerSidebarTrigger.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryViewerToolbar.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryZoomInControl.vue", "type": "registry:component" },
+        { "path": "default/gallery/GalleryZoomOutControl.vue", "type": "registry:component" },
+        { "path": "default/gallery/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
       "name": "phone-field",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Phone Field",
       "description": "An international phone number input with country selection.",
       "dependencies": ["libphonenumber-js", "reka-ui", "@vueuse/core"],

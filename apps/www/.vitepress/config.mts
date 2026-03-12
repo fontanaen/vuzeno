@@ -75,6 +75,7 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/docs/introduction" },
           { text: "Getting Started", link: "/docs/getting-started" },
+          { text: "Llms.txt", link: "/llms.txt" },
         ],
       },
       {
@@ -83,6 +84,8 @@ export default defineConfig({
           { text: "Autocomplete", tag: "new", link: "/docs/components/autocomplete" },
           { text: "Filters", tag: "new", link: "/docs/components/filters" },
           { text: "Image", tag: "new", link: "/docs/components/image" },
+          { text: "Image Viewer", tag: "new", link: "/docs/components/image-viewer" },
+          { text: "Gallery", tag: "new", link: "/docs/components/gallery" },
           { text: "Phone Field", tag: "new", link: "/docs/components/phone-field" },
         ],
       },

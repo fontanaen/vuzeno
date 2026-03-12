@@ -71,7 +71,7 @@ function touchToPoint(touch: Touch, containerRect: DOMRect): Point {
 export type TouchZoomProps = {
   scale: Ref<number>;
   maxScale: Ref<number>;
-  zoomContainerRef: Ref<HTMLElement | null | undefined>;
+  zoomContainerRef: MaybeRefOrGetter<HTMLElement | null | undefined>;
   zoomTranslate: Ref<Translate>;
   isTouching: Ref<boolean>;
   enabled?: MaybeRefOrGetter<boolean>;
@@ -79,15 +79,20 @@ export type TouchZoomProps = {
 
 export function useTouchZoom(props: TouchZoomProps) {
   const enabled = () => toValue(props.enabled) ?? true;
+  const scale = () => toValue(props.scale);
+  const zoomContainerRef = () => toValue(props.zoomContainerRef);
+
+  const lastTapTime = ref(0);
 
   const initialDistance = ref(0);
   const initialScale = ref(1);
   const initialTouch = ref<Point>({ x: 0, y: 0 });
+  const initialTouchesCount = ref(0);
   const initialTranslate = ref<Point>({ x: 0, y: 0 });
   const initialCenter = ref<Point>({ x: 0, y: 0 });
 
   function getContainer(): Size {
-    const el = props.zoomContainerRef.value;
+    const el = zoomContainerRef();
     return {
       width: el?.clientWidth ?? 0,
       height: el?.clientHeight ?? 0,
@@ -99,14 +104,20 @@ export function useTouchZoom(props: TouchZoomProps) {
       return;
     }
 
+    if (scale() === 1 && ev.touches.length === 1) {
+      return;
+    }
+
     ev.preventDefault();
     ev.stopPropagation();
 
     props.isTouching.value = true;
 
-    const rect = getContainerRect(props.zoomContainerRef.value);
+    const rect = getContainerRect(zoomContainerRef());
     const container = getContainer();
     if (!rect) return;
+
+    initialTouchesCount.value = ev.touches.length;
 
     if (ev.touches.length === 1) {
       initialTouch.value = clampPoint(touchToPoint(ev.touches[0]!, rect), container);
@@ -137,12 +148,16 @@ export function useTouchZoom(props: TouchZoomProps) {
       return;
     }
 
+    if (scale() === 1 && ev.touches.length === 1) {
+      return;
+    }
+
     ev.preventDefault();
     ev.stopPropagation();
 
-    const rect = getContainerRect(props.zoomContainerRef.value);
+    const rect = getContainerRect(zoomContainerRef());
     const container = getContainer();
-    if (!rect) {
+    if (!rect || initialTouchesCount.value !== ev.touches.length) {
       return;
     }
 
@@ -176,8 +191,16 @@ export function useTouchZoom(props: TouchZoomProps) {
   }
 
   function handleTouchEnd(ev: TouchEvent) {
-    ev.preventDefault();
-    ev.stopPropagation();
+    const now = Date.now();
+    const DOUBLE_TAP_DELAY = 250;
+
+    if (now - lastTapTime.value < DOUBLE_TAP_DELAY) {
+      onDoubleTap();
+    } else if (initialTouchesCount.value <= 1) {
+      lastTapTime.value = now;
+    }
+
+    initialTouchesCount.value = 0;
 
     if (ev.touches.length === 0) {
       props.isTouching.value = false;
@@ -187,7 +210,7 @@ export function useTouchZoom(props: TouchZoomProps) {
     }
 
     if (ev.touches.length === 1) {
-      const rect = getContainerRect(props.zoomContainerRef.value);
+      const rect = getContainerRect(zoomContainerRef());
       if (rect) {
         initialTouch.value = touchToPoint(ev.touches[0]!, rect);
         initialTranslate.value = {
@@ -195,6 +218,14 @@ export function useTouchZoom(props: TouchZoomProps) {
           y: props.zoomTranslate.value.y,
         };
       }
+    }
+  }
+
+  function onDoubleTap() {
+    if (scale() === 1) {
+      props.scale.value = props.maxScale.value;
+    } else {
+      props.scale.value = 1;
     }
   }
 

@@ -9,6 +9,8 @@ export default defineConfig({
   plugins: [VueRouter(), Vue(), tailwindcss()],
   resolve: {
     alias: {
+      "@/lib/utils": path.resolve(__dirname, "../../packages/ui/src/lib/utils.ts"),
+      "@/components/ui": path.resolve(__dirname, "../../packages/ui/src/components"),
       "@": path.resolve(__dirname, "./src"),
     },
   },

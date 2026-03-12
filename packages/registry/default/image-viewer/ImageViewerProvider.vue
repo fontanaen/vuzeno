@@ -1,12 +1,12 @@
 <script lang="ts">
 import { whenever } from "@vueuse/core";
-import { createContext, Primitive } from "reka-ui";
-import { onMounted, type Ref, ref, toRefs, useTemplateRef } from "vue";
-import type ImageZoomSource from "./ImageZoomSource.vue";
+import { createContext, Primitive, type PrimitiveProps } from "reka-ui";
+import { nextTick, onMounted, type Ref, ref, toRefs, useTemplateRef } from "vue";
+import type ImageZoomSource from "./ImageViewerSource.vue";
 
-export type ImageZoomDirection = "in" | "out";
+export type ImageViewerZoomDirection = "in" | "out";
 
-export type ImageZoomProviderProps = {
+export type ImageViewerProviderProps = {
   /**
    * The current scale of the zoom.
    * @defaultValue 1
@@ -48,23 +48,23 @@ export type ImageZoomProviderProps = {
    * @defaultValue false
    */
   disabled?: boolean;
-};
+} & PrimitiveProps;
 
-export type ImageZoomProviderEmits = {
+export type ImageViewerProviderEmits = {
   (e: "zoom-in"): void;
   (e: "zoom-out"): void;
   (e: "zoom-reset"): void;
   (e: "update:scale", scale: number): void;
 };
 
-export type ImageZoomProviderContext<P extends ImageZoomProviderProps> = {
+export type ImageViewerProviderContext<P extends ImageViewerProviderProps> = {
   scale: Ref<NonNullable<P["scale"]>>;
   maxScale: Ref<NonNullable<P["maxScale"]>>;
   step: Ref<NonNullable<P["step"]>>;
   disabled: Ref<NonNullable<P["disabled"]>>;
   followCursor: Ref<NonNullable<P["followCursor"]>>;
   zoomOnClick: Ref<NonNullable<P["zoomOnClick"]>>;
-  zoomDirection: Ref<ImageZoomDirection>;
+  zoomDirection: Ref<ImageViewerZoomDirection>;
   zoomContainerRef: Ref<HTMLElement | null | undefined>;
   zoomTranslate: Ref<{ x: number; y: number; z: number }>;
   isTouching: Ref<boolean>;
@@ -77,38 +77,38 @@ export type ImageZoomProviderContext<P extends ImageZoomProviderProps> = {
   onZoomReset: () => void;
 };
 
-export const [injectImageZoomProviderContext, provideImageZoomProviderContext] = createContext<ImageZoomProviderContext<ImageZoomProviderProps>>("ImageZoomProvider");
+export const [injectImageViewerProviderContext, provideImageViewerProviderContext] = createContext<ImageViewerProviderContext<ImageViewerProviderProps>>("ImageViewerProvider");
 </script>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<ImageZoomProviderProps>(), {
+const props = withDefaults(defineProps<ImageViewerProviderProps>(), {
   scale: 1,
   maxScale: 3,
   step: 2,
   disabled: false,
   followCursor: true,
   zoomOnClick: true,
-  resetOnClickOutside: false
+  resetOnClickOutside: false,
 })
 
 const scale = defineModel<number>('scale', {
   default: 1,
 })
 
-const { maxScale, step, disabled, zoomOnClick, resetOnClickOutside } = toRefs(props)
+const { maxScale, step, disabled, followCursor, zoomOnClick, resetOnClickOutside } = toRefs(props)
 
-const followCursor = ref(props.followCursor)
-const zoomDirection = ref<ImageZoomDirection>('in')
+const zoomDirection = ref<ImageViewerZoomDirection>('in')
 const zoomContainerRef = ref<HTMLElement | null | undefined>(null)
 const zoomImageSourceRef = ref<typeof ImageZoomSource | null | undefined>(null)
 const zoomTranslate = ref({ x: 0, y: 0, z: 0 })
+
 const isTouching = ref(false)
 
 function onUpdateScale(value: number) {
   return scale.value = Math.max(Math.min(value, maxScale.value), 1)
 }
 
-provideImageZoomProviderContext({
+provideImageViewerProviderContext({
   scale,
   maxScale,
   step,
@@ -145,7 +145,7 @@ whenever(() => scale.value === maxScale.value, () => zoomDirection.value = 'out'
 </script>
 
 <template>
-  <Primitive>
-    <slot />
+  <Primitive v-bind="$attrs" :as="as" :as-child="asChild">
+    <slot :is-zooming="scale !== 1" :can-zoom-in="scale < maxScale" :can-zoom-out="scale > 1" />
   </Primitive>
 </template>

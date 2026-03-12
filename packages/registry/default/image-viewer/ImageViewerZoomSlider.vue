@@ -2,7 +2,7 @@
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
 import { type HTMLAttributes, onMounted, ref, useTemplateRef } from "vue";
 import { cn } from "@/lib/utils";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
+import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -14,7 +14,7 @@ const props = withDefaults(
   },
 );
 
-const { scale, maxScale, onUpdateScale, followCursor } = injectImageZoomProviderContext();
+const { scale, maxScale, onUpdateScale, followCursor } = injectImageViewerProviderContext();
 
 const sliderRef = useTemplateRef<HTMLElement>("sliderRef");
 const thumbRef = useTemplateRef<HTMLElement>("thumbRef");

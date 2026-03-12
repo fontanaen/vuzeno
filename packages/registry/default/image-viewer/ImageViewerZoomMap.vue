@@ -2,13 +2,13 @@
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
 import { computed, type HTMLAttributes, ref, useTemplateRef } from "vue";
 import { cn } from "@/lib/utils";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
+import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { scale, zoomContainerRef, zoomTranslate, zoomImageSourceRef } = injectImageZoomProviderContext();
+const { scale, zoomContainerRef, zoomTranslate, zoomImageSourceRef } = injectImageViewerProviderContext();
 
 const mapThumbPositionOffset = ref({ x: 0, y: 0, z: 0 });
 
@@ -84,7 +84,7 @@ watchThrottled(
         <div
             v-if="scale > 1"
             ref="mapThumbRef"
-            class="absolute inset-1 bg-muted/25 border border-border rounded-sm shadow-sm" 
+            class="absolute inset-1 bg-primary/25 border border-primary rounded-sm shadow-sm" 
             :class="{'cursor-grabbing': isSwiping, 'cursor-grab': !isSwiping }"
             :style="{ width:`${mapThumbSize.width}px`, height:`${mapThumbSize.height}px`, transformOrigin: '0 0', transform: `translate3D(${mapThumbPositionOffset.x}px, ${mapThumbPositionOffset.y}px, ${mapThumbPositionOffset.z}px)` }"
         />

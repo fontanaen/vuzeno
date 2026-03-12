@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ScanIcon } from "lucide-vue-next";
+import { ZoomOutIcon } from "lucide-vue-next";
 import type { PrimitiveProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { Button, type ButtonVariants } from "@/components/ui/button";
-import { injectImageZoomProviderContext } from "./ImageZoomProvider.vue";
+import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 
 type Props = PrimitiveProps & {
   variant?: ButtonVariants["variant"];
@@ -16,11 +16,11 @@ const props = withDefaults(defineProps<Props>(), {
   size: "icon",
 });
 
-const { onZoomReset } = injectImageZoomProviderContext();
+const { onZoomOut, disabled } = injectImageViewerProviderContext();
 </script>
 
 <template>
-  <Button v-bind="props" @click="onZoomReset()">
-    <ScanIcon />
+  <Button v-bind="props" @click="onZoomOut()" :disabled="disabled">
+    <ZoomOutIcon />
   </Button>
 </template>
