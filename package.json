@@ -2,6 +2,11 @@
   "name": "vuzeno",
   "type": "module",
   "scripts": {
+    "lint": "biome check ./apps/www ./packages/registry",
+    "lint:fix": "biome check --write ./apps/www ./packages/registry",
+    "lint:ci": "biome ci ./apps/www ./packages/registry",
+    "lint:check": "biome check ./apps/www ./packages/registry",
+    "lint:format": "biome format --write ./apps/www ./packages/registry",
     "playground:dev": "bun run --filter=@vuzeno/playground dev",
     "docs:dev": "bun run --filter=@vuzeno/www dev",
     "docs:preview": "bun run --filter=@vuzeno/www preview",
@@ -28,7 +33,7 @@
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.11",
+    "@biomejs/biome": "^2.4.6",
     "@types/bun": "latest"
   },
   "peerDependencies": {

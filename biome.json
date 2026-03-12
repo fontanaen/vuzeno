@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.6/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -19,7 +19,7 @@
   "linter": {
     "enabled": true,
     "domains": {
-      "vue": "recommended"
+      "vue": "all"
     },
     "rules": {
       "recommended": true,

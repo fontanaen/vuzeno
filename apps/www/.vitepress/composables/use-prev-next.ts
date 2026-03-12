@@ -46,7 +46,7 @@ export function usePrevNext() {
   });
 }
 
-function uniqBy<T>(array: T[], keyFn: (item: T) => any): T[] {
+function uniqBy<T>(array: T[], keyFn: (item: T) => string): T[] {
   const seen = new Set();
   return array.filter((item) => {
     const k = keyFn(item);

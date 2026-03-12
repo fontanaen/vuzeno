@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watchImmediate } from "@vueuse/core";
-import { type CountryCode } from "libphonenumber-js";
+import type { CountryCode } from "libphonenumber-js";
 import { type HTMLAttributes, ref } from "vue";
 import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import { cn } from "@/lib/utils";
@@ -25,7 +25,7 @@ const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { rawValue, countryCode, format, size, disabled } = injectPhoneFieldContext()!;
+const { rawValue, countryCode, format, size, disabled: phoneFieldDisabled } = injectPhoneFieldContext()!;
 
 const formattedPhone = ref("");
 
@@ -110,7 +110,7 @@ watchImmediate(rawValue, (newVal) => {
       inputmode="tel"
       :model-value="formattedPhone"
       :placeholder="placeholder"
-      :disabled="props.disabled || disabled"
+      :disabled="props.disabled || phoneFieldDisabled"
       :class="props.class"
       @input="onInput($event)"
       @keydown="onKeyDown($event)"
