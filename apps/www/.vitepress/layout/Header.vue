@@ -15,7 +15,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
 </script>
 
 <template>
-  <header class="py-2 md:py-4 px-4 md:px-14 w-full sticky top-0 z-20 bg-background/25 backdrop-blur-xl">
+  <header class="py-2 md:py-4 px-4 md:px-14 w-full sticky top-0 z-30 bg-background/25 backdrop-blur-xl">
     <div class="max-w-[1440px] mx-auto flex items-center justify-between">
       <div class="hidden md:flex items-center gap-6">
         <a href="/" class="flex items-center gap-2">

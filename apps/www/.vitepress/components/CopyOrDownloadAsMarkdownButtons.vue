@@ -5,6 +5,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-vue-next";
 import { onMounted, ref } from "vue";
 import { ClaudeIcon, MarkdownIcon, OpenAiIcon } from "vue3-simple-icons";
+import DocNavigationButtons from "./DocNavigationButtons.vue";
 
 const aiProviders = [
   { name: "ChatGPT", icon: OpenAiIcon, url: "https://chatgpt.com/?hints=search&prompt=" },
@@ -75,32 +76,39 @@ onMounted(() => {
 </script>
 
 <template>
-  <ButtonGroup class="md:absolute top-0 right-0">
-    <Button variant="secondary" size="sm" class="text-xs [&>svg]:size-3 h-8" @click="copyAsMarkdown">
-      <CopyIcon v-if="!copied" class="ml-auto" />
-      <CheckIcon v-else class="ml-auto" />
-      Copy page
-    </Button>
+  <div :class="[
+    'w-screen z-20 fixed p-4 bg-background left-0 bottom-0 flex items-center justify-between gap-2',
+    'md:w-auto md:p-0 md:bg-transparent md:absolute md:bottom-auto md:top-0 md:right-0 md:justify-end'
+  ]">
+    <ButtonGroup>
+      <Button variant="secondary" size="sm" class="text-xs [&>svg]:size-3 h-7" @click="copyAsMarkdown">
+        <CopyIcon v-if="!copied" class="ml-auto" />
+        <CheckIcon v-else class="ml-auto" />
+        Copy page
+      </Button>
 
-    <ButtonGroupSeparator class="dark:bg-muted-foreground/30" />
-    
-    <DropdownMenu>
-      <DropdownMenuTrigger as-child>
-        <Button variant="secondary" size="icon-sm" class="size-8">
-          <ChevronDownIcon class="size-4" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem @click="viewAsMarkdown">
-          <MarkdownIcon class="size-4" />
-          View as Markdown
-        </DropdownMenuItem>
+      <ButtonGroupSeparator class="dark:bg-muted-foreground/30" />
+      
+      <DropdownMenu>
+        <DropdownMenuTrigger as-child>
+          <Button variant="secondary" size="icon-sm" class="size-7">
+            <ChevronDownIcon class="size-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem @click="viewAsMarkdown">
+            <MarkdownIcon class="size-4" />
+            View as Markdown
+          </DropdownMenuItem>
 
-        <DropdownMenuItem v-for="provider in aiProviders" :key="provider.name" @click="openInAI(provider)">
-          <component :is="provider.icon" class="size-4" />
-          Open in {{ provider.name }}
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  </ButtonGroup>
+          <DropdownMenuItem v-for="provider in aiProviders" :key="provider.name" @click="openInAI(provider)">
+            <component :is="provider.icon" class="size-4" />
+            Open in {{ provider.name }}
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </ButtonGroup>
+
+    <DocNavigationButtons />
+  </div>
 </template>

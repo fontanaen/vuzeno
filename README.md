@@ -1,15 +1,7 @@
-# vuzeno
+# Vuzeno
 
-To install dependencies:
+![Vuzeno](apps/www/src/public/social/og.png)
 
-```bash
-bun install
-```
+A component registry for Vue that extends [shadcn-vue](https://www.shadcn-vue.com/).
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.3.4. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+**[Documentation →](https://vuzeno.com)**

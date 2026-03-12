@@ -18,17 +18,29 @@ Before installing Vuzeno components, make sure you have:
 
 If you haven't set up shadcn-vue yet, follow their [installation guide](https://www.shadcn-vue.com/docs/installation) first.
 
+## Registry setup
+
+Add Vuzeno to your `components.json` registries so you can install components with the `@vuzeno/` shorthand:
+
+```json
+{
+  "registries": {
+    "@vuzeno": "https://vuzeno.com/{style}/{name}.json"
+  }
+}
+```
+
 ## Installation
 
-Vuzeno is a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). Install components with the shadcn-vue CLI by passing the registry URL for the component you want.
+Vuzeno is a [shadcn-vue registry](https://www.shadcn-vue.com/docs/registry). Install components with the shadcn-vue CLI.
 
 **Requirements:** Your project must already be set up with shadcn-vue (run `bunx shadcn-vue@latest init` if needed) and have a `components.json` file.
 
 Add a Vuzeno component:
 
-<InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/[component].json" />
+<InstallationTabs exec value="shadcn-vue@latest add @vuzeno/[component]" />
 
-Replace `[component]` with the component name: `autocomplete`, `filters`, `image`, or `phone-field`.
+Replace `[component]` with the component name: `autocomplete`, `filters`, `image`, `image-viewer`, `gallery`, or `phone-field`. Without registry setup, you can also install by URL: `shadcn-vue add https://vuzeno.com/r/[component].json`
 
 The CLI will install the component and its registry dependencies (e.g. shadcn-vue Combobox, Input Group) into your project. Some components list extra npm dependencies on their docs (e.g. `libphonenumber-js` for Phone Field)—install those if prompted or as shown on the component page.
 

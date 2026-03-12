@@ -49,7 +49,7 @@ ${source}
 }
 
 /** Transforms raw markdown by replacing ComponentPreview tags with expanded content. */
-export function preprocessComponentPreview2(markdown: string): string {
+export function preprocessComponentPreview(markdown: string): string {
   let result = markdown;
 
   function replaceTag(_match: string, name: string): string {

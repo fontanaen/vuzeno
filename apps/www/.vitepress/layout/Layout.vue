@@ -49,7 +49,7 @@ const sidebar = computed(() => theme.value.sidebar as DefaultTheme.SidebarItem[]
             </CollapsibleContent>
           </Collapsible>
 
-          <article class="w-full prose prose-stone dark:prose-invert max-w-none">
+          <article class="w-full prose prose-stone dark:prose-invert max-w-none pb-20">
             <Content />
           </article>
         </div>
