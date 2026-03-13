@@ -28,5 +28,5 @@ whenever(isLoading, () => {
 </script>
 
 <template>
-    <img v-if="state === 'success'" :src="src" :alt="alt" :class="props.class" />
+  <img v-if="state === 'success'" :src="src" :alt="alt" :class="props.class" />
 </template>

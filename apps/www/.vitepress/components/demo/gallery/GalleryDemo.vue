@@ -23,7 +23,7 @@ const images = ["https://picsum.photos/id/229/600/400", "https://picsum.photos/i
           v-for="(src, index) in images" 
           :key="index" 
           class="size-2 rounded-full" 
-          :class="selectedIndex === index + 1 ? 'bg-primary' : 'bg-primary/30'" 
+          :class="selectedIndex === index ? 'bg-primary' : 'bg-primary/30'" 
         />
       </div>
       <GalleryNext class="relative translate-0 size-6" variant="secondary" />

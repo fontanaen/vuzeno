@@ -23,23 +23,19 @@ import { SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from "@vu
 import { ref } from "vue";
 
 const scale = ref(1);
-const initialIndex = ref(0);
+const open = ref(false);
 
-const images = [
-  "https://cdn.shopify.com/s/files/1/0745/1295/7658/files/IMG-18273962_m_jpeg_1.jpg?v=1760537131",
-  "https://www.ghacks.net/wp-content/uploads/2025/10/M5-MacBook-Pro-keyboard.jpg",
-  "https://istyle.mk/cdn/shop/files/IMG-18277044_m_jpeg_1.jpg?v=1760537022&width=823",
-  "https://www.papita.co/om/wp-content/uploads/sites/22/2025/10/MACBOOKPROM5-3.jpg",
-  "https://istyle.mk/cdn/shop/files/IMG-18277042_m_jpeg_1.jpg?v=1760537023&width=823",
-  "https://cdn.pdx.stibosystems.com/submitted/assets/23a2f7d5-e63d-3d61-95ee-745b7c0c8dd0/IMG-18277141/IMG-18277141_m_jpeg_1.jpeg?v=1760536763133",
-];
+const images = Array.from({ length: 9 }, (_, index) => `https://picsum.photos/id/${index}/2000/2400`);
 </script>
 
 <template>
-  <GalleryViewer default-sidebar-open>
-    <div class="grid grid-cols-3 gap-2 w-full">
-      <GalleryViewerTrigger v-for="(src, index) in images" :key="index" class="w-full bg-muted rounded-lg overflow-hidden cursor-pointer" @click="initialIndex = index">
-        <Image class="size-full">
+  <GalleryViewer 
+    v-model:open="open" 
+    default-sidebar-open
+  >
+    <div class="grid grid-cols-3 gap-2">
+      <GalleryViewerTrigger v-for="(src, index) in images" :key="index" :value="index" class="w-40 bg-muted rounded-lg overflow-hidden cursor-pointer" as-child>
+        <Image>
           <ImageSource :src="src" alt="Gallery image" class="w-full aspect-square object-cover hover:scale-110 transition-transform duration-300 animate-in fade-in" />
           <ImageLoading as-child>
             <div class="w-full aspect-square bg-muted animate-in fade-in" />
@@ -49,20 +45,17 @@ const images = [
     </div>
 
     <GalleryViewerContent :style="{ '--sidebar-width': '20rem', '--sidebar-width-mobile': '20rem' }">
-      <GalleryViewerGallery>
-        <Gallery
-          v-model:zoom-scale="scale"
-          :zoom-follow-cursor="true"
-          :zoom-max-scale="2"
-          :initial-index="initialIndex"
-          zoom-on-click
-          class="flex flex-col gap-6 h-full"
-          v-slot="{ selectedIndex, isZoomed }"
-        >
+      <GalleryViewerGallery
+        v-model:zoom-scale="scale"
+        :zoom-follow-cursor="true"
+        :zoom-max-scale="2"
+        zoom-on-click
+        v-slot="{ selectedIndex, isZoomed }"
+      >
           <GalleryContent class="h-full items-center overflow-visible">
-            <GalleryItem v-for="(src, index) in images" :key="index" :item-index="index + 1" class="flex justify-center overflow-visible pointer-events-auto">
+            <GalleryItem v-for="(src, index) in images" :key="index" :item-index="index" class="flex justify-center overflow-visible pointer-events-auto">
               <GalleryImage class="basis-full md:basis-1/2 overflow-visible">
-                <GalleryImageSource :src="src" alt="Gallery image" class="w-full h-full object-cover" />
+                <GalleryImageSource :style="{ viewTransitionName: open && selectedIndex === index ? 'gallery-viewer-item' : 'none' }" :src="src" alt="Gallery image" class="w-full h-full object-cover" />
               </GalleryImage>
             </GalleryItem>
           </GalleryContent>
@@ -85,7 +78,6 @@ const images = [
 
           <GalleryPrevious v-if="!isZoomed" class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2" />
           <GalleryNext v-if="!isZoomed" class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2" />
-        </Gallery>
       </GalleryViewerGallery>
 
       <GalleryViewerSidebar side="right">

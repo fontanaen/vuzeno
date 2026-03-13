@@ -24,7 +24,9 @@ export type GalleryViewerProps = {
 export type GalleryViewerContext<P extends GalleryViewerProps> = {
   open: Ref<NonNullable<P["open"]>>;
   sidebarOpen: Ref<NonNullable<P["sidebarOpen"]>>;
-  toggleSidebar: () => void;
+  selectedIndex: Ref<number>;
+  toggleSidebar(): void;
+  setSelectedIndex(index: number): void;
 };
 
 export const [injectGalleryViewerContext, provideGalleryViewerContext] = createContext<GalleryViewerContext<GalleryViewerProps>>("GalleryViewer");
@@ -32,7 +34,7 @@ export const [injectGalleryViewerContext, provideGalleryViewerContext] = createC
 
 <script setup lang="ts">
 import { DialogRoot, createContext } from "reka-ui";
-import type { Ref } from "vue";
+import { ref, type Ref } from "vue";
 
 const props = withDefaults(defineProps<GalleryViewerProps>(), {
   defaultOpen: false,
@@ -41,6 +43,8 @@ const props = withDefaults(defineProps<GalleryViewerProps>(), {
 const open = defineModel<boolean>("open", { default: false });
 const sidebarOpen = defineModel<boolean>("sidebarOpen", { default: undefined });
 
+const selectedIndex = ref<number>(0);
+
 if (sidebarOpen.value === undefined) {
   sidebarOpen.value = props.defaultSidebarOpen ?? false;
 }
@@ -48,6 +52,10 @@ if (sidebarOpen.value === undefined) {
 provideGalleryViewerContext({
   open,
   sidebarOpen: sidebarOpen as Ref<boolean>,
+  selectedIndex,
+  setSelectedIndex(index: number) {
+    selectedIndex.value = index;
+  },
   toggleSidebar() {
     sidebarOpen.value = !sidebarOpen.value;
   },

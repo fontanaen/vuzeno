@@ -1,4 +1,3 @@
-export { DialogTrigger as GalleryViewerTrigger } from "reka-ui";
 export { Sidebar as GalleryViewerSidebar } from "@/components/ui/sidebar";
 export { default as GalleryImage } from "../image-viewer/ImageViewerContainer.vue";
 export { default as GalleryImageSource } from "../image-viewer/ImageViewerSource.vue";
@@ -13,5 +12,6 @@ export { default as GalleryViewerContent } from "./GalleryViewerContent.vue";
 export { default as GalleryViewerGallery } from "./GalleryViewerGallery.vue";
 export { default as GalleryViewerSidebarTrigger } from "./GalleryViewerSidebarTrigger.vue";
 export { default as GalleryToolbar } from "./GalleryViewerToolbar.vue";
+export { default as GalleryViewerTrigger } from "./GalleryViewerTrigger.vue";
 export { default as GalleryZoomInControl } from "./GalleryZoomInControl.vue";
 export { default as GalleryZoomOutControl } from "./GalleryZoomOutControl.vue";

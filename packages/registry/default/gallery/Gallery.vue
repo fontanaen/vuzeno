@@ -53,16 +53,18 @@ export type GalleryProps = {
   orientation?: "horizontal" | "vertical";
 };
 
+export type GalleryEmits = (e: "update:selectedIndex", index: number) => void;
+
 export type GalleryContext<P extends GalleryProps> = {
   selectedIndex: Ref<number>;
   totalItems: Ref<number>;
   canScrollNext: Ref<boolean>;
   canScrollPrev: Ref<boolean>;
-  scrollNext: () => void;
-  scrollPrev: () => void;
-  zoomIn: () => void;
-  zoomOut: () => void;
-  zoomReset: () => void;
+  scrollNext(): void;
+  scrollPrev(): void;
+  zoomIn(): void;
+  zoomOut(): void;
+  zoomReset(): void;
   orientation: Ref<NonNullable<P["orientation"]>>;
   hideNavigation: Ref<boolean>;
   zoomScale: Ref<NonNullable<P["zoomScale"]>>;
@@ -95,6 +97,8 @@ const props = withDefaults(defineProps<GalleryProps>(), {
   hideNavigationOnZoom: true,
   orientation: "horizontal",
 });
+
+const emits = defineEmits<GalleryEmits>();
 
 const zoomScale = defineModel<number>('zoomScale', { default: 1 });
 
@@ -148,17 +152,19 @@ watchOnce(api, (api) => {
     return;
   }
 
-  selectedIndex.value = api.selectedScrollSnap() + 1;
+  selectedIndex.value = api.selectedScrollSnap();
+
   totalItems.value = api.scrollSnapList().length
   canScrollNext.value = api.canScrollNext();
   canScrollPrev.value = api.canScrollPrev();
 
   api.on("select", () => {
     onUpdateZoomScale(1);
-    selectedIndex.value = api.selectedScrollSnap() + 1;
+    selectedIndex.value = api.selectedScrollSnap();
     totalItems.value = api.scrollSnapList().length
     canScrollNext.value = api.canScrollNext();
     canScrollPrev.value = api.canScrollPrev();
+    emits("update:selectedIndex", selectedIndex.value);
   });
 });
 </script>

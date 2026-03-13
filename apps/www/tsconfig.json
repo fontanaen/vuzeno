@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     // Environment setup & latest features
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "target": "ESNext",
-    "module": "Preserve",
+    "module": "esnext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,
@@ -32,6 +32,7 @@
     }
   },
   "include": ["src/**/*.vue", "src/**/*.ts", "src/**/*.md"],
+  "exclude": ["node_modules", "dist"],
   "vueCompilerOptions": {
     "vitePressExtensions": [".md"]
   }

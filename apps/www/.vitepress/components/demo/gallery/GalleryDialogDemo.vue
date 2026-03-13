@@ -38,7 +38,7 @@ const images = [
         v-slot="{ selectedIndex, isZoomed }"
       >
         <GalleryContent class="h-full items-center">
-          <GalleryItem v-for="(src, index) in images" :key="index" :item-index="index + 1" class="flex justify-center pointer-events-auto">
+          <GalleryItem v-for="(src, index) in images" :key="index" :item-index="index" class="flex justify-center pointer-events-auto">
             <GalleryImage class="basis-full md:basis-1/2">
               <GalleryImageSource :src="src" alt="Gallery image" class="w-full h-full object-cover" />
             </GalleryImage>

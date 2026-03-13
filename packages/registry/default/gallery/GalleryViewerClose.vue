@@ -10,10 +10,17 @@ const props = defineProps<{
 }>();
 
 const { open } = injectGalleryViewerContext();
+
+function handleClick() {
+  document.startViewTransition(async () => {
+    open.value = false;
+    await new Promise((resolve) => setTimeout(resolve, 0));
+  });
+}
 </script>
 
 <template>
-  <Button variant="ghost" size="icon-sm" :class="cn('size-7', props.class)" @click="open = false">
+  <Button variant="ghost" size="icon-sm" :class="cn('size-7', props.class)" @click="handleClick">
     <slot>
       <XIcon />
     </slot>
