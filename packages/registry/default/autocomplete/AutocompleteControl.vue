@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { InputGroup } from "@vuzeno/ui/components/input-group";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { ComboboxAnchor } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { InputGroup } from "@/components/ui/input-group";
-import { cn } from "@/lib/utils";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];

@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { ComboboxTrigger } from "@vuzeno/ui/components/combobox";
+import { cn } from "@vuzeno/ui/lib/utils";
 import type { ComboboxTriggerProps } from "reka-ui";
 import { useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { ComboboxTrigger } from "@/components/ui/combobox";
-import { cn } from "@/lib/utils";
 
 const props = defineProps<ComboboxTriggerProps & { class?: HTMLAttributes["class"] }>();
 

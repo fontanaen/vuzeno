@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncrement, NumberFieldInput } from "@/components/ui/number-field";
+import { NumberField, NumberFieldContent, NumberFieldDecrement, NumberFieldIncrement, NumberFieldInput } from "@vuzeno/ui/components/number-field";
 import type { FilterVariant } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 

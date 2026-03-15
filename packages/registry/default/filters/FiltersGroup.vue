@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { cn } from "@vuzeno/ui/lib/utils";
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/lib/utils";
 import { injectFilterContext } from "./FiltersProvider.vue";
 
 const props = defineProps<{

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Input } from "@vuzeno/ui/components/input";
 import { computed, h } from "vue";
-import { Input } from "@/components/ui/input";
 import FiltersItemDateInput from "./FiltersItemDateInput.vue";
 import FiltersItemDateRangeInput from "./FiltersItemDateRangeInput.vue";
 import FiltersItemMultiSelect from "./FiltersItemMultiSelect.vue";

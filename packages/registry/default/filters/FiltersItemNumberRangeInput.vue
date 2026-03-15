@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Button } from "@vuzeno/ui/components/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
+import { Slider } from "@vuzeno/ui/components/slider";
 import { MoveHorizontalIcon } from "lucide-vue-next";
 import { computed } from "vue";
-import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Slider } from "@/components/ui/slider";
 import type { FilterVariant } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 

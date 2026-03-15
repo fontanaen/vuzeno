@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { Badge } from "@vuzeno/ui/components/badge";
+import { Button } from "@vuzeno/ui/components/button";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vuzeno/ui/components/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
 import { CheckIcon } from "lucide-vue-next";
 import { computed, isVNode } from "vue";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import type { FilterVariant } from "./FiltersProvider.vue";
 import type { Field, FieldOption } from "./field";
 

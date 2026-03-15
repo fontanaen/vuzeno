@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SidebarInset } from "@/components/ui/sidebar";
+import { SidebarInset } from "@vuzeno/ui/components/sidebar";
 </script>
 
 <template>

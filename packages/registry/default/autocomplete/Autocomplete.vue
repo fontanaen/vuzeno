@@ -25,7 +25,7 @@ export { useAutocompleteContext, provideAutocompleteContext };
 </script>
 
 <script setup lang="ts">
-import { Combobox } from "@/components/ui/combobox";
+import { Combobox } from "@vuzeno/ui/components/combobox";
 import { createContext, type ComboboxRootProps, type ComboboxRootEmits, useForwardPropsEmits } from "reka-ui";
 import type { Ref } from "vue";
 

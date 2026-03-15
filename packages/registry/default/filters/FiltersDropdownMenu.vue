@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import { DropdownMenu } from "@vuzeno/ui/components/dropdown-menu";
 </script>
 
 <template>

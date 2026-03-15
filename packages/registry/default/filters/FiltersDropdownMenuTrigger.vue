@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Button } from "@vuzeno/ui/components/button";
+import { DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { ListFilterPlusIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
-import { Button } from "@/components/ui/button";
-import { DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
 import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
 
 const props = defineProps<{

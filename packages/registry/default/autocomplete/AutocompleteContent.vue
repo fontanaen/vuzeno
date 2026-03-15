@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { reactiveOmit } from "@vueuse/core";
+import { ComboboxList } from "@vuzeno/ui/components/combobox";
+import { cn } from "@vuzeno/ui/lib/utils";
 import type { ComboboxContentEmits, ComboboxContentProps } from "reka-ui";
 import { useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { ComboboxList } from "@/components/ui/combobox";
-import { cn } from "@/lib/utils";
 
 const props = withDefaults(
   defineProps<

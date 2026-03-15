@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
+import { Button } from "@vuzeno/ui/components/button";
+import { Switch } from "@vuzeno/ui/components/switch";
 import type { FilterVariant } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ComboboxGroup } from "@vuzeno/ui/components/combobox";
 import type { HTMLAttributes } from "vue";
-import { ComboboxGroup } from "@/components/ui/combobox";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];

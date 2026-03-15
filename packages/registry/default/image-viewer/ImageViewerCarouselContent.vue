@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { useCarousel } from "@vuzeno/ui/components/carousel";
+import { cn } from "@vuzeno/ui/lib/utils";
 import type { HTMLAttributes } from "vue";
-import { useCarousel } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];

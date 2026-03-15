@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ButtonGroupText } from "@/components/ui/button-group";
-import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
+import { ButtonGroupText } from "@vuzeno/ui/components/button-group";
+import { Label } from "@vuzeno/ui/components/label";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { type FilterSize, type FilterVariant, injectFilterContext } from "./FiltersProvider.vue";
 
 const { variant, size } = injectFilterContext();
