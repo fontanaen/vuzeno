@@ -37,10 +37,6 @@ export default defineNuxtConfig({
         highlight: false,
       },
     },
-    database: {
-      type: "d1",
-      bindingName: "DB",
-    },
     experimental: { nativeSqlite: true },
   },
 
