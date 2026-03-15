@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Vuzeno",
   url: "https://vuzeno.com",
-  ogImage: "https://vuzeno.com/og.png",
+  ogImage: "https://vuzeno.com/social/og.png",
   description: "A Shadcn Vue registry.",
   links: {
     github: "https://github.com/fontanaen/vuzeno",

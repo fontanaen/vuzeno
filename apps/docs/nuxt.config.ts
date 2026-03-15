@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "vercel",
+    preset: "static",
     prerender: {
       crawlLinks: true,
       routes: ["/"],
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
         highlight: false,
       },
     },
-    experimental: { nativeSqlite: true },
+    experimental: { sqliteConnector: "native" },
   },
 
   fonts: {
@@ -66,8 +66,22 @@ export default defineNuxtConfig({
         { rel: "manifest", href: `${siteConfig.url}/site.webmanifest` },
         { rel: "shortcut icon", href: "/favicon-16x16.png" },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        { rel: "icon", href: "/favicon.ico" },
       ],
-      meta: [{ name: "keywords", content: "Vue,Components,shadcn,registry" }],
+      meta: [
+        { name: "keywords", content: "Vue,Components,shadcn,registry" },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "Vuzeno" },
+        { property: "og:image", content: siteConfig.ogImage },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:site", content: "@fontanaen11" },
+        { name: "twitter:creator", content: "@fontanaen11" },
+        { name: "twitter:image", content: siteConfig.ogImage },
+        { property: "og:title", content: siteConfig.name },
+        { property: "og:description", content: siteConfig.description },
+        { name: "twitter:title", content: siteConfig.name },
+        { name: "twitter:description", content: siteConfig.description },
+      ],
     },
   },
 });
