@@ -1,2 +1,9 @@
-User-Agent: *
-Disallow:
+# robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://vuzeno.com/sitemap.xml
+
+# For AI crawlers
+User-agent: GPTBot
+Allow: /llms.txt

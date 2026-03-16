@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@nuxt/content", "@nuxtjs/color-mode", "nuxt-shiki", "@nuxt/fonts", "nuxt-llms"],
+  modules: ["@nuxt/content", "@nuxtjs/color-mode", "nuxt-shiki", "@nuxt/fonts", "nuxt-llms", "@nuxtjs/sitemap"],
 
   css: ["~/assets/main.css"],
 
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["vue3-simple-icons"],
+      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "reka-ui", "class-variance-authority", "@vueuse/core", "lucide-vue-next", "clsx", "tailwind-merge"],
     },
   },
 
@@ -61,6 +61,14 @@ export default defineNuxtConfig({
     domain: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
+  },
+
+  site: {
+    url: siteConfig.url,
+  },
+
+  sitemap: {
+    zeroRuntime: true,
   },
 
   app: {
