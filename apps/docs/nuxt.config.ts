@@ -15,7 +15,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "static",
+    preset: "bun",
+    output: {
+      dir: "../../dist",
+    },
     prerender: {
       crawlLinks: true,
       routes: ["/"],

@@ -2,5 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "bunVersion": "1.x",
   "buildCommand": "bun --bun run registry:build && bun --bun run docs:build",
-  "outputDirectory": "apps/docs/dist"
+  "outputDirectory": "dist"
 }
