@@ -58,6 +58,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.time-field': RouteRecordInfo<
+      'components.time-field',
+      '/components/time-field',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -98,6 +105,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/components/phone-field.vue': {
       routes:
         | 'components.phone-field'
+      views:
+        | never
+    }
+    'src/pages/components/time-field.vue': {
+      routes:
+        | 'components.time-field'
       views:
         | never
     }

@@ -53,6 +53,7 @@
         "@vuzeno/tailwind-config": "workspace:*",
         "@vuzeno/ui": "workspace:*",
         "lucide-vue-next": "^0.562.0",
+        "reka-ui": "catalog:",
         "tailwindcss": "catalog:",
         "tailwindcss-animate": "catalog:",
         "tw-animate-css": "catalog:",

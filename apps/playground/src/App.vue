@@ -26,6 +26,7 @@ const navItems = [
   { label: "Filters", to: { name: "components.filters" } },
   { label: "Image", to: { name: "components.image" } },
   { label: "Phone Field", to: { name: "components.phone-field" } },
+  { label: "Time Field", to: { name: "components.time-field" } },
 ];
 </script>
 
