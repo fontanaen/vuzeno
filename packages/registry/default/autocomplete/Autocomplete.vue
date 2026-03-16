@@ -21,7 +21,7 @@ function useAutocompleteContext() {
   return ctx;
 }
 
-export { useAutocompleteContext, provideAutocompleteContext };
+export { provideAutocompleteContext, useAutocompleteContext };
 </script>
 
 <script setup lang="ts">

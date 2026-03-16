@@ -4,7 +4,12 @@ description: A composable image component with loading state management and fall
 name: image
 ---
 
-<Alert variant="info" title="Disable network cache to see loading state" />
+::alert
+---
+title: Disable network cache to see loading state
+variant: info
+---
+::
 
 ::component-preview 
 ---

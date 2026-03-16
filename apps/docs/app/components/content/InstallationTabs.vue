@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vuzeno/ui/components/tabs";
 import { TerminalIcon } from "lucide-vue-next";
-import { ref } from "vue";
 
 const props = defineProps<{
   command: string;
@@ -24,7 +23,9 @@ const INSTALL_PREFIXES: Record<(typeof PACKAGE_MANAGERS)[number], string> = {
   pnpm: "pnpm add",
 };
 
-const packageManager = ref<(typeof PACKAGE_MANAGERS)[number]>("bun");
+const packageManager = useCookie<(typeof PACKAGE_MANAGERS)[number]>("packageManager", {
+  default: () => "bun",
+});
 
 const currentCommand = computed(() => {
   const prefix = props.exec ? EXEC_PREFIXES[packageManager.value] : INSTALL_PREFIXES[packageManager.value];
