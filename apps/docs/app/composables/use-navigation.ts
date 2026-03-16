@@ -69,7 +69,7 @@ export async function useNavigation() {
                     path: "/llms.txt",
                     stem: "llms.txt",
                     title: "Llms.txt",
-                    type: "page",
+                    type: "asset",
                   },
                 ],
               },

@@ -6,20 +6,25 @@ import { Label } from "@vuzeno/ui/components/label";
 import { SearchIcon } from "lucide-vue-next";
 import { useIsMac } from "~/composables/use-is-mac";
 
+const open = ref(false);
+
 const isMac = useIsMac();
 
 const { data } = await useAsyncData("navigation", async () => queryCollectionNavigation("content"));
 
 const navigation = computed(() => {
   return {
-    root: data.value?.find((i) => i.stem === "docs")!.children!,
+    root: data.value
+      ?.find((i) => i.stem === "docs")!
+      .children!.find((i) => i.stem === "docs")!
+      .children!.filter((i) => i.stem !== "llms.txt"),
     components: data.value?.find((i) => i.stem === "docs")!.children!.find((i) => i.stem === "docs/components")!.children!,
   };
 });
 </script>
 
 <template>
-  <Dialog>
+  <Dialog v-model:open="open">
     <DialogTrigger as-child>
       <div class="hidden md:flex items-center gap-2 border border-input rounded-md h-8 px-2">
         <div class="w-20 flex gap-2 items-center text-sm text-muted-foreground">
@@ -45,15 +50,19 @@ const navigation = computed(() => {
 
           <CommandGroup class="flex flex-col mt-2 mb-4">
             <Label class="text-xs font-medium mb-2 text-muted-foreground">Get Started</Label>
-            <CommandItem v-for="file in navigation?.root" :key="file.path" :value="file.path">
-              {{ file.title }}
+            <CommandItem v-for="file in navigation?.root" :key="file.path" :value="file.path" class="text-sm font-medium" @click="open = false">
+              <NuxtLink :to="file.path">
+                {{ file.title }}
+              </NuxtLink>
             </CommandItem>
           </CommandGroup>
 
           <CommandGroup class="flex flex-col">
             <Label class="text-xs font-medium mb-2 text-muted-foreground">Components</Label>
-            <CommandItem v-for="file in navigation?.components" :key="file.path" :value="file.path" class="text-sm font-medium">
-              {{ file.title }}
+            <CommandItem v-for="file in navigation?.components" :key="file.path" :value="file.path" class="text-sm font-medium" @click="open = false">
+              <NuxtLink :to="file.path">
+                {{ file.title }}
+              </NuxtLink>
             </CommandItem>
           </CommandGroup>
         </CommandList>
