@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { Button } from "@vuzeno/ui/components/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
 import { CheckIcon } from "lucide-vue-next";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { type FilterSize, type FilterVariant, injectFilterContext } from "./FiltersProvider.vue";
 import type { Operator } from "./operator";
 

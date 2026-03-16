@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { CarouselItem } from "@vuzeno/ui/components/carousel";
+import { cn } from "@vuzeno/ui/lib/utils";
 import type { HTMLAttributes } from "vue";
 import { computed } from "vue";
-import { CarouselItem } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
 import { ImageViewerProvider } from "../image-viewer";
 import { injectGalleryContext } from "./Gallery.vue";
 

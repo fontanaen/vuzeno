@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { watchOnce } from "@vueuse/core";
+import type { CarouselApi } from "@vuzeno/ui/components/carousel";
+import { Carousel } from "@vuzeno/ui/components/carousel";
 import { ref } from "vue";
-import type { CarouselApi } from "@/components/ui/carousel";
-import { Carousel } from "@/components/ui/carousel";
 
 const emits = defineEmits<(e: "select", index: number) => void>();
 

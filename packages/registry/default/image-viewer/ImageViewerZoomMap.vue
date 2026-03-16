@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useElementBounding, usePointerSwipe, useThrottleFn, watchThrottled } from "@vueuse/core";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { computed, type HTMLAttributes, ref, useTemplateRef } from "vue";
-import { cn } from "@/lib/utils";
 import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 
 const props = defineProps<{

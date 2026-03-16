@@ -65,7 +65,7 @@ export const [injectPhoneFieldContext, providePhoneFieldContext] = createContext
 </script>
 
 <script setup lang="ts">
-import { ButtonGroup } from "@/components/ui/button-group";
+import { ButtonGroup } from "@vuzeno/ui/components/button-group";
 
 const props = withDefaults(defineProps<PhoneFieldProps>(), {
     format: "international",

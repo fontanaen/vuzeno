@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { Button } from "@vuzeno/ui/components/button";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vuzeno/ui/components/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { type CountryCode, getCountries, getCountryCallingCode } from "libphonenumber-js";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
 import { computed } from "vue";
-import { Button } from "@/components/ui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 

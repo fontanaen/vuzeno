@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { SidebarProvider } from "@vuzeno/ui/components/sidebar";
 import { DialogContent, DialogOverlay, DialogPortal } from "reka-ui";
-import { SidebarProvider } from "@/components/ui/sidebar";
 import { injectGalleryViewerContext } from "./GalleryViewer.vue";
 
 const { sidebarOpen } = injectGalleryViewerContext();

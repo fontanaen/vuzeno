@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { Button } from "@vuzeno/ui/components/button";
+import { useSidebar } from "@vuzeno/ui/components/sidebar";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { PanelRightCloseIcon, PanelRightOpenIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
-import { Button } from "@/components/ui/button";
-import { useSidebar } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 import { injectGalleryViewerContext } from "./GalleryViewer.vue";
 
 const props = defineProps<{

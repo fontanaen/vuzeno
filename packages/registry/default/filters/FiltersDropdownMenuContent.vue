@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuLabel } from "@vuzeno/ui/components/dropdown-menu";
 import FiltersMenuItem from "./FiltersMenuItem.vue";
 import { injectFilterContext } from "./FiltersProvider.vue";
 import { isField, isFieldGroup } from "./field";

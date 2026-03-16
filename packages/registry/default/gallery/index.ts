@@ -1,5 +1,5 @@
+export { Sidebar as GalleryViewerSidebar } from "@vuzeno/ui/components/sidebar";
 export { DialogTrigger as GalleryViewerTrigger } from "reka-ui";
-export { Sidebar as GalleryViewerSidebar } from "@/components/ui/sidebar";
 export { default as GalleryImage } from "../image-viewer/ImageViewerContainer.vue";
 export { default as GalleryImageSource } from "../image-viewer/ImageViewerSource.vue";
 export { default as Gallery } from "./Gallery.vue";

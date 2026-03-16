@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { CalendarDate, type DateValue, getLocalTimeZone } from "@internationalized/date";
+import { Button } from "@vuzeno/ui/components/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
+import { RangeCalendar } from "@vuzeno/ui/components/range-calendar";
 import { CalendarIcon } from "lucide-vue-next";
 import type { DateRange } from "reka-ui";
-import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { RangeCalendar } from "@/components/ui/range-calendar";
 import type { FilterVariant } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 import { type FilterRangeValue, isFilterRangeValue } from "./filter";

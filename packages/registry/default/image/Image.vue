@@ -7,7 +7,7 @@ export const [injectImageContext, provideImageContext] = createContext<ImageCont
 </script>
 
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { createContext, Primitive, type PrimitiveProps } from "reka-ui"
 import { ref, type HTMLAttributes, type Ref } from "vue";
 

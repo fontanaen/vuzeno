@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { cn } from "@vuzeno/ui/lib/utils";
 import type { PrimitiveProps } from "reka-ui";
 import { type HTMLAttributes, onMounted, useTemplateRef } from "vue";
-import { cn } from "@/lib/utils";
 import Image from "../image/Image.vue";
 import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 import { useTouchZoom } from "./utils";

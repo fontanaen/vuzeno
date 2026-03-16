@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from "@vuzeno/ui/components/dropdown-menu";
 import { computed, isVNode } from "vue";
-import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from "@/components/ui/dropdown-menu";
 import { injectFilterContext } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 import type { FilterValue } from "./filter";

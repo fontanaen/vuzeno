@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CarouselNext } from "@vuzeno/ui/components/carousel";
 import type { HTMLAttributes } from "vue";
-import { CarouselNext } from "@/components/ui/carousel";
 import { injectGalleryContext } from "./Gallery.vue";
 
 const props = defineProps<{
