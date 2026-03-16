@@ -15,16 +15,16 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "bun",
+    preset: "vercel",
     output: {
       dir: "../../dist",
     },
-    prerender: {
-      crawlLinks: true,
-      routes: ["/"],
-      failOnError: false,
-      autoSubfolderIndex: false,
-    },
+    // prerender: {
+    //   crawlLinks: true,
+    //   routes: ["/"],
+    //   failOnError: false,
+    //   autoSubfolderIndex: false,
+    // },
   },
 
   vite: {
