@@ -18,9 +18,9 @@ import { Separator } from "@vuzeno/ui/components/separator";
       </div>
 
       <div class="flex items-center gap-2">
-        <ClientOnly>
-          <DocsSearchMenu />
-        </ClientOnly>
+        <DocsSearchMenu />
+
+        <Separator orientation="vertical" class="data-[orientation=vertical]:h-4 hidden md:block ml-2" />
 
         <LinksGithubLink />
         <LinksXLink />

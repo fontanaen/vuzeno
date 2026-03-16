@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHotkey } from "@tanstack/vue-hotkeys";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vuzeno/ui/components/command";
 import { Dialog, DialogContent, DialogTrigger } from "@vuzeno/ui/components/dialog";
 import { Kbd, KbdGroup } from "@vuzeno/ui/components/kbd";
@@ -20,6 +21,10 @@ const navigation = computed(() => {
       .children!.filter((i) => i.stem !== "llms.txt"),
     components: data.value?.find((i) => i.stem === "docs")!.children!.find((i) => i.stem === "docs/components")!.children!,
   };
+});
+
+useHotkey("Mod+K", () => {
+  open.value = true;
 });
 </script>
 
