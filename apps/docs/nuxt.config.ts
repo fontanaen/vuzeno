@@ -19,12 +19,12 @@ export default defineNuxtConfig({
     output: {
       dir: "../../.vercel/output",
     },
-    // prerender: {
-    //   crawlLinks: true,
-    //   routes: ["/"],
-    //   failOnError: false,
-    //   autoSubfolderIndex: false,
-    // },
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
+      failOnError: false,
+      autoSubfolderIndex: false,
+    },
   },
 
   vite: {

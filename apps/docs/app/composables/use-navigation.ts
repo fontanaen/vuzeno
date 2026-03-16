@@ -61,7 +61,7 @@ export async function useNavigation() {
               {
                 path: "/docs",
                 stem: "docs",
-                title: "Get Started",
+                title: "Overview",
                 type: navigationItemType(doc, null),
                 children: [
                   ...rootDocs,
