@@ -1,7 +1,7 @@
 ---
 title: Autocomplete
 description: A composable autocomplete component with search functionality, built on top of Combobox
-component: true
+tag: new
 ---
 
 A fully-featured autocomplete component built on top of the Combobox primitive. It provides search-as-you-type functionality with customizable filtering, loading states, and flexible item rendering.

@@ -10,7 +10,7 @@ export default defineContentConfig({
       },
       schema: z.object({
         rawbody: z.string(), // reference: https://content.nuxt.com/docs/advanced/raw-content
-        new: z.boolean(),
+        tag: z.enum(["new", "alpha", "updated"]).optional(),
       }),
     }),
   },

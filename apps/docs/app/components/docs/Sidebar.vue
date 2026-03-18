@@ -38,10 +38,16 @@ const { path } = toRefs(useRoute());
                     <span class="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
                     {{ childItem.title }}
                     <span
-                      v-if="childItem.new"
-                      class="flex size-2 rounded-full bg-green-500"
-                      title="New"
-                    />
+                      v-if="childItem.tag"
+                      :class="{
+                        'bg-green-500/15 text-green-600 dark:text-green-400': childItem.tag === 'new',
+                        'bg-amber-500/15 text-amber-600 dark:text-amber-400': childItem.tag === 'alpha',
+                        'bg-blue-500/15 text-blue-600 dark:text-blue-400': childItem.tag === 'updated',
+                      }"
+                      class="rounded px-1 py-0.5 text-[10px] font-semibold leading-none"
+                    >
+                      {{ childItem.tag }}
+                    </span>
                   </NuxtLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>

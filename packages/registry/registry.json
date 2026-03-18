@@ -133,6 +133,30 @@
         { "path": "default/phone-field/validation.ts", "type": "registry:ui" },
         { "path": "default/phone-field/index.ts", "type": "registry:ui" }
       ]
+    },
+    {
+      "name": "color",
+      "type": "registry:component",
+      "title": "Color",
+      "description": "A composable set of color components with area picker, sliders, fields, swatches, and eye dropper.",
+      "dependencies": ["reka-ui", "@vueuse/core", "class-variance-authority", "lucide-vue-next"],
+      "registryDependencies": ["popover", "input-group", "button", "select"],
+      "files": [
+        { "path": "default/color/ColorArea.vue", "type": "registry:component" },
+        { "path": "default/color/ColorEyeDropper.vue", "type": "registry:component" },
+        { "path": "default/color/ColorField.vue", "type": "registry:component" },
+        { "path": "default/color/ColorFieldInput.vue", "type": "registry:component" },
+        { "path": "default/color/ColorHexField.vue", "type": "registry:component" },
+        { "path": "default/color/ColorHsbField.vue", "type": "registry:component" },
+        { "path": "default/color/ColorHslField.vue", "type": "registry:component" },
+        { "path": "default/color/ColorRgbField.vue", "type": "registry:component" },
+        { "path": "default/color/ColorSlider.vue", "type": "registry:component" },
+        { "path": "default/color/ColorSpaceSelect.vue", "type": "registry:component" },
+        { "path": "default/color/ColorSwatch.vue", "type": "registry:component" },
+        { "path": "default/color/ColorSwatchPicker.vue", "type": "registry:component" },
+        { "path": "default/color/ColorSwatchPickerItem.vue", "type": "registry:component" },
+        { "path": "default/color/index.ts", "type": "registry:ui" }
+      ]
     }
   ]
 }
