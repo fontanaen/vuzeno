@@ -1,7 +1,7 @@
 ---
 title: Gallery
 description: A powerful carousel component that combines zoomable images with a fullscreen dialog and optional sidebar. Perfect for product galleries, image lightboxes, and media viewers with metadata.
-name: gallery
+tag: new
 ---
 
 ::component-preview 

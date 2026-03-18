@@ -14,6 +14,7 @@
     "@vuzeno/ui": "workspace:*",
     "@vuzeno/registry": "workspace:*",
     "@internationalized/date": "catalog:",
+    "reka-ui": "catalog:",
     "@vueuse/core": "catalog:",
     "lucide-vue-next": "^0.562.0",
     "tailwindcss": "catalog:",

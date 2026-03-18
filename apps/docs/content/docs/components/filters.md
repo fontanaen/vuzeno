@@ -1,7 +1,7 @@
 ---
 title: Filters
 description: A composable filter system for building dynamic, type-aware filter UIs with dropdown field selection, operators, and multiple value input types
-name: filters
+tag: new
 ---
 
 ::component-preview 

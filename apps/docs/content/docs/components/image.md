@@ -1,7 +1,7 @@
 ---
 title: Image
 description: A composable image component with loading state management and fallback support. Use it standalone for simple image display, or combine it with Image Viewer for zoom capabilities.
-name: image
+tag: new
 ---
 
 ::alert
