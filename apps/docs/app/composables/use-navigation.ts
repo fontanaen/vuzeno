@@ -45,7 +45,8 @@ export async function useNavigation() {
   const { data } = useAsyncData(
     "navigation",
     () => {
-      return queryCollectionNavigation("content", ["new"]);
+      // tag is from our content schema; types may not include custom fields
+      return queryCollectionNavigation("content", ["tag"] as unknown as (keyof import("@nuxt/content").ContentCollectionItem)[]);
     },
     {
       default: () => [],

@@ -1,7 +1,7 @@
 ---
 title: Color
 description: A composable set of color components with area picker, sliders, fields, swatches, and eye dropper support.
-component: true
+tag: alpha
 ---
 
 ::alert
