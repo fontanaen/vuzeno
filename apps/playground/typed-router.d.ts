@@ -37,6 +37,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.color-picker': RouteRecordInfo<
+      'components.color-picker',
+      '/components/color-picker',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'components.filters': RouteRecordInfo<
       'components.filters',
       '/components/filters',
@@ -80,6 +87,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/components/autocomplete.vue': {
       routes:
         | 'components.autocomplete'
+      views:
+        | never
+    }
+    'src/pages/components/color-picker.vue': {
+      routes:
+        | 'components.color-picker'
       views:
         | never
     }
