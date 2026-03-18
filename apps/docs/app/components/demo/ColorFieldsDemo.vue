@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-  ColorHexField,
-  ColorHsbField,
-  ColorHslField,
-  ColorRgbField,
-  ColorSpaceSelect,
-} from "@vuzeno/registry/ui/color";
+import { ColorHexField, ColorHsbField, ColorHslField, ColorRgbField, ColorSpaceSelect } from "@vuzeno/registry/ui/color";
 import { Field, FieldGroup, FieldLabel } from "@vuzeno/ui/components/field";
 import { type Color, type ColorSpace, colorToString, normalizeColor } from "reka-ui";
 import { computed, ref } from "vue";
@@ -14,7 +8,9 @@ const colorSpace = ref<ColorSpace | "hex">("hsl");
 const currentColor = ref<Color>(normalizeColor("#56d799"));
 const hexColor = computed({
   get: () => colorToString(currentColor.value, "hex"),
-  set: (v) => { currentColor.value = normalizeColor(v); },
+  set: (v) => {
+    currentColor.value = normalizeColor(v);
+  },
 });
 
 const fieldOptions = [
