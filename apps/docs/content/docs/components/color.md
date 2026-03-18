@@ -39,17 +39,6 @@ exec: true
 ---
 ::
 
-## Dependencies
-
-This component is built on top of Reka UI color primitives. For manual installation:
-
-::installation-tabs
----
-command: reka-ui @vueuse/core class-variance-authority lucide-vue-next
-exec: false
----
-::
-
 ## Examples
 
 ### Color Area
