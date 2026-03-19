@@ -135,6 +135,20 @@
       ]
     },
     {
+      "name": "password-field",
+      "type": "registry:component",
+      "title": "Password Field",
+      "description": "A composable password input with visibility toggle and click-outside reset.",
+      "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+      "registryDependencies": ["input-group"],
+      "files": [
+        { "path": "default/password-field/PasswordField.vue", "type": "registry:component" },
+        { "path": "default/password-field/PasswordFieldInput.vue", "type": "registry:component" },
+        { "path": "default/password-field/PasswordFieldToggle.vue", "type": "registry:component" },
+        { "path": "default/password-field/index.ts", "type": "registry:ui" }
+      ]
+    },
+    {
       "name": "color",
       "type": "registry:component",
       "title": "Color",
