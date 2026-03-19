@@ -44,6 +44,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.editable': RouteRecordInfo<
+      'components.editable',
+      '/components/editable',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'components.filters': RouteRecordInfo<
       'components.filters',
       '/components/filters',
@@ -93,6 +100,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/components/color-picker.vue': {
       routes:
         | 'components.color-picker'
+      views:
+        | never
+    }
+    'src/pages/components/editable.vue': {
+      routes:
+        | 'components.editable'
       views:
         | never
     }

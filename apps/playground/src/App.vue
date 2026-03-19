@@ -24,6 +24,7 @@ const { isDark, toggleDark } = useTheme();
 const navItems = [
   { label: "Autocomplete", to: { name: "components.autocomplete" } },
   { label: "Color Picker", to: { name: "components.color-picker" } },
+  { label: "Editable", to: { name: "components.editable" } },
   { label: "Filters", to: { name: "components.filters" } },
   { label: "Image", to: { name: "components.image" } },
   { label: "Phone Field", to: { name: "components.phone-field" } },
