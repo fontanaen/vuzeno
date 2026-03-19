@@ -58,6 +58,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.password-field': RouteRecordInfo<
+      'components.password-field',
+      '/components/password-field',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'components.phone-field': RouteRecordInfo<
       'components.phone-field',
       '/components/phone-field',
@@ -105,6 +112,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/components/image.vue': {
       routes:
         | 'components.image'
+      views:
+        | never
+    }
+    'src/pages/components/password-field.vue': {
+      routes:
+        | 'components.password-field'
       views:
         | never
     }
