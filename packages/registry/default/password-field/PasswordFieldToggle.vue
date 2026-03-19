@@ -21,8 +21,8 @@ const context = injectPasswordFieldContext();
   <InputGroupAddon :class="props.class" :align="props.align">
     <slot :is-password="context.type.value === 'password'" :toggle-type="context.toggleType">
       <InputGroupButton size="icon-xs" :disabled="context.disabled.value" @click="context.toggleType()">
-        <EyeIcon v-if="context.type.value === 'text'" class="size-4" />
-        <EyeOffIcon v-else class="size-4" />
+        <EyeIcon v-if="context.type.value === 'text'" class="size-4 animate-in fade-in-0 zoom-in-50 duration-300 ease-in-out" />
+        <EyeOffIcon v-else class="size-4 animate-in fade-in-0 zoom-in-50 duration-300 ease-in-out" />
       </InputGroupButton>
     </slot>
   </InputGroupAddon>
