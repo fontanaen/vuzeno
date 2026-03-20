@@ -30,6 +30,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.action-sheet': RouteRecordInfo<
+      'components.action-sheet',
+      '/components/action-sheet',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'components.autocomplete': RouteRecordInfo<
       'components.autocomplete',
       '/components/autocomplete',
@@ -88,6 +95,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/index.vue': {
       routes:
         | 'home'
+      views:
+        | never
+    }
+    'src/pages/components/action-sheet.vue': {
+      routes:
+        | 'components.action-sheet'
       views:
         | never
     }
