@@ -3,6 +3,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "@vuzeno/tailwind-config/style.css";
+@import "vue-sonner/style.css";
 
 @source "../../../../packages/ui";
 @source "../../../../packages/registry";
