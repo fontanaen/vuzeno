@@ -2,11 +2,11 @@
 import { reactiveOmit } from "@vueuse/core";
 import { Button } from "@vuzeno/ui/components/button";
 import { cn } from "@vuzeno/ui/lib/utils";
-import { CheckIcon } from "lucide-vue-next";
-import { EditableSubmitTrigger, type EditableSubmitTriggerProps, useForwardProps } from "reka-ui";
+import { XIcon } from "lucide-vue-next";
+import { EditableCancelTrigger, type EditableCancelTriggerProps, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 
-const props = defineProps<EditableSubmitTriggerProps & { class?: HTMLAttributes["class"] }>();
+const props = defineProps<EditableCancelTriggerProps & { class?: HTMLAttributes["class"] }>();
 
 const delegatedProps = reactiveOmit(props, "class");
 
@@ -14,11 +14,11 @@ const forwarded = useForwardProps(delegatedProps);
 </script>
 
 <template>
-  <EditableSubmitTrigger v-bind="forwarded" as-child :class="cn('relative', props.class)">
+  <EditableCancelTrigger v-bind="forwarded" as-child :class="cn('relative', props.class)">
     <slot>
       <Button variant="ghost" size="icon-sm" class="size-6">
-        <CheckIcon class="size-3.5" />
+        <XIcon class="size-3.5" />
       </Button>
     </slot>
-  </EditableSubmitTrigger>
+  </EditableCancelTrigger>
 </template>

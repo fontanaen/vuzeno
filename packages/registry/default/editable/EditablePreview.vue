@@ -12,5 +12,5 @@ const forwarded = useForwardProps(delegatedProps);
 </script>
 
 <template>
-  <EditablePreview v-bind="forwarded" as="div" :class="cn('h-9 text-sm content-center', props.class)" />    
+  <EditablePreview v-bind="forwarded" as="div" :class="cn('text-sm select-none cursor-pointer', props.class)" />    
 </template>

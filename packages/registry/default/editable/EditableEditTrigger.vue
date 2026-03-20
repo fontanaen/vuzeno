@@ -17,7 +17,7 @@ const forwarded = useForwardProps(delegatedProps);
   <EditableEditTrigger v-bind="forwarded" as-child :class="cn('relative', props.class)">
     <slot>
       <Button variant="ghost" size="icon-sm" class="size-7">
-        <PencilIcon class="size-4" />
+        <PencilIcon class="size-3.5" />
       </Button>
     </slot>
   </EditableEditTrigger>

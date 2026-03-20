@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { Editable, EditableArea, EditableCancelTrigger, EditableEditTrigger, EditableInput, EditablePreview, EditableSubmitTrigger } from "@vuzeno/registry/ui/editable";
+import { Editable, EditableArea, EditableCancelTrigger, EditableInput, EditablePreview, EditableSubmitTrigger } from "@vuzeno/registry/ui/editable";
 import { Avatar, AvatarFallback } from "@vuzeno/ui/components/avatar";
 import { Badge } from "@vuzeno/ui/components/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@vuzeno/ui/components/breadcrumb";
 import { Item, ItemContent, ItemDescription, ItemFooter, ItemTitle } from "@vuzeno/ui/components/item";
-import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
+import { Popover, PopoverContent } from "@vuzeno/ui/components/popover";
 import { BoxIcon, CircleDashedIcon, PencilIcon, SignalHighIcon } from "lucide-vue-next";
 import { PopoverAnchor } from "reka-ui";
 import { ref } from "vue";
-
-definePage({
-  name: "components.editable",
-});
 
 const projectName = ref("Project 1");
 const issueTitle = ref("Feature Request");
@@ -21,7 +17,7 @@ const storyPoints = ref(0.5);
 <template>
   <div class="flex flex-col gap-4">
     <Breadcrumb>
-      <BreadcrumbList> 
+      <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink>
             Home
@@ -45,11 +41,13 @@ const storyPoints = ref(0.5);
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
-    
+
     <Item variant="muted" class="w-80">
       <ItemContent>
         <div class="flex items-center gap-2 justify-between">
-          <ItemDescription class="text-xs">ISS-11</ItemDescription>
+          <ItemDescription class="text-xs">
+            ISS-11
+          </ItemDescription>
           <Avatar size="sm" class="bg-primary text-black size-5">
             <AvatarFallback class="text-[10px]">
               VZ
@@ -64,8 +62,8 @@ const storyPoints = ref(0.5);
               <EditableInput class="w-full" />
 
               <PencilIcon
-                v-if="!isEditing" 
-                class="peer-hover:opacity-100 opacity-0 transition-opacity duration-200 ease-in-out size-3.5" 
+                v-if="!isEditing"
+                class="peer-hover:opacity-100 opacity-0 transition-opacity duration-200 ease-in-out size-3.5"
               />
             </EditableArea>
           </Editable>
@@ -84,7 +82,7 @@ const storyPoints = ref(0.5);
           <div class="size-2 rounded-full bg-indigo-500" />
           Docs
         </Badge>
-        
+
         <Editable v-model="storyPoints" activation-mode="dblclick" submit-mode="none" class="relative" v-slot="{ isEditing }">
           <Popover :open="isEditing">
             <EditableArea class="w-10 h-6 border-border border rounded-md text-xs text-center flex items-center justify-center">

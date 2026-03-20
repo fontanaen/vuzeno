@@ -171,6 +171,24 @@
         { "path": "default/color/ColorSwatchPickerItem.vue", "type": "registry:component" },
         { "path": "default/color/index.ts", "type": "registry:ui" }
       ]
+    },
+    {
+      "name": "editable",
+      "type": "registry:component",
+      "title": "Editable",
+      "description": "An inline text editing component that toggles between display and edit mode.",
+      "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+      "registryDependencies": ["button"],
+      "files": [
+        { "path": "default/editable/Editable.vue", "type": "registry:component" },
+        { "path": "default/editable/EditableArea.vue", "type": "registry:component" },
+        { "path": "default/editable/EditableCancelTrigger.vue", "type": "registry:component" },
+        { "path": "default/editable/EditableEditTrigger.vue", "type": "registry:component" },
+        { "path": "default/editable/EditableInput.vue", "type": "registry:component" },
+        { "path": "default/editable/EditablePreview.vue", "type": "registry:component" },
+        { "path": "default/editable/EditableSubmitTrigger.vue", "type": "registry:component" },
+        { "path": "default/editable/index.ts", "type": "registry:ui" }
+      ]
     }
   ]
 }
