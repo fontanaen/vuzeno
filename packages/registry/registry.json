@@ -15,7 +15,7 @@
         { "path": "default/action-sheet/ActionSheetCancel.vue", "type": "registry:component" },
         { "path": "default/action-sheet/ActionSheetContent.vue", "type": "registry:component" },
         { "path": "default/action-sheet/ActionSheetOption.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/ActionSheetOptionGroup.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/ActionSheetGroup.vue", "type": "registry:component" },
         { "path": "default/action-sheet/ActionSheetTrigger.vue", "type": "registry:component" },
         { "path": "default/action-sheet/index.ts", "type": "registry:ui" }
       ]

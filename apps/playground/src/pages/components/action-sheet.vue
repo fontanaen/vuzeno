@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ActionSheet, ActionSheetCancel, ActionSheetContent, ActionSheetOption, ActionSheetOptionGroup, ActionSheetTrigger } from "@vuzeno/registry/ui/action-sheet";
+import { ActionSheet, ActionSheetCancel, ActionSheetContent, ActionSheetGroup, ActionSheetOption, ActionSheetTrigger } from "@vuzeno/registry/ui/action-sheet";
 import { Button } from "@vuzeno/ui/components/button";
 import { toast } from "@vuzeno/ui/components/sonner";
 import { ref, useTemplateRef } from "vue";
@@ -36,12 +36,12 @@ async function openActionSheet() {
       </ActionSheetTrigger>
       
       <ActionSheetContent>
-        <ActionSheetOptionGroup>
+        <ActionSheetGroup>
           <ActionSheetOption value="option1">Option 1</ActionSheetOption>
           <ActionSheetOption value="option2">Option 2</ActionSheetOption>
           <ActionSheetOption value="option3">Option 3</ActionSheetOption>
           <ActionSheetOption value="option4">Option 4</ActionSheetOption>
-        </ActionSheetOptionGroup>
+        </ActionSheetGroup>
           
         <ActionSheetCancel>Cancel</ActionSheetCancel>
       </ActionSheetContent>

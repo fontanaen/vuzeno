@@ -16,7 +16,7 @@ name: ActionSheetDemo
 
 - **Promise-based API** — Call `start()` on `ActionSheet` and `await` a typed result (`ActionSheetStartResult`) when the user picks an option, cancels, or dismisses the sheet
 - **Classic usage** — Control visibility with `v-model:open` and open via `ActionSheetTrigger`
-- **Composable layout** — Stack multiple `ActionSheetOptionGroup` blocks for separated groups of actions
+- **Composable layout** — Stack multiple `ActionSheetGroup` blocks for separated groups of actions
 
 ## Installation
 
@@ -42,7 +42,7 @@ import {
   ActionSheetCancel,
   ActionSheetContent,
   ActionSheetOption,
-  ActionSheetOptionGroup,
+  ActionSheetGroup,
   ActionSheetTrigger,
 } from "@vuzeno/registry/ui/action-sheet";
 import { Button } from "@vuzeno/ui/components/button";
@@ -58,12 +58,12 @@ const isOpen = ref(false);
     </ActionSheetTrigger>
 
     <ActionSheetContent>
-      <ActionSheetOptionGroup>
+      <ActionSheetGroup>
         <ActionSheetOption value="option1">Option 1</ActionSheetOption>
         <ActionSheetOption value="option2">Option 2</ActionSheetOption>
         <ActionSheetOption value="option3">Option 3</ActionSheetOption>
         <ActionSheetOption value="option4">Option 4</ActionSheetOption>
-      </ActionSheetOptionGroup>
+      </ActionSheetGroup>
 
       <ActionSheetCancel>Cancel</ActionSheetCancel>
     </ActionSheetContent>
@@ -82,7 +82,7 @@ import {
   ActionSheetCancel,
   ActionSheetContent,
   ActionSheetOption,
-  ActionSheetOptionGroup,
+  ActionSheetGroup,
   ActionSheetTrigger,
 } from "@vuzeno/registry/ui/action-sheet";
 import { Button } from "@vuzeno/ui/components/button";
@@ -115,12 +115,12 @@ async function openActionSheet() {
       </ActionSheetTrigger>
 
       <ActionSheetContent>
-        <ActionSheetOptionGroup>
+        <ActionSheetGroup>
           <ActionSheetOption value="option1">Option 1</ActionSheetOption>
           <ActionSheetOption value="option2">Option 2</ActionSheetOption>
           <ActionSheetOption value="option3">Option 3</ActionSheetOption>
           <ActionSheetOption value="option4">Option 4</ActionSheetOption>
-        </ActionSheetOptionGroup>
+        </ActionSheetGroup>
 
         <ActionSheetCancel>Cancel</ActionSheetCancel>
       </ActionSheetContent>
@@ -131,7 +131,7 @@ async function openActionSheet() {
 
 ### Multiple option groups
 
-Compose several `ActionSheetOptionGroup` components inside `ActionSheetContent` to separate primary actions from secondary ones. Spacing between groups is handled by `ActionSheetContent`.
+Compose several `ActionSheetGroup` components inside `ActionSheetContent` to separate primary actions from secondary ones. Spacing between groups is handled by `ActionSheetContent`.
 
 ```vue showLineNumbers
 <template>
@@ -141,15 +141,15 @@ Compose several `ActionSheetOptionGroup` components inside `ActionSheetContent` 
     </ActionSheetTrigger>
 
     <ActionSheetContent>
-      <ActionSheetOptionGroup>
+      <ActionSheetGroup>
         <ActionSheetOption value="edit">Edit</ActionSheetOption>
         <ActionSheetOption value="duplicate">Duplicate</ActionSheetOption>
-      </ActionSheetOptionGroup>
+      </ActionSheetGroup>
 
-      <ActionSheetOptionGroup>
+      <ActionSheetGroup>
         <ActionSheetOption value="archive">Archive</ActionSheetOption>
         <ActionSheetOption value="delete">Delete</ActionSheetOption>
-      </ActionSheetOptionGroup>
+      </ActionSheetGroup>
 
       <ActionSheetCancel>Cancel</ActionSheetCancel>
     </ActionSheetContent>
