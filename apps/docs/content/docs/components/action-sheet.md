@@ -45,7 +45,7 @@ import {
   ActionSheetGroup,
   ActionSheetTrigger,
 } from "@vuzeno/registry/ui/action-sheet";
-import { Button } from "@vuzeno/ui/components/button";
+import { Button } from "@/components/button";
 import { ref } from "vue";
 
 const isOpen = ref(false);
@@ -85,7 +85,7 @@ import {
   ActionSheetGroup,
   ActionSheetTrigger,
 } from "@vuzeno/registry/ui/action-sheet";
-import { Button } from "@vuzeno/ui/components/button";
+import { Button } from "@/components/button";
 import { ref, useTemplateRef } from "vue";
 
 const isOpen = ref(false);

@@ -1,0 +1,24 @@
+{
+  "name": "@vuzeno/cli",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "shadcn-vue build --cwd ../registry --output ../../apps/docs/public/r && bun run ./src/fix-registry-import.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@vuzeno/ui": "workspace:*",
+    "@vueuse/core": "catalog:",
+    "@internationalized/date": "catalog:",
+    "libphonenumber-js": "catalog:",
+    "reka-ui": "catalog:",
+    "class-variance-authority": "^0.7.1",
+    "lucide-vue-next": "^0.562.0",
+    "vue": "^3.5.24"
+  }
+}
