@@ -134,6 +134,19 @@
       ]
     },
     {
+      "name": "time-field",
+      "type": "registry:component",
+      "title": "Time Field",
+      "description": "A composable time input component with segment-based editing and 12/24-hour format support.",
+      "dependencies": ["reka-ui", "@vueuse/core", "@internationalized/date"],
+      "files": [
+        { "path": "default/time-field/TimeField.vue", "type": "registry:component" },
+        { "path": "default/time-field/TimeFieldInput.vue", "type": "registry:component" },
+        { "path": "default/time-field/TimeFieldSeparator.vue", "type": "registry:component" },
+        { "path": "default/time-field/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
       "name": "phone-field",
       "type": "registry:component",
       "title": "Phone Field",

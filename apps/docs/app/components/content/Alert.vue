@@ -9,9 +9,9 @@ const props = defineProps<{
 }>();
 
 const variantsClass = {
-  info: "bg-blue-500/10 border-blue-500/50 text-blue-500 [&>svg]:text-blue-500",
-  warning: "bg-amber-500/10 border-amber-500 text-amber-500 [&>svg]:text-amber-500",
-  destructive: "bg-red-500/10 border-destructive text-destructive [&>svg]:text-destructive",
+  info: "bg-blue-500/10 border-blue-500/50 [&>svg]:text-blue-500",
+  warning: "bg-amber-500/10 border-amber-500 [&>svg]:text-amber-500",
+  destructive: "bg-red-500/10 border-destructive [&>svg]:text-destructive",
 };
 
 const icon = computed(() => {
@@ -29,7 +29,7 @@ const icon = computed(() => {
     <AlertTitle>
         {{ title }}
     </AlertTitle>
-    <AlertDescription v-if="description">
+    <AlertDescription v-if="description" class="text-muted-foreground">
         {{ description }}
     </AlertDescription>
   </Alert>
