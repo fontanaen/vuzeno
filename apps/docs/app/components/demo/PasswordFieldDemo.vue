@@ -7,7 +7,7 @@ const password = ref("");
 
 <template>
   <PasswordField v-model="password" class="w-72">
-    <PasswordFieldInput />
+    <PasswordFieldInput placeholder="Enter your password" />
     <PasswordFieldToggle />
   </PasswordField>
 </template>

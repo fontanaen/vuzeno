@@ -54,3 +54,14 @@ exec: false
 name: TimeFieldWithCalendarDemo
 ---
 ::
+
+
+### Hour Cycle
+
+::component-preview
+---
+name: TimeFieldHourCycleDemo
+---
+::
+
+
