@@ -4,6 +4,23 @@
   "homepage": "https://vuzeno.com",
   "items": [
     {
+      "name": "action-sheet",
+      "type": "registry:component",
+      "title": "Action Sheet",
+      "description": "A mobile-friendly action sheet with promise-based API support.",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "registryDependencies": ["button", "button-group"],
+      "files": [
+        { "path": "default/action-sheet/ActionSheet.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/ActionSheetCancel.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/ActionSheetContent.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/ActionSheetOption.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/ActionSheetGroup.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/ActionSheetTrigger.vue", "type": "registry:component" },
+        { "path": "default/action-sheet/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
       "name": "autocomplete",
       "type": "registry:component",
       "title": "Autocomplete",
@@ -20,7 +37,7 @@
         { "path": "default/autocomplete/AutocompleteLabel.vue", "type": "registry:component" },
         { "path": "default/autocomplete/AutocompleteStatus.vue", "type": "registry:component" },
         { "path": "default/autocomplete/AutocompleteTrigger.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/index.ts", "type": "registry:ui" }
+        { "path": "default/autocomplete/index.ts", "type": "registry:component" }
       ]
     },
     {
@@ -50,10 +67,10 @@
         { "path": "default/filters/FiltersItemValue.vue", "type": "registry:component" },
         { "path": "default/filters/FiltersMenu.vue", "type": "registry:component" },
         { "path": "default/filters/FiltersMenuItem.vue", "type": "registry:component" },
-        { "path": "default/filters/field.ts", "type": "registry:ui" },
-        { "path": "default/filters/filter.ts", "type": "registry:ui" },
-        { "path": "default/filters/operator.ts", "type": "registry:ui" },
-        { "path": "default/filters/index.ts", "type": "registry:ui" }
+        { "path": "default/filters/field.ts", "type": "registry:component" },
+        { "path": "default/filters/filter.ts", "type": "registry:component" },
+        { "path": "default/filters/operator.ts", "type": "registry:component" },
+        { "path": "default/filters/index.ts", "type": "registry:component" }
       ]
     },
     {
@@ -68,7 +85,7 @@
         { "path": "default/image/ImageLoading.vue", "type": "registry:component" },
         { "path": "default/image/ImageError.vue", "type": "registry:component" },
         { "path": "default/image/ImageSource.vue", "type": "registry:component" },
-        { "path": "default/image/index.ts", "type": "registry:ui" }
+        { "path": "default/image/index.ts", "type": "registry:component" }
       ]
     },
     {
@@ -88,8 +105,8 @@
         { "path": "default/image-viewer/ImageViewerZoomOutControl.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerZoomSlider.vue", "type": "registry:component" },
         { "path": "default/image-viewer/ImageViewerZoomMap.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/utils.ts", "type": "registry:ui" },
-        { "path": "default/image-viewer/index.ts", "type": "registry:ui" }
+        { "path": "default/image-viewer/utils.ts", "type": "registry:component" },
+        { "path": "default/image-viewer/index.ts", "type": "registry:component" }
       ]
     },
     {
@@ -113,7 +130,7 @@
         { "path": "default/gallery/GalleryViewerToolbar.vue", "type": "registry:component" },
         { "path": "default/gallery/GalleryZoomInControl.vue", "type": "registry:component" },
         { "path": "default/gallery/GalleryZoomOutControl.vue", "type": "registry:component" },
-        { "path": "default/gallery/index.ts", "type": "registry:ui" }
+        { "path": "default/gallery/index.ts", "type": "registry:component" }
       ]
     },
     {
@@ -142,9 +159,23 @@
         { "path": "default/phone-field/PhoneFieldCountrySelect.vue", "type": "registry:component" },
         { "path": "default/phone-field/PhoneFieldIndicator.vue", "type": "registry:component" },
         { "path": "default/phone-field/PhoneFieldInput.vue", "type": "registry:component" },
-        { "path": "default/phone-field/utils.ts", "type": "registry:ui" },
-        { "path": "default/phone-field/validation.ts", "type": "registry:ui" },
-        { "path": "default/phone-field/index.ts", "type": "registry:ui" }
+        { "path": "default/phone-field/utils.ts", "type": "registry:component" },
+        { "path": "default/phone-field/validation.ts", "type": "registry:component" },
+        { "path": "default/phone-field/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "password-field",
+      "type": "registry:component",
+      "title": "Password Field",
+      "description": "A composable password input with visibility toggle and click-outside reset.",
+      "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+      "registryDependencies": ["input-group"],
+      "files": [
+        { "path": "default/password-field/PasswordField.vue", "type": "registry:component" },
+        { "path": "default/password-field/PasswordFieldInput.vue", "type": "registry:component" },
+        { "path": "default/password-field/PasswordFieldToggle.vue", "type": "registry:component" },
+        { "path": "default/password-field/index.ts", "type": "registry:component" }
       ]
     },
     {
@@ -168,7 +199,7 @@
         { "path": "default/color/ColorSwatch.vue", "type": "registry:component" },
         { "path": "default/color/ColorSwatchPicker.vue", "type": "registry:component" },
         { "path": "default/color/ColorSwatchPickerItem.vue", "type": "registry:component" },
-        { "path": "default/color/index.ts", "type": "registry:ui" }
+        { "path": "default/color/index.ts", "type": "registry:component" }
       ]
     }
   ]

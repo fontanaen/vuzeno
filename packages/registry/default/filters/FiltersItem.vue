@@ -58,7 +58,7 @@ function onOperatorChange(operatorValue: string | undefined) {
   const newOperator = getOperator(operatorValue);
 
   if (newOperator.inputType !== operator.value.inputType) {
-    filter.value.value = (newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? (props.field.type as keyof typeof OperatorDefaultValue)]) as FilterValue;
+    filter.value.value = (newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? (field.value.type as keyof typeof OperatorDefaultValue)]) as FilterValue;
   }
 
   filter.value.operator = operatorValue;
@@ -66,7 +66,7 @@ function onOperatorChange(operatorValue: string | undefined) {
 </script>
 
 <template>
-    <ButtonGroup :class="cn(sizeVariant[size], 'w-fit')">
+    <ButtonGroup :class="cn(sizeVariant[size], 'w-fit has-[>[data-slot=button-group]]:gap-0')">
         <FilterItemField :variant="variant">
             <component :is="field.icon" class="size-4 text-muted-foreground" /> {{ field.name }}
         </FilterItemField>

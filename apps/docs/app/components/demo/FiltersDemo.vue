@@ -35,6 +35,7 @@ const fields = ref<FieldGroup[]>([
         operators: [
           { label: "is", value: "eq", inputType: "select" },
           { label: "is not", value: "neq", inputType: "select" },
+          { label: "includes", value: "in", inputType: "multi-select", default: true },
         ],
       },
       {
@@ -98,43 +99,26 @@ const filters: Ref<Filter[]> = ref([
   { field: "status", operator: "eq", value: "active" },
   { field: "price", operator: "btw", value: [100, 500] },
 ]);
-
-const filtersJson = computed(() =>
-  JSON.stringify(
-    filters.value.map((filter) => {
-      let stringValue: unknown = filter.value;
-      if (filter.value instanceof CalendarDate || typeof filter.value === "string") {
-        stringValue = filter.value.toString();
-      } else if (filter.value && typeof filter.value === "object" && "start" in filter.value && "end" in filter.value) {
-        stringValue = {
-          start: (filter.value as { start: CalendarDate }).start?.toString(),
-          end: (filter.value as { end: CalendarDate }).end?.toString(),
-        };
-      }
-      return { field: filter.field, operator: filter.operator, value: stringValue };
-    }),
-    null,
-    2,
-  ),
-);
 </script>
 
 <template>
-  <div class="min-w-96 space-y-4">
-    <FiltersProvider v-model:filters="filters" :fields="fields">
-      <FiltersMenu />
+  <div class="min-w-96 space-y-4 flex">
+    <FiltersProvider v-model:filters="filters" :fields="fields" variant="outline" class="flex-nowrap items-start">
+      <div class="flex items-start gap-2">
+        <FiltersMenu />
 
-      <FiltersGroup v-slot="{ removeFilter }">
-        <template v-for="(filter, index) in filters" :key="filter.field">
-          <FiltersItem
-            v-if="!filter.hidden"
-            :filter="filter"
-            @delete="removeFilter(index)"
-          />
-        </template>
-      </FiltersGroup>
+        <FiltersGroup v-slot="{ removeFilter }">
+          <template v-for="(filter, index) in filters" :key="filter.field">
+            <FiltersItem
+              v-if="!filter.hidden"
+              :filter="filter"
+              @delete="removeFilter(index)"
+            />
+          </template>
+        </FiltersGroup>
+      </div>
       
-      <FiltersClear v-if="filters.length > 0" />
+      <FiltersClear v-if="filters.length > 0" class="flex-none" />
     </FiltersProvider>
   </div>
 </template>

@@ -15,6 +15,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@vuzeno/ui/components/sidebar";
+import { Toaster } from "@vuzeno/ui/components/sonner";
 import { Moon, Sun } from "lucide-vue-next";
 import { RouterLink } from "vue-router";
 import { useTheme } from "./composables/useDark";
@@ -28,6 +29,8 @@ const navItems = [
   { label: "Image", to: { name: "components.image" } },
   { label: "Phone Field", to: { name: "components.phone-field" } },
   { label: "Time Field", to: { name: "components.time-field" } },
+  { label: "Password Field", to: { name: "components.password-field" } },
+  { label: "Action Sheet", to: { name: "components.action-sheet" } },
 ];
 </script>
 
@@ -87,5 +90,6 @@ const navItems = [
         </div>
       </main>
     </SidebarInset>
+    <Toaster class="pointer-events-auto" position="top-center" />
   </SidebarProvider>
 </template>

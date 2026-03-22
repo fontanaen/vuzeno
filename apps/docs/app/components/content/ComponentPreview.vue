@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { fixImport } from "../../lib/registry";
+
 const props = defineProps<{
   name: string;
 }>();
@@ -7,7 +9,7 @@ const demoComponent = defineAsyncComponent({
   loader: () => import(`~/components/demo/${props.name}.vue`),
 });
 
-const demoComponentRaw = (await import(`~/components/demo/${props.name}.vue?raw`)).default;
+const demoComponentRaw = fixImport((await import(`~/components/demo/${props.name}.vue?raw`)).default);
 </script>
 
 <template>

@@ -4,7 +4,7 @@ import { computed, isVNode } from "vue";
 import { injectFilterContext } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 import type { FilterValue } from "./filter";
-import { type Operator, OperatorDefaultValue } from "./operator";
+import { type Operator, OperatorDefaultValue, OperatorInputType } from "./operator";
 
 const props = defineProps<{
   field: Field;
@@ -35,7 +35,11 @@ function addFilter() {
 }
 
 function addFilterWithValue(value: FilterValue) {
-  filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
+  if (defaultOperator.value.inputType === OperatorInputType.MULTI_SELECT) {
+    filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: [value] as FilterValue });
+  } else {
+    filters.value.push({ field: props.field.key, operator: defaultOperator.value.value, value: value });
+  }
 }
 </script>
 

@@ -11,7 +11,7 @@
     "docs:dev": "bun run --filter=@vuzeno/docs dev",
     "docs:preview": "bun run --filter=@vuzeno/docs preview",
     "docs:build": "bun run --filter=@vuzeno/docs build",
-    "registry:build": "bun run --filter=@vuzeno/registry build"
+    "registry:build": "bun run --filter=@vuzeno/cli build"
   },
   "workspaces": {
     "packages": [

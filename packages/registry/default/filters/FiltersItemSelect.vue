@@ -2,15 +2,18 @@
 import { Button } from "@vuzeno/ui/components/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vuzeno/ui/components/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { CheckIcon } from "lucide-vue-next";
-import { computed, isVNode } from "vue";
+import type { AcceptableValue } from "reka-ui";
+import { computed, type HTMLAttributes, isVNode, ref } from "vue";
 import type { FilterVariant } from "./FiltersProvider.vue";
 import type { Field } from "./field";
-import { type FilterValue } from "./filter";
+import type { FilterValue } from "./filter";
 
 const props = defineProps<{
   field: Field;
   variant: FilterVariant;
+  class?: HTMLAttributes["class"];
 }>();
 
 const modelValue = defineModel<FilterValue>();
@@ -18,12 +21,14 @@ const modelValue = defineModel<FilterValue>();
 const selectedOption = computed(() => {
   return props.field.options?.items?.find((option) => option?.value === modelValue.value);
 });
+
+const open = ref(false);
 </script>
 
 <template>
-    <Popover>
+    <Popover v-model:open="open">
         <PopoverTrigger as-child>
-            <Button :variant="variant" class="h-auto w-auto justify-between font-normal text-sm px-3">
+            <Button :variant="variant" :class="cn('h-auto w-auto justify-between font-normal text-sm px-3', props.class)">
                 <template v-if="selectedOption">
                     <template v-if="field.options?.optionDisplay">
                         <template v-if="isVNode(field.options?.optionDisplay(selectedOption))">
@@ -49,7 +54,12 @@ const selectedOption = computed(() => {
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup>
-                        <CommandItem v-for="item in field.options?.items" :key="item?.value" :value="item?.value" @click="modelValue = item?.value">
+                        <CommandItem
+                            v-for="item in field.options?.items" 
+                            :key="item?.value?.toString()" 
+                            :value="(item?.value as AcceptableValue)"
+                            @select="modelValue = item?.value as FilterValue; open = false"
+                        >
                             <template v-if="field.options?.optionDisplay">
                                 <template v-if="isVNode(field.options?.optionDisplay(item))">
                                     <component :is="field.options?.optionDisplay(item)" />

@@ -30,6 +30,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    'components.action-sheet': RouteRecordInfo<
+      'components.action-sheet',
+      '/components/action-sheet',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'components.autocomplete': RouteRecordInfo<
       'components.autocomplete',
       '/components/autocomplete',
@@ -54,6 +61,13 @@ declare module 'vue-router/auto-routes' {
     'components.image': RouteRecordInfo<
       'components.image',
       '/components/image',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'components.password-field': RouteRecordInfo<
+      'components.password-field',
+      '/components/password-field',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -91,6 +105,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
+    'src/pages/components/action-sheet.vue': {
+      routes:
+        | 'components.action-sheet'
+      views:
+        | never
+    }
     'src/pages/components/autocomplete.vue': {
       routes:
         | 'components.autocomplete'
@@ -112,6 +132,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/components/image.vue': {
       routes:
         | 'components.image'
+      views:
+        | never
+    }
+    'src/pages/components/password-field.vue': {
+      routes:
+        | 'components.password-field'
       views:
         | never
     }

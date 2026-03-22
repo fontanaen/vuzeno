@@ -20,11 +20,11 @@ const sizeVariant: Record<FilterSize, string> = {
 </script>
 
 <template>
-    <DropdownMenuTrigger as-child>
-        <slot>
-            <Button :class="cn(sizeVariant[size], props.class)" :variant="variant" size="icon" aria-label="Filter">
-                <ListFilterPlusIcon />
-            </Button>
-        </slot>
-    </DropdownMenuTrigger>
+  <DropdownMenuTrigger as-child>
+    <slot>
+      <Button :class="cn('flex-none', sizeVariant[size], props.class)" :variant="variant" size="icon" aria-label="Filter">
+        <ListFilterPlusIcon />
+      </Button>
+    </slot>
+  </DropdownMenuTrigger>
 </template>

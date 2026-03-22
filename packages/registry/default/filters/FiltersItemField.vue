@@ -19,9 +19,9 @@ const sizeVariant: Record<FilterSize, string> = {
 </script>
 
 <template>
-    <ButtonGroupText :class="cn(variantVariant[variant], sizeVariant[size], 'h-auto px-3 w-fit text-nowrap')" as-child>
-        <Label>
-            <slot />
-        </Label>
-    </ButtonGroupText>
+  <ButtonGroupText data-slot="button-group-text" :class="cn(variantVariant[variant], sizeVariant[size], 'h-auto px-3 w-fit text-nowrap dark:bg-input/30 dark:border-input')" as-child>
+    <Label>
+      <slot />
+    </Label>
+  </ButtonGroupText>
 </template>
