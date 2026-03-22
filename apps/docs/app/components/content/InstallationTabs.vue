@@ -40,7 +40,7 @@ const currentCommand = computed(() => {
   >
     <div class="bg-background border-b border-border flex px-2">
       <div class="flex items-center gap-2 w-full text-[13px]">
-        <div class="bg-muted size-7 flex items-center justify-center rounded-sm">
+        <div class="bg-black/90 text-white dark:bg-muted dark:text-black size-7 flex items-center justify-center rounded-sm">
           <TerminalIcon class="size-4" />
         </div>
         <TabsList class="flex gap-2 bg-transparent p-2">
@@ -49,7 +49,7 @@ const currentCommand = computed(() => {
             :key="index"
             :value="pkg"
             tabindex="-1"
-            class="transition-colors duration-200 bg-transparent data-[state=active]:bg-primary/30 py-1 rounded-sm"
+            class="transition-colors duration-200 bg-transparent data-[state=active]:bg-primary/75 dark:data-[state=active]:bg-primary/30 py-1 rounded-sm"
           >
             {{ pkg }}
           </TabsTrigger>
