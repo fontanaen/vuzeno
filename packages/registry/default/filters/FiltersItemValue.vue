@@ -8,7 +8,7 @@ import FiltersItemNumberInput from "./FiltersItemNumberInput.vue";
 import FiltersItemNumberRangeInput from "./FiltersItemNumberRangeInput.vue";
 import FiltersItemSelect from "./FiltersItemSelect.vue";
 import FiltersItemSwitch from "./FiltersItemSwitch.vue";
-import { injectFilterContext } from "./FiltersProvider.vue";
+import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
 import type { Field } from "./field";
 import type { FilterValue } from "./filter";
 import { type Operator, OperatorInputType } from "./operator";
@@ -20,7 +20,7 @@ const props = defineProps<{
 
 const value = defineModel<FilterValue>();
 
-const { variant } = injectFilterContext();
+const { variant, size } = injectFilterContext();
 
 const defaultInputType = computed(() => {
   const mapping = {
@@ -51,8 +51,14 @@ const inputComponent = computed(() => {
 
   return mapping[inputType.value as keyof typeof mapping];
 });
+
+const sizeVariant: Record<FilterSize, string> = {
+  sm: "text-xs",
+  default: "text-sm",
+  lg: "text-sm",
+} as const;
 </script>
 
 <template>
-    <component :is="inputComponent" v-model="value" :field="field" :variant="variant" />
+    <component :is="inputComponent" v-model="value" :field="field" :variant="variant" :class="sizeVariant[size]" />
 </template>

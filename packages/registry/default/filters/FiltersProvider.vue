@@ -1,6 +1,7 @@
 <script lang="ts">
-import { createContext } from "reka-ui";
-import { type Ref, toRefs } from "vue";
+import { cn } from "@vuzeno/ui/lib/utils";
+import { createContext, Primitive } from "reka-ui";
+import { type HTMLAttributes, type Ref, toRefs } from "vue";
 import type { Field, FieldGroup } from "./field";
 import type { Filter } from "./filter";
 
@@ -14,6 +15,7 @@ export type FilterProviderProps = {
   variant?: FilterVariant;
   size?: FilterSize;
   rounded?: FilterRounded;
+  class?: HTMLAttributes["class"];
 };
 
 export type FilterProviderEmits = (e: "update:filters", filters: Filter[]) => void;
@@ -32,9 +34,9 @@ export const [injectFilterContext, provideFilterContext] = createContext<FilterC
 
 <script setup lang="ts">
 const props = withDefaults(defineProps<FilterProviderProps>(), {
-    variant: 'outline',
-    size: 'default',
-    rounded: 'default',
+  variant: 'outline',
+  size: 'default',
+  rounded: 'default',
 });
 
 const filters = defineModel<Filter[]>('filters', { default: () => [] });
@@ -42,19 +44,19 @@ const filters = defineModel<Filter[]>('filters', { default: () => [] });
 const { fields, variant, size, rounded } = toRefs(props);
 
 provideFilterContext({
-    fields,
-    filters,
-    variant,
-    size,
-    rounded,
-    clearFilters() {
-        filters.value = [];
-    },
+  fields,
+  filters,
+  variant,
+  size,
+  rounded,
+  clearFilters() {
+    filters.value = [];
+  },
 });
 </script>
 
 <template>
-    <Primitive as="div" class="flex flex-wrap items-center gap-2">
-        <slot />
-    </Primitive>
+  <Primitive as="div" :class="cn('flex flex-wrap items-center gap-2', props.class)">
+    <slot />
+  </Primitive>
 </template>
