@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuStack, MenuStackContent, MenuStackGroup, MenuStackItem, MenuStackSub, MenuStackSubContent, MenuStackSubTrigger, MenuStackTrigger } from "@vuzeno/registry/ui/menu-stack";
+import { StackMenu, StackMenuContent, StackMenuGroup, StackMenuItem, StackMenuSub, StackMenuSubContent, StackMenuSubTrigger, StackMenuTrigger } from "@vuzeno/registry/ui/stack-menu";
 import { Button } from "@vuzeno/ui/components/button";
 import { BanIcon, DiscIcon, EllipsisIcon, HeartIcon, ListMusicIcon, ListPlusIcon, MicVocalIcon, PlayIcon, PlusCircleIcon, RadioIcon, Share2Icon, ShuffleIcon, UserIcon } from "lucide-vue-next";
 import { toast } from "vue-sonner";
@@ -75,67 +75,67 @@ function addToPlaylist(playlist: string) {
           <span class="text-xs text-muted-foreground truncate">{{ album.artist }}</span>
         </div>
 
-        <MenuStack>
-          <MenuStackTrigger>
+        <StackMenu>
+          <StackMenuTrigger>
             <Button variant="ghost" size="icon-sm">
               <EllipsisIcon class="size-4!" />
             </Button>
-          </MenuStackTrigger>
+          </StackMenuTrigger>
 
-          <MenuStackContent>
-            <MenuStackGroup>
-              <MenuStackItem>
+          <StackMenuContent>
+            <StackMenuGroup>
+              <StackMenuItem>
                 <PlusCircleIcon /> Add to queue
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <HeartIcon /> Save to Liked Songs
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <UserIcon /> Go to artist
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <DiscIcon /> Go to album
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackSub>
-                <MenuStackSubTrigger>
+              <StackMenuSub>
+                <StackMenuSubTrigger>
                   <ListPlusIcon class="size-4" /> Add to playlist
-                </MenuStackSubTrigger>
+                </StackMenuSubTrigger>
 
-                <MenuStackSubContent>
-                  <MenuStackGroup>
-                    <MenuStackItem v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(playlist.name)">
+                <StackMenuSubContent>
+                  <StackMenuGroup>
+                    <StackMenuItem v-for="playlist in playlists" :key="playlist.name" @click="addToPlaylist(playlist.name)">
                       <ListMusicIcon /> {{ playlist.name }}
-                    </MenuStackItem>
+                    </StackMenuItem>
                     
-                    <MenuStackItem>
+                    <StackMenuItem>
                       <PlusCircleIcon /> New playlist
-                    </MenuStackItem>
-                  </MenuStackGroup>
-                </MenuStackSubContent>
-              </MenuStackSub>
+                    </StackMenuItem>
+                  </StackMenuGroup>
+                </StackMenuSubContent>
+              </StackMenuSub>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <RadioIcon /> Go to song radio
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <MicVocalIcon /> Show lyrics
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <Share2Icon /> Share
-              </MenuStackItem>
+              </StackMenuItem>
 
-              <MenuStackItem>
+              <StackMenuItem>
                 <BanIcon /> Hide song
-              </MenuStackItem>
-            </MenuStackGroup>
-          </MenuStackContent>
-        </MenuStack>
+              </StackMenuItem>
+            </StackMenuGroup>
+          </StackMenuContent>
+        </StackMenu>
       </div>
     </div>
   </div>

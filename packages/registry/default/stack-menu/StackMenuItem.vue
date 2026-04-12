@@ -3,7 +3,7 @@ import { useMutationObserver } from "@vueuse/core";
 import { Button } from "@vuzeno/ui/components/button";
 import { cn } from "@vuzeno/ui/lib/utils";
 import { computed, type HTMLAttributes, ref, useTemplateRef } from "vue";
-import { useMenuStackContext } from "./MenuStack.vue";
+import { useStackMenuContext } from "./StackMenu.vue";
 import { getItemStyle } from "./utils";
 
 const props = defineProps<{
@@ -29,14 +29,14 @@ useMutationObserver(
   },
 );
 
-const { open, deepestSubMenuItems } = useMenuStackContext()!;
+const { open, deepestSubMenuItems } = useStackMenuContext()!;
 
 const itemStyle = computed(() => getItemStyle({ index: itemIndex.value! }, deepestSubMenuItems.value));
 </script>
 
 <template>
   <Button 
-    data-slot="menu-stack-item"
+    data-slot="stack-menu-item"
     ref="el" 
     variant="outline"
     size="lg"

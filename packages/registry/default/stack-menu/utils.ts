@@ -62,11 +62,11 @@ export function buildTree(container: Element, level: number = 0): TreeItem[] {
     for (const child of Array.from(parent.children)) {
       const slot = child.getAttribute("data-slot");
 
-      if (slot === "menu-stack-item") {
+      if (slot === "stack-menu-item") {
         items.push({ index: 0, level, element: child as HTMLElement });
-      } else if (slot === "menu-stack-sub") {
-        const triggerItem = child.querySelector(":scope > [data-slot='menu-stack-item']");
-        const subContent = child.querySelector(":scope > [data-slot='menu-stack-sub-content']");
+      } else if (slot === "stack-menu-sub") {
+        const triggerItem = child.querySelector(":scope > [data-slot='stack-menu-item']");
+        const subContent = child.querySelector(":scope > [data-slot='stack-menu-sub-content']");
 
         if (triggerItem) {
           const treeItem: TreeItem = {
@@ -79,7 +79,7 @@ export function buildTree(container: Element, level: number = 0): TreeItem[] {
           }
           items.push(treeItem);
         }
-      } else if (slot !== "menu-stack-sub-content") {
+      } else if (slot !== "stack-menu-sub-content") {
         walk(child);
       }
     }
@@ -106,8 +106,8 @@ export function setTreeItemsDataAttributes(items: TreeItem[]) {
   }
 }
 
-export function setMenuStackItemsDataAttributes(el: HTMLElement, level = 0) {
-  const items = Array.from(el.querySelectorAll("[data-slot='menu-stack-item']")).reverse();
+export function setStackMenuItemsDataAttributes(el: HTMLElement, level = 0) {
+  const items = Array.from(el.querySelectorAll("[data-slot='stack-menu-item']")).reverse();
   for (const [index, item] of items.entries()) {
     item.setAttribute("data-index", String(index));
     item.setAttribute("data-level", String(level));

@@ -10,7 +10,7 @@ export const [injectMenuSubStackContext, provideMenuSubStackContext] = createCon
 <script setup lang="ts">
 import { cn } from "@vuzeno/ui/lib/utils";
 import { type HTMLAttributes, nextTick, type Ref, watch } from "vue";
-import { useMenuStackContext } from "./MenuStack.vue";
+import { useStackMenuContext } from "./StackMenu.vue";
 import { createContext } from "reka-ui";
 import { useToggle } from "@vueuse/core";
 
@@ -18,7 +18,7 @@ const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { onSubMenuOpen, onSubMenuClose } = useMenuStackContext()!;
+const { onSubMenuOpen, onSubMenuClose } = useStackMenuContext()!;
 
 const [open, toggleOpen] = useToggle(false);
 
@@ -39,7 +39,7 @@ watch(open, (open) => {
 </script>
 
 <template>
-  <div data-slot="menu-stack-sub" :data-open="open" :class="cn('group', props.class)">
+  <div data-slot="stack-menu-sub" :data-open="open" :class="cn('group', props.class)">
     <slot />
   </div>
 </template>

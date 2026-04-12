@@ -1,18 +1,18 @@
 <script lang="ts">
-export type MenuStackProps = {
+export type StackMenuProps = {
   /**
    * Whether the menu stack is open.
    */
   open?: boolean;
 };
 
-export type MenuStackContextProps<P extends MenuStackProps> = {
+export type StackMenuContextProps<P extends StackMenuProps> = {
   open: Ref<NonNullable<P["open"]>>;
   onSubMenuOpen: () => void;
   onSubMenuClose: () => void;
 };
 
-export const [provideMenuStackContext, useMenuStackContext] = createInjectionState((props: MenuStackContextProps<MenuStackProps>) => {
+export const [provideStackMenuContext, useStackMenuContext] = createInjectionState((props: StackMenuContextProps<StackMenuProps>) => {
   const { open } = toRefs(props);
 
   const tree = ref<TreeItem[]>([]);
@@ -39,7 +39,7 @@ export const [provideMenuStackContext, useMenuStackContext] = createInjectionSta
 import { createInjectionState, whenever } from "@vueuse/core";
 import { DialogRoot } from "reka-ui";
 import { nextTick, ref, toRefs, watch, type HTMLAttributes, type Ref } from "vue";
-import { setMenuStackItemsDataAttributes, buildTree, deepestSubMenuItemsFromTree, setTreeItemsDataAttributes, type DeepestSubMenuItems, type TreeItem } from "./utils";
+import { setStackMenuItemsDataAttributes, buildTree, deepestSubMenuItemsFromTree, setTreeItemsDataAttributes, type DeepestSubMenuItems, type TreeItem } from "./utils";
 
 const open = defineModel<boolean>("open", { default: false });
 
@@ -49,7 +49,7 @@ function rebuildMenuTree() {
   });
 }
 
-const { tree, buildTree } = provideMenuStackContext({ 
+const { tree, buildTree } = provideStackMenuContext({ 
   open,
   onSubMenuOpen() {
     rebuildMenuTree();
@@ -61,7 +61,7 @@ const { tree, buildTree } = provideMenuStackContext({
 
 whenever(() => open.value, async () => {
   await nextTick();
-  setMenuStackItemsDataAttributes(document.body.querySelector("[data-slot='menu-stack-content']")!, 0);
+  setStackMenuItemsDataAttributes(document.body.querySelector("[data-slot='stack-menu-content']")!, 0);
   rebuildMenuTree();
 });
 </script>

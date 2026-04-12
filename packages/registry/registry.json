@@ -203,23 +203,23 @@
       ]
     },
     {
-      "name": "menu-stack",
+      "name": "stack-menu",
       "type": "registry:component",
       "title": "Menu Stack",
       "description": "A mobile-friendly bottom sheet menu with stacked items and collapsible sub menus.",
       "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
       "registryDependencies": ["button"],
       "files": [
-        { "path": "default/menu-stack/MenuStack.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackContent.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackGroup.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackItem.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackSub.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackSubContent.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackSubTrigger.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/MenuStackTrigger.vue", "type": "registry:component" },
-        { "path": "default/menu-stack/utils.ts", "type": "registry:component" },
-        { "path": "default/menu-stack/index.ts", "type": "registry:component" }
+        { "path": "default/stack-menu/StackMenu.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuContent.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuGroup.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuItem.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuSub.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuSubContent.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuSubTrigger.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/StackMenuTrigger.vue", "type": "registry:component" },
+        { "path": "default/stack-menu/utils.ts", "type": "registry:component" },
+        { "path": "default/stack-menu/index.ts", "type": "registry:component" }
       ]
     }
   ]
