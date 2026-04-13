@@ -31,6 +31,7 @@ const navItems = [
   { label: "Time Field", to: { name: "components.time-field" } },
   { label: "Password Field", to: { name: "components.password-field" } },
   { label: "Action Sheet", to: { name: "components.action-sheet" } },
+  { label: "Menu", to: { name: "components.menu" } },
 ];
 </script>
 
@@ -84,12 +85,15 @@ const navItems = [
           <Moon v-else class="size-4" />
         </Button>
       </header>
-      <main class="flex-1 overflow-auto p-6">
+      <main class="flex-1 overflow-auto p-4">
         <div class="mx-auto max-w-4xl space-y-6">
           <RouterView />
         </div>
       </main>
     </SidebarInset>
-    <Toaster class="pointer-events-auto" position="top-center" />
+
+    <Teleport to="body">
+      <Toaster class="pointer-events-auto" style="top: 4rem !important" position="top-center" />
+    </Teleport>
   </SidebarProvider>
 </template>
