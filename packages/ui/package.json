@@ -27,13 +27,13 @@
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.6.0",
     "lucide-vue-next": "^0.562.0",
-    "reka-ui": "^2.6.1",
+    "reka-ui": "^2.9.6",
     "tailwind-merge": "catalog:",
     "tw-animate-css": "catalog:",
     "vaul-vue": "^0.4.1",
     "vee-validate": "^4.15.1",
-    "vue-sonner": "^2.0.9",
     "vue": "^3.5.24",
+    "vue-sonner": "^2.0.9",
     "zod": "^4.2.1"
   }
 }

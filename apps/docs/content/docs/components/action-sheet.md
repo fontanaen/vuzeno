@@ -157,25 +157,26 @@ Compose several `ActionSheetGroup` components inside `ActionSheetContent` to sep
 </template>
 ```
 
-## API
+## API Reference
 
 ### ActionSheet
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | `false` | Controlled open state (`v-model:open`) |
-| `closeOnClickOutside` | `boolean` | `true` | When using `start()`, overlay click sets a cancelled result with reason `"close"` |
-| `showOverlay` | `boolean` | `true` | Show the dimmed overlay behind the sheet |
+| Prop | Type | Default |
+|------|------|---------|
+| `open` | `boolean` | `false` |
+| `closeOnClickOutside` | `boolean` | `true` |
+| `showOverlay` | `boolean` | `true` |
 
 `ActionSheet` forwards other props and emits from Reka UI’s `DialogRoot`.
 
 ### `start()`
 
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `start<O>()` | `Promise<ActionSheetStartResult<O>>` | Opens the sheet and resolves when the user selects an option or dismisses |
+| Method | Returns |
+|--------|---------|
+| `start()` | `Promise<ActionSheetStartResult<O>>` |
 
-`ActionSheetStartResult<O>` is a discriminated union:
-
-- **Selected:** `{ cancelled: false; cancelledReason: null; selectedOption: O }`
-- **Cancelled:** `{ cancelled: true; cancelledReason: "cancel" \| "close"; selectedOption: null }`
+```ts
+type ActionSheetStartResult<O> = 
+  | { cancelled: false; cancelledReason: null; selectedOption: O }
+  | { cancelled: true; cancelledReason: "cancel" | "close"; selectedOption: null }
+```

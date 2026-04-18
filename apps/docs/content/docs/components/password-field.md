@@ -26,12 +26,12 @@ exec: true
 ---
 ::
 
-## API
+## API Reference
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `modelValue` | `string` | — | The model value of the password field |
-| `disabled` | `boolean` | `false` | Whether the password field is disabled |
-| `type` | `"text" \| "password"` | — | The type of the password field (controlled) |
-| `defaultType` | `"text" \| "password"` | `"password"` | The default type of the password field |
-| `resetOnClickOutside` | `boolean` | `true` | Whether to reset the type to password when clicking outside the field |
+| Prop | Type | Default |
+|------|------|---------|
+| `modelValue` | `string` | — |
+| `disabled` | `boolean` | `false` |
+| `type` | `"text" \| "password"` | — |
+| `defaultType` | `"text" \| "password"` | `"password"` |
+| `resetOnClickOutside` | `boolean` | `true` |

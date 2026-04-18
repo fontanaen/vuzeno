@@ -221,6 +221,23 @@
         { "path": "default/stack-menu/utils.ts", "type": "registry:component" },
         { "path": "default/stack-menu/index.ts", "type": "registry:component" }
       ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:component",
+      "title": "Timeline",
+      "description": "A vertical or horizontal thread for displaying sequential data with composable items, markers and content.",
+      "dependencies": ["reka-ui"],
+      "files": [
+        { "path": "default/timeline/Timeline.vue", "type": "registry:component" },
+        { "path": "default/timeline/TimelineItem.vue", "type": "registry:component" },
+        { "path": "default/timeline/TimelineMedia.vue", "type": "registry:component" },
+        { "path": "default/timeline/TimelineContent.vue", "type": "registry:component" },
+        { "path": "default/timeline/TimelineHeader.vue", "type": "registry:component" },
+        { "path": "default/timeline/TimelineTitle.vue", "type": "registry:component" },
+        { "path": "default/timeline/TimelineDescription.vue", "type": "registry:component" },
+        { "path": "default/timeline/index.ts", "type": "registry:component" }
+      ]
     }
   ]
 }
