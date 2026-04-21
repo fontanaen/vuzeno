@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.6.0",
     "lucide-vue-next": "^0.562.0",
-    "reka-ui": "^2.9.6",
+    "reka-ui": "catalog:",
     "tailwind-merge": "catalog:",
     "tw-animate-css": "catalog:",
     "vaul-vue": "^0.4.1",
