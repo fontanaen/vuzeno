@@ -223,6 +223,33 @@
       ]
     },
     {
+      "name": "video-player",
+      "type": "registry:component",
+      "title": "Video Player",
+      "description": "A composable HTML5 video player with custom controls, volume, speed, picture-in-picture, and fullscreen.",
+      "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+      "registryDependencies": ["button", "slider", "popover", "dropdown-menu"],
+      "files": [
+        { "path": "default/video-player/VideoPlayer.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerVideo.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerSource.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerControls.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerTimeline.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerTimelinePreview.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerPlay.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerTimeCode.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerSound.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerPictureInPicture.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerFullscreen.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerControlMenu.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerControlMenuTrigger.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerControlMenuContent.vue", "type": "registry:component" },
+        { "path": "default/video-player/VideoPlayerSpeed.vue", "type": "registry:component" },
+        { "path": "default/video-player/utils.ts", "type": "registry:component" },
+        { "path": "default/video-player/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
       "name": "timeline",
       "type": "registry:component",
       "title": "Timeline",
