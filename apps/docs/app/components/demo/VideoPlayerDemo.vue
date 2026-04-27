@@ -27,7 +27,7 @@ import {
       playsinline
     >
       <VideoPlayerSource
-        src="https://www.shutterstock.com/shutterstock/videos/4035213989/preview/stock-footage-hungry-man-enjoy-salad-sitting-modern-kitchen-interior-closeup-happy-male-vegan-eating-tasty-fresh.mp4"
+        src="https://res.cloudinary.com/demo/video/upload/sea_turtle.mp4"
         type="video/mp4"
       />
     </VideoPlayerVideo>

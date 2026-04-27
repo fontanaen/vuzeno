@@ -32,7 +32,6 @@ const value = computed({
   <DropdownMenuLabel data-slot="video-player-speed-label" class="text-xs font-normal">
     {{ props.label }}
   </DropdownMenuLabel>
-  <DropdownMenuSeparator class="dark:bg-accent/75" />
   <DropdownMenuRadioGroup v-model="value" data-slot="video-player-speed">
     <DropdownMenuRadioItem 
       v-for="speed in props.speeds" 

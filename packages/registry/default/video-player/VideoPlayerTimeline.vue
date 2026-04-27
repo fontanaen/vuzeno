@@ -151,7 +151,7 @@ provideVideoPlayerTimelineContext({
     :data-active="isActive"
     :class="
       cn(
-        'group/video-player-timeline relative flex h-4 w-full touch-none select-none items-center cursor-pointer  ',
+        'group/video-player-timeline relative flex h-4 w-full touch-none select-none items-center cursor-pointer',
         props.class,
       )
     "
@@ -171,7 +171,7 @@ provideVideoPlayerTimelineContext({
       <SliderRange class="absolute h-full bg-white" />
     </SliderTrack>
 
-    <SliderThumb class="pointer-events-auto block h-3 w-3 hover:w-5 transition-[width] duration-150 ease-out outline-none ring-offset-black/30 shadow-sm">
+    <SliderThumb class="pointer-events-none block h-3 w-3 transition-[width] duration-150 ease-out outline-none ring-offset-black/30 shadow-sm">
       <span
         class="block size-full scale-0 rounded-full bg-white opacity-0 shadow-sm transition-[opacity,scale] duration-150 ease-out group-data-[active=true]/video-player-timeline:scale-100 group-data-[active=true]/video-player-timeline:opacity-100"
       />
