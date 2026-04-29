@@ -49,7 +49,7 @@ const currentCommand = computed(() => {
             :key="index"
             :value="pkg"
             tabindex="-1"
-            class="transition-colors duration-200 bg-transparent data-[state=active]:bg-primary/75 dark:data-[state=active]:bg-primary/30 py-1 rounded-sm"
+            class="transition-colors duration-200 bg-transparent data-[state=active]:bg-primary dark:data-[state=active]:bg-primary dark:data-[state=active]:text-primary-foreground py-1 rounded-sm"
           >
             {{ pkg }}
           </TabsTrigger>
