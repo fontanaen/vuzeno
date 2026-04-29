@@ -16,26 +16,34 @@ const addedFiles = [
 ];
 
 const loaderDots = [
-  { column: 1, row: 1, delay: 0 },
-  { column: 2, row: 1, delay: 80 },
-  { column: 3, row: 1, delay: 160 },
-  { column: 3, row: 2, delay: 240 },
-  { column: 3, row: 3, delay: 320 },
-  { column: 2, row: 3, delay: 400 },
-  { column: 1, row: 3, delay: 480 },
-  { column: 1, row: 2, delay: 560 },
-  { column: 2, row: 2, delay: 640 },
+  { id: 1, column: 1, row: 1 },
+  { id: 2, column: 2, row: 1 },
+  { id: 3, column: 3, row: 1 },
+  { id: 4, column: 1, row: 2 },
+  { id: 5, column: 2, row: 2 },
+  { id: 6, column: 3, row: 2 },
+  { id: 7, column: 1, row: 3 },
+  { id: 8, column: 2, row: 3 },
+  { id: 9, column: 3, row: 3 },
 ];
+const loaderPath = [1, 2, 3, 6, 5, 4, 7, 8, 9, 6, 5, 4, 1];
 
 const terminalBody = ref<HTMLElement>();
 const currentStep = ref(-1);
 const showAddedFiles = ref(false);
+const activeLoaderDot = ref(loaderPath[0]);
 const reducedMotion = usePreferredReducedMotion();
 const timers: ReturnType<typeof setTimeout>[] = [];
+const intervals: ReturnType<typeof setInterval>[] = [];
 
 function queueTimer(callback: () => void, delay: number) {
   const timer = setTimeout(callback, delay);
   timers.push(timer);
+}
+
+function queueInterval(callback: () => void, delay: number) {
+  const interval = setInterval(callback, delay);
+  intervals.push(interval);
 }
 
 function isStepVisible(index: number) {
@@ -86,17 +94,35 @@ function runInstallSequence() {
   );
 }
 
+function runLoaderSequence() {
+  if (reducedMotion.value === "reduce") {
+    return;
+  }
+
+  let pathIndex = 0;
+
+  queueInterval(() => {
+    pathIndex = (pathIndex + 1) % loaderPath.length;
+    activeLoaderDot.value = loaderPath[pathIndex];
+  }, 70);
+}
+
 watch([currentStep, showAddedFiles], () => {
   scrollTerminalToBottom();
 });
 
 onMounted(() => {
+  runLoaderSequence();
   runInstallSequence();
 });
 
 onBeforeUnmount(() => {
   for (const timer of timers) {
     clearTimeout(timer);
+  }
+
+  for (const interval of intervals) {
+    clearInterval(interval);
   }
 });
 </script>
@@ -125,8 +151,9 @@ onBeforeUnmount(() => {
           <span v-else class="hero-terminal-loader mt-2 shrink-0" aria-hidden="true">
             <span
               v-for="dot in loaderDots"
-              :key="`${dot.column}-${dot.row}`"
-              :style="{ '--dot-column': dot.column, '--dot-row': dot.row, '--dot-delay': `${dot.delay}ms` }"
+              :key="dot.id"
+              :class="{ 'hero-terminal-loader-dot--active': dot.id === activeLoaderDot }"
+              :style="{ '--dot-column': dot.column, '--dot-row': dot.row }"
             />
           </span>
           <span>{{ line }}</span>
@@ -204,9 +231,11 @@ onBeforeUnmount(() => {
   grid-column: var(--dot-column);
   grid-row: var(--dot-row);
   justify-self: center;
-  opacity: 0.18;
-  animation: terminal-loader-dot 900ms steps(1, end) infinite;
-  animation-delay: var(--dot-delay);
+  opacity: 0.25;
+}
+
+.hero-terminal-loader-dot--active {
+  opacity: 1 !important;
 }
 
 .hero-terminal-files {
@@ -227,26 +256,6 @@ onBeforeUnmount(() => {
 @keyframes terminal-cursor-blink {
   50% {
     opacity: 0;
-  }
-}
-
-@keyframes terminal-loader-dot {
-  0% {
-    opacity: 1;
-  }
-  12% {
-    opacity: 1;
-  }
-  13%,
-  100% {
-    opacity: 0.18;
-  }
-}
-
-@keyframes terminal-loader-dot-reduced {
-  0%,
-  100% {
-    opacity: 1;
   }
 }
 
