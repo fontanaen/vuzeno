@@ -170,8 +170,9 @@ function goToNextStep() {
             Choose the integrations you want to sync first.
           </p>
 
-          <div class="space-y-2">
-            <div class="max-h-72 space-y-2 overflow-y-auto px-4 pr-5">
+          <div class="relative space-y-2">
+            <div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-5 bg-linear-to-b from-background via-background/80 to-transparent" />
+            <div class="max-h-72 space-y-2 overflow-y-auto py-4 px-4 pr-5">
               <Item
                 v-for="tool in imports"
                 :key="tool.id"
@@ -191,6 +192,7 @@ function goToNextStep() {
                 <CheckIcon v-if="isImportSelected(tool.id)" class="size-4 shrink-0 text-primary" />
               </Item>
             </div>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6 bg-linear-to-t from-background via-background/80 to-transparent" />
           </div>
         </div>
 
@@ -218,7 +220,7 @@ function goToNextStep() {
         </div>
       </ResizeMotion>
 
-      <div class="flex justify-end gap-2 px-4">
+      <div class="flex justify-between gap-2 px-4">
         <Button variant="outline" :disabled="currentStep === 0" @click="goToPreviousStep">
           <ArrowLeftIcon class="w-4 h-4" />
           Previous
