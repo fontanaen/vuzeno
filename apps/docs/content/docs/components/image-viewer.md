@@ -4,8 +4,6 @@ description: Zoom and pan capabilities for images with touch support
 tag: new
 ---
 
-Add zoom and pan capabilities to images. Builds on the base Image component with click-to-zoom, cursor-following zoom, touch gestures (pinch, pan, double-tap), and optional controls.
-
 ::component-preview 
 ---
 name: ImageViewerDemo

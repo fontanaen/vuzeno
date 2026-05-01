@@ -11,14 +11,15 @@ useReveal();
       <div class="flex flex-col gap-10 items-center">
         <div class="flex flex-col gap-6 w-full sm:w-3xl items-center">
           <h1
-            class="hero-title text-center font-bold text-foreground animate-in fade-in-0 blur-in-md duration-700"
+            class="hero-title tracking-tighter leading-tight text-center font-bold text-foreground animate-in fade-in-0 blur-in-md duration-700"
           >
             A Vue component registry<span class="hero-accent">.</span>
           </h1>
 
-          <p class="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed text-pretty reveal text-center" style="--i: 2">
-            Vuzeno extends <span class="text-foreground">shadcn-vue</span> with production-ready components
-            built for Vue.
+          <p class="text-base text-muted-foreground max-w-2xl leading-relaxed text-pretty reveal text-center" style="--i: 2">
+            Vuzeno extends 
+            <a href="https://www.shadcn-vue.com/" target="_blank" class="text-foreground hover:underline hover:text-primary font-medium">shadcn-vue</a> 
+            with production-ready components built for Vue.
           </p>
 
           <div class="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:items-center sm:justify-center reveal" style="--i: 3">
@@ -44,8 +45,6 @@ useReveal();
 <style scoped>
 .hero-title {
   font-size: clamp(2.75rem, 3.5vw, 5rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
 }
 
 .hero-accent {

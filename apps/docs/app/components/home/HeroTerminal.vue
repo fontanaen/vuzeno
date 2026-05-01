@@ -163,7 +163,7 @@ onBeforeUnmount(() => {
       <div v-if="showAddedFiles" class="hero-terminal-files mt-5 text-[#a3a3a3]">
         <p class="mb-2 text-[#ededed]">4 files added</p>
 
-        <div class="space-y-1">
+        <div class="space-y-0">
           <div
             v-for="file in addedFiles"
             :key="file"

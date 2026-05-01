@@ -31,10 +31,10 @@ const { path } = toRefs(useRoute());
                 <SidebarMenuButton
                   as-child
                   :is-active="childItem?.path === path"
-                  class="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
+                  class="data-[active=true]:bg-accent data-[active=true]:border-accent xl:w-full xl:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
                 >
                   <a v-if="childItem?.type === 'asset'" :href="childItem?.path" target="_blank">{{ childItem.title }}</a>
-                  <NuxtLink v-else :to="childItem?.path">
+                  <NuxtLink v-else :to="childItem?.path" class="justify-between">
                     <span class="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
                     {{ childItem.title }}
                     <span

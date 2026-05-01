@@ -139,7 +139,7 @@ import { validatePhoneNumber } from "@/components/ui/phone-field"
       onChange: ({ value }) => {
         const result = validatePhoneNumber(value)
         if (!result.success) {
-          return "Invalid phone number"
+          return 'Invalid phone number'
         }
       }
     "

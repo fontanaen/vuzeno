@@ -4,8 +4,6 @@ description: A mobile-friendly bottom menu with stacked items and collapsible su
 tag: new
 ---
 
-Bottom-anchored menu built on the dialog primitive. Items animate from a stacked layout into a list; opening a sub menu repositions surrounding rows. Use it where `DropdownMenu` feels cramped or hover-dependent.
-
 ::component-preview
 ---
 name: StackMenuDemo

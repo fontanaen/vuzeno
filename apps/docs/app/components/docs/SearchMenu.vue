@@ -45,8 +45,8 @@ useHotkey("Mod+K", () => {
       </div>
     </DialogTrigger>
 
-    <DialogContent class="top-30 p-0 border-2 border-accent translate-y-0 data-[state=open]:slide-in-from-bottom-1/3" :show-close-button="false">
-      <Command class="bg-muted/50 p-2">
+    <DialogContent class="top-30 p-0 border-4 border-accent translate-y-0 data-[state=open]:slide-in-from-bottom-1/3" :show-close-button="false">
+      <Command class="bg-muted/30 p-2">
         <div class="border-2 border-input bg-background rounded-md h-10">
           <CommandInput placeholder="Search" class="h-9" />
         </div>
@@ -55,7 +55,7 @@ useHotkey("Mod+K", () => {
 
           <CommandGroup class="flex flex-col mt-2 mb-4">
             <Label class="text-xs font-medium mb-2 text-muted-foreground">Get Started</Label>
-            <CommandItem v-for="file in navigation?.root" :key="file.path" :value="file.path" class="text-sm font-medium" @click="open = false">
+            <CommandItem v-for="file in navigation?.root" :key="file.path" :value="file.path" class="text-sm" @click="open = false">
               <NuxtLink :to="file.path">
                 {{ file.title }}
               </NuxtLink>
@@ -64,7 +64,7 @@ useHotkey("Mod+K", () => {
 
           <CommandGroup class="flex flex-col">
             <Label class="text-xs font-medium mb-2 text-muted-foreground">Components</Label>
-            <CommandItem v-for="file in navigation?.components" :key="file.path" :value="file.path" class="text-sm font-medium" @click="open = false">
+            <CommandItem v-for="file in navigation?.components" :key="file.path" :value="file.path" class="text-sm" @click="open = false">
               <NuxtLink :to="file.path">
                 {{ file.title }}
               </NuxtLink>

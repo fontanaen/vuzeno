@@ -35,46 +35,46 @@ useSeoMeta({
         <div class="h-(--top-spacing) shrink-0" />
         <div class="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
           <div class="flex flex-col gap-2">
-            <div class="flex flex-col gap-2">
-              <div class="flex items-start justify-between">
-                <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex flex-col gap-2">
+                <h1 class="scroll-m-20 text-2xl font-bold tracking-tight md:text-3xl">
                   {{ page.title }}
                 </h1>
 
-                <div class="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
-                  <DocsCopyPage :page="page" />
-                  
-                  <Button
-                    :disabled="!neighbours?.[0]"
-                    variant="secondary"
-                    size="icon"
-                    class="extend-touch-target ml-auto size-8 shadow-none md:size-7"
-                    as-child
-                  >
-                    <NuxtLink :to="neighbours?.[0]?.path">
-                      <ArrowLeftIcon />
-                      <span class="sr-only">Previous</span>
-                    </NuxtLink>
-                  </Button>
-
-                  <Button
-                    :disabled="!neighbours?.[1]"
-                    variant="secondary"
-                    size="icon"
-                    class="extend-touch-target size-8 shadow-none md:size-7"
-                    as-child
-                  >
-                    <NuxtLink :to="neighbours?.[1]?.path">
-                      <span class="sr-only">Next</span>
-                      <ArrowRightIcon />
-                    </NuxtLink>
-                  </Button>
-                </div>
+                <p v-if="page.description" class="text-muted-foreground text-[1.05rem] text-pretty sm:text-sm font-light">
+                  {{ page.description }}
+                </p>
               </div>
 
-              <p v-if="page.description" class="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-                {{ page.description }}
-              </p>
+              <div class="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
+                <DocsCopyPage :page="page" />
+                
+                <Button
+                  :disabled="!neighbours?.[0]"
+                  variant="secondary"
+                  size="icon"
+                  class="extend-touch-target ml-auto size-8 shadow-none md:size-7"
+                  as-child
+                >
+                  <NuxtLink :to="neighbours?.[0]?.path">
+                    <ArrowLeftIcon />
+                    <span class="sr-only">Previous</span>
+                  </NuxtLink>
+                </Button>
+
+                <Button
+                  :disabled="!neighbours?.[1]"
+                  variant="secondary"
+                  size="icon"
+                  class="extend-touch-target size-8 shadow-none md:size-7"
+                  as-child
+                >
+                  <NuxtLink :to="neighbours?.[1]?.path">
+                    <span class="sr-only">Next</span>
+                    <ArrowRightIcon />
+                  </NuxtLink>
+                </Button>
+              </div>
             </div>
           </div>
 
