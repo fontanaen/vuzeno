@@ -2,26 +2,38 @@
 import { ButtonGroupText } from "@vuzeno/ui/components/button-group";
 import { Label } from "@vuzeno/ui/components/label";
 import { cn } from "@vuzeno/ui/lib/utils";
-import { type FilterSize, type FilterVariant, injectFilterContext } from "./FiltersProvider.vue";
+import { type FiltersSize, type FiltersVariant, injectFiltersContext } from "./context";
+import type { BaseField } from "./field";
 
-const { variant, size } = injectFilterContext();
+defineProps<{
+  field: BaseField;
+}>();
 
-const variantVariant: Record<FilterVariant, string> = {
+const { variant, size } = injectFiltersContext();
+
+const variantVariant: Record<FiltersVariant, string> = {
   outline: "bg-background",
   secondary: "bg-secondary border-none",
 } as const;
 
-const sizeVariant: Record<FilterSize, string> = {
-  sm: "text-xs [&>svg]:size-3.5",
-  default: "text-sm [&>svg]:size-4",
-  lg: "text-sm [&>svg]:size-4",
+const sizeVariant: Record<FiltersSize, string> = {
+  sm: "text-xs [&>svg]:size-3.5 px-2!",
+  md: "text-sm [&>svg]:size-4 px-3!",
+  lg: "text-sm [&>svg]:size-4 px-4!",
 } as const;
 </script>
 
 <template>
-  <ButtonGroupText data-slot="button-group-text" :class="cn(variantVariant[variant], sizeVariant[size], 'h-auto px-3 w-fit text-nowrap dark:bg-input/30 dark:border-input')" as-child>
-    <Label>
-      <slot />
+  <ButtonGroupText
+    data-slot="button-group-text"
+    :class="cn(variantVariant[variant], 'h-auto px-3 w-fit text-nowrap dark:bg-input/30 dark:border-input')"
+    as-child
+  >
+    <Label :class="cn(sizeVariant[size], 'h-auto px-3 w-fit text-nowrap dark:bg-input/30 dark:border-input')">
+      <slot>
+        <component :is="field.icon" v-if="field.icon" class="text-muted-foreground" />
+        {{ field.label }}
+      </slot>
     </Label>
   </ButtonGroupText>
 </template>

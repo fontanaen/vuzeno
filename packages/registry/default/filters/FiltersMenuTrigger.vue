@@ -4,17 +4,17 @@ import { DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
 import { cn } from "@vuzeno/ui/lib/utils";
 import { ListFilterPlusIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
-import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
+import { type FiltersSize, injectFiltersContext } from "./context";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { variant, size } = injectFilterContext();
+const { variant, size } = injectFiltersContext();
 
-const sizeVariant: Record<FilterSize, string> = {
+const sizeVariant: Record<FiltersSize, string> = {
   sm: "size-7",
-  default: "size-8",
+  md: "size-8",
   lg: "size-10",
 } as const;
 </script>
@@ -22,7 +22,12 @@ const sizeVariant: Record<FilterSize, string> = {
 <template>
   <DropdownMenuTrigger as-child>
     <slot>
-      <Button :class="cn('flex-none', sizeVariant[size], props.class)" :variant="variant" size="icon" aria-label="Filter">
+      <Button
+        :class="cn('flex-none', sizeVariant[size], props.class)"
+        :variant="variant"
+        size="icon"
+        aria-label="Add filter"
+      >
         <ListFilterPlusIcon />
       </Button>
     </slot>

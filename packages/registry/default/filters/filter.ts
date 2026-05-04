@@ -20,7 +20,7 @@ export type Filter = {
   hidden?: true;
 };
 
-export type FilterValue = string | string[] | number | number[] | boolean | CalendarDate | CalendarDate[] | FilterRangeValue<CalendarDate>;
+export type FilterValue = string | string[] | number | number[] | boolean | CalendarDate | CalendarDate[] | FilterRangeValue<CalendarDate> | null;
 
 export type FilterRangeValue<T> = {
   start: T;
@@ -28,5 +28,5 @@ export type FilterRangeValue<T> = {
 };
 
 export function isFilterRangeValue(value: FilterValue): value is FilterRangeValue<CalendarDate> {
-  return typeof value === "object" && "start" in value && "end" in value;
+  return typeof value === "object" && value !== null && "start" in value && "end" in value;
 }
