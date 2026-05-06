@@ -20,7 +20,7 @@ const { size } = injectFiltersContext();
     </DropdownMenuSubTrigger>
 
     <DropdownMenuPortal>
-      <DropdownMenuSubContent class="min-w-48">
+      <DropdownMenuSubContent class="min-w-48 border border-muted">
         <template v-for="(item, index) in submenu.fields" :key="isField(item) ? item.key : `node:${index}:${item.label}`">
           <FiltersMenuItem v-if="isField(item)" :field="item" />
 

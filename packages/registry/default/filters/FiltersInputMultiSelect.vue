@@ -86,17 +86,10 @@ function selectOption(option: OperatorOption<unknown>) {
           </template>
         </template>
         <template v-else-if="Array.isArray(modelValue) && modelValue.length > 0">
-          <template
-            v-for="option in visibleSelections"
-            :key="String(option.value)"
-            :variant="variant"
-            class="rounded-sm"
-          >  
-            {{ option.label }} 
-          </template>
+          {{ visibleSelections.map((option) => option.label).join(", ") }}
 
           <span v-if="modelValue.length > visibleSelections.length" class="text-muted-foreground text-xs ml-1">
-            +{{ modelValue.length - visibleSelections.length }} more
+            +{{ modelValue.length - visibleSelections.length }}
           </span>
         </template>
         <span v-else class="text-muted-foreground">

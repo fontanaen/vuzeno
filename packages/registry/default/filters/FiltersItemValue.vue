@@ -10,7 +10,7 @@ import FiltersInputSwitch from "./FiltersInputSwitch.vue";
 import FiltersInputText from "./FiltersInputText.vue";
 import { BaseField, BooleanField, DateField, NumberField, TextField } from "./field";
 import type { FilterValue } from "./filter";
-import { type Operator, OperatorInputType } from "./operator";
+import { type Operator, OperatorInputType, type OperatorInputTypeValue } from "./operator";
 
 const props = defineProps<{
   field: BaseField;
@@ -19,43 +19,58 @@ const props = defineProps<{
 
 const modelValue = defineModel<FilterValue>();
 
-const inputComponent = computed<Component | null>(() => {
-  switch (props.operator.inputType) {
-    case OperatorInputType.SELECT:
-      return FiltersInputSelect;
-    case OperatorInputType.MULTI_SELECT:
-      return FiltersInputMultiSelect;
-    case OperatorInputType.SWITCH:
-      if (props.field instanceof BooleanField) {
-        return FiltersInputSwitch;
-      }
-      return null;
-    case OperatorInputType.RANGE:
-      if (props.field instanceof NumberField) {
-        return FiltersInputNumberRange;
-      }
-      if (props.field instanceof DateField) {
-        return FiltersInputDateRange;
-      }
-      return null;
-    case OperatorInputType.INPUT:
-      if (props.field instanceof NumberField) {
-        return FiltersInputNumber;
-      }
-      if (props.field instanceof DateField) {
-        return FiltersInputDate;
-      }
-      if (props.field instanceof TextField) {
-        return FiltersInputText;
-      }
-      if (props.field instanceof BooleanField) {
-        return FiltersInputSwitch;
-      }
-      return null;
-    default:
-      return null;
+type InputComponentResolver = (field: BaseField) => Component | null;
+
+const inputComponentByInputType = {
+  [OperatorInputType.SELECT]() {
+    return FiltersInputSelect;
+  },
+  [OperatorInputType.MULTI_SELECT]() {
+    return FiltersInputMultiSelect;
+  },
+  [OperatorInputType.SWITCH](field) {
+    if (field instanceof BooleanField) {
+      return FiltersInputSwitch;
+    }
+
+    return null;
+  },
+  [OperatorInputType.RANGE](field) {
+    if (field instanceof NumberField) {
+      return FiltersInputNumberRange;
+    }
+
+    if (field instanceof DateField) {
+      return FiltersInputDateRange;
+    }
+
+    return null;
+  },
+  [OperatorInputType.INPUT](field) {
+    if (field instanceof NumberField) {
+      return FiltersInputNumber;
+    }
+
+    if (field instanceof DateField) {
+      return FiltersInputDate;
+    }
+
+    if (field instanceof TextField) {
+      return FiltersInputText;
+    }
+
+    if (field instanceof BooleanField) {
+      return FiltersInputSwitch;
+    }
+
+    return null;
+  },
+  [OperatorInputType.NONE]() {
+    return null;
   }
-});
+} satisfies Record<OperatorInputTypeValue, InputComponentResolver>;
+
+const inputComponent = computed<Component | null>(() => inputComponentByInputType[props.operator.inputType](props.field));
 </script>
 
 <template>

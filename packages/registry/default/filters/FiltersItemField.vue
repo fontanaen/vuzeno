@@ -26,10 +26,10 @@ const sizeVariant: Record<FiltersSize, string> = {
 <template>
   <ButtonGroupText
     data-slot="button-group-text"
-    :class="cn(variantVariant[variant], 'h-auto px-3 w-fit text-nowrap dark:bg-input/30 dark:border-input')"
+    :class="cn(variantVariant[variant], 'h-auto px-3 w-fit text-nowrap dark:border-input')"
     as-child
   >
-    <Label :class="cn(sizeVariant[size], 'h-auto px-3 w-fit text-nowrap dark:bg-input/30 dark:border-input')">
+    <Label :class="cn(sizeVariant[size], 'h-auto px-3 w-fit text-nowrap dark:border-input')">
       <slot>
         <component :is="field.icon" v-if="field.icon" class="text-muted-foreground" />
         {{ field.label }}

@@ -118,7 +118,7 @@ function toggleOption(option: OperatorOption<unknown>) {
     </DropdownMenuSubTrigger>
 
     <DropdownMenuPortal>
-      <DropdownMenuSubContent :class="{ 'min-w-48 p-0 border-b border-muted': defaultOperator.options.searchable }">
+      <DropdownMenuSubContent class="border-b border-muted" :class="{ 'min-w-48 p-0': defaultOperator.options.searchable }">
         <div v-if="defaultOperator.options.searchable" class="border-b border-border px-2 py-1">
           <input
             v-model="searchValue"
@@ -144,7 +144,7 @@ function toggleOption(option: OperatorOption<unknown>) {
             :key="String(option.value)"
             :class="DropdownItemSizeVariant[size]"
             :disabled="disabled"
-            @select.prevent="addSelectFilter(option.value)"
+            @select="addSelectFilter(option.value)"
           >
             <template v-if="defaultOperator.options?.renderOption">
               <template v-if="isVNode(defaultOperator.options.renderOption(option))">
@@ -170,7 +170,7 @@ function toggleOption(option: OperatorOption<unknown>) {
     </DropdownMenuSubTrigger>
 
     <DropdownMenuPortal>
-      <DropdownMenuSubContent :class="{ 'min-w-48 p-0 border-b border-muted': defaultOperator.options.searchable }">
+      <DropdownMenuSubContent class="border-b border-muted" :class="{ 'min-w-48 p-0': defaultOperator.options.searchable }">
         <div v-if="defaultOperator.options.searchable" class="px-3 border-b border-muted">
           <input
             v-model="searchValue"

@@ -29,7 +29,17 @@ const selectedOption = computed(() => items.value.find((option) => option.value 
 
 const renderOption = computed(() => props.operator.options?.renderOption);
 const renderValue = computed(() => props.operator.options?.renderValue);
-const renderedValue = computed(() => (renderValue.value && modelValue.value !== undefined ? renderValue.value(modelValue.value) : undefined));
+const renderedValue = computed(() => {
+  if (renderValue.value) {
+    if (modelValue.value === undefined || modelValue.value === null) {
+      return undefined;
+    }
+
+    return renderValue.value(modelValue.value);
+  }
+
+  return undefined;
+});
 </script>
 
 <template>
@@ -64,7 +74,8 @@ const renderedValue = computed(() => (renderValue.value && modelValue.value !== 
 
     <PopoverContent align="start" class="w-auto overflow-hidden p-0">
       <Command highlight-on-hover>
-        <CommandInput v-if="operator.options?.searchable" class="h-8" placeholder="Search option" />
+        <CommandInput v-show="operator.options?.searchable" :class="DropdownItemSizeVariant[size]" class="h-8" placeholder="Search option" />
+        
         <CommandList>
           <CommandEmpty>{{ operator.options?.emptyLabel ?? "No results found." }}</CommandEmpty>
           <CommandGroup>

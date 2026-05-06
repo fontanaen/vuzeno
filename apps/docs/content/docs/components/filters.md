@@ -31,67 +31,15 @@ exec: true
 ---
 ::
 
-## Anatomy
-
-```vue
-<template>
-  <FiltersProvider v-model:filters="filters" :fields="fields">
-    <FiltersMenu>
-      <FiltersMenuTrigger />
-      <FiltersMenuContent />
-    </FiltersMenu>
-
-    <Filters>
-      <FiltersItem
-        v-for="filter in filters"
-        :key="`${filter.field}:${filter.operator}`"
-        :filter="filter"
-      />
-    </Filters>
-
-    <FiltersClear />
-  </FiltersProvider>
-</template>
-```
-
 ## Examples
 
 ### Sizes and variants
 
-Set `variant` and `size` on `FiltersProvider`.
-
-::component-preview
----
-name: FiltersDemo
----
-::
-
-```vue
-<FiltersProvider
-  v-model:filters="filters"
-  :fields="fields"
-  variant="outline"
-  size="sm"
-/>
-```
-
-### Short chips
-
-Use `filter-style="short"` to show only values.
+Set `variant` and `size` on `FiltersProvider`, use `filter-style="short"` to show only values.
 
 ::component-preview
 ---
 name: FiltersShortDemo
----
-::
-
-### Custom menu trigger
-
-Slot your own button into `FiltersMenuTrigger`.
-
-::component-preview
----
-name: FiltersCustomMenuDemo
 ---
 ::
 
@@ -144,7 +92,9 @@ const fields = [
   Field.TextField({
     key: "name",
     label: "Name",
-    operators: [Operator.Contain({ label: "contains" })],
+    operators: [
+      Operator.Contain({ label: "contains" })
+    ],
   }),
 ];
 ```

@@ -26,7 +26,7 @@ const { variant, size } = injectFiltersContext();
   >
     <NumberFieldContent>
       <NumberFieldDecrement />
-      <NumberFieldInput :class="cn('h-full rounded-none border-l-0 py-0', PopoverTriggerSizeVariant[size], variant === 'secondary' && 'bg-secondary', props.class)" />
+      <NumberFieldInput :class="cn('h-full w-32 rounded-none border-l-0 py-0', PopoverTriggerSizeVariant[size], variant === 'secondary' && 'bg-secondary', props.class)" />
       <NumberFieldIncrement />
     </NumberFieldContent>
   </NumberField>
