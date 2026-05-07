@@ -123,7 +123,7 @@ const fields = ref([
         max: today("UTC").add({ days: 30 }),
         operators: [Operator.Eq({ label: "is" }), Operator.Btw({ label: "between" })],
       }),
-      Field.TextField({
+      Field.DateField({
         key: "due_date",
         label: "Due date",
         icon: CalendarIcon,
@@ -133,10 +133,10 @@ const fields = ref([
             inputType: "select",
             options: {
               items: [
-                { label: "Today", value: "today" },
-                { label: "Tomorrow", value: "tomorrow" },
-                { label: "Next week", value: "next_week" },
-                { label: "Next month", value: "next_month" },
+                { label: "Today", value: today("UTC") },
+                { label: "Tomorrow", value: today("UTC").add({ days: 1 }) },
+                { label: "Next week", value: today("UTC").add({ days: 7 }) },
+                { label: "Next month", value: today("UTC").add({ months: 1 }) },
               ],
             },
           }),
