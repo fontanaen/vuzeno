@@ -4,99 +4,119 @@ import { ButtonGroup } from "@vuzeno/ui/components/button-group";
 import { cn } from "@vuzeno/ui/lib/utils";
 import { XIcon } from "lucide-vue-next";
 import { computed } from "vue";
-import FilterItemField from "./FiltersItemField.vue";
-import FilterItemOperator from "./FiltersItemOperator.vue";
-import FilterItemValue from "./FiltersItemValue.vue";
-import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
-import { type Field, isField, isFieldGroup } from "./field";
+import { type FiltersSize, injectFiltersContext, injectFiltersStyleContext } from "./context";
+import FiltersItemField from "./FiltersItemField.vue";
+import FiltersItemOperator from "./FiltersItemOperator.vue";
+import FiltersItemValue from "./FiltersItemValue.vue";
 import type { Filter, FilterValue } from "./filter";
 import { type Operator, OperatorDefaultValue } from "./operator";
 
-const emits = defineEmits<(e: "delete") => void>();
+const props = defineProps<{
+  filter: Filter;
+}>();
 
-const filter = defineModel<Filter>("filter", { required: true });
+const { variant, size, removeFilter, updateFilter, findField } = injectFiltersContext();
+const { style } = injectFiltersStyleContext();
 
-const { variant, size, fields } = injectFilterContext();
-
-const sizeVariant: Record<FilterSize, string> = {
+const sizeVariant: Record<FiltersSize, string> = {
   sm: "h-7",
-  default: "h-8",
+  md: "h-8",
   lg: "h-10",
 } as const;
 
-const field = computed(() => {
-  for (const field of fields.value) {
-    if (isFieldGroup(field) && field.fields.some((field) => field.key === filter.value.field)) {
-      return field.fields.find((field) => field.key === filter.value.field) as Field;
-    }
+const removeButtonPadding: Record<FiltersSize, string> = {
+  sm: "px-2",
+  md: "px-3",
+  lg: "px-4",
+} as const;
 
-    if (isField(field) && field.key === filter.value.field) {
-      return field;
-    }
+const field = computed(() => {
+  const found = findField(props.filter.field);
+
+  if (!found) {
+    throw new Error(`Filters: field with key "${props.filter.field}" not found`);
   }
 
-  throw new Error(`Field with key ${filter.value.field} not found`);
+  return found;
 });
 
-function getOperator(operatorValue: string): Operator<unknown> {
-  const operator = field.value.operators.find((operator) => operator.value === operatorValue) ?? field.value.operators[0];
+const operator = computed<Operator<unknown>>(() => {
+  const found = field.value.operators.find((candidate) => candidate.value === props.filter.operator) ?? field.value.operators[0];
 
-  if (!operator) {
-    throw new Error("No operator found");
+  if (!found) {
+    throw new Error(`Filters: no operator found for field "${field.value.key}"`);
   }
 
-  return operator;
-}
+  return found;
+});
 
-const operator = computed(() => getOperator(filter.value.operator));
+const filterValue = computed<FilterValue>({
+  get: () => props.filter.value,
+  set: (next) => {
+    if (Array.isArray(next) && next.length === 0) {
+      removeFilter(props.filter);
+      return;
+    }
 
-function onOperatorChange(operatorValue: string | undefined) {
-  if (!operatorValue) {
+    updateFilter(props.filter, { value: next });
+  },
+});
+
+function onOperatorChange(nextOperatorValue: string | undefined) {
+  if (!nextOperatorValue) {
     return;
   }
 
-  const newOperator = getOperator(operatorValue);
+  const next = field.value.operators.find((candidate) => candidate.value === nextOperatorValue);
 
-  if (newOperator.inputType !== operator.value.inputType) {
-    filter.value.value = (newOperator.defaultValue ?? OperatorDefaultValue[newOperator.inputType ?? (field.value.type as keyof typeof OperatorDefaultValue)]) as FilterValue;
+  if (!next) {
+    return;
   }
 
-  filter.value.operator = operatorValue;
+  if (next.inputType === operator.value.inputType) {
+    updateFilter(props.filter, { operator: nextOperatorValue });
+    return;
+  }
+
+  const fallback = OperatorDefaultValue[next.inputType] as FilterValue;
+  const nextValue = (next.defaultValue ?? fallback) as FilterValue;
+
+  updateFilter(props.filter, { operator: nextOperatorValue, value: nextValue });
+}
+
+function onDelete() {
+  removeFilter(props.filter);
 }
 </script>
 
 <template>
-    <ButtonGroup :class="cn(sizeVariant[size], 'w-fit has-[>[data-slot=button-group]]:gap-0')">
-        <FilterItemField :variant="variant">
-            <component :is="field.icon" class="size-4 text-muted-foreground" /> {{ field.name }}
-        </FilterItemField>
-        
-        <FilterItemOperator 
-            :model-value="filter.operator" 
-            :options="field.operators" 
-            :variant="variant" 
-            @update:model-value="onOperatorChange" 
-        />
+  <ButtonGroup data-slot="filters-item" :class="cn(sizeVariant[size], 'w-fit has-[>[data-slot=button-group]]:gap-0')">
+    <FiltersItemField v-if="style === 'long'" :field="field">
+      <component :is="field.icon" v-if="field.icon" class="size-4 text-muted-foreground" />
+      {{ field.label }}
+    </FiltersItemField>
 
-        <FilterItemValue 
-            v-model="filter.value" 
-            :field="field" 
-            :operator="operator" 
-            :variant="variant" 
-        />
-        
-        <Button 
-            class="h-auto w-auto aspect-square"
-            :class="{
-                'px-3': size === 'default',
-                'px-2': size === 'sm',
-                'px-4': size === 'lg',
-            }"
-            :variant="variant"
-            aria-label="Filter" 
-            @click="emits('delete')"
-        >
-            <XIcon class="size-3!" />
-        </Button>
-    </ButtonGroup>
+    <FiltersItemOperator
+      v-if="style === 'long'"
+      :model-value="filter.operator"
+      :options="field.operators"
+      @update:model-value="onOperatorChange"
+    />
+
+    <FiltersItemValue
+      v-model="filterValue"
+      :field="field"
+      :operator="operator"
+    />
+
+    <Button
+      class="h-auto w-auto aspect-square"
+      :class="removeButtonPadding[size]"
+      :variant="variant"
+      aria-label="Remove filter"
+      @click="onDelete"
+    >
+      <XIcon class="size-3!" />
+    </Button>
+  </ButtonGroup>
 </template>

@@ -3,29 +3,30 @@ import { Button } from "@vuzeno/ui/components/button";
 import { cn } from "@vuzeno/ui/lib/utils";
 import { FunnelXIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
-import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
+import { type FiltersSize, injectFiltersContext } from "./context";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { clearFilters, filters, variant, size } = injectFilterContext();
+const { clearFilters, filters, variant, size } = injectFiltersContext();
 
-const sizeVariant: Record<FilterSize, string> = {
+const sizeVariant: Record<FiltersSize, string> = {
   sm: "size-7",
-  default: "size-8",
+  md: "size-8",
   lg: "size-10",
 } as const;
 </script>
 
 <template>
-    <Button 
-        v-if="filters.length > 0" 
-        :class="cn(sizeVariant[size], props.class)" 
-        :variant="variant"
-        size="icon"
-        aria-label="Filter" 
-        @click="clearFilters">
-        <FunnelXIcon />
-    </Button>
+  <Button
+    v-if="filters.length > 0"
+    :class="cn(sizeVariant[size], props.class)"
+    :variant="variant"
+    size="icon"
+    aria-label="Clear filters"
+    @click="clearFilters"
+  >
+    <FunnelXIcon />
+  </Button>
 </template>

@@ -1,64 +1,84 @@
 <script setup lang="ts">
-import { Input } from "@vuzeno/ui/components/input";
-import { computed, h } from "vue";
-import FiltersItemDateInput from "./FiltersItemDateInput.vue";
-import FiltersItemDateRangeInput from "./FiltersItemDateRangeInput.vue";
-import FiltersItemMultiSelect from "./FiltersItemMultiSelect.vue";
-import FiltersItemNumberInput from "./FiltersItemNumberInput.vue";
-import FiltersItemNumberRangeInput from "./FiltersItemNumberRangeInput.vue";
-import FiltersItemSelect from "./FiltersItemSelect.vue";
-import FiltersItemSwitch from "./FiltersItemSwitch.vue";
-import { type FilterSize, injectFilterContext } from "./FiltersProvider.vue";
-import type { Field } from "./field";
+import { type Component, computed } from "vue";
+import FiltersInputDate from "./FiltersInputDate.vue";
+import FiltersInputDateRange from "./FiltersInputDateRange.vue";
+import FiltersInputMultiSelect from "./FiltersInputMultiSelect.vue";
+import FiltersInputNumber from "./FiltersInputNumber.vue";
+import FiltersInputNumberRange from "./FiltersInputNumberRange.vue";
+import FiltersInputSelect from "./FiltersInputSelect.vue";
+import FiltersInputSwitch from "./FiltersInputSwitch.vue";
+import FiltersInputText from "./FiltersInputText.vue";
+import { BaseField, BooleanField, DateField, NumberField, TextField } from "./field";
 import type { FilterValue } from "./filter";
-import { type Operator, OperatorInputType } from "./operator";
+import { type Operator, OperatorInputType, type OperatorInputTypeValue } from "./operator";
 
 const props = defineProps<{
-  field: Field;
+  field: BaseField;
   operator: Operator<unknown>;
 }>();
 
-const value = defineModel<FilterValue>();
+const modelValue = defineModel<FilterValue>();
 
-const { variant, size } = injectFilterContext();
+type InputComponentResolver = (field: BaseField) => Component | null;
 
-const defaultInputType = computed(() => {
-  const mapping = {
-    text: "text",
-    date: "date",
-    boolean: "boolean",
-  } as const;
+const inputComponentByInputType = {
+  [OperatorInputType.SELECT]() {
+    return FiltersInputSelect;
+  },
+  [OperatorInputType.MULTI_SELECT]() {
+    return FiltersInputMultiSelect;
+  },
+  [OperatorInputType.SWITCH](field) {
+    if (field instanceof BooleanField) {
+      return FiltersInputSwitch;
+    }
 
-  return mapping[props.field.type as keyof typeof mapping];
-});
+    return null;
+  },
+  [OperatorInputType.RANGE](field) {
+    if (field instanceof NumberField) {
+      return FiltersInputNumberRange;
+    }
 
-const inputType = computed(() => {
-  return props.operator.inputType ?? defaultInputType.value;
-});
+    if (field instanceof DateField) {
+      return FiltersInputDateRange;
+    }
 
-const inputComponent = computed(() => {
-  const mapping = {
-    [OperatorInputType.SELECT]: FiltersItemSelect,
-    [OperatorInputType.MULTI_SELECT]: FiltersItemMultiSelect,
-    [OperatorInputType.DATE]: FiltersItemDateInput,
-    [OperatorInputType.DATE_RANGE]: FiltersItemDateRangeInput,
-    [OperatorInputType.NUMBER_RANGE]: FiltersItemNumberRangeInput,
-    [OperatorInputType.NUMBER]: FiltersItemNumberInput,
-    [OperatorInputType.BOOLEAN]: FiltersItemSwitch,
-    [OperatorInputType.TEXT]: h(Input, { class: ["h-auto", variant.value === "secondary" && "bg-secondary border-none"] }),
-    [OperatorInputType.NONE]: null,
-  } as const;
+    return null;
+  },
+  [OperatorInputType.INPUT](field) {
+    if (field instanceof NumberField) {
+      return FiltersInputNumber;
+    }
 
-  return mapping[inputType.value as keyof typeof mapping];
-});
+    if (field instanceof DateField) {
+      return FiltersInputDate;
+    }
 
-const sizeVariant: Record<FilterSize, string> = {
-  sm: "text-xs",
-  default: "text-sm",
-  lg: "text-sm",
-} as const;
+    if (field instanceof TextField) {
+      return FiltersInputText;
+    }
+
+    if (field instanceof BooleanField) {
+      return FiltersInputSwitch;
+    }
+
+    return null;
+  },
+  [OperatorInputType.NONE]() {
+    return null;
+  },
+} satisfies Record<OperatorInputTypeValue, InputComponentResolver>;
+
+const inputComponent = computed<Component | null>(() => inputComponentByInputType[props.operator.inputType](props.field));
 </script>
 
 <template>
-    <component :is="inputComponent" v-model="value" :field="field" :variant="variant" :class="sizeVariant[size]" />
+  <component
+    :is="inputComponent"
+    v-if="inputComponent"
+    v-model="modelValue"
+    :field="field"
+    :operator="operator"
+  />
 </template>

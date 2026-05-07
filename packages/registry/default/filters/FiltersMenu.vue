@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import FiltersDropdownMenu from "./FiltersDropdownMenu.vue";
-import FiltersDropdownMenuContent from "./FiltersDropdownMenuContent.vue";
-import FiltersDropdownMenuTrigger from "./FiltersDropdownMenuTrigger.vue";
+import { DropdownMenu } from "@vuzeno/ui/components/dropdown-menu";
 </script>
 
 <template>
-    <FiltersDropdownMenu>
-        <FiltersDropdownMenuTrigger>
-            <slot />
-        </FiltersDropdownMenuTrigger>
-
-        <FiltersDropdownMenuContent />
-    </FiltersDropdownMenu>
+  <DropdownMenu>
+    <slot />
+  </DropdownMenu>
 </template>

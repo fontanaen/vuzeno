@@ -1,124 +1,172 @@
 <script setup lang="ts">
-import { CalendarDate, today } from "@internationalized/date";
-import type { FieldGroup, Filter } from "@vuzeno/registry/ui/filters";
-import { FiltersClear, FiltersGroup, FiltersItem, FiltersMenu, FiltersProvider } from "@vuzeno/registry/ui/filters";
-import { CalendarIcon, DollarSignIcon, TagIcon, ToggleRightIcon, UserIcon } from "lucide-vue-next";
-import { computed, h, type Ref, ref } from "vue";
+import { today } from "@internationalized/date";
+import type { Filter, FiltersSize, FiltersVariant } from "@vuzeno/registry/ui/filters";
+import { Field, Filters, FiltersClear, FiltersItem, FiltersMenu, FiltersMenuContent, FiltersMenuTrigger, FiltersProvider, Operator } from "@vuzeno/registry/ui/filters";
+import { CalendarIcon, CircleDashedIcon, CircleIcon, CircleMinusIcon, CircleOffIcon, DollarSignIcon, SearchIcon, TagIcon, ToggleRightIcon } from "lucide-vue-next";
+import { type Component, h, type Ref, ref, type VNode } from "vue";
 
-const fields = ref<FieldGroup[]>([
-  {
-    group: "Base",
-    fields: [
-      {
-        key: "status",
-        name: "Status",
-        type: "text",
-        icon: TagIcon,
+const statusItems = [
+  { label: "Active", value: "active" },
+  { label: "Inactive", value: "inactive" },
+  { label: "Pending", value: "pending" },
+  { label: "Cancelled", value: "cancelled" },
+];
+
+const statusIcons: Record<string, { icon: Component; class: string }> = {
+  active: { icon: CircleIcon, class: "size-3.5! rounded-full" },
+  inactive: { icon: CircleMinusIcon, class: "size-3.5! rounded-full text-muted-foreground" },
+  pending: { icon: CircleDashedIcon, class: "size-3.5! rounded-full text-yellow-500" },
+  cancelled: { icon: CircleOffIcon, class: "size-3.5! rounded-full text-red-400" },
+};
+
+function statusLabel(value: string): string {
+  return statusItems.find((item) => item.value === value)?.label ?? value;
+}
+
+function renderStatusIcon(value: string): VNode | undefined {
+  const statusIcon = statusIcons[value];
+
+  if (!statusIcon) {
+    return undefined;
+  }
+
+  return h(statusIcon.icon, { class: [statusIcon.class, "bg-background"], key: value });
+}
+
+function renderStatusOption(option: { label: string; value: string }) {
+  return h("div", { class: "flex items-center gap-2 w-full ml-2" }, [renderStatusIcon(option.value), h("span", option.label), h("span", { class: "text-muted-foreground ml-auto" }, `(${10} issues)`)]);
+}
+
+function renderSingleStatusValue(value: string) {
+  return h("div", { class: "flex items-center gap-2" }, [renderStatusIcon(value), h("span", statusLabel(value))]);
+}
+
+function renderManyStatusValues(values: string[]) {
+  const icons = values
+    .slice(0, 3)
+    .map((value) => renderStatusIcon(value))
+    .filter((icon): icon is VNode => icon !== undefined);
+
+  return h("div", { class: "flex items-center gap-2" }, [h("div", { class: "flex -space-x-1" }, icons), `${values.length} ${values.length === 1 ? "status" : "statuses"}`]);
+}
+
+const variant = ref<FiltersVariant>("outline");
+const size = ref<FiltersSize>("sm");
+
+const fields = ref([
+  Field.TextField({
+    key: "q",
+    label: "Search",
+    icon: SearchIcon,
+    operators: [Operator.Contain({ label: "contains" }), Operator.Eq({ label: "is" })],
+  }),
+  Field.TextField({
+    key: "status",
+    label: "Status",
+    icon: TagIcon,
+    operators: [
+      Operator.Eq({
+        label: "is",
+        inputType: "select",
         options: {
+          items: statusItems,
           searchable: true,
-          items: [
-            { label: "Active", value: "active" },
-            { label: "Inactive", value: "inactive" },
-            { label: "Pending", value: "pending" },
-            { label: "Cancelled", value: "cancelled" },
-          ],
-          optionDisplay: (option) => {
-            const color = {
-              active: "bg-green-500",
-              inactive: "bg-red-500",
-              pending: "bg-yellow-500",
-              cancelled: "bg-gray-500",
-            } as const;
-            return h("div", { class: "flex items-center gap-2" }, [h("span", { class: `size-2 rounded-full ${color[option.value as keyof typeof color]}` }), h("span", option.label)]);
-          },
+          renderOption: renderStatusOption,
+          renderValue: renderSingleStatusValue,
         },
-        operators: [
-          { label: "is", value: "eq", inputType: "select" },
-          { label: "is not", value: "neq", inputType: "select" },
-          { label: "includes", value: "in", inputType: "multi-select", default: true },
-        ],
-      },
-      {
-        key: "name",
-        name: "Name",
-        type: "text",
-        icon: UserIcon,
-        operators: [
-          { label: "is", value: "eq" },
-          { label: "contains", value: "contains" },
-          { label: "starts with", value: "starts_with" },
-        ],
-      },
+      }),
+      Operator.In({
+        label: "any of",
+        options: {
+          items: statusItems,
+          searchable: true,
+          renderOption: renderStatusOption,
+          renderValue: renderManyStatusValues,
+        },
+        default: true,
+      }),
     ],
-  },
-  {
-    group: "Dates & Numbers",
+  }),
+  Field.NumberField({
+    key: "price",
+    label: "Price",
+    icon: DollarSignIcon,
+    min: 0,
+    max: 1000,
+    step: 10,
+    numberFormat: { style: "currency", currency: "USD", maximumFractionDigits: 0 },
+    operators: [Operator.Lt({ label: "less than", default: true, defaultValue: 500 }), Operator.Btw({ label: "between" })],
+  }),
+  Field.BooleanField({
+    key: "is_active",
+    label: "Active",
+    icon: ToggleRightIcon,
+    operators: [Operator.Eq({ label: "is", defaultValue: true }), Operator.Null({ label: "is empty" })],
+  }),
+  Field.Submenu({
+    label: "Dates",
+    icon: CalendarIcon,
     fields: [
-      {
+      Field.DateField({
         key: "created_at",
-        name: "Created At",
-        type: "date",
+        label: "Created at",
         icon: CalendarIcon,
-        min: today(),
-        max: today().add({ days: 10 }),
-        multiple: false,
+        min: today("UTC").subtract({ days: 30 }),
+        max: today("UTC").add({ days: 30 }),
+        operators: [Operator.Eq({ label: "is" }), Operator.Btw({ label: "between" })],
+      }),
+      Field.DateField({
+        key: "updated_at",
+        label: "Updated at",
+        icon: CalendarIcon,
+        min: today("UTC").subtract({ days: 30 }),
+        max: today("UTC").add({ days: 30 }),
+        operators: [Operator.Eq({ label: "is" }), Operator.Btw({ label: "between" })],
+      }),
+      Field.TextField({
+        key: "due_date",
+        label: "Due date",
+        icon: CalendarIcon,
         operators: [
-          { label: "is", value: "eq" },
-          { label: "between", value: "btw", inputType: "date-range" },
+          Operator.Eq({
+            label: "is",
+            inputType: "select",
+            options: {
+              items: [
+                { label: "Today", value: "today" },
+                { label: "Tomorrow", value: "tomorrow" },
+                { label: "Next week", value: "next_week" },
+                { label: "Next month", value: "next_month" },
+              ],
+            },
+          }),
         ],
-      },
-      {
-        key: "price",
-        name: "Price",
-        type: "number",
-        icon: DollarSignIcon,
-        min: 0,
-        max: 1000,
-        step: 10,
-        numberFormat: { style: "currency", currency: "USD", maximumFractionDigits: 0 },
-        operators: [
-          { label: "less than", value: "lt", inputType: "number", default: true, defaultValue: 500 },
-          { label: "between", value: "btw", inputType: "number-range" },
-        ],
-      },
-      {
-        key: "is_active",
-        name: "Is Active",
-        icon: ToggleRightIcon,
-        type: "boolean",
-        operators: [
-          { label: "is", value: "eq", defaultValue: true },
-          { label: "is not", value: "neq" },
-        ],
-      },
+      }),
     ],
-  },
+  }),
 ]);
 
 const filters: Ref<Filter[]> = ref([
-  { field: "status", operator: "eq", value: "active" },
+  { field: "status", operator: "in", value: ["active", "pending"] },
   { field: "price", operator: "btw", value: [100, 500] },
 ]);
 </script>
 
 <template>
-  <div class="min-w-96 space-y-4 flex">
-    <FiltersProvider v-model:filters="filters" :fields="fields" variant="outline" class="flex-nowrap items-start">
-      <div class="flex items-start gap-2">
-        <FiltersMenu />
+  <div class="min-w-96 w-full">
+    <FiltersProvider v-model:filters="filters" :fields="fields" :variant="variant" :size="size">
+      <FiltersMenu>
+        <FiltersMenuTrigger />
+        <FiltersMenuContent />
+      </FiltersMenu>
 
-        <FiltersGroup v-slot="{ removeFilter }">
-          <template v-for="(filter, index) in filters" :key="filter.field">
-            <FiltersItem
-              v-if="!filter.hidden"
-              :filter="filter"
-              @delete="removeFilter(index)"
-            />
-          </template>
-        </FiltersGroup>
-      </div>
-      
-      <FiltersClear v-if="filters.length > 0" class="flex-none" />
+      <Filters filter-style="long">
+        <FiltersItem
+          v-for="filter in filters.filter((current) => !current.hidden)"
+          :key="`${filter.field}:${filter.operator}`"
+          :filter="filter"
+        />
+      </Filters>
     </FiltersProvider>
   </div>
 </template>
