@@ -67,7 +67,7 @@ const inputComponentByInputType = {
   },
   [OperatorInputType.NONE]() {
     return null;
-  }
+  },
 } satisfies Record<OperatorInputTypeValue, InputComponentResolver>;
 
 const inputComponent = computed<Component | null>(() => inputComponentByInputType[props.operator.inputType](props.field));

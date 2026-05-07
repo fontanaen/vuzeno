@@ -27,7 +27,6 @@ interface BaseFieldArgs<T> {
    * leaves the operator's value type free, so each factory's precise return
    * type stays available at the call site (where `renderValue` is declared).
    */
-  // biome-ignore lint/suspicious/noExplicitAny: variance requires `any` so operators with different value types can coexist in the same array.
   operators: Operator<any, T>[];
 }
 
@@ -35,7 +34,6 @@ export abstract class BaseField<T = any> {
   key: string;
   label: string;
   icon?: FunctionalComponent | (() => VNode);
-  // biome-ignore lint/suspicious/noExplicitAny: variance requires `any` so operators with different value types can coexist in the same array.
   operators: Operator<any, T>[];
 
   constructor(args: BaseFieldArgs<T>) {
