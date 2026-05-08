@@ -225,6 +225,28 @@
       ]
     },
     {
+      "name": "list",
+      "type": "registry:component",
+      "title": "List",
+      "description": "A composable list of items with insert/remove animation and optional drag-and-drop sorting.",
+      "dependencies": ["reka-ui", "@dnd-kit/vue", "lucide-vue-next"],
+      "registryDependencies": ["item"],
+      "files": [
+        { "path": "default/list/List.vue", "type": "registry:component" },
+        { "path": "default/list/ListItem.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemActions.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemContent.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemDescription.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemDragHandle.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemFooter.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemHeader.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemMedia.vue", "type": "registry:component" },
+        { "path": "default/list/ListItemTitle.vue", "type": "registry:component" },
+        { "path": "default/list/ListSeparator.vue", "type": "registry:component" },
+        { "path": "default/list/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
       "name": "timeline",
       "type": "registry:component",
       "title": "Timeline",

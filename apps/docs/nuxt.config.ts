@@ -4,7 +4,7 @@ import { siteConfig } from "./app/lib/site-config";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
 
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 
   modules: ["@nuxt/content", "@nuxtjs/color-mode", "nuxt-shiki", "@nuxt/fonts", "nuxt-llms", "@nuxtjs/sitemap", "@vercel/analytics"],
 
