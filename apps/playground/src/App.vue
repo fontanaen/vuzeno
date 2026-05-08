@@ -28,6 +28,7 @@ const navItems = [
   { label: "Filters", to: { name: "components.filters" } },
   { label: "Image", to: { name: "components.image" } },
   { label: "Phone Field", to: { name: "components.phone-field" } },
+  { label: "Resize Motion", to: { name: "components.resize-motion" } },
   { label: "Time Field", to: { name: "components.time-field" } },
   { label: "Password Field", to: { name: "components.password-field" } },
   { label: "Action Sheet", to: { name: "components.action-sheet" } },

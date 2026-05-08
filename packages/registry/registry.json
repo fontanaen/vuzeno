@@ -181,6 +181,14 @@
       ]
     },
     {
+      "name": "resize-motion",
+      "type": "registry:component",
+      "title": "Resize Motion",
+      "description": "An animated wrapper that tracks content height changes and handles constrained scrolling.",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [{ "path": "default/resize-motion/ResizeMotion.vue", "type": "registry:component" }, { "path": "default/resize-motion/index.ts", "type": "registry:component" }]
+    },
+    {
       "name": "color",
       "type": "registry:component",
       "title": "Color",
