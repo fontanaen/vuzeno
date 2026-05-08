@@ -4,8 +4,6 @@ description: A vertical or horizontal thread for displaying sequential data with
 tag: new
 ---
 
-A composable timeline built from primitives. Use it to visualize an ordered sequence of events — logs, activity feeds, product journeys, or step-by-step stories — either top-to-bottom or left-to-right.
-
 ::component-preview
 ---
 name: TimelineDemo

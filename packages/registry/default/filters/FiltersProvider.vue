@@ -1,62 +1,96 @@
-<script lang="ts">
+<script setup lang="ts">
 import { cn } from "@vuzeno/ui/lib/utils";
-import { createContext, Primitive } from "reka-ui";
-import { type HTMLAttributes, type Ref, toRefs } from "vue";
-import type { Field, FieldGroup } from "./field";
+import { Primitive } from "reka-ui";
+import { type HTMLAttributes, toRefs } from "vue";
+import { type FiltersSize, type FiltersVariant, provideFiltersContext } from "./context";
+import { type BaseField, type FilterFieldItem, isField, isFieldGroup, isFieldSubmenu } from "./field";
 import type { Filter } from "./filter";
 
-export type FilterVariant = "outline" | "secondary";
-export type FilterSize = "sm" | "default" | "lg";
-export type FilterRounded = "default" | "full";
+const props = withDefaults(
+  defineProps<{
+    fields: FilterFieldItem[];
+    variant?: FiltersVariant;
+    size?: FiltersSize;
+    class?: HTMLAttributes["class"];
+  }>(),
+  {
+    variant: "outline",
+    size: "md",
+  },
+);
 
-export type FilterProviderProps = {
-  fields: FieldGroup[] | Field[];
-  filters: Filter[];
-  variant?: FilterVariant;
-  size?: FilterSize;
-  rounded?: FilterRounded;
-  class?: HTMLAttributes["class"];
-};
+const filters = defineModel<Filter[]>("filters", { default: () => [] });
 
-export type FilterProviderEmits = (e: "update:filters", filters: Filter[]) => void;
+const { fields, variant, size } = toRefs(props);
 
-export type FilterContext<P extends FilterProviderProps> = {
-  fields: Ref<P["fields"]>;
-  filters: Ref<P["filters"]>;
-  variant: Ref<NonNullable<P["variant"]>>;
-  size: Ref<NonNullable<P["size"]>>;
-  rounded: Ref<NonNullable<P["rounded"]>>;
-  clearFilters: () => void;
-};
+function findFieldIn(items: FilterFieldItem[], key: string): BaseField | undefined {
+  for (const item of items) {
+    if (isField(item)) {
+      if (item.key === key) {
+        return item;
+      }
+      continue;
+    }
 
-export const [injectFilterContext, provideFilterContext] = createContext<FilterContext<FilterProviderProps>>("FiltersContext");
-</script>
+    if (isFieldGroup(item) || isFieldSubmenu(item)) {
+      const found = findFieldIn(item.fields, key);
 
-<script setup lang="ts">
-const props = withDefaults(defineProps<FilterProviderProps>(), {
-  variant: 'outline',
-  size: 'default',
-  rounded: 'default',
-});
+      if (found) {
+        return found;
+      }
+    }
+  }
 
-const filters = defineModel<Filter[]>('filters', { default: () => [] });
+  return undefined;
+}
 
-const { fields, variant, size, rounded } = toRefs(props);
+function findField(key: string): BaseField | undefined {
+  return findFieldIn(fields.value, key);
+}
 
-provideFilterContext({
+function addFilter(filter: Filter) {
+  filters.value = [...filters.value, filter];
+}
+
+function updateFilter(filter: Filter, patch: Partial<Filter>) {
+  const index = filters.value.indexOf(filter);
+
+  if (index === -1) {
+    return;
+  }
+
+  filters.value = filters.value.map((current, currentIndex) => (currentIndex === index ? { ...current, ...patch } : current));
+}
+
+function removeFilter(filter: Filter) {
+  const index = filters.value.indexOf(filter);
+
+  if (index === -1) {
+    return;
+  }
+
+  filters.value = filters.value.filter((_, currentIndex) => currentIndex !== index);
+}
+
+function clearFilters() {
+  filters.value = [];
+}
+
+provideFiltersContext({
   fields,
   filters,
   variant,
   size,
-  rounded,
-  clearFilters() {
-    filters.value = [];
-  },
+  addFilter,
+  updateFilter,
+  removeFilter,
+  clearFilters,
+  findField,
 });
 </script>
 
 <template>
-  <Primitive as="div" :class="cn('flex flex-wrap items-center gap-2', props.class)">
+  <Primitive as="div" data-slot="filters-provider" :class="cn('flex flex-wrap items-center gap-2', props.class)">
     <slot />
   </Primitive>
 </template>

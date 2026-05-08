@@ -14,7 +14,7 @@ const props = withDefaults(
   <NuxtLink
     :href="props.href"
     :target="props.target"
-    class="font-medium underline underline-offset-4"
+    class="font-medium underline underline-offset-4 hover:text-primary"
   >
     <slot />
   </NuxtLink>

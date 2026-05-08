@@ -1,7 +1,7 @@
 ---
 title: Filters
-description: A composable filter system for building dynamic, type-aware filter UIs with dropdown field selection, operators, and multiple value input types
-tag: new
+description: A composable filter system with typed fields, operators, and filter chips.
+tag: updated
 ---
 
 ::component-preview 
@@ -10,16 +10,15 @@ name: FiltersDemo
 ---
 ::
 
+
 ## Features
 
-- **Field-based configuration** — Define fields as text, date, number, or boolean with optional icons and options
-- **Grouped fields** — Organize fields into groups in the add-filter menu
-- **Operators per field** — Each field supports multiple operators (is, is not, contains, between, etc.) with configurable default
-- **Multiple value input types** — Text, select, multi-select, date, date range, number, number range, boolean switch, or none
-- **Custom option display** — Customize how options appear in selects and in the add-filter submenu
-- **Variants and sizes** — Outline or secondary variant; sm, default, or lg size
-- **Clear all** — One action to remove all active filters
-- **Composable** — Slot-based layout; use FiltersMenuTrigger and FiltersMenuContent for custom layouts
+- Typed field factories.
+- Text, number, date, boolean, select, and multi-select values.
+- Long or short filter chips.
+- Groups and nested menus.
+- `outline` and `secondary` variants.
+- `sm`, `md`, and `lg` sizes.
 
 ## Installation
 
@@ -32,59 +31,115 @@ exec: true
 ---
 ::
 
-## Fields configuration
+## Examples
 
-`FiltersProvider` receives a `fields` prop: an array of **Field** or **FieldGroup** items. Each **Field** defines a filterable column: its key, label, type, which operators are available, and optionally a fixed set of options or constraints.
+### Sizes and variants
 
-### Structure
+Set `variant` and `size` on `FiltersProvider`, use `filter-style="short"` to show only values.
 
-- **Flat list** — Pass an array of `Field` to list all fields in the add-filter menu without groups.
-- **Grouped list** — Pass an array of `FieldGroup`. Each group has a `group` (label) and a `fields` array. Groups appear as sections in the menu (e.g. “Base”, “Dates”, “Numbers”).
+::component-preview
+---
+name: FiltersShortDemo
+---
+::
 
-### Field properties
+## API Reference
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `key` | `string` | Unique identifier; used as `filter.field` when a filter is added. |
-| `name` | `string` | Display name in the menu and on filter chips. |
-| `type` | `text` \| `date` \| `number` \| `boolean` | Drives the default input type when the operator doesn’t specify one. |
-| `operators` | `Operator[]` | List of operators (e.g. “is”, “contains”, “between”). See [Operators](#operators). |
-| `icon` | `Component` \| `(() => VNode)` | Icon shown next to the field name in the menu and on chips. |
-| `multiple` | `boolean` | If `true`, allows multiple filters on this field (e.g. several status values). |
-| `min` | `T` | Minimum value (date/number); used by date picker and number inputs. |
-| `max` | `T` | Maximum value (date/number). |
-| `step` | `number` | Step for number inputs. |
-| `numberFormat` | `Intl.NumberFormatOptions` | Formatting for number/currency display (e.g. `{ style: "currency", currency: "USD" }`). |
-| `options` | `object` | Predefined choices for select/multi-select. See [Options](#options). |
+### Components
+
+| Component | Use |
+| --- | --- |
+| `FiltersProvider` | Root state and context. |
+| `FiltersMenu` | Add-filter dropdown. |
+| `FiltersMenuTrigger` | Default trigger, or custom slot. |
+| `FiltersMenuContent` | Field list, groups, and submenus. |
+| `Filters` | Chip wrapper. |
+| `FiltersItem` | One filter chip. |
+| `FiltersClear` | Clears all filters. |
+
+### FiltersProvider
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `filters` | `Filter[]` | `[]` |
+| `fields` | `FilterFieldItem[]` | - |
+| `variant` | `"outline" \| "secondary"` | `"outline"` |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` |
+
+### Filters
+
+| Prop | Type | Default |
+| --- | --- | --- |
+| `filterStyle` | `"long" \| "short"` | `"long"` |
+
+### Fields
+
+Build fields with `Field.*`.
+
+| Helper | Extra options |
+| --- | --- |
+| `Field.TextField` | `minLength`, `maxLength` |
+| `Field.NumberField` | `min`, `max`, `step`, `numberFormat` |
+| `Field.DateField` | `min`, `max` |
+| `Field.BooleanField` | `trueValue`, `falseValue` |
+| `Field.Group` | `label`, `fields` |
+| `Field.Submenu` | `label`, `icon`, `fields` |
+
+Common field options: `key`, `label`, `icon`, `operators`.
+
+```ts
+const fields = [
+  Field.TextField({
+    key: "name",
+    label: "Name",
+    operators: [
+      Operator.Contain({ label: "contains" })
+    ],
+  }),
+];
+```
 
 ### Operators
 
-Each operator is an object with:
+Build operators with `Operator.*`.
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `label` | `string` | Label in the operator dropdown (e.g. “is”, “between”). |
-| `value` | `string` | Unique value stored in `filter.operator`. |
-| `default` | `boolean` | If `true`, this operator is selected when the filter is first added. |
-| `defaultValue` | `T \| T[]` | Initial `filter.value` when this operator is selected. |
-| `inputType` | `string` | Overrides the input: `select`, `multi-select`, `text`, `date`, `date-range`, `number`, `number-range`, `boolean`, `none`. Omit to use the field’s `type`. |
+| Helper | Value | Input |
+| --- | --- | --- |
+| `Operator.Eq` | `eq` | `input` or `select` |
+| `Operator.Neq` | `neq` | `input` or `select` |
+| `Operator.Contain` | `contains` | `input` |
+| `Operator.NotContain` | `not_contains` | `input` |
+| `Operator.In` | `in` | `multi-select` |
+| `Operator.Nin` | `nin` | `multi-select` |
+| `Operator.Btw` | `btw` | `range` |
+| `Operator.Null` | `is_null` | `none` |
+| `Operator.NotNull` | `not_null` | `none` |
+| `Operator.Gt` | `gt` | `input` |
+| `Operator.Lt` | `lt` | `input` |
 
-Use `inputType: "none"` for operators that don’t need a value (e.g. “is empty”, “is not empty”).
+Common operator options: `label`, `default`, `defaultValue`, `options`.
 
-### Options
+```ts
+Operator.In({
+  label: "any of",
+  options: {
+    items: [
+      { label: "Active", value: "active" },
+      { label: "Pending", value: "pending" },
+    ],
+  },
+});
+```
 
-When a field has predefined choices, set `options`:
+### Filter
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `items` | `{ label: string, value: T }[]` | Options for select or multi-select. |
-| `searchable` | `boolean` | Enable search in the options list. |
-| `minSelections` | `number` | Minimum selected items (multi-select). |
-| `maxSelections` | `number` | Maximum selected items (multi-select). |
-| `optionDisplay` | `(option) => VNode \| string` | Custom render for each option (e.g. label + badge). |
+Active filters are plain objects.
 
-Fields with `options.items` show a submenu in the add-filter dropdown so the user can pick a value when adding the filter.
+```ts
+const filters: Filter[] = [
+  { field: "status", operator: "in", value: ["active", "pending"] },
+  { field: "price", operator: "btw", value: [100, 500] },
+];
+```
 
-### Filter and FilterValue
-
-Active filters are stored as **Filter** objects: `{ field, operator, value, hidden? }`. The `value` type (**FilterValue**) depends on the operator and field: `string`, `string[]`, `number`, `number[]`, `boolean`, `CalendarDate`, `CalendarDate[]`, or a range `{ start, end }` for date/number ranges.
+`FilterValue` can be `string`, `string[]`, `number`, `number[]`, `boolean`, `CalendarDate`, `CalendarDate[]`, `{ start, end }`, or `null`.

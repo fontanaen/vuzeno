@@ -4,8 +4,6 @@ description: A bottom sheet dialog for actions with a promise-based selection AP
 tag: new
 ---
 
-A mobile-style action sheet built on the dialog primitive. Use `v-model:open` with a trigger, or call `start()` on a template ref to await the user’s choice in async code.
-
 ::component-preview
 ---
 name: ActionSheetDemo
@@ -169,11 +167,7 @@ Compose several `ActionSheetGroup` components inside `ActionSheetContent` to sep
 
 `ActionSheet` forwards other props and emits from Reka UI’s `DialogRoot`.
 
-### `start()`
-
-| Method | Returns |
-|--------|---------|
-| `start()` | `Promise<ActionSheetStartResult<O>>` |
+### ActionSheetStartResult
 
 ```ts
 type ActionSheetStartResult<O> = 

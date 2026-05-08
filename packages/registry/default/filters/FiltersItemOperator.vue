@@ -2,8 +2,9 @@
 import { Button } from "@vuzeno/ui/components/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
 import { CheckIcon } from "lucide-vue-next";
-import { type FilterSize, type FilterVariant, injectFilterContext } from "./FiltersProvider.vue";
+import { type FiltersSize, injectFiltersContext } from "./context";
 import type { Operator } from "./operator";
+import { DropdownItemSizeVariant, PopoverTriggerSizeVariant } from "./sizes";
 
 defineProps<{
   options: Operator<unknown>[];
@@ -11,29 +12,27 @@ defineProps<{
 
 const modelValue = defineModel<string>();
 
-const { variant, size } = injectFilterContext();
-
-const sizeVariant: Record<FilterSize, string> = {
-  sm: "text-xs",
-  default: "text-sm",
-  lg: "text-sm",
-} as const;
+const { variant, size } = injectFiltersContext();
 </script>
 
 <template>
-    <DropdownMenu>
-        <DropdownMenuTrigger as-child class="h-auto">
-            <Button ref="triggerEl" :class="sizeVariant[size]" :variant="variant" :size="size" aria-label="Filter Operator">
-                {{ options.find(option => option.value === modelValue)?.label }}
-            </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="start">
-            <DropdownMenuGroup>
-                <DropdownMenuItem v-for="option in options" :key="option.value" @click="modelValue = option.value">
-                    {{ option.label }}
-                    <CheckIcon class="ml-auto size-4 text-primary" :class="{ 'opacity-0': option.value !== modelValue }" />
-                </DropdownMenuItem>
-            </DropdownMenuGroup>
-        </DropdownMenuContent>
-    </DropdownMenu>
+  <DropdownMenu>
+    <DropdownMenuTrigger as-child class="h-auto">
+      <Button
+        :variant="variant"
+        :class="PopoverTriggerSizeVariant[size]"
+        aria-label="Filter operator"
+      >
+        {{ options.find(option => option.value === modelValue)?.label }}
+      </Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="start">
+      <DropdownMenuGroup>
+        <DropdownMenuItem v-for="option in options" :key="option.value" @click="modelValue = option.value" :class="DropdownItemSizeVariant[size]">
+          {{ option.label }}
+          <CheckIcon class="ml-auto size-4 text-primary" :class="{ 'opacity-0': option.value !== modelValue }" />
+        </DropdownMenuItem>
+      </DropdownMenuGroup>
+    </DropdownMenuContent>
+  </DropdownMenu>
 </template>
