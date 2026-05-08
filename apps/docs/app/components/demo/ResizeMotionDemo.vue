@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ResizeMotion } from "@vuzeno/registry/ui/resize-motion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@vuzeno/ui/components/accordion";
 import { Button } from "@vuzeno/ui/components/button";
 import { Checkbox } from "@vuzeno/ui/components/checkbox";
 import { Dialog, DialogContent, DialogTrigger } from "@vuzeno/ui/components/dialog";
 import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@vuzeno/ui/components/item";
 import { ArrowLeftIcon, ArrowRightIcon, CheckIcon } from "lucide-vue-next";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { DiscordIcon, FigmaIcon, GitHubIcon, GoogleCalendarIcon, IntercomIcon, LinearIcon, NotionIcon, StripeIcon } from "vue3-simple-icons";
 
 const currentStep = ref(0);
@@ -85,6 +86,8 @@ function goToPreviousStep() {
 function goToNextStep() {
   currentStep.value = Math.min(currentStep.value + 1, steps.length - 1);
 }
+
+const selectedImportTools = computed(() => imports.filter((tool) => selectedImports.value.includes(tool.id)));
 </script>
 
 <template>
@@ -116,8 +119,7 @@ function goToNextStep() {
           </div>
 
           <div class="px-4">
-            <div class="relative overflow-hidden rounded-xl border bg-muted/30 p-4 shadow-sm">
-              <div class="absolute -right-8 -top-10 size-28 rounded-full bg-primary/10 blur-2xl" />
+            <div class="relative overflow-hidden">
               <div class="relative space-y-4">
                 <div class="flex items-center gap-4">
                   <div class="grid size-11 place-items-center rounded-xl bg-foreground text-sm font-semibold text-background shadow-sm">
@@ -134,7 +136,7 @@ function goToNextStep() {
                 </div>
 
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                  <div class="rounded-lg border bg-background/80 p-3">
+                  <div class="rounded-lg bg-accent p-3">
                     <p class="text-muted-foreground">
                       Members
                     </p>
@@ -142,7 +144,7 @@ function goToNextStep() {
                       12 teammates
                     </p>
                   </div>
-                  <div class="rounded-lg border bg-background/80 p-3">
+                    <div class="rounded-lg bg-accent p-3">
                     <p class="text-muted-foreground">
                       Setup time
                     </p>
@@ -175,28 +177,26 @@ function goToNextStep() {
           </div>
 
           <div class="space-y-3 px-4">
-            <div class="rounded-xl border bg-muted/30 p-4">
+            <div class="rounded-lg bg-accent p-4">
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <p class="font-medium">
                     Design team
                   </p>
-                  <p class="mt-1 text-sm text-muted-foreground">
+                  <p class="mt-1 text-xs text-muted-foreground">
                     Weekly planning with async updates
                   </p>
                 </div>
-                <span class="rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
-                  Balanced
-                </span>
               </div>
             </div>
 
             <div class="grid gap-2">
-              <div v-for="item in preferences" :key="item" class="flex items-center gap-3 rounded-lg border bg-background px-3 py-2.5 text-sm shadow-xs">
-                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+              <div v-for="item in preferences" :key="item" class="flex items-center gap-2 rounded-lg border bg-background px-3 py-2.5 shadow-xs">
+                <span class="grid size-6 shrink-0 place-items-center rounded-lg">
                   <CheckIcon class="size-3.5" />
                 </span>
-                <span>{{ item }}</span>
+
+                <span class="text-xs font-medium">{{ item }}</span>
               </div>
             </div>
           </div>
@@ -215,14 +215,10 @@ function goToNextStep() {
                 Connect your tools
               </h3>
               <p class="text-sm text-muted-foreground">
-                This step is intentionally larger, but only the tool list scrolls.
+                Choose the integrations you want to sync first.
               </p>
             </div>
           </div>
-
-          <p class="px-4 text-sm">
-            Choose the integrations you want to sync first.
-          </p>
 
           <div class="relative space-y-2">
             <div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-5 bg-linear-to-b from-background via-background/80 to-transparent" />
@@ -267,22 +263,77 @@ function goToNextStep() {
               </p>
             </div>
 
-            <div class="grid size-10 place-items-center rounded-full bg-primary/10 text-primary">
-              <CheckIcon class="size-4" />
-            </div>
+            <span class="text-4xl pr-2">
+              🎉
+            </span>
           </div>
 
           <div class="px-4">
-            <div class="rounded-xl border bg-muted/30 p-2">
-              <div class="flex items-center justify-between rounded-lg p-2 text-sm">
-                <span class="text-muted-foreground">Workspace</span>
-                <span class="font-medium">Acme Studio</span>
-              </div>
-              <div class="mt-2 flex items-center justify-between rounded-lg p-2 text-sm">
-                <span class="text-muted-foreground">Imports selected</span>
-                <span class="font-medium">{{ selectedImports.length }} tools</span>
-              </div>
-            </div>
+            <Accordion type="single" collapsible default-value="workspace" class="">
+              <AccordionItem value="workspace" class="border-border/60">
+                <AccordionTrigger class="py-3 text-xs">
+                  <span class="text-muted-foreground">Workspace</span>
+                  <span class="ml-auto mr-3 font-medium">Acme Studio</span>
+                </AccordionTrigger>
+                <AccordionContent class="space-y-3 text-xs text-muted-foreground">
+                  <div class="flex items-center gap-3 rounded-lg bg-accent p-3">
+                    <div class="grid size-9 place-items-center rounded-lg bg-foreground text-xs font-semibold text-background shadow-sm">
+                      AS
+                    </div>
+                    <div>
+                      <p class="font-medium text-foreground">
+                        Product design workspace
+                      </p>
+                      <p class="mt-1">
+                        Weekly planning, design reviews, and client handoff notes.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="rounded-lg bg-accent p-3">
+                      <p>Members</p>
+                      <p class="mt-1 font-medium text-foreground">
+                        12 teammates
+                      </p>
+                    </div>
+                    <div class="rounded-lg bg-accent p-3">
+                      <p>Setup time</p>
+                      <p class="mt-1 font-medium text-foreground">
+                        3 minutes
+                      </p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="imports" class="border-0">
+                <AccordionTrigger class="py-3 text-xs">
+                  <span class="text-muted-foreground">Imports selected</span>
+                  <span class="ml-auto mr-3 font-medium text-foreground">{{ selectedImports.length }} tools</span>
+                </AccordionTrigger>
+                <AccordionContent class="space-y-2">
+                  <Item
+                    v-for="tool in selectedImportTools"
+                    :key="tool.id"
+                    variant="muted"
+                    class="bg-accent p-2"
+                  >
+                    <ItemMedia variant="icon" class="bg-background">
+                      <component :is="tool.icon" class="size-4" />
+                    </ItemMedia>
+                    <ItemContent>
+                      <ItemTitle class="text-xs">{{ tool.name }}</ItemTitle>
+                      <ItemDescription class="text-xs">{{ tool.description }}</ItemDescription>
+                    </ItemContent>
+                  </Item>
+
+                  <div v-if="selectedImportTools.length === 0" class="rounded-lg border bg-background/80 p-3 text-xs text-muted-foreground">
+                    No tools selected yet.
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </ResizeMotion>
