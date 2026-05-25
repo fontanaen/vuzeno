@@ -233,6 +233,18 @@
       ]
     },
     {
+      "name": "motion-list",
+      "type": "registry:component",
+      "title": "Motion List",
+      "description": "A transition-only list primitive that animates insert, remove, and reorder for keyed children.",
+      "dependencies": ["reka-ui", "@vueuse/core"],
+      "files": [
+        { "path": "default/motion-list/MotionList.vue", "type": "registry:component" },
+        { "path": "default/motion-list/MotionListItem.vue", "type": "registry:component" },
+        { "path": "default/motion-list/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
       "name": "list",
       "type": "registry:component",
       "title": "List",

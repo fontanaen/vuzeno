@@ -10,11 +10,11 @@ export const [injectListItemContext, provideListItemContext] = createContext<Lis
 
 <script setup lang="ts">
 import { useSortable } from "@dnd-kit/vue/sortable";
-import { Item, itemVariants } from "@vuzeno/ui/components/item";
 import { cn } from "@vuzeno/ui/lib/utils";
-import { createContext } from "reka-ui";
+import { createContext, Primitive } from "reka-ui";
 import { computed, type HTMLAttributes, ref, type Ref, shallowRef } from "vue";
 import { injectListContext } from "./List.vue";
+import { listItemVariants } from ".";
 
 const props = withDefaults(
   defineProps<{
@@ -28,23 +28,20 @@ const props = withDefaults(
   },
 );
 
-const list = injectListContext();
-
-const variant = computed(() => list.variant.value);
-const size = computed(() => list.size.value);
+const { variant, size, sortable } = injectListContext();
 
 const element = ref<HTMLElement | null>(null);
 const handle = shallowRef<HTMLElement | null>(null);
 const hasDragHandle = ref(false);
 
-const isSortableEnabled = computed(() => list.sortable.value && props.id !== undefined && props.index !== undefined && !props.disabled);
+const isSortableEnabled = computed(() => sortable.value && props.id !== undefined && props.index !== undefined && !props.disabled);
 
 const { isDragging } = useSortable({
-  id: computed(() => props.id ?? `__list-item-${props.index ?? 0}`),
-  index: computed(() => props.index ?? 0),
+  id: () => props.id ?? `__list-item-${props.index ?? 0}`,
+  index: () => props.index ?? 0,
   element,
   handle,
-  disabled: computed(() => !isSortableEnabled.value),
+  disabled: () => !isSortableEnabled.value,
 });
 
 function setHandleRef(value: HTMLElement | null) {
@@ -63,24 +60,23 @@ provideListItemContext({
 </script>
 
 <template>
-  <Item
+  <Primitive
     as="li"
     ref="element"
     role="listitem"
     data-slot="list-item"
-    :variant="variant"
-    :size="size"
     :data-dragging="isDragging ? '' : undefined"
-    :data-sortable="list.sortable.value ? '' : undefined"
+    :data-sortable="sortable ? '' : undefined"
     :class="
       cn(
-        'group/list-item relative bg-background transition-all',
-        list.sortable.value && !hasDragHandle && 'touch-none cursor-grab active:cursor-grabbing',
+        'group/list-item bg-background',
+        listItemVariants({ variant, size }),
+        sortable && !hasDragHandle && 'touch-none cursor-grab active:cursor-grabbing',
         isDragging && 'z-10 shadow-lg',
         props.class,
       )
     "
   >
     <slot :is-dragging="isDragging" />
-  </Item>
+  </Primitive>
 </template>

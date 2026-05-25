@@ -1,7 +1,4 @@
 <script lang="ts">
-export type ListVariant = "default" | "outline" | "muted";
-export type ListSize = "default" | "sm";
-
 export type ListReorderEvent = {
   id: string | number;
   from: number;
@@ -21,8 +18,8 @@ export type ListTransitionProps = {
 };
 
 export type ListContext = {
-  variant: Ref<ListVariant>;
-  size: Ref<ListSize>;
+  variant: Ref<ListItemVariant>;
+  size: Ref<ListItemSize>;
   sortable: Ref<boolean>;
 };
 
@@ -35,11 +32,12 @@ import { isSortable } from "@dnd-kit/vue/sortable";
 import { cn } from "@vuzeno/ui/lib/utils";
 import { createContext } from "reka-ui";
 import { computed, type HTMLAttributes, type Ref } from "vue";
+import type { ListItemSize, ListItemVariant } from ".";
 
 const props = withDefaults(
   defineProps<{
-    variant?: ListVariant;
-    size?: ListSize;
+    variant?: ListItemVariant;
+    size?: ListItemSize;
     sortable?: boolean;
     animated?: boolean;
     transition?: ListTransitionProps;
@@ -66,11 +64,11 @@ const sortable = computed(() => props.sortable);
 provideListContext({ variant, size, sortable });
 
 const defaultTransition: ListTransitionProps = {
-  moveClass: "transition-all duration-500 ease",
-  enterActiveClass: "transition-all duration-500 ease",
-  leaveActiveClass: "transition-all duration-500 ease absolute w-full",
-  enterFromClass: "opacity-0 scale-95 translate-y-2",
-  leaveToClass: "opacity-0 scale-95 translate-y-2",
+  moveClass: "transition-[transform,opacity] duration-200 ease-in-out",
+  enterActiveClass: "transition-[transform,opacity] duration-200 ease-out",
+  leaveActiveClass: "transition-[transform,opacity] duration-2000 ease-out absolute w-full",
+  enterFromClass: "opacity-0 scale-95 translate-y-2 z-[-1]",
+  leaveToClass: "opacity-0 scale-95 translate-y-2 z-[-1]",
 };
 
 const transitionGroupProps = computed(() => {
@@ -130,13 +128,10 @@ function onDragEnd(event: DragEndEvent) {
   <DragDropProvider @drag-end="onDragEnd">
     <TransitionGroup
       v-bind="transitionGroupProps"
-      leave-active-class="absolute"
       role="list"
       data-slot="list"
-      :data-variant="variant"
-      :data-size="size"
       :data-sortable="sortable ? '' : undefined"
-      :class="cn('group/list relative flex flex-col', props.class)"
+      :class="cn('relative flex flex-col', props.class)"
     >
       <slot />
     </TransitionGroup>
