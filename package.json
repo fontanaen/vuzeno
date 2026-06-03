@@ -28,8 +28,7 @@
       "reka-ui": "2.9.2",
       "vue": "3.5.30",
       "@internationalized/date": "^3.10.1",
-      "libphonenumber-js": "^1.12.34",
-      "vitepress": "^1.6.3"
+      "libphonenumber-js": "^1.12.34"
     }
   },
   "devDependencies": {
