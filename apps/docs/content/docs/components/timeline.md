@@ -1,7 +1,6 @@
 ---
 title: Timeline
 description: A vertical or horizontal thread for displaying sequential data with composable items, markers, and content.
-tag: new
 ---
 
 ::component-preview

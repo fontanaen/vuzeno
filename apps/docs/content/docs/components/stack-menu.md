@@ -1,7 +1,6 @@
 ---
 title: Stack Menu
 description: A mobile-friendly bottom menu with stacked items and collapsible sub menus, as an alternative to dropdown menus on small screens.
-tag: new
 ---
 
 ::component-preview
