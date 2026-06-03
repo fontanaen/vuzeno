@@ -16,6 +16,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "vercel",
+    minify: false,
     output: {
       dir: "../../.vercel/output",
     },
@@ -24,10 +25,17 @@ export default defineNuxtConfig({
       routes: ["/"],
       failOnError: false,
       autoSubfolderIndex: false,
+      concurrency: 2,
+    },
+    rollupConfig: {
+      maxParallelFileOps: 2,
     },
   },
 
   vite: {
+    build: {
+      sourcemap: false,
+    },
     plugins: [tailwindcss()],
     optimizeDeps: {
       include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "reka-ui", "class-variance-authority", "@vueuse/core", "lucide-vue-next", "clsx", "tailwind-merge"],

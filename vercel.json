@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "bunVersion": "1.x",
-  "buildCommand": "bun --bun run registry:build && bun --bun run docs:build",
-  "outputDirectory": ".vercel/output"
+  "buildCommand": "bun run registry:build && bun run docs:build",
+  "outputDirectory": ".vercel/output",
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=6144"
+  }
 }
