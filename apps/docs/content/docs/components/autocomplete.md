@@ -1,7 +1,6 @@
 ---
 title: Autocomplete
 description: A composable autocomplete component with search functionality, built on top of Combobox
-tag: new
 ---
 
 ::component-preview 

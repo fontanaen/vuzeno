@@ -1,7 +1,6 @@
 ---
 title: ResizeMotion
 description: An animated wrapper that tracks content height changes and handles constrained scrolling.
-tag: new
 ---
 
 ::component-preview
