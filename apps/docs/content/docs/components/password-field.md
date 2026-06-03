@@ -1,7 +1,6 @@
 ---
 title: PasswordField
 description: A composable password input with visibility toggle and click-outside reset
-tag: new
 ---
 
 ::component-preview 

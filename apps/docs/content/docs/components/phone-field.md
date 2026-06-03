@@ -1,7 +1,6 @@
 ---
 title: PhoneField
 description: A composable phone input component with country selection, auto-formatting, and validation
-tag: new
 ---
 
 ::component-preview 

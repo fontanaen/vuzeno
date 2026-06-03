@@ -1,7 +1,6 @@
 ---
 title: Image Viewer
 description: Zoom and pan capabilities for images with touch support
-tag: new
 ---
 
 ::component-preview 

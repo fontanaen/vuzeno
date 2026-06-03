@@ -1,7 +1,6 @@
 ---
 title: TimeField
 description: A composable time input component with segment-based editing, built on Reka UI. Supports hour, minute, second, and 12/24-hour formats.
-tag: new
 ---
 
 ::component-preview 

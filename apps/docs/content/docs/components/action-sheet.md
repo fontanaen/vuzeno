@@ -1,7 +1,6 @@
 ---
 title: ActionSheet
 description: A bottom sheet dialog for actions with a promise-based selection API
-tag: new
 ---
 
 ::component-preview

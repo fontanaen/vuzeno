@@ -248,6 +248,20 @@
         { "path": "default/timeline/TimelineDescription.vue", "type": "registry:component" },
         { "path": "default/timeline/index.ts", "type": "registry:component" }
       ]
+    },
+    {
+      "name": "tree-view",
+      "type": "registry:component",
+      "title": "Tree View",
+      "description": "Thin wrappers around Reka UI Tree primitives for hierarchical lists.",
+      "dependencies": ["reka-ui"],
+      "files": [
+        { "path": "default/tree-view/TreeView.vue", "type": "registry:component" },
+        { "path": "default/tree-view/TreeViewItem.vue", "type": "registry:component" },
+        { "path": "default/tree-view/TreeViewIndicator.vue", "type": "registry:component" },
+        { "path": "default/tree-view/TreeViewVirtualizer.vue", "type": "registry:component" },
+        { "path": "default/tree-view/index.ts", "type": "registry:component" }
+      ]
     }
   ]
 }
