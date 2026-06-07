@@ -22,7 +22,7 @@
     "@vuzeno/tailwind-config": "workspace:*",
     "@vuzeno/ui": "workspace:*",
     "lucide-vue-next": "^0.577.0",
-    "nuxt": "^4.4.2",
+    "nuxt": "4.4.2",
     "nuxt-llms": "^0.2.0",
     "nuxt-shiki": "0.3.2",
     "reka-ui": "catalog:",

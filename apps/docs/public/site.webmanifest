@@ -1,0 +1,16 @@
+{
+  "name": "Vuzeno",
+  "short_name": "Vuzeno",
+  "description": "Open-source shadcn-vue registry with production-ready Vue components.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffb300",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

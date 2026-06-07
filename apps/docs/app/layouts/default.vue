@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { siteConfig } from "~/lib/site-config";
 
+usePageSeo();
+
 useSeoMeta({
   title: siteConfig.name,
   titleTemplate: `%s - ${siteConfig.name}`,

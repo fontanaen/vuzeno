@@ -13,7 +13,7 @@ useReveal();
           <h1
             class="hero-title tracking-tighter leading-tight text-center font-bold text-foreground animate-in fade-in-0 blur-in-md duration-700"
           >
-            A Vue component registry<span class="hero-accent">.</span>
+            A shadcn-vue registry<span class="hero-accent">.</span>
           </h1>
 
           <p class="text-base text-muted-foreground max-w-2xl leading-relaxed text-pretty reveal text-center" style="--i: 2">

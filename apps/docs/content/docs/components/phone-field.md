@@ -1,6 +1,6 @@
 ---
 title: PhoneField
-description: A composable phone input component with country selection, auto-formatting, and validation
+description: Phone number input with country selector, libphonenumber-js validation, and E.164 output
 ---
 
 ::component-preview 

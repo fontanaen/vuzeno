@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "vercel",
-    minify: false,
+    minify: true,
     output: {
       dir: "../../.vercel/output",
     },
@@ -69,6 +69,29 @@ export default defineNuxtConfig({
     domain: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
+    sections: [
+      {
+        title: "Contact",
+        description: "Social networks",
+        links: [
+          {
+            title: "Website",
+            description: "Website",
+            href: `${siteConfig.url}`,
+          },
+          {
+            title: "GitHub",
+            description: "GitHub repository",
+            href: `${siteConfig.links.github}`,
+          },
+          {
+            title: "X",
+            description: "X account",
+            href: `${siteConfig.links.x}`,
+          },
+        ],
+      },
+    ],
   },
 
   site: {
@@ -83,8 +106,6 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: "manifest", href: `${siteConfig.url}/site.webmanifest` },
-        { rel: "shortcut icon", href: "/favicon-16x16.png" },
-        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
         { rel: "icon", href: "/favicon.ico" },
       ],
       meta: [

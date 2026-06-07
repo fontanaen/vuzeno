@@ -1,3 +1,39 @@
+<script setup lang="ts">
+import { siteConfig } from "~/lib/site-config";
+
+const homepageTitle = "Vuzeno — shadcn-vue Component Registry for Vue | Free";
+const homepageDescription =
+  "Install production-ready Vue components — phone fields, filters, galleries — with one shadcn-vue CLI command. Free, open source, TypeScript-first. Get started in 2 minutes.";
+
+useSeoMeta({
+  title: homepageTitle,
+  titleTemplate: "",
+  description: homepageDescription,
+  ogTitle: homepageTitle,
+  ogDescription: homepageDescription,
+  twitterTitle: homepageTitle,
+  twitterDescription: homepageDescription,
+});
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: siteConfig.name,
+        url: siteConfig.url,
+        logo: `${siteConfig.url}/favicon.ico`,
+        description:
+          "Open-source shadcn-vue registry with 14 production-ready Vue components for Vue 3.5+.",
+        sameAs: [siteConfig.links.github, siteConfig.links.x],
+      }),
+    },
+  ],
+});
+</script>
+
 <template>
   <div class="w-full home-scope">
     <HomeHero />
