@@ -25,6 +25,16 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a PasswordField:
+
+```
+PasswordField
+├── PasswordFieldInput
+└── PasswordFieldToggle
+```
+
 ## API Reference
 
 | Prop | Type | Default |

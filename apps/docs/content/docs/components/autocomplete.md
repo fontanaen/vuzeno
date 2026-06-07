@@ -33,6 +33,22 @@ exec: true
 
 <!-- <InstallationTabs exec value="shadcn-vue@latest add https://vuzeno.com/r/autocomplete.json" /> -->
 
+## Composition
+
+Use the following composition to build an Autocomplete:
+
+```
+Autocomplete
+├── AutocompleteControl
+│   ├── AutocompleteInput
+│   └── AutocompleteTrigger
+└── AutocompleteContent
+    ├── AutocompleteStatus
+    └── AutocompleteGroup
+        ├── AutocompleteLabel
+        └── AutocompleteItem
+```
+
 ## Examples
 
 ### Async Options

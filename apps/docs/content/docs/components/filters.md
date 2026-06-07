@@ -31,6 +31,20 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a Filters setup:
+
+```
+FiltersProvider
+├── FiltersMenu
+│   ├── FiltersMenuTrigger
+│   └── FiltersMenuContent
+├── Filters
+│   └── FiltersItem
+└── FiltersClear
+```
+
 ## Examples
 
 ### Sizes and variants

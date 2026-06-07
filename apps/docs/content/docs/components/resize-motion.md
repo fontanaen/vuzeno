@@ -29,6 +29,14 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a ResizeMotion:
+
+```
+ResizeMotion
+```
+
 ## Anatomy
 
 - **ResizeMotion** — Root `Primitive` that owns the measured, animated height

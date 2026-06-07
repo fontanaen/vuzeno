@@ -28,6 +28,26 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a Gallery:
+
+```
+GalleryViewer
+├── GalleryViewerTrigger
+└── GalleryViewerContent
+    ├── GalleryViewerGallery
+    │   └── Gallery
+    │       ├── GalleryContent
+    │       │   └── GalleryItem
+    │       │       └── GalleryImage
+    │       │           └── GalleryImageSource
+    │       ├── GalleryToolbar
+    │       ├── GalleryPrevious
+    │       └── GalleryNext
+    └── GalleryViewerSidebar
+```
+
 ## Examples
 
 ### Regular Carousel

@@ -39,6 +39,26 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a ColorPicker:
+
+```
+ColorPicker
+├── ColorField
+│   ├── ColorPickerTrigger
+│   │   └── ColorSwatch
+│   └── ColorFieldInput
+└── ColorPickerContent
+    ├── ColorArea
+    ├── ColorSlider
+    ├── ColorSpaceSelect
+    ├── ColorHslField
+    ├── ColorEyeDropper
+    └── ColorSwatchPicker
+        └── ColorSwatchPickerItem
+```
+
 ## Examples
 
 ### Color Area

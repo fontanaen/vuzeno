@@ -26,6 +26,19 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build an ActionSheet:
+
+```
+ActionSheet
+├── ActionSheetTrigger
+└── ActionSheetContent
+    ├── ActionSheetGroup
+    │   └── ActionSheetOption
+    └── ActionSheetCancel
+```
+
 ## Examples
 
 ### Classic action sheet

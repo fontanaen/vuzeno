@@ -27,6 +27,17 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a TimeField:
+
+```
+TimeField
+├── TimeFieldInput
+├── TimeFieldSeparator
+└── TimeFieldInput
+```
+
 ## Dependencies
 
 This component requires `@internationalized/date` for date/time values.

@@ -29,6 +29,16 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a TreeView:
+
+```
+TreeView
+└── TreeViewItem
+    └── TreeViewIndicator
+```
+
 ## Anatomy
 
 ```vue

@@ -32,3 +32,15 @@ command: shadcn-vue@latest add https://vuzeno.com/r/image.json
 exec: true
 ---
 ::
+
+## Composition
+
+Use the following composition to build an Image:
+
+```
+Image
+├── ImageSource
+├── ImageLoading
+├── ImageError
+└── ImageFallback
+```

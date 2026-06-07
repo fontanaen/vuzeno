@@ -27,6 +27,20 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a Timeline:
+
+```
+Timeline
+└── TimelineItem
+    ├── TimelineMedia
+    └── TimelineContent
+        └── TimelineHeader
+            ├── TimelineTitle
+            └── TimelineDescription
+```
+
 ## Anatomy
 
 ```vue

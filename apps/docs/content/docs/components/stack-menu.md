@@ -39,6 +39,23 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a StackMenu:
+
+```
+StackMenu
+├── StackMenuTrigger
+└── StackMenuContent
+    └── StackMenuGroup
+        ├── StackMenuItem
+        └── StackMenuSub
+            ├── StackMenuSubTrigger
+            └── StackMenuSubContent
+                └── StackMenuGroup
+                    └── StackMenuItem
+```
+
 ## Anatomy
 
 ```vue

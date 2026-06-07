@@ -28,6 +28,20 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build an Image Viewer:
+
+```
+ImageViewerProvider
+├── ImageViewerContainer
+│   ├── ImageViewerSource
+│   ├── ImageViewerZoomInControl
+│   └── ImageViewerZoomOutControl
+├── ImageViewerZoomSlider
+└── ImageViewerZoomMap
+```
+
 ## Examples
 
 ### Basic

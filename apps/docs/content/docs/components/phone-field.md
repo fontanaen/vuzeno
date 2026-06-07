@@ -30,6 +30,17 @@ exec: true
 ---
 ::
 
+## Composition
+
+Use the following composition to build a PhoneField:
+
+```
+PhoneField
+├── PhoneFieldCountrySelect
+├── PhoneFieldInput
+└── PhoneFieldIndicator
+```
+
 ## Dependencies
 
 This component is built on top of `libphonenumber-js`, for manual installation:
