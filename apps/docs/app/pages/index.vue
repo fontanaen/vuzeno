@@ -2,8 +2,7 @@
 import { siteConfig } from "~/lib/site-config";
 
 const homepageTitle = "Vuzeno — shadcn-vue Component Registry for Vue | Free";
-const homepageDescription =
-  "Install production-ready Vue components — phone fields, filters, galleries — with one shadcn-vue CLI command. Free, open source, TypeScript-first. Get started in 2 minutes.";
+const homepageDescription = "Install production-ready Vue components — phone fields, filters, galleries — with one shadcn-vue CLI command. Free, open source, TypeScript-first. Get started in 2 minutes.";
 
 useSeoMeta({
   title: homepageTitle,
@@ -25,8 +24,7 @@ useHead({
         name: siteConfig.name,
         url: siteConfig.url,
         logo: `${siteConfig.url}/favicon.ico`,
-        description:
-          "Open-source shadcn-vue registry with 14 production-ready Vue components for Vue 3.5+.",
+        description: "Open-source shadcn-vue registry with 14 production-ready Vue components for Vue 3.5+.",
         sameAs: [siteConfig.links.github, siteConfig.links.x],
       }),
     },

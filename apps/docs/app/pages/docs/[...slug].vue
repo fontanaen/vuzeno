@@ -41,7 +41,7 @@ useSeoMeta({
                   {{ page.title }}
                 </h1>
 
-                <p v-if="page.description" class="text-muted-foreground text-[1.05rem] text-pretty sm:text-sm font-light">
+                <p v-if="page.description" class="text-muted-foreground text-[1.05rem] text-pretty sm:text-base">
                   {{ page.description }}
                 </p>
               </div>

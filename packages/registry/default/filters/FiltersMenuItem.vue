@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Checkbox } from "@vuzeno/ui/components/checkbox";
 import { DropdownMenuItem, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from "@vuzeno/ui/components/dropdown-menu";
+import { cn } from "@vuzeno/ui/lib/utils";
 import { computed, isVNode, ref } from "vue";
 import { injectFiltersContext } from "./context";
 import type { BaseField } from "./field";
@@ -112,8 +113,8 @@ function toggleOption(option: OperatorOption<unknown>) {
 
 <template>
   <DropdownMenuSub v-if="isSelect && defaultOperator.options">
-    <DropdownMenuSubTrigger :disabled="disabled" class="data-disabled:opacity-50" :class="DropdownItemSizeVariant[size]">
-      <component :is="field.icon" v-if="field.icon" class="size-4 mr-2 text-muted-foreground" />
+    <DropdownMenuSubTrigger :disabled="disabled" class="data-disabled:opacity-50" :class="cn(DropdownItemSizeVariant[size], 'gap-2')">
+      <component :is="field.icon" v-if="field.icon" class="size-4 text-muted-foreground" />
       {{ field.label }}
     </DropdownMenuSubTrigger>
 
@@ -164,8 +165,8 @@ function toggleOption(option: OperatorOption<unknown>) {
   </DropdownMenuSub>
 
   <DropdownMenuSub v-else-if="isMultiSelect && defaultOperator.options">
-    <DropdownMenuSubTrigger :class="DropdownItemSizeVariant[size]">
-      <component :is="field.icon" v-if="field.icon" class="size-4 mr-2 text-muted-foreground" />
+    <DropdownMenuSubTrigger :class="cn(DropdownItemSizeVariant[size], 'gap-2')">
+      <component :is="field.icon" v-if="field.icon" class="size-4 text-muted-foreground" />
       {{ field.label }}
     </DropdownMenuSubTrigger>
 

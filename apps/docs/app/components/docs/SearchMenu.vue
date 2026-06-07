@@ -31,7 +31,7 @@ useHotkey("Mod+K", () => {
 <template>
   <Dialog v-model:open="open">
     <DialogTrigger as-child>
-      <div class="hidden md:flex items-center gap-2 border border-input rounded-md h-8 px-2">
+      <div class="hidden md:flex items-center gap-2 bg-input dark:bg-input/30 border border-input rounded-md h-8 px-2">
         <div class="w-40 flex gap-2 items-center text-sm text-muted-foreground">
           <SearchIcon class="size-4" />
           Search
@@ -45,11 +45,12 @@ useHotkey("Mod+K", () => {
       </div>
     </DialogTrigger>
 
-    <DialogContent class="top-30 p-0 border-4 border-accent translate-y-0 data-[state=open]:slide-in-from-bottom-1/3" :show-close-button="false">
+    <DialogContent class="top-30 p-0 border-2 border-accent translate-y-0 data-[state=open]:slide-in-from-bottom-1/3" :show-close-button="false">
       <Command class="bg-muted/30 p-2">
         <div class="border-2 border-input bg-background rounded-md h-10">
           <CommandInput placeholder="Search" class="h-9" />
         </div>
+        
         <CommandList v-if="navigation" class="snap-y snap-proximity scroll-pt-10 scroll-pb-5">
           <CommandEmpty>No results found.</CommandEmpty>
 

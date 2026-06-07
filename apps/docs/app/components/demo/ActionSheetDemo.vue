@@ -23,14 +23,14 @@ async function openActionSheet() {
 </script>
 
 <template>
-  <div class="flex flex-col gap-6">
-    <Button variant="outline" @click="openActionSheet()">
+  <div class="flex items-center gap-2">
+    <Button variant="outline" size="sm" @click="openActionSheet()">
       Open with promise
     </Button>
 
     <ActionSheet v-model:open="isOpen" ref="actionSheet">
       <ActionSheetTrigger>
-        <Button variant="outline">Open with trigger</Button>
+        <Button variant="outline" size="sm">Open with trigger</Button>
       </ActionSheetTrigger>
 
       <ActionSheetContent>

@@ -12,7 +12,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="no-scrollbar my-6 w-full overflow-y-auto rounded-lg border">
+  <div class="no-scrollbar my-6 w-full overflow-y-auto rounded-lg border bg-muted/75">
     <table
       :class="cn(
         'relative w-full overflow-hidden border-none text-sm [&_tbody_tr:last-child]:border-b-0',

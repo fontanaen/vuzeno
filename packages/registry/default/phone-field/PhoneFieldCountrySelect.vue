@@ -5,7 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/p
 import { cn } from "@vuzeno/ui/lib/utils";
 import { type CountryCode, getCountries, getCountryCallingCode } from "libphonenumber-js";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { injectPhoneFieldContext } from "./PhoneField.vue";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 
@@ -21,6 +21,8 @@ withDefaults(
 
 const { countryCode, ignoredCountries, preferredCountries, availableCountries, size, locale, disabled } = injectPhoneFieldContext()!;
 
+const open = ref(false);
+
 const countries = computed(() => {
   return Array.from(new Set([...(preferredCountries.value ?? []), ...(availableCountries.value ?? getCountries())]))
     .filter((country) => !ignoredCountries.value?.includes(country))
@@ -35,12 +37,21 @@ const countries = computed(() => {
 const countryNameFormatter = computed(() => {
   return new Intl.DisplayNames([locale.value], { type: "region" });
 });
+
+function handleSelect(value?: CountryCode) {
+  if (!value) {
+    return;
+  }
+
+  countryCode.value = value;
+  open.value = false;
+}
 </script>
     
 <template>
-  <Popover>
+  <Popover v-model:open="open">
     <PopoverTrigger as-child :disabled="disabled">
-      <Button variant="outline" :size="size" :class="cn('dark:bg-muted', size === 'lg' && 'px-5')">
+      <Button variant="outline" :size="size" :class="cn('bg-background dark:bg-input/30', size === 'lg' && 'px-5')">
         <template v-if="countryCode">
           <PhoneFieldCountryFlag :country-code="countryCode" :type="flagType" :alt="countryNameFormatter.of(countryCode) ?? ''" />
         </template>
@@ -55,7 +66,7 @@ const countryNameFormatter = computed(() => {
       <Command 
         :model-value="countryCode" 
         highlight-on-hover
-        @update:model-value="$event && (countryCode = $event as CountryCode)"
+        @update:model-value="handleSelect($event as CountryCode)"
       >
         <CommandInput class="h-9" :placeholder="searchPlaceholder" />
         <CommandList>

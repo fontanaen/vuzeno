@@ -98,9 +98,11 @@ Countries in `preferredCountries` appear first, followed by remaining `available
 
 Country names are formatted using `Intl.DisplayNames`. Set the `locale` prop to display names in any language:
 
-- `"en"` → United States, France, Germany
-- `"fr"` → États-Unis, France, Allemagne
-- `"de"` → Vereinigte Staaten, Frankreich, Deutschland
+| Locale | Value |
+|------|---------|
+| `en` | United States, France, Germany |
+| `fr` | États-Unis, France, Allemagne |
+| `de` | Vereinigte Staaten, Frankreich  Deutschland |
 
 ## Validation
 

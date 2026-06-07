@@ -77,7 +77,11 @@ const props = withDefaults(defineProps<PhoneFieldProps>(), {
 });
 
 const phone = defineModel<string>();
-const countryCode = defineModel<string>('countryCode');
+const countryCode = defineModel<string>('countryCode', { 
+  get(v) {
+    return v ?? props.defaultCountryCode;
+  },
+});
 const { ignoredCountries, preferredCountries, availableCountries, format, size, resetOnCountryChange, locale, disabled } = toRefs(props);
 
 const callingCode = computed(() => {

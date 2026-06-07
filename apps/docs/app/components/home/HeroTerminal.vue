@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
         ><span class="select-none text-[#7c7c7c]">$ </span><span class="hero-terminal-command">{{ command }}</span><span class="hero-terminal-cursor" aria-hidden="true" /></code></pre>
       </div>
 
-      <ul class="space-y-2 text-[#a3a3a3]">
+      <ul class="space-y-0.5 text-[#a3a3a3]">
         <li
           v-for="(line, index) in installLines"
           :key="line"

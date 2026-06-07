@@ -14,7 +14,7 @@ const demoComponentRaw = fixImport((await import(`~/components/demo/${props.name
 
 <template>
   <div class="flex flex-col border border-border rounded-xl overflow-hidden my-4">
-    <div class="flex items-center justify-center bg-background px-4 py-12 not-prose min-h-40">
+    <div class="flex items-center justify-center dark:bg-muted/75 px-4 py-12 not-prose min-h-40">
       <ClientOnly>
         <component :is="demoComponent" />
       </ClientOnly>

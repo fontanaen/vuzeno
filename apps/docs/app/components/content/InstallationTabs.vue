@@ -36,9 +36,9 @@ const currentCommand = computed(() => {
 <template>
   <Tabs
     v-model="packageManager"
-    class="bg-background border border-border rounded-lg overflow-hidden mt-4"
+    class="bg-muted/75 border border-border rounded-lg overflow-hidden mt-4"
   >
-    <div class="bg-background border-b border-border flex px-2">
+    <div class="flex px-2">
       <div class="flex items-center gap-2 w-full text-[13px]">
         <div class="bg-black/90 text-white dark:bg-muted size-7 flex items-center justify-center rounded-sm">
           <TerminalIcon class="size-4" />
