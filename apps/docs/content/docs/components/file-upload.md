@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: FileUploadDemo
+component: file-upload
+name: basic
 ---
 ::
 
@@ -79,7 +80,8 @@ Use the `defaultAcceptedFiles` prop to set the initial files in the file upload 
 
 ::component-preview
 ---
-name: FileUploadInitialFilesDemo
+component: file-upload
+name: initial-files
 ---
 ::
 
@@ -89,7 +91,8 @@ Use the `ClearTrigger` to remove all uploaded files at once.
 
 ::component-preview
 ---
-name: FileUploadClearTriggerDemo
+component: file-upload
+name: clear-trigger
 ---
 ::
 
@@ -99,7 +102,8 @@ Use the `Dropzone` to enable drag-and-drop. It exposes a `data-dragging` attribu
 
 ::component-preview
 ---
-name: FileUploadDropzoneDemo
+component: file-upload
+name: dropzone
 ---
 ::
 
@@ -109,7 +113,8 @@ Use the `directory` prop to upload entire folders. Access file paths through `fi
 
 ::component-preview
 ---
-name: FileUploadDirectoryUploadDemo
+component: file-upload
+name: directory-upload
 ---
 ::
 
@@ -121,7 +126,8 @@ Use the `accept` prop to restrict file types. Accepts MIME types (`image/png`) o
 
 ::component-preview
 ---
-name: FileUploadAcceptedFileTypesDemo
+component: file-upload
+name: accepted-file-types
 ---
 ::
 
@@ -131,7 +137,8 @@ Set constraints with `maxFiles`, `maxFileSize`, `minFileSize`, and `accept`. Rej
 
 ::component-preview
 ---
-name: FileUploadErrorHandlingDemo
+component: file-upload
+name: error-handling
 ---
 ::
 
@@ -141,7 +148,8 @@ Use `transformFiles` to process files before they're added. Useful for image com
 
 ::component-preview
 ---
-name: FileUploadFileTransformationsDemo
+component: file-upload
+name: file-transformations
 ---
 ::
 
@@ -151,7 +159,8 @@ Use `Field` to add helper text and error handling.
 
 ::component-preview
 ---
-name: FileUploadFieldDemo
+component: file-upload
+name: field
 ---
 ::
 
@@ -161,7 +170,8 @@ An alternative way to control the file upload is to use the `RootProvider` compo
 
 ::component-preview
 ---
-name: FileUploadRootProviderDemo
+component: file-upload
+name: root-provider
 ---
 ::
 
@@ -171,7 +181,8 @@ Use `setClipboardFiles` to enable pasting images from the clipboard.
 
 ::component-preview
 ---
-name: FileUploadPastingFilesDemo
+component: file-upload
+name: pasting-files
 ---
 ::
 
@@ -181,7 +192,8 @@ Use `capture` to access the device camera. Set to `"environment"` for back camer
 
 ::component-preview
 ---
-name: FileUploadMediaCaptureDemo
+component: file-upload
+name: media-capture
 ---
 ::
 
@@ -191,7 +203,8 @@ Access `rejectedFiles` from the context to display validation errors.
 
 ::component-preview
 ---
-name: FileUploadRejectedFilesDemo
+component: file-upload
+name: rejected-files
 ---
 ::
 

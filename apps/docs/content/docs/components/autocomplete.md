@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: AutocompleteDemo
+component: autocomplete
+name: basic
 ---
 ::
 
@@ -67,7 +68,8 @@ Automatically highlight the first matching item as the user types by setting `in
 
 ::component-preview
 ---
-name: AutocompleteAutoHighlightDemo
+component: autocomplete
+name: auto-highlight
 ---
 ::
 
@@ -77,7 +79,8 @@ Complete the input value with the first matching item by setting `inputBehavior=
 
 ::component-preview
 ---
-name: AutocompleteInlineAutocompleteDemo
+component: autocomplete
+name: inline-autocomplete
 ---
 ::
 
@@ -87,7 +90,8 @@ To group related autocomplete items, use the `groupBy` prop on the collection an
 
 ::component-preview
 ---
-name: AutocompleteGroupingDemo
+component: autocomplete
+name: grouping
 ---
 ::
 
@@ -97,7 +101,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: AutocompleteFieldDemo
+component: autocomplete
+name: field
 ---
 ::
 
@@ -107,7 +112,8 @@ Access the autocomplete's state with `Autocomplete.Context` or the `useAutocompl
 
 ::component-preview
 ---
-name: AutocompleteContextDemo
+component: autocomplete
+name: context
 ---
 ::
 
@@ -117,7 +123,8 @@ An alternative way to control the autocomplete is to use the `RootProvider` comp
 
 ::component-preview
 ---
-name: AutocompleteRootProviderDemo
+component: autocomplete
+name: root-provider
 ---
 ::
 
@@ -127,7 +134,8 @@ Use the `asChild` prop to render the autocomplete items as links.
 
 ::component-preview
 ---
-name: AutocompleteLinksDemo
+component: autocomplete
+name: links
 ---
 ::
 
@@ -137,7 +145,8 @@ When an autocomplete has a `defaultValue` or `value` but the `collection` is not
 
 ::component-preview
 ---
-name: AutocompleteRehydrateDemo
+component: autocomplete
+name: rehydrate
 ---
 ::
 
@@ -147,7 +156,8 @@ Highlight the matching search text in autocomplete items based on the user's inp
 
 ::component-preview
 ---
-name: AutocompleteHighlightTextDemo
+component: autocomplete
+name: highlight-text
 ---
 ::
 
@@ -157,7 +167,8 @@ Generate autocomplete items dynamically based on user input. This is useful for 
 
 ::component-preview
 ---
-name: AutocompleteDynamicDemo
+component: autocomplete
+name: dynamic
 ---
 ::
 
@@ -167,7 +178,8 @@ Allow users to create new options when their search doesn't match any existing i
 
 ::component-preview
 ---
-name: AutocompleteCreatableDemo
+component: autocomplete
+name: creatable
 ---
 ::
 
@@ -177,7 +189,8 @@ Enable multiple selection by setting the `multiple` prop. Selected items can be 
 
 ::component-preview
 ---
-name: AutocompleteMultipleSelectionDemo
+component: autocomplete
+name: multiple-selection
 ---
 ::
 
@@ -187,7 +200,8 @@ Load options asynchronously based on user input using the `useAsyncList` hook. T
 
 ::component-preview
 ---
-name: AutocompleteAsyncSearchDemo
+component: autocomplete
+name: async-search
 ---
 ::
 
@@ -197,7 +211,8 @@ For very large lists, use virtualization with `@tanstack/virtual` to render only
 
 ::component-preview
 ---
-name: AutocompleteVirtualizedDemo
+component: autocomplete
+name: virtualized
 ---
 ::
 
@@ -207,7 +222,8 @@ Use the `itemToString` and `itemToValue` props to map custom objects to the requ
 
 ::component-preview
 ---
-name: AutocompleteCustomObjectDemo
+component: autocomplete
+name: custom-object
 ---
 ::
 
@@ -217,7 +233,8 @@ Use the `limit` property on `useListCollection` to limit the number of rendered 
 
 ::component-preview
 ---
-name: AutocompleteLimitResultsDemo
+component: autocomplete
+name: limit-results
 ---
 ::
 

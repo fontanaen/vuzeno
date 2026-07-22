@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TagsInputDemo
+component: tags-input
+name: basic
 ---
 ::
 
@@ -64,7 +65,8 @@ Use the `value` and `onValueChange` props to programmatically control the tags i
 
 ::component-preview
 ---
-name: TagsInputControlledDemo
+component: tags-input
+name: controlled
 ---
 ::
 
@@ -74,7 +76,8 @@ Use the `inputValue` and `onInputValueChange` props to control the text input fi
 
 ::component-preview
 ---
-name: TagsInputControlledInputValueDemo
+component: tags-input
+name: controlled-input-value
 ---
 ::
 
@@ -84,7 +87,8 @@ An alternative way to control the tags input is to use the `RootProvider` compon
 
 ::component-preview
 ---
-name: TagsInputRootProviderDemo
+component: tags-input
+name: root-provider
 ---
 ::
 
@@ -94,7 +98,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: TagsInputFieldDemo
+component: tags-input
+name: field
 ---
 ::
 
@@ -104,7 +109,8 @@ To limit the number of tags within the component, you can set the `max` property
 
 ::component-preview
 ---
-name: TagsInputMaxTagsDemo
+component: tags-input
+name: max-tags
 ---
 ::
 
@@ -114,7 +120,8 @@ Use the `delimiter` prop with a regex pattern to specify multiple characters tha
 
 ::component-preview
 ---
-name: TagsInputCustomDelimiterDemo
+component: tags-input
+name: custom-delimiter
 ---
 ::
 
@@ -124,7 +131,8 @@ Use the `disabled` prop to make the tags input non-interactive. Users won't be a
 
 ::component-preview
 ---
-name: TagsInputDisabledDemo
+component: tags-input
+name: disabled
 ---
 ::
 
@@ -134,7 +142,8 @@ Use the `invalid` prop to mark the tags input as invalid for form validation pur
 
 ::component-preview
 ---
-name: TagsInputInvalidDemo
+component: tags-input
+name: invalid
 ---
 ::
 
@@ -144,7 +153,8 @@ Use the `maxLength` prop to limit the number of characters allowed per tag. This
 
 ::component-preview
 ---
-name: TagsInputMaxLengthDemo
+component: tags-input
+name: max-length
 ---
 ::
 
@@ -154,7 +164,8 @@ Use the `readOnly` prop to make tags visible but not editable. Users can view ta
 
 ::component-preview
 ---
-name: TagsInputReadOnlyDemo
+component: tags-input
+name: read-only
 ---
 ::
 
@@ -164,7 +175,8 @@ Before a tag is added, the `validate` function is called to determine whether to
 
 ::component-preview
 ---
-name: TagsInputValidationDemo
+component: tags-input
+name: validation
 ---
 ::
 
@@ -177,7 +189,8 @@ When the tags input is blurred, you can configure the action the component shoul
 
 ::component-preview
 ---
-name: TagsInputBlurBehaviorDemo
+component: tags-input
+name: blur-behavior
 ---
 ::
 
@@ -192,7 +205,8 @@ When a value is pasted, the component will:
 
 ::component-preview
 ---
-name: TagsInputPasteBehaviorDemo
+component: tags-input
+name: paste-behavior
 ---
 ::
 
@@ -202,7 +216,8 @@ by default the tags can be edited by double-clicking on the tag or focusing on t
 
 ::component-preview
 ---
-name: TagsInputDisableEditingDemo
+component: tags-input
+name: disable-editing
 ---
 ::
 
@@ -212,7 +227,8 @@ Use the `useTagsInput` hook with `RootProvider` to access the component's API me
 
 ::component-preview
 ---
-name: TagsInputProgrammaticControlDemo
+component: tags-input
+name: programmatic-control
 ---
 ::
 
@@ -222,7 +238,8 @@ Use the `sanitizeValue` prop to normalize tag values before they're added. This 
 
 ::component-preview
 ---
-name: TagsInputSanitizeValueDemo
+component: tags-input
+name: sanitize-value
 ---
 ::
 
@@ -232,7 +249,8 @@ Combine TagsInput with Autocomplete to create an autocomplete tags input. This p
 
 ::component-preview
 ---
-name: TagsInputAutocompleteDemo
+component: tags-input
+name: autocomplete
 ---
 ::
 

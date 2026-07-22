@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: FiltersDemo
+component: filters
+name: basic
 ---
 ::
 
@@ -90,7 +91,8 @@ Set `variant` and `size` on `Filters.Provider`, use `filter-style="short"` on `F
 
 ::component-preview
 ---
-name: FiltersShortDemo
+component: filters
+name: short
 ---
 ::
 
@@ -100,7 +102,8 @@ Provide a custom trigger via the `Filters.MenuTrigger` slot.
 
 ::component-preview
 ---
-name: FiltersCustomMenuDemo
+component: filters
+name: custom-menu
 ---
 ::
 

@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: SeparatorDemo
+component: separator
+name: basic
 ---
 ::
 
@@ -47,7 +48,8 @@ Use `orientation="vertical"` for a vertical separator.
 
 ::component-preview
 ---
-name: SeparatorVerticalDemo
+component: separator
+name: vertical
 ---
 ::
 
@@ -57,7 +59,8 @@ Vertical separators between menu items with descriptions.
 
 ::component-preview
 ---
-name: SeparatorMenuDemo
+component: separator
+name: menu
 ---
 ::
 
@@ -67,7 +70,8 @@ Horizontal separators between list items.
 
 ::component-preview
 ---
-name: SeparatorListDemo
+component: separator
+name: list
 ---
 ::
 

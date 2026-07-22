@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ScrollAreaDemo
+component: scroll-area
+name: basic
 ---
 ::
 
@@ -65,7 +66,8 @@ Configure the scroll area for horizontal scrolling only.
 
 ::component-preview
 ---
-name: ScrollAreaHorizontalDemo
+component: scroll-area
+name: horizontal
 ---
 ::
 
@@ -75,7 +77,8 @@ Enable scrolling in both horizontal and vertical directions.
 
 ::component-preview
 ---
-name: ScrollAreaBothDirectionsDemo
+component: scroll-area
+name: both-directions
 ---
 ::
 
@@ -85,7 +88,8 @@ Scroll areas can be nested within each other for complex layouts.
 
 ::component-preview
 ---
-name: ScrollAreaNestedDemo
+component: scroll-area
+name: nested
 ---
 ::
 
@@ -95,7 +99,8 @@ Add scroll shadows to indicate hidden content. Place `ScrollArea.Shadow` inside 
 
 ::component-preview
 ---
-name: ScrollAreaShadowDemo
+component: scroll-area
+name: shadow
 ---
 ::
 

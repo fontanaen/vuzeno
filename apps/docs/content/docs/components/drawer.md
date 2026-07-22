@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: DrawerDemo
+component: drawer
+name: basic
 ---
 ::
 
@@ -64,7 +65,8 @@ Use the `swipeDirection` prop to control which edge the drawer slides in from.
 
 ::component-preview
 ---
-name: DrawerSwipeDirectionDemo
+component: drawer
+name: swipe-direction
 ---
 ::
 
@@ -74,7 +76,8 @@ Use the `snapPoints` prop to define intermediate positions the drawer can snap t
 
 ::component-preview
 ---
-name: DrawerSnapPointsDemo
+component: drawer
+name: snap-points
 ---
 ::
 
@@ -84,7 +87,8 @@ Set `modal` to `false` to allow interaction with the rest of the page while the 
 
 ::component-preview
 ---
-name: DrawerModalDemo
+component: drawer
+name: modal
 ---
 ::
 
@@ -94,7 +98,8 @@ Use the `open` and `onOpenChange` props to control the drawer state.
 
 ::component-preview
 ---
-name: DrawerControlledDemo
+component: drawer
+name: controlled
 ---
 ::
 
@@ -102,7 +107,8 @@ name: DrawerControlledDemo
 
 ::component-preview
 ---
-name: DrawerScrollableDemo
+component: drawer
+name: scrollable
 ---
 ::
 
@@ -112,7 +118,8 @@ Apply the `data-no-drag` attribute to any element inside the drawer to prevent d
 
 ::component-preview
 ---
-name: DrawerNoDragAreaDemo
+component: drawer
+name: no-drag-area
 ---
 ::
 
@@ -122,7 +129,8 @@ Set `draggable` to `false` to disable drag-to-dismiss entirely.
 
 ::component-preview
 ---
-name: DrawerNonDraggableDemo
+component: drawer
+name: non-draggable
 ---
 ::
 
@@ -132,7 +140,8 @@ Use `Drawer.IndentBackground` to create a visual indent effect on the page behin
 
 ::component-preview
 ---
-name: DrawerIndentBackgroundDemo
+component: drawer
+name: indent-background
 ---
 ::
 
@@ -142,7 +151,8 @@ Use the `value` prop on `Drawer.Trigger` to share a single drawer across multipl
 
 ::component-preview
 ---
-name: DrawerMultipleTriggersDemo
+component: drawer
+name: multiple-triggers
 ---
 ::
 
@@ -152,7 +162,8 @@ Use the `useDrawer` hook and `Drawer.RootProvider` to control the drawer from ou
 
 ::component-preview
 ---
-name: DrawerRootProviderDemo
+component: drawer
+name: root-provider
 ---
 ::
 

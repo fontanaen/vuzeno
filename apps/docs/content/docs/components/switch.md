@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: SwitchDemo
+component: switch
+name: basic
 ---
 ::
 
@@ -57,7 +58,8 @@ Use the `size` prop on `Switch.Root` to change the size of the switch.
 
 ::component-preview
 ---
-name: SwitchSizesDemo
+component: switch
+name: sizes
 ---
 ::
 
@@ -67,7 +69,8 @@ For a controlled Switch component, the state of the toggle is managed using the 
 
 ::component-preview
 ---
-name: SwitchControlledDemo
+component: switch
+name: controlled
 ---
 ::
 
@@ -77,7 +80,8 @@ An alternative way to control the switch is to use the `RootProvider` component 
 
 ::component-preview
 ---
-name: SwitchRootProviderDemo
+component: switch
+name: root-provider
 ---
 ::
 
@@ -87,7 +91,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: SwitchFieldDemo
+component: switch
+name: field
 ---
 ::
 
@@ -97,7 +102,8 @@ Access the switch's state with `Switch.Context` or the `useSwitchContext` hook. 
 
 ::component-preview
 ---
-name: SwitchContextDemo
+component: switch
+name: context
 ---
 ::
 

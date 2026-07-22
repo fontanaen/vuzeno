@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: PasswordInputDemo
+component: password-input
+name: basic
 ---
 ::
 
@@ -63,7 +64,8 @@ Use the `size` prop on `PasswordInput.Root` to change the height of the input.
 
 ::component-preview
 ---
-name: PasswordInputSizesDemo
+component: password-input
+name: sizes
 ---
 ::
 
@@ -76,7 +78,8 @@ Use the `autoComplete` prop to manage autocompletion in the input.
 
 ::component-preview
 ---
-name: PasswordInputAutocompleteDemo
+component: password-input
+name: autocomplete
 ---
 ::
 
@@ -86,7 +89,8 @@ Use the `visible` and `onVisibilityChange` props to control the visibility of th
 
 ::component-preview
 ---
-name: PasswordInputControlledVisibilityDemo
+component: password-input
+name: controlled-visibility
 ---
 ::
 
@@ -96,7 +100,8 @@ An alternative way to control the password input is to use the `RootProvider` co
 
 ::component-preview
 ---
-name: PasswordInputRootProviderDemo
+component: password-input
+name: root-provider
 ---
 ::
 
@@ -106,7 +111,8 @@ Combine `PasswordInput` with `Field` to add a label, helper text, and validation
 
 ::component-preview
 ---
-name: PasswordInputFieldDemo
+component: password-input
+name: field
 ---
 ::
 
@@ -116,7 +122,8 @@ Use the `ignorePasswordManagers` prop to ignore password managers like 1Password
 
 ::component-preview
 ---
-name: PasswordInputIgnorePasswordManagerDemo
+component: password-input
+name: ignore-password-manager
 ---
 ::
 
@@ -126,7 +133,8 @@ Combine the `PasswordInput` with password strength logic to show visual feedback
 
 ::component-preview
 ---
-name: PasswordInputStrengthMeterDemo
+component: password-input
+name: strength-meter
 ---
 ::
 
@@ -136,7 +144,8 @@ Combine with custom validation logic to show real-time feedback. Use the `invali
 
 ::component-preview
 ---
-name: PasswordInputValidationDemo
+component: password-input
+name: validation
 ---
 ::
 

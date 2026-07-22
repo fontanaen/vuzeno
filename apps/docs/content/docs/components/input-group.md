@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: InputGroupDemo
+component: input-group
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ Add icons inside `InputGroupAddon` to decorate the input.
 
 ::component-preview
 ---
-name: InputGroupIconDemo
+component: input-group
+name: icon
 ---
 ::
 
@@ -68,7 +70,8 @@ Use `InputGroupText` for inline prefixes, suffixes, and helper labels.
 
 ::component-preview
 ---
-name: InputGroupTextDemo
+component: input-group
+name: text
 ---
 ::
 
@@ -78,7 +81,8 @@ Add action buttons with `InputGroupButton` inside an addon.
 
 ::component-preview
 ---
-name: InputGroupButtonDemo
+component: input-group
+name: button
 ---
 ::
 
@@ -88,7 +92,8 @@ Wrap `InputGroupButton` with `Tooltip.Trigger` and `as-child` to add contextual 
 
 ::component-preview
 ---
-name: InputGroupTooltipDemo
+component: input-group
+name: tooltip
 ---
 ::
 
@@ -98,7 +103,8 @@ Use `Menu.Trigger` with `as-child` on `InputGroupButton` to attach a dropdown me
 
 ::component-preview
 ---
-name: InputGroupMenuDemo
+component: input-group
+name: menu
 ---
 ::
 

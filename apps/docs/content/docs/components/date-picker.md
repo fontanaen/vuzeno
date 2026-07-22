@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: DatePickerDemo
+component: date-picker
+name: basic
 ---
 ::
 
@@ -79,7 +80,8 @@ Use the `defaultValue` prop with `parseDate` to set the initial date value.
 
 ::component-preview
 ---
-name: DatePickerDefaultValueDemo
+component: date-picker
+name: default-value
 ---
 ::
 
@@ -89,7 +91,8 @@ Use the `value` and `onValueChange` props to control the date picker's value pro
 
 ::component-preview
 ---
-name: DatePickerControlledDemo
+component: date-picker
+name: controlled
 ---
 ::
 
@@ -100,7 +103,8 @@ way you can access the state and methods from outside the component.
 
 ::component-preview
 ---
-name: DatePickerRootProviderDemo
+component: date-picker
+name: root-provider
 ---
 ::
 
@@ -110,7 +114,8 @@ Use the `defaultView` prop to set which view (day, month, or year) the calendar 
 
 ::component-preview
 ---
-name: DatePickerDefaultViewDemo
+component: date-picker
+name: default-view
 ---
 ::
 
@@ -121,7 +126,8 @@ alongside the prev/next triggers.
 
 ::component-preview
 ---
-name: DatePickerMonthAndYearSelectDemo
+component: date-picker
+name: month-and-year-select
 ---
 ::
 
@@ -134,7 +140,8 @@ To create a date picker that allows a range selection, you need to:
 
 ::component-preview
 ---
-name: DatePickerRangeDemo
+component: date-picker
+name: range
 ---
 ::
 
@@ -145,7 +152,8 @@ selected dates as removable tags.
 
 ::component-preview
 ---
-name: DatePickerMultipleDemo
+component: date-picker
+name: multiple
 ---
 ::
 
@@ -156,7 +164,8 @@ this example, users can select up to 3 dates.
 
 ::component-preview
 ---
-name: DatePickerMaxSelectedDatesDemo
+component: date-picker
+name: max-selected-dates
 ---
 ::
 
@@ -169,7 +178,8 @@ To create a date picker that displays multiple months side by side:
 
 ::component-preview
 ---
-name: DatePickerMultipleMonthsDemo
+component: date-picker
+name: multiple-months
 ---
 ::
 
@@ -179,7 +189,8 @@ Use the `DatePicker.PresetTrigger` component to add quick-select preset options 
 
 ::component-preview
 ---
-name: DatePickerPresetsDemo
+component: date-picker
+name: presets
 ---
 ::
 
@@ -190,7 +201,8 @@ disabled.
 
 ::component-preview
 ---
-name: DatePickerMinAndMaxDemo
+component: date-picker
+name: min-and-max
 ---
 ::
 
@@ -200,7 +212,8 @@ Use the `isDateUnavailable` prop to mark specific dates as unavailable. This exa
 
 ::component-preview
 ---
-name: DatePickerUnavailableDemo
+component: date-picker
+name: unavailable
 ---
 ::
 
@@ -211,7 +224,8 @@ Sunday, 1 = Monday, etc.).
 
 ::component-preview
 ---
-name: DatePickerLocaleDemo
+component: date-picker
+name: locale
 ---
 ::
 
@@ -222,7 +236,8 @@ functions to handle month/year input format.
 
 ::component-preview
 ---
-name: DatePickerMonthPickerDemo
+component: date-picker
+name: month-picker
 ---
 ::
 
@@ -233,7 +248,8 @@ functions to handle year-only input format.
 
 ::component-preview
 ---
-name: DatePickerYearPickerDemo
+component: date-picker
+name: year-picker
 ---
 ::
 
@@ -246,7 +262,8 @@ Use the `inline` prop to display the date picker directly on the page, without a
 
 ::component-preview
 ---
-name: DatePickerInlineDemo
+component: date-picker
+name: inline
 ---
 ::
 
@@ -257,7 +274,8 @@ Use the `parse` prop to implement custom date parsing logic. This allows users t
 
 ::component-preview
 ---
-name: DatePickerCustomParsingDemo
+component: date-picker
+name: custom-parsing
 ---
 ::
 
@@ -268,7 +286,8 @@ is useful for selecting billing periods or date ranges by month.
 
 ::component-preview
 ---
-name: DatePickerMonthPickerRangeDemo
+component: date-picker
+name: month-picker-range
 ---
 ::
 
@@ -279,7 +298,8 @@ useful for selecting multi-year periods.
 
 ::component-preview
 ---
-name: DatePickerYearRangeDemo
+component: date-picker
+name: year-range
 ---
 ::
 
@@ -289,7 +309,8 @@ Use the `selectToday` method from the date picker context to add a "Today" butto
 
 ::component-preview
 ---
-name: DatePickerSelectTodayDemo
+component: date-picker
+name: select-today
 ---
 ::
 
@@ -300,7 +321,8 @@ months.
 
 ::component-preview
 ---
-name: DatePickerFixedWeeksDemo
+component: date-picker
+name: fixed-weeks
 ---
 ::
 
@@ -311,7 +333,8 @@ form data. This example also uses `isDateUnavailable` to disable weekends.
 
 ::component-preview
 ---
-name: DatePickerFormDemo
+component: date-picker
+name: form
 ---
 ::
 
@@ -322,7 +345,8 @@ updates the hour and minute of the selected date value.
 
 ::component-preview
 ---
-name: DatePickerWithTimeDemo
+component: date-picker
+name: with-time
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: JsonTreeViewDemo
+component: json-tree-view
+name: basic
 ---
 ::
 
@@ -60,7 +61,8 @@ The JSON tree view can display various JavaScript data types including objects, 
 
 ::component-preview
 ---
-name: JsonTreeViewArrayDataDemo
+component: json-tree-view
+name: array-data
 ---
 ::
 
@@ -70,7 +72,8 @@ Display JavaScript functions, async functions, and generators in your JSON tree:
 
 ::component-preview
 ---
-name: JsonTreeViewFunctionsDemo
+component: json-tree-view
+name: functions
 ---
 ::
 
@@ -80,7 +83,8 @@ Regular expressions are displayed with their pattern and flags:
 
 ::component-preview
 ---
-name: JsonTreeViewRegexDemo
+component: json-tree-view
+name: regex
 ---
 ::
 
@@ -90,7 +94,8 @@ Error objects and their stack traces can be visualized:
 
 ::component-preview
 ---
-name: JsonTreeViewErrorsDemo
+component: json-tree-view
+name: errors
 ---
 ::
 
@@ -100,7 +105,8 @@ Native JavaScript Map and Set objects are supported:
 
 ::component-preview
 ---
-name: JsonTreeViewMapAndSetDemo
+component: json-tree-view
+name: map-and-set
 ---
 ::
 
@@ -110,7 +116,8 @@ Use the `defaultExpandedDepth` prop to control how many levels are expanded by d
 
 ::component-preview
 ---
-name: JsonTreeViewExpandLevelDemo
+component: json-tree-view
+name: expand-level
 ---
 ::
 
@@ -120,7 +127,8 @@ You can customize how specific values are rendered using the `renderValue` prop.
 
 ::component-preview
 ---
-name: JsonTreeViewRenderValueDemo
+component: json-tree-view
+name: render-value
 ---
 ::
 
@@ -160,7 +168,8 @@ The `RootProvider` component provides a context for the JSON tree view. It accep
 
 ::component-preview
 ---
-name: JsonTreeViewRootProviderDemo
+component: json-tree-view
+name: root-provider
 ---
 ::
 

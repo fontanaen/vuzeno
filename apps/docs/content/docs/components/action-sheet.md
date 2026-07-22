@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ActionSheetDemo
+component: action-sheet
+name: basic
 ---
 ::
 
@@ -83,7 +84,8 @@ Use `ActionSheet.Trigger` to open the sheet and `ActionSheet.Option` for each ch
 
 ::component-preview
 ---
-name: ActionSheetDemo
+component: action-sheet
+name: basic
 ---
 ::
 

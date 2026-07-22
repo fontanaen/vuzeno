@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ButtonGroupDemo
+component: button-group
+name: basic
 ---
 ::
 
@@ -79,7 +80,8 @@ Set the `orientation` prop to change the layout.
 
 ::component-preview
 ---
-name: ButtonGroupOrientationDemo
+component: button-group
+name: orientation
 ---
 ::
 
@@ -89,7 +91,8 @@ Control the size of buttons using the `size` prop on individual buttons.
 
 ::component-preview
 ---
-name: ButtonGroupSizesDemo
+component: button-group
+name: sizes
 ---
 ::
 
@@ -99,7 +102,8 @@ Nest `ButtonGroup` components to create groups with spacing between them.
 
 ::component-preview
 ---
-name: ButtonGroupNestedDemo
+component: button-group
+name: nested
 ---
 ::
 
@@ -109,7 +113,8 @@ Combine an input with action buttons in a single group.
 
 ::component-preview
 ---
-name: ButtonGroupInputDemo
+component: button-group
+name: input
 ---
 ::
 
@@ -119,7 +124,8 @@ Pair a select with an input and submit button — useful for amount or unit pick
 
 ::component-preview
 ---
-name: ButtonGroupSelectDemo
+component: button-group
+name: select
 ---
 ::
 
@@ -129,7 +135,8 @@ Create a split button group with a [Menu](/docs/components/menu) for secondary a
 
 ::component-preview
 ---
-name: ButtonGroupDropdownDemo
+component: button-group
+name: dropdown
 ---
 ::
 

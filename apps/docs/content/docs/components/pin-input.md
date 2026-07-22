@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: PinInputDemo
+component: pin-input
+name: basic
 ---
 ::
 
@@ -55,7 +56,8 @@ To customize the default pin input placeholder `○` for each input, pass the pl
 
 ::component-preview
 ---
-name: PinInputPlaceholderDemo
+component: pin-input
+name: placeholder
 ---
 ::
 
@@ -65,7 +67,8 @@ By default, the last input maintains focus when filled, and we invoke the `onVal
 
 ::component-preview
 ---
-name: PinInputBlurOnCompleteDemo
+component: pin-input
+name: blur-on-complete
 ---
 ::
 
@@ -75,7 +78,8 @@ To trigger smartphone OTP auto-suggestion, it is recommended to set the `autocom
 
 ::component-preview
 ---
-name: PinInputOtpModeDemo
+component: pin-input
+name: otp-mode
 ---
 ::
 
@@ -85,7 +89,8 @@ When collecting private or sensitive information using the pin input, you might 
 
 ::component-preview
 ---
-name: PinInputMaskDemo
+component: pin-input
+name: mask
 ---
 ::
 
@@ -95,7 +100,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: PinInputFieldDemo
+component: pin-input
+name: field
 ---
 ::
 
@@ -105,7 +111,8 @@ An alternative way to control the pin input is to use the `RootProvider` compone
 
 ::component-preview
 ---
-name: PinInputRootProviderDemo
+component: pin-input
+name: root-provider
 ---
 ::
 

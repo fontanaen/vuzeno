@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ToastDemo
+component: toast
+name: basic
 ---
 ::
 
@@ -81,7 +82,8 @@ toaster.success({
 
 ::component-preview
 ---
-name: ToastTypesDemo
+component: toast
+name: types
 ---
 ::
 
@@ -91,7 +93,8 @@ You can use `toaster.promise()` to automatically handle the different states of 
 
 ::component-preview
 ---
-name: ToastPromiseDemo
+component: toast
+name: promise
 ---
 ::
 
@@ -101,7 +104,8 @@ To update a toast, use the `toast.update` method.
 
 ::component-preview
 ---
-name: ToastUpdateDemo
+component: toast
+name: update
 ---
 ::
 
@@ -111,7 +115,8 @@ To add an action to a toast, use the `toast.action` property.
 
 ::component-preview
 ---
-name: ToastActionDemo
+component: toast
+name: action
 ---
 ::
 
@@ -121,7 +126,8 @@ You can control how long a toast stays visible by setting a custom `duration` in
 
 ::component-preview
 ---
-name: ToastDurationDemo
+component: toast
+name: duration
 ---
 ::
 
@@ -131,7 +137,8 @@ Set the `max` prop on the `createToaster` function to define the maximum number 
 
 ::component-preview
 ---
-name: ToastMaxVisibleDemo
+component: toast
+name: max-visible
 ---
 ::
 
@@ -141,7 +148,8 @@ Configure where toasts appear on the screen using the `placement` option in `cre
 
 ::component-preview
 ---
-name: ToastPlacementDemo
+component: toast
+name: placement
 ---
 ::
 

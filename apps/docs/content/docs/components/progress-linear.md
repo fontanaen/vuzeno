@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ProgressLinearDemo
+component: progress-linear
+name: basic
 ---
 ::
 
@@ -62,7 +63,8 @@ For example, to show the user a progress from `10` to `30`, you can use:
 
 ::component-preview
 ---
-name: ProgressLinearMinMaxDemo
+component: progress-linear
+name: min-max
 ---
 ::
 
@@ -72,7 +74,8 @@ The progress component is determinate by default, with the value and max set to 
 
 ::component-preview
 ---
-name: ProgressLinearIndeterminateDemo
+component: progress-linear
+name: indeterminate
 ---
 ::
 
@@ -82,7 +85,8 @@ Progress bars can only be interpreted by sighted users. To include a text descri
 
 ::component-preview
 ---
-name: ProgressLinearValueTextDemo
+component: progress-linear
+name: value-text
 ---
 ::
 
@@ -94,7 +98,8 @@ By default, the progress is assumed to be horizontal. To change the orientation 
 
 ::component-preview
 ---
-name: ProgressLinearVerticalDemo
+component: progress-linear
+name: vertical
 ---
 ::
 
@@ -104,7 +109,8 @@ An alternative way to control the progress is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: ProgressLinearRootProviderDemo
+component: progress-linear
+name: root-provider
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: FieldsetDemo
+component: fieldset
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ This example demonstrates how to use the `Field` component with a standard input
 
 ::component-preview
 ---
-name: FieldsetFieldDemo
+component: fieldset
+name: field
 ---
 ::
 
@@ -68,7 +70,8 @@ This example shows how to use the `Fieldset` component with other Ark UI form el
 
 ::component-preview
 ---
-name: FieldsetCheckboxDemo
+component: fieldset
+name: checkbox
 ---
 ::
 
@@ -78,7 +81,8 @@ An alternative way to control the fieldset is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: FieldsetRootProviderDemo
+component: fieldset
+name: root-provider
 ---
 ::
 
@@ -88,7 +92,8 @@ This example shows how to use the `Fieldset` component with `Field.Input` and `S
 
 ::component-preview
 ---
-name: FieldsetInputWithSelectDemo
+component: fieldset
+name: input-with-select
 ---
 ::
 

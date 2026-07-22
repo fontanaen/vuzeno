@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: TextareaDemo
+component: textarea
+name: basic
 ---
 ::
 
@@ -41,7 +42,8 @@ Use `Field` to add a label, helper text, and validation context around the texta
 
 ::component-preview
 ---
-name: TextareaFieldDemo
+component: textarea
+name: field
 ---
 ::
 
@@ -51,7 +53,8 @@ Use the `disabled` prop to disable the textarea. Wrap it in `Field.Root` with `d
 
 ::component-preview
 ---
-name: TextareaDisabledDemo
+component: textarea
+name: disabled
 ---
 ::
 
@@ -61,7 +64,8 @@ Use the `aria-invalid` prop to mark the textarea as invalid. Set `invalid` on `F
 
 ::component-preview
 ---
-name: TextareaInvalidDemo
+component: textarea
+name: invalid
 ---
 ::
 

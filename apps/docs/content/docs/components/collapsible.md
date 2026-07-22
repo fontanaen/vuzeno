@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: CollapsibleDemo
+component: collapsible
+name: basic
 ---
 ::
 
@@ -57,7 +58,8 @@ Use the `disabled` prop to disable the collapsible and prevent it from being tog
 
 ::component-preview
 ---
-name: CollapsibleDisabledDemo
+component: collapsible
+name: disabled
 ---
 ::
 
@@ -69,7 +71,8 @@ We expose the `--collapsed-height` or `--collapsed-width` variables to use in yo
 
 ::component-preview
 ---
-name: CollapsiblePartialCollapseDemo
+component: collapsible
+name: partial-collapse
 ---
 ::
 
@@ -79,7 +82,8 @@ You can nest collapsibles within collapsibles to create hierarchical content str
 
 ::component-preview
 ---
-name: CollapsibleNestedDemo
+component: collapsible
+name: nested
 ---
 ::
 
@@ -89,7 +93,8 @@ Use `lazyMount` to delay mounting the content until first opened, and `unmountOn
 
 ::component-preview
 ---
-name: CollapsibleLazyMountDemo
+component: collapsible
+name: lazy-mount
 ---
 ::
 
@@ -99,7 +104,8 @@ An alternative way to control the collapsible is to use the `RootProvider` compo
 
 ::component-preview
 ---
-name: CollapsibleRootProviderDemo
+component: collapsible
+name: root-provider
 ---
 ::
 

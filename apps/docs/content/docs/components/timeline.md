@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: TimelineDemo
+component: timeline
+name: basic
 ---
 ::
 
@@ -91,7 +92,8 @@ Switch the orientation with `direction="horizontal"`. The thread runs left-to-ri
 
 ::component-preview
 ---
-name: TimelineHorizontalDemo
+component: timeline
+name: horizontal
 ---
 ::
 
@@ -123,7 +125,8 @@ Use `align="center"` on `Timeline.Root` to center the thread, then set each `Tim
 
 ::component-preview
 ---
-name: TimelineSideDemo
+component: timeline
+name: side
 ---
 ::
 

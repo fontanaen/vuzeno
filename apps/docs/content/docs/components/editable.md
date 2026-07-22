@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: EditableDemo
+component: editable
+name: basic
 ---
 ::
 
@@ -60,7 +61,8 @@ Use the `value` and `onValueChange` props to control the editable state.
 
 ::component-preview
 ---
-name: EditableControlledDemo
+component: editable
+name: controlled
 ---
 ::
 
@@ -70,7 +72,8 @@ An alternative way to control the editable is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: EditableRootProviderDemo
+component: editable
+name: root-provider
 ---
 ::
 
@@ -80,7 +83,8 @@ Access the editable's state with `Editable.Context` or the `useEditableContext` 
 
 ::component-preview
 ---
-name: EditableContextDemo
+component: editable
+name: context
 ---
 ::
 
@@ -90,7 +94,8 @@ In some cases, you might need to use custom controls to toggle the edit and read
 
 ::component-preview
 ---
-name: EditableControlsDemo
+component: editable
+name: controls
 ---
 ::
 
@@ -100,7 +105,8 @@ Use the `asChild` prop on `Editable.Input` to render a textarea for multi-line e
 
 ::component-preview
 ---
-name: EditableTextareaDemo
+component: editable
+name: textarea
 ---
 ::
 
@@ -110,7 +116,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: EditableFieldDemo
+component: editable
+name: field
 ---
 ::
 

@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: ImageDemo
+component: image
+name: basic
 ---
 ::
 
@@ -70,7 +71,8 @@ Use `Image.Fallback` to display a placeholder while the image is loading or when
 
 ::component-preview
 ---
-name: ImageFallbackDemo
+component: image
+name: fallback
 ---
 ::
 
@@ -80,7 +82,8 @@ Use `Image.Loading` to show a dedicated loading indicator. The demo below uses a
 
 ::component-preview
 ---
-name: ImageLoadingDemo
+component: image
+name: loading
 ---
 ::
 
@@ -90,7 +93,8 @@ For a controlled image, manage the state with the `state` prop and update it via
 
 ::component-preview
 ---
-name: ImageControlledDemo
+component: image
+name: controlled
 ---
 ::
 

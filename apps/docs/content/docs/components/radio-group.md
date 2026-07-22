@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: RadioGroupDemo
+component: radio-group
+name: basic
 ---
 ::
 
@@ -57,7 +58,8 @@ To set the radio group's initial value, set the `defaultValue` prop to the value
 
 ::component-preview
 ---
-name: RadioGroupInitialValueDemo
+component: radio-group
+name: initial-value
 ---
 ::
 
@@ -67,7 +69,8 @@ For a controlled Radio Group, the state is managed using the `value` prop, and u
 
 ::component-preview
 ---
-name: RadioGroupControlledDemo
+component: radio-group
+name: controlled
 ---
 ::
 
@@ -77,7 +80,8 @@ An alternative way to control the radio group is to use the `RootProvider` compo
 
 ::component-preview
 ---
-name: RadioGroupRootProviderDemo
+component: radio-group
+name: root-provider
 ---
 ::
 
@@ -87,7 +91,8 @@ To make a radio group disabled, set the `disabled` prop to `true`.
 
 ::component-preview
 ---
-name: RadioGroupDisabledDemo
+component: radio-group
+name: disabled
 ---
 ::
 

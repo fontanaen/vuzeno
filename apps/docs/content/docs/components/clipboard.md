@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ClipboardDemo
+component: clipboard
+name: basic
 ---
 ::
 
@@ -59,7 +60,8 @@ Control the clipboard value externally by managing the state yourself and using 
 
 ::component-preview
 ---
-name: ClipboardControlledDemo
+component: clipboard
+name: controlled
 ---
 ::
 
@@ -69,7 +71,8 @@ An alternative way to control the clipboard is to use the `RootProvider` compone
 
 ::component-preview
 ---
-name: ClipboardRootProviderDemo
+component: clipboard
+name: root-provider
 ---
 ::
 
@@ -79,7 +82,8 @@ Access the clipboard's state with `Clipboard.Context` or the `useClipboardContex
 
 ::component-preview
 ---
-name: ClipboardContextDemo
+component: clipboard
+name: context
 ---
 ::
 
@@ -89,7 +93,8 @@ Use the `onStatusChange` prop to listen for copy operations. It exposes a `copie
 
 ::component-preview
 ---
-name: ClipboardCopyStatusDemo
+component: clipboard
+name: copy-status
 ---
 ::
 
@@ -99,7 +104,8 @@ Configure the copy status timeout duration using the `timeout` prop. Default is 
 
 ::component-preview
 ---
-name: ClipboardTimeoutDemo
+component: clipboard
+name: timeout
 ---
 ::
 
@@ -109,7 +115,8 @@ Use `Clipboard.ValueText` to display the current clipboard value.
 
 ::component-preview
 ---
-name: ClipboardValueTextDemo
+component: clipboard
+name: value-text
 ---
 ::
 

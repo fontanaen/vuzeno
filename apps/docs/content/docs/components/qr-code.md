@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: QrCodeDemo
+component: qr-code
+name: basic
 ---
 ::
 
@@ -59,7 +60,8 @@ You can also add a logo or overlay to the QR code. This is useful when you want 
 
 ::component-preview
 ---
-name: QrCodeOverlayDemo
+component: qr-code
+name: overlay
 ---
 ::
 
@@ -76,7 +78,8 @@ Use the `encoding.ecc` or `encoding.boostEcc` property to set the error correcti
 
 ::component-preview
 ---
-name: QrCodeErrorCorrectionDemo
+component: qr-code
+name: error-correction
 ---
 ::
 
@@ -86,7 +89,8 @@ An alternative way to control the QR code is to use the `RootProvider` component
 
 ::component-preview
 ---
-name: QrCodeRootProviderDemo
+component: qr-code
+name: root-provider
 ---
 ::
 
@@ -96,7 +100,8 @@ Use the `QrCode.DownloadTrigger` component to allow users to download the QR cod
 
 ::component-preview
 ---
-name: QrCodeDownloadDemo
+component: qr-code
+name: download
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: BadgeDemo
+component: badge
+name: basic
 ---
 ::
 
@@ -43,6 +44,7 @@ Use the `variant` prop to change the visual style of the badge.
 
 ::component-preview
 ---
-name: BadgeVariantsDemo
+component: badge
+name: variants
 ---
 ::

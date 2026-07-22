@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ListboxDemo
+component: listbox
+name: basic
 ---
 ::
 
@@ -45,7 +46,8 @@ The Listbox component can be controlled by using the `value` and `onValueChange`
 
 ::component-preview
 ---
-name: ListboxControlledDemo
+component: listbox
+name: controlled
 ---
 ::
 
@@ -55,7 +57,8 @@ An alternative way to control the listbox is to use the `RootProvider` component
 
 ::component-preview
 ---
-name: ListboxRootProviderDemo
+component: listbox
+name: root-provider
 ---
 ::
 
@@ -65,7 +68,8 @@ Listbox items can be disabled using the `disabled` prop on the collection item.
 
 ::component-preview
 ---
-name: ListboxDisabledItemDemo
+component: listbox
+name: disabled-item
 ---
 ::
 
@@ -75,7 +79,8 @@ You can set the `selectionMode` property as `multiple` to allow the user to sele
 
 ::component-preview
 ---
-name: ListboxMultipleDemo
+component: listbox
+name: multiple
 ---
 ::
 
@@ -85,7 +90,8 @@ The Listbox component supports grouping items. You can use the `groupBy` functio
 
 ::component-preview
 ---
-name: ListboxGroupingDemo
+component: listbox
+name: grouping
 ---
 ::
 
@@ -95,7 +101,8 @@ The extended selection mode allows users to select multiple items using keyboard
 
 ::component-preview
 ---
-name: ListboxExtendedSelectionDemo
+component: listbox
+name: extended-selection
 ---
 ::
 
@@ -105,7 +112,8 @@ Use the `orientation` prop to display the listbox items horizontally.
 
 ::component-preview
 ---
-name: ListboxHorizontalDemo
+component: listbox
+name: horizontal
 ---
 ::
 
@@ -115,7 +123,8 @@ Use `createGridCollection` to display items in a grid layout with keyboard navig
 
 ::component-preview
 ---
-name: ListboxGridLayoutDemo
+component: listbox
+name: grid-layout
 ---
 ::
 
@@ -125,7 +134,8 @@ Use `useListCollection` with the `filter` function to enable filtering of items.
 
 ::component-preview
 ---
-name: ListboxFilteringDemo
+component: listbox
+name: filtering
 ---
 ::
 
@@ -135,7 +145,8 @@ Use `useListboxContext` to implement a "Select All" functionality that allows us
 
 ::component-preview
 ---
-name: ListboxSelectAllDemo
+component: listbox
+name: select-all
 ---
 ::
 
@@ -145,7 +156,8 @@ Use `Listbox.ValueText` to display the selected values as a comma-separated stri
 
 ::component-preview
 ---
-name: ListboxValueTextDemo
+component: listbox
+name: value-text
 ---
 ::
 

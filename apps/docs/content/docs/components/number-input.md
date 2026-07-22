@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: NumberInputDemo
+component: number-input
+name: basic
 ---
 ::
 
@@ -72,7 +73,8 @@ Use `layout="segmented"` on `Control`. Place `IncrementTrigger` on the left, `De
 
 ::component-preview
 ---
-name: NumberInputSplitDemo
+component: number-input
+name: split
 ---
 ::
 
@@ -82,7 +84,8 @@ Pass the `min` prop or `max` prop to set an upper and lower limit for the input.
 
 ::component-preview
 ---
-name: NumberInputMinMaxDemo
+component: number-input
+name: min-max
 ---
 ::
 
@@ -92,7 +95,8 @@ In some cases, you might need the value to be rounded to specific decimal points
 
 ::component-preview
 ---
-name: NumberInputPrecisionDemo
+component: number-input
+name: precision
 ---
 ::
 
@@ -102,7 +106,8 @@ The NumberInput supports the scrubber interaction pattern. To use this pattern, 
 
 ::component-preview
 ---
-name: NumberInputScrubbingDemo
+component: number-input
+name: scrubbing
 ---
 ::
 
@@ -112,7 +117,8 @@ The NumberInput exposes a way to increment/decrement the value using the mouse w
 
 ::component-preview
 ---
-name: NumberInputMouseWheelDemo
+component: number-input
+name: mouse-wheel
 ---
 ::
 
@@ -122,7 +128,8 @@ To apply custom formatting to the input's value, set the `formatOptions` and pro
 
 ::component-preview
 ---
-name: NumberInputFormattingDemo
+component: number-input
+name: formatting
 ---
 ::
 
@@ -132,7 +139,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: NumberInputFieldDemo
+component: number-input
+name: field
 ---
 ::
 
@@ -142,7 +150,8 @@ An alternative way to control the number input is to use the `RootProvider` comp
 
 ::component-preview
 ---
-name: NumberInputRootProviderDemo
+component: number-input
+name: root-provider
 ---
 ::
 

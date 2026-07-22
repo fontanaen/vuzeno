@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ToggleGroupDemo
+component: toggle-group
+name: basic
 ---
 ::
 
@@ -56,7 +57,8 @@ Use the `variant` prop on `ToggleGroup.Root` to change the visual style of the g
 
 ::component-preview
 ---
-name: ToggleGroupVariantsDemo
+component: toggle-group
+name: variants
 ---
 ::
 
@@ -66,7 +68,8 @@ Use the `size` prop on `ToggleGroup.Root` to change the size of the group and it
 
 ::component-preview
 ---
-name: ToggleGroupSizesDemo
+component: toggle-group
+name: sizes
 ---
 ::
 
@@ -76,7 +79,8 @@ Use the `value` and `onValueChange` props to control the toggle group state.
 
 ::component-preview
 ---
-name: ToggleGroupControlledDemo
+component: toggle-group
+name: controlled
 ---
 ::
 
@@ -86,7 +90,8 @@ An alternative way to control the toggle group is to use the `RootProvider` comp
 
 ::component-preview
 ---
-name: ToggleGroupRootProviderDemo
+component: toggle-group
+name: root-provider
 ---
 ::
 
@@ -96,7 +101,8 @@ Demonstrates how to enable `multiple` selection within the group.
 
 ::component-preview
 ---
-name: ToggleGroupMultipleDemo
+component: toggle-group
+name: multiple
 ---
 ::
 

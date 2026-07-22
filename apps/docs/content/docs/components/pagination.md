@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: PaginationDemo
+component: pagination
+name: basic
 ---
 ::
 
@@ -59,7 +60,8 @@ To create a controlled Pagination component, manage the state of the current pag
 
 ::component-preview
 ---
-name: PaginationControlledDemo
+component: pagination
+name: controlled
 ---
 ::
 
@@ -69,7 +71,8 @@ An alternative way to control the pagination is to use the `RootProvider` compon
 
 ::component-preview
 ---
-name: PaginationRootProviderDemo
+component: pagination
+name: root-provider
 ---
 ::
 
@@ -79,7 +82,8 @@ You can customize the Pagination component by setting various props such as `dir
 
 ::component-preview
 ---
-name: PaginationCustomizedDemo
+component: pagination
+name: customized
 ---
 ::
 
@@ -89,7 +93,8 @@ Access pagination state and methods with `Pagination.Context` or the `usePaginat
 
 ::component-preview
 ---
-name: PaginationContextDemo
+component: pagination
+name: context
 ---
 ::
 
@@ -99,7 +104,8 @@ Use the `slice()` method to paginate actual data arrays. This method automatical
 
 ::component-preview
 ---
-name: PaginationDataSlicingDemo
+component: pagination
+name: data-slicing
 ---
 ::
 
@@ -109,7 +115,8 @@ Display the current page range information using the `pageRange` property. This 
 
 ::component-preview
 ---
-name: PaginationPageRangeDemo
+component: pagination
+name: page-range
 ---
 ::
 
@@ -121,7 +128,8 @@ Control the number of items per page dynamically using `setPageSize()`. This exa
 
 ::component-preview
 ---
-name: PaginationPageSizeDemo
+component: pagination
+name: page-size
 ---
 ::
 
@@ -131,7 +139,8 @@ Create pagination with link navigation for better SEO and accessibility. This ex
 
 ::component-preview
 ---
-name: PaginationLinksDemo
+component: pagination
+name: links
 ---
 ::
 

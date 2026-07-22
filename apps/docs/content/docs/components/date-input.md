@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: DateInputDemo
+component: date-input
+name: basic
 ---
 ::
 
@@ -59,7 +60,8 @@ Use the `defaultValue` prop with `parseDate` to set the initial date value.
 
 ::component-preview
 ---
-name: DateInputDefaultValueDemo
+component: date-input
+name: default-value
 ---
 ::
 
@@ -69,7 +71,8 @@ Use the `value` and `onValueChange` props to control the date input's value prog
 
 ::component-preview
 ---
-name: DateInputControlledDemo
+component: date-input
+name: controlled
 ---
 ::
 
@@ -79,7 +82,8 @@ An alternative way to control the date input is to use the `RootProvider` compon
 
 ::component-preview
 ---
-name: DateInputRootProviderDemo
+component: date-input
+name: root-provider
 ---
 ::
 
@@ -89,7 +93,8 @@ Use the `granularity` prop to control which date fields are displayed. Supported
 
 ::component-preview
 ---
-name: DateInputGranularityDemo
+component: date-input
+name: granularity
 ---
 ::
 
@@ -99,7 +104,8 @@ To create a time-only input, set `granularity` to `minute` (or `second`) and pro
 
 ::component-preview
 ---
-name: DateInputTimeOnlyDemo
+component: date-input
+name: time-only
 ---
 ::
 
@@ -109,7 +115,8 @@ To create a date input that allows a range selection, set the `selectionMode` pr
 
 ::component-preview
 ---
-name: DateInputRangeDemo
+component: date-input
+name: range
 ---
 ::
 
@@ -119,7 +126,8 @@ Use the `min` and `max` props with `parseDate` to restrict the selectable date r
 
 ::component-preview
 ---
-name: DateInputMinMaxDemo
+component: date-input
+name: min-max
 ---
 ::
 
@@ -129,7 +137,8 @@ Use the `disabled` prop to prevent user interaction with the date input.
 
 ::component-preview
 ---
-name: DateInputDisabledDemo
+component: date-input
+name: disabled
 ---
 ::
 
@@ -139,7 +148,8 @@ Use the `readOnly` prop to make the date input non-editable while still being fo
 
 ::component-preview
 ---
-name: DateInputReadOnlyDemo
+component: date-input
+name: read-only
 ---
 ::
 
@@ -149,7 +159,8 @@ Use the `invalid` prop to indicate an error state on the date input.
 
 ::component-preview
 ---
-name: DateInputInvalidDemo
+component: date-input
+name: invalid
 ---
 ::
 
@@ -159,7 +170,8 @@ Use the `shouldForceLeadingZeros` prop to toggle whether numeric segments are pa
 
 ::component-preview
 ---
-name: DateInputLeadingZerosDemo
+component: date-input
+name: leading-zeros
 ---
 ::
 
@@ -169,7 +181,8 @@ Use the `locale` prop to set the language and regional formatting of the date se
 
 ::component-preview
 ---
-name: DateInputLocalizedDemo
+component: date-input
+name: localized
 ---
 ::
 
@@ -179,7 +192,8 @@ Set the `dir` prop to `rtl` for right-to-left language support.
 
 ::component-preview
 ---
-name: DateInputRtlDemo
+component: date-input
+name: rtl
 ---
 ::
 
@@ -189,7 +203,8 @@ Use `useDateInput` via `RootProvider` to access the `clearValue` method and rend
 
 ::component-preview
 ---
-name: DateInputWithClearButtonDemo
+component: date-input
+name: with-clear-button
 ---
 ::
 
@@ -199,7 +214,8 @@ Combine `DateInput` with `DatePicker` by syncing their values using `onValueChan
 
 ::component-preview
 ---
-name: DateInputWithDatePickerDemo
+component: date-input
+name: with-date-picker
 ---
 ::
 

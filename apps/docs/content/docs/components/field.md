@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: FieldDemo
+component: field
+name: basic
 ---
 ::
 
@@ -47,7 +48,8 @@ This example shows how to use the `Field` component with a standard input field.
 
 ::component-preview
 ---
-name: FieldDemo
+component: field
+name: basic
 ---
 ::
 
@@ -57,7 +59,8 @@ This example illustrates how to use the `Field` component with a textarea elemen
 
 ::component-preview
 ---
-name: FieldTextareaDemo
+component: field
+name: textarea
 ---
 ::
 
@@ -67,7 +70,8 @@ Pass the `autoresize` prop to the `Textarea` component to enable automatic resiz
 
 ::component-preview
 ---
-name: FieldTextareaAutoresizeDemo
+component: field
+name: textarea-autoresize
 ---
 ::
 
@@ -77,7 +81,8 @@ This example demonstrates how to integrate the `Field` component with a select d
 
 ::component-preview
 ---
-name: FieldSelectDemo
+component: field
+name: select
 ---
 ::
 
@@ -87,7 +92,8 @@ An alternative way to control the field is to use the `RootProvider` component a
 
 ::component-preview
 ---
-name: FieldRootProviderDemo
+component: field
+name: root-provider
 ---
 ::
 
@@ -97,7 +103,8 @@ Use the `Field.Context` or `useFieldContext` hook to access the internal state o
 
 ::component-preview
 ---
-name: FieldCustomControlDemo
+component: field
+name: custom-control
 ---
 ::
 

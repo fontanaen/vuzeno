@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: EmptyDemo
+component: empty
+name: basic
 ---
 ::
 
@@ -71,7 +72,8 @@ Use the `border` utility class to create an outline empty state.
 
 ::component-preview
 ---
-name: EmptyOutlineDemo
+component: empty
+name: outline
 ---
 ::
 
@@ -81,7 +83,8 @@ Use the `bg-*` utilities to add a background to the empty state.
 
 ::component-preview
 ---
-name: EmptyMutedDemo
+component: empty
+name: muted
 ---
 ::
 
@@ -91,7 +94,8 @@ Use `Empty.Media` to display an avatar in the empty state.
 
 ::component-preview
 ---
-name: EmptyAvatarDemo
+component: empty
+name: avatar
 ---
 ::
 
@@ -101,7 +105,8 @@ Use `Empty.Media` to display an avatar group in the empty state.
 
 ::component-preview
 ---
-name: EmptyAvatarGroupDemo
+component: empty
+name: avatar-group
 ---
 ::
 
@@ -111,7 +116,8 @@ Add an `InputGroup` component to `Empty.Content`.
 
 ::component-preview
 ---
-name: EmptyInputGroupDemo
+component: empty
+name: input-group
 ---
 ::
 

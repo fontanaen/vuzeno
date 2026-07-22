@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: DialogDemo
+component: dialog
+name: basic
 ---
 ::
 
@@ -62,7 +63,8 @@ Manage the dialog state using the `open` and `onOpenChange` props.
 
 ::component-preview
 ---
-name: DialogControlledDemo
+component: dialog
+name: controlled
 ---
 ::
 
@@ -72,7 +74,8 @@ An alternative way to control the dialog is to use the `RootProvider` component 
 
 ::component-preview
 ---
-name: DialogRootProviderDemo
+component: dialog
+name: root-provider
 ---
 ::
 
@@ -85,7 +88,8 @@ For critical confirmations or destructive actions, use `role="alertdialog"`. Ale
 
 ::component-preview
 ---
-name: DialogAlertDialogDemo
+component: dialog
+name: alert-dialog
 ---
 ::
 
@@ -95,7 +99,8 @@ Use `lazyMount` to render dialog content only when first opened. Combine with `u
 
 ::component-preview
 ---
-name: DialogLazyMountDemo
+component: dialog
+name: lazy-mount
 ---
 ::
 
@@ -105,7 +110,8 @@ Use `initialFocusEl` to control which element receives focus when the dialog ope
 
 ::component-preview
 ---
-name: DialogInitialFocusDemo
+component: dialog
+name: initial-focus
 ---
 ::
 
@@ -115,7 +121,8 @@ Use `finalFocusEl` to control which element receives focus when the dialog close
 
 ::component-preview
 ---
-name: DialogFinalFocusDemo
+component: dialog
+name: final-focus
 ---
 ::
 
@@ -125,7 +132,8 @@ Use `modal={false}` to allow interaction with elements outside the dialog. Disab
 
 ::component-preview
 ---
-name: DialogNonModalDemo
+component: dialog
+name: non-modal
 ---
 ::
 
@@ -135,7 +143,8 @@ Make the content area scrollable while keeping header and footer fixed using `ma
 
 ::component-preview
 ---
-name: DialogInsideScrollDemo
+component: dialog
+name: inside-scroll
 ---
 ::
 
@@ -145,7 +154,8 @@ Make the positioner scrollable so the dialog can extend beyond the viewport.
 
 ::component-preview
 ---
-name: DialogOutsideScrollDemo
+component: dialog
+name: outside-scroll
 ---
 ::
 
@@ -155,7 +165,8 @@ Access the dialog's state and methods with `Dialog.Context` or the `useDialogCon
 
 ::component-preview
 ---
-name: DialogContextDemo
+component: dialog
+name: context
 ---
 ::
 
@@ -165,7 +176,8 @@ Open a dialog imperatively from a menu item using the `onClick` handler.
 
 ::component-preview
 ---
-name: DialogOpenFromMenuDemo
+component: dialog
+name: open-from-menu
 ---
 ::
 
@@ -175,7 +187,8 @@ Nest dialogs within one another. The parent receives `data-has-nested` and `--ne
 
 ::component-preview
 ---
-name: DialogNestedDemo
+component: dialog
+name: nested
 ---
 ::
 
@@ -185,7 +198,8 @@ Share a single dialog across multiple trigger elements. Pass a `value` to each `
 
 ::component-preview
 ---
-name: DialogMultipleTriggersDemo
+component: dialog
+name: multiple-triggers
 ---
 ::
 
@@ -195,7 +209,8 @@ Intercept close attempts to show confirmation prompts, preventing data loss from
 
 ::component-preview
 ---
-name: DialogConfirmationDemo
+component: dialog
+name: confirmation
 ---
 ::
 

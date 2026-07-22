@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: MarqueeDemo
+component: marquee
+name: basic
 ---
 ::
 
@@ -57,7 +58,8 @@ Use the `autoFill` prop to automatically duplicate content to fill the viewport.
 
 ::component-preview
 ---
-name: MarqueeAutoFillDemo
+component: marquee
+name: auto-fill
 ---
 ::
 
@@ -67,7 +69,8 @@ Set the `reverse` prop to reverse the scroll direction:
 
 ::component-preview
 ---
-name: MarqueeReverseDemo
+component: marquee
+name: reverse
 ---
 ::
 
@@ -77,7 +80,8 @@ Set `side="bottom"` (or `side="top"`) to create a vertical marquee:
 
 ::component-preview
 ---
-name: MarqueeVerticalDemo
+component: marquee
+name: vertical
 ---
 ::
 
@@ -87,7 +91,8 @@ Control the animation speed using the `speed` prop, which accepts values in pixe
 
 ::component-preview
 ---
-name: MarqueeSpeedDemo
+component: marquee
+name: speed
 ---
 ::
 
@@ -97,7 +102,8 @@ Enable `pauseOnInteraction` to pause the marquee when users hover or focus on it
 
 ::component-preview
 ---
-name: MarqueePauseOnInteractionDemo
+component: marquee
+name: pause-on-interaction
 ---
 ::
 
@@ -107,7 +113,8 @@ Use the `useMarquee` hook with `Marquee.RootProvider` to access the marquee API 
 
 ::component-preview
 ---
-name: MarqueeProgrammaticControlDemo
+component: marquee
+name: programmatic-control
 ---
 ::
 
@@ -119,7 +126,8 @@ Set the `loopCount` prop to run the marquee a specific number of times. Use `onL
 
 ::component-preview
 ---
-name: MarqueeFiniteLoopsDemo
+component: marquee
+name: finite-loops
 ---
 ::
 
@@ -129,7 +137,8 @@ Add `Marquee.Edge` components to create fade effects at the start and end of the
 
 ::component-preview
 ---
-name: MarqueeWithEdgesDemo
+component: marquee
+name: with-edges
 ---
 ::
 

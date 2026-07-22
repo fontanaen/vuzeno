@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: SignaturePadDemo
+component: signature-pad
+name: basic
 ---
 ::
 
@@ -59,7 +60,8 @@ After the user draws a signature, you can display a preview of the signature as 
 
 ::component-preview
 ---
-name: SignaturePadImagePreviewDemo
+component: signature-pad
+name: image-preview
 ---
 ::
 
@@ -69,7 +71,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: SignaturePadFieldDemo
+component: signature-pad
+name: field
 ---
 ::
 
@@ -79,7 +82,8 @@ An alternative way to control the signature pad is to use the `RootProvider` com
 
 ::component-preview
 ---
-name: SignaturePadRootProviderDemo
+component: signature-pad
+name: root-provider
 ---
 ::
 

@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import { siteConfig } from "./app/lib/site-config";
 import { getAppThemeFoucScript } from "./app/lib/themes";
@@ -6,6 +7,10 @@ export default defineNuxtConfig({
   compatibilityDate: "2026-07-18",
 
   devtools: { enabled: false },
+
+  alias: {
+    "#registry-ark": fileURLToPath(new URL("../../packages/registry/ark-ui", import.meta.url)),
+  },
 
   modules: [
     "@nuxt/content",
@@ -50,10 +55,11 @@ export default defineNuxtConfig({
       routes: ["/"],
       failOnError: false,
       autoSubfolderIndex: false,
-      concurrency: 2,
+      // SSR previews no longer Shiki/raw-load examples; safe to parallelize more.
+      concurrency: 8,
     },
     rollupConfig: {
-      maxParallelFileOps: 2,
+      maxParallelFileOps: 8,
     },
   },
 
@@ -71,7 +77,7 @@ export default defineNuxtConfig({
     },
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "reka-ui", "@vueuse/core", "lucide-vue-next", "cnfast"],
+      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "@vueuse/core", "lucide-vue-next", "cnfast"],
     },
   },
 

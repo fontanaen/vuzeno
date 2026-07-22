@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TourDemo
+component: tour
+name: basic
 ---
 ::
 
@@ -65,7 +66,8 @@ Demonstrate all three step types in a single tour: `dialog` for welcome/completi
 
 ::component-preview
 ---
-name: TourStepTypesDemo
+component: tour
+name: step-types
 ---
 ::
 
@@ -75,7 +77,8 @@ Display a visual progress indicator at the bottom of the tour content showing ho
 
 ::component-preview
 ---
-name: TourProgressDemo
+component: tour
+name: progress
 ---
 ::
 
@@ -85,7 +88,8 @@ Allow users to skip the entire tour at any step by adding a skip action.
 
 ::component-preview
 ---
-name: TourSkipDemo
+component: tour
+name: skip
 ---
 ::
 
@@ -95,7 +99,8 @@ Enable arrow key navigation between tour steps using the `keyboardNavigation` pr
 
 ::component-preview
 ---
-name: TourKeyboardNavigationDemo
+component: tour
+name: keyboard-navigation
 ---
 ::
 
@@ -105,7 +110,8 @@ Listen to tour lifecycle events like `onStepChange` and `onStatusChange` to trac
 
 ::component-preview
 ---
-name: TourEventsDemo
+component: tour
+name: events
 ---
 ::
 
@@ -115,7 +121,8 @@ Use the `effect` function with `waitForEvent` to wait for user interaction befor
 
 ::component-preview
 ---
-name: TourWaitForClickDemo
+component: tour
+name: wait-for-click
 ---
 ::
 
@@ -125,7 +132,8 @@ Create form tutorials that wait for users to enter valid input before advancing.
 
 ::component-preview
 ---
-name: TourWaitForInputDemo
+component: tour
+name: wait-for-input
 ---
 ::
 
@@ -135,7 +143,8 @@ Wait for dynamically rendered elements to appear in the DOM before showing a ste
 
 ::component-preview
 ---
-name: TourWaitForElementDemo
+component: tour
+name: wait-for-element
 ---
 ::
 
@@ -145,7 +154,8 @@ Load data asynchronously and update step content before displaying it using the 
 
 ::component-preview
 ---
-name: TourAsyncDemo
+component: tour
+name: async
 ---
 ::
 

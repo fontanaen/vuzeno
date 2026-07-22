@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: SidebarDemo
+component: sidebar
+name: basic
 ---
 ::
 
@@ -99,7 +100,8 @@ Visual variant where the main content is wrapped in a padded, rounded container.
 
 ::component-preview
 ---
-name: SidebarInsetDemo
+component: sidebar
+name: inset
 ---
 ::
 
@@ -109,7 +111,8 @@ When collapsed to icon mode, submenus with children open a hover flyout menu ins
 
 ::component-preview
 ---
-name: SidebarIconDemo
+component: sidebar
+name: icon
 ---
 ::
 
@@ -119,7 +122,8 @@ Register left and right sidebars with independent state using the `id` prop and 
 
 ::component-preview
 ---
-name: SidebarMultipleDemo
+component: sidebar
+name: multiple
 ---
 ::
 
@@ -129,7 +133,8 @@ name: SidebarMultipleDemo
 
 ::component-preview
 ---
-name: SidebarDialogDemo
+component: sidebar
+name: dialog
 ---
 ::
 
@@ -139,6 +144,7 @@ Control sidebar open state with `v-model:open` on `Sidebar.Root`.
 
 ::component-preview
 ---
-name: SidebarControlledDemo
+component: sidebar
+name: controlled
 ---
 ::

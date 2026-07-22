@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: FloatingPanelDemo
+component: floating-panel
+name: basic
 ---
 ::
 
@@ -64,7 +65,8 @@ To control the size of the floating panel programmatically, you can pass the `si
 
 ::component-preview
 ---
-name: FloatingPanelControlledSizeDemo
+component: floating-panel
+name: controlled-size
 ---
 ::
 
@@ -74,7 +76,8 @@ To control the position of the floating panel programmatically, you can pass the
 
 ::component-preview
 ---
-name: FloatingPanelControlledPositionDemo
+component: floating-panel
+name: controlled-position
 ---
 ::
 
@@ -84,7 +87,8 @@ Use the `getAnchorPosition` function to compute the initial position of the floa
 
 ::component-preview
 ---
-name: FloatingPanelAnchorPositionDemo
+component: floating-panel
+name: anchor-position
 ---
 ::
 
@@ -94,7 +98,8 @@ To control the open state of the floating panel programmatically, you can pass t
 
 ::component-preview
 ---
-name: FloatingPanelOpenStateDemo
+component: floating-panel
+name: open-state
 ---
 ::
 
@@ -104,7 +109,8 @@ To lazy mount the floating panel, you can pass the `lazyMount` prop to the machi
 
 ::component-preview
 ---
-name: FloatingPanelLazyMountDemo
+component: floating-panel
+name: lazy-mount
 ---
 ::
 
@@ -114,7 +120,8 @@ To access the context of the floating panel, you can use the `useFloatingPanelCo
 
 ::component-preview
 ---
-name: FloatingPanelContextDemo
+component: floating-panel
+name: context
 ---
 ::
 

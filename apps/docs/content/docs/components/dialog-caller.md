@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: DialogCallerDemo
+component: dialog-caller
+name: basic
 ---
 ::
 
@@ -109,7 +110,8 @@ Use a single `useDialogCaller` registration for the whole table — no dialog du
 
 ::component-preview
 ---
-name: DialogCallerDemo
+component: dialog-caller
+name: basic
 ---
 ::
 
@@ -119,7 +121,8 @@ Edit the form, then cancel with unsaved changes. The confirmation dialog stacks 
 
 ::component-preview
 ---
-name: DialogCallerNestedDemo
+component: dialog-caller
+name: nested
 ---
 ::
 

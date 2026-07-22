@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TableDemo
+component: table
+name: basic
 ---
 ::
 
@@ -82,6 +83,7 @@ Use `Table.Empty` when there are no rows to display.
 
 ::component-preview
 ---
-name: TableEmptyDemo
+component: table
+name: empty
 ---
 ::

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: AngleSliderDemo
+component: angle-slider
+name: basic
 ---
 ::
 
@@ -60,7 +61,8 @@ Use the `value` and `onValueChange` props to control the value of the Angle Slid
 
 ::component-preview
 ---
-name: AngleSliderControlledDemo
+component: angle-slider
+name: controlled
 ---
 ::
 
@@ -70,7 +72,8 @@ Use the `step` prop to set the discrete steps of the Angle Slider.
 
 ::component-preview
 ---
-name: AngleSliderStepsDemo
+component: angle-slider
+name: steps
 ---
 ::
 

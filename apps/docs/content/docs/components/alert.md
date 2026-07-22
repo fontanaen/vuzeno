@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: AlertDemo
+component: alert
+name: basic
 ---
 ::
 
@@ -63,7 +64,8 @@ Alert.Root
 
 ::component-preview
 ---
-name: AlertWithIconDemo
+component: alert
+name: with-icon
 ---
 ::
 
@@ -73,7 +75,8 @@ All semantic variants with their default icons.
 
 ::component-preview
 ---
-name: AlertVariantsDemo
+component: alert
+name: variants
 ---
 ::
 
@@ -83,7 +86,8 @@ Use `variant="destructive"` for error or critical messages.
 
 ::component-preview
 ---
-name: AlertDestructiveDemo
+component: alert
+name: destructive
 ---
 ::
 

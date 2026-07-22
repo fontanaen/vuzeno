@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: SegmentGroupDemo
+component: segment-group
+name: basic
 ---
 ::
 
@@ -57,7 +58,8 @@ To create a controlled SegmentGroup component, manage the current selected segme
 
 ::component-preview
 ---
-name: SegmentGroupControlledDemo
+component: segment-group
+name: controlled
 ---
 ::
 
@@ -67,7 +69,8 @@ An alternative way to control the segment group is to use the `RootProvider` com
 
 ::component-preview
 ---
-name: SegmentGroupRootProviderDemo
+component: segment-group
+name: root-provider
 ---
 ::
 
@@ -77,7 +80,8 @@ To disable a segment, simply pass the `disabled` prop to the `SegmentGroup.Item`
 
 ::component-preview
 ---
-name: SegmentGroupDisabledDemo
+component: segment-group
+name: disabled
 ---
 ::
 

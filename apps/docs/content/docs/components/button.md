@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ButtonDemo
+component: button
+name: basic
 ---
 ::
 
@@ -43,7 +44,8 @@ Use the `variant` prop to change the visual style of the button.
 
 ::component-preview
 ---
-name: ButtonVariantsDemo
+component: button
+name: variants
 ---
 ::
 
@@ -53,7 +55,8 @@ Use the `size` prop to change the size of the button.
 
 ::component-preview
 ---
-name: ButtonSizesDemo
+component: button
+name: sizes
 ---
 ::
 
@@ -63,6 +66,7 @@ Use the native `disabled` attribute to disable the button.
 
 ::component-preview
 ---
-name: ButtonDisabledDemo
+component: button
+name: disabled
 ---
 ::

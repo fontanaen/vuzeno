@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: SliderDemo
+component: slider
+name: basic
 ---
 ::
 
@@ -63,7 +64,8 @@ You can add multiple thumbs to the slider by adding multiple `Slider.Thumb`
 
 ::component-preview
 ---
-name: SliderRangeDemo
+component: slider
+name: range
 ---
 ::
 
@@ -75,7 +77,8 @@ Position the `Slider.Marker` components relative to the track by providing the `
 
 ::component-preview
 ---
-name: SliderMarksDemo
+component: slider
+name: marks
 ---
 ::
 
@@ -87,7 +90,8 @@ For example, to ask the user for a value between `-10` and `10`, you can use:
 
 ::component-preview
 ---
-name: SliderMinMaxDemo
+component: slider
+name: min-max
 ---
 ::
 
@@ -99,7 +103,8 @@ For example, If you need a value between `5` and `10`, accurate to two decimal p
 
 ::component-preview
 ---
-name: SliderGranularityDemo
+component: slider
+name: granularity
 ---
 ::
 
@@ -109,7 +114,8 @@ When the slider value changes, the `onValueChange` and `onValueChangeEnd` callba
 
 ::component-preview
 ---
-name: SliderChangeEventsDemo
+component: slider
+name: change-events
 ---
 ::
 
@@ -123,7 +129,8 @@ In this mode, the slider will use the arrow up and down keys to increment/decrem
 
 ::component-preview
 ---
-name: SliderOrientationDemo
+component: slider
+name: orientation
 ---
 ::
 
@@ -133,7 +140,8 @@ By default, the slider's origin is at the start of the track. To change the orig
 
 ::component-preview
 ---
-name: SliderOriginDemo
+component: slider
+name: origin
 ---
 ::
 
@@ -143,7 +151,8 @@ An alternative way to control the slider is to use the `RootProvider` component 
 
 ::component-preview
 ---
-name: SliderRootProviderDemo
+component: slider
+name: root-provider
 ---
 ::
 
@@ -153,7 +162,8 @@ Use the `Slider.DraggingIndicator` component inside `Slider.Thumb` to show a vis
 
 ::component-preview
 ---
-name: SliderDraggingIndicatorDemo
+component: slider
+name: dragging-indicator
 ---
 ::
 
@@ -163,7 +173,8 @@ Use the `minStepsBetweenThumbs` prop to prevent range slider thumbs from overlap
 
 ::component-preview
 ---
-name: SliderThumbOverlapDemo
+component: slider
+name: thumb-overlap
 ---
 ::
 
@@ -173,7 +184,8 @@ Use the `thumbCollisionBehavior` prop to control how thumbs behave when they col
 
 ::component-preview
 ---
-name: SliderThumbCollisionDemo
+component: slider
+name: thumb-collision
 ---
 ::
 

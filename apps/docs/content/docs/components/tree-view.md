@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TreeViewDemo
+component: tree-view
+name: basic
 ---
 ::
 
@@ -45,7 +46,8 @@ Pass the `expandedValue` and `onExpandedChange` props to the `TreeView.Root` com
 
 ::component-preview
 ---
-name: TreeViewControlledExpandedDemo
+component: tree-view
+name: controlled-expanded
 ---
 ::
 
@@ -55,7 +57,8 @@ Pass the `selectedValue` and `onSelectionChange` props to the `TreeView.Root` co
 
 ::component-preview
 ---
-name: TreeViewControlledSelectionDemo
+component: tree-view
+name: controlled-selection
 ---
 ::
 
@@ -65,7 +68,8 @@ An alternative way to control the tree view is to use the `RootProvider` compone
 
 ::component-preview
 ---
-name: TreeViewRootProviderDemo
+component: tree-view
+name: root-provider
 ---
 ::
 
@@ -81,7 +85,8 @@ To use this, you need to provide the following:
 
 ::component-preview
 ---
-name: TreeViewLazyLoadingDemo
+component: tree-view
+name: lazy-loading
 ---
 ::
 
@@ -93,7 +98,8 @@ In addition, the `unmountOnExit` prop can be used in conjunction with `lazyMount
 
 ::component-preview
 ---
-name: TreeViewLazyMountDemo
+component: tree-view
+name: lazy-mount
 ---
 ::
 
@@ -103,7 +109,8 @@ Filtering is useful when you have a large tree and you want to filter the nodes 
 
 ::component-preview
 ---
-name: TreeViewFilteringDemo
+component: tree-view
+name: filtering
 ---
 ::
 
@@ -115,7 +122,8 @@ Here's an example that modifies the tree collection to represent an hierarchical
 
 ::component-preview
 ---
-name: TreeViewLinksDemo
+component: tree-view
+name: links
 ---
 ::
 
@@ -131,7 +139,8 @@ Key implementation details:
 
 ::component-preview
 ---
-name: TreeViewVirtualizedDemo
+component: tree-view
+name: virtualized
 ---
 ::
 
@@ -141,7 +150,8 @@ Use the `defaultCheckedValue` prop to enable checkbox selection mode. This allow
 
 ::component-preview
 ---
-name: TreeViewCheckboxTreeDemo
+component: tree-view
+name: checkbox-tree
 ---
 ::
 
@@ -151,7 +161,8 @@ Use the `expand()` and `collapse()` methods from the tree view context to progra
 
 ::component-preview
 ---
-name: TreeViewExpandCollapseAllDemo
+component: tree-view
+name: expand-collapse-all
 ---
 ::
 
@@ -161,7 +172,8 @@ Use the collection's `remove()` and `replace()` methods to dynamically add and r
 
 ::component-preview
 ---
-name: TreeViewMutationDemo
+component: tree-view
+name: mutation
 ---
 ::
 
@@ -171,7 +183,8 @@ Enable inline renaming of nodes using the `canRename` prop and `onRenameComplete
 
 ::component-preview
 ---
-name: TreeViewRenameNodeDemo
+component: tree-view
+name: rename-node
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: AccordionDemo
+component: accordion
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ Set the `defaultValue` prop to specify which item should be expanded by default.
 
 ::component-preview
 ---
-name: AccordionDefaultValueDemo
+component: accordion
+name: default-value
 ---
 ::
 
@@ -68,7 +70,8 @@ Use the `value` and `onValueChange` props to control the expanded items.
 
 ::component-preview
 ---
-name: AccordionControlledDemo
+component: accordion
+name: controlled
 ---
 ::
 
@@ -78,7 +81,8 @@ An alternative way to control the accordion is to use the `RootProvider` compone
 
 ::component-preview
 ---
-name: AccordionRootProviderDemo
+component: accordion
+name: root-provider
 ---
 ::
 
@@ -88,7 +92,8 @@ Use the `collapsible` prop to allow the user to collapse all panels.
 
 ::component-preview
 ---
-name: AccordionCollapsibleDemo
+component: accordion
+name: collapsible
 ---
 ::
 
@@ -98,7 +103,8 @@ Use the `multiple` prop to allow multiple panels to be expanded simultaneously.
 
 ::component-preview
 ---
-name: AccordionMultipleDemo
+component: accordion
+name: multiple
 ---
 ::
 
@@ -108,7 +114,8 @@ By default, the Accordion is oriented vertically. Use the `orientation` prop to 
 
 ::component-preview
 ---
-name: AccordionHorizontalDemo
+component: accordion
+name: horizontal
 ---
 ::
 
@@ -118,7 +125,8 @@ Use the `lazyMount` prop to defer rendering of accordion content until the item 
 
 ::component-preview
 ---
-name: AccordionLazyMountDemo
+component: accordion
+name: lazy-mount
 ---
 ::
 
@@ -128,7 +136,8 @@ Use `Accordion.Context` or `useAccordionContext` to access the accordion state.
 
 ::component-preview
 ---
-name: AccordionContextDemo
+component: accordion
+name: context
 ---
 ::
 
@@ -138,7 +147,8 @@ Use `Accordion.ItemContext` or `useAccordionItemContext` to access the state of 
 
 ::component-preview
 ---
-name: AccordionItemContextDemo
+component: accordion
+name: item-context
 ---
 ::
 

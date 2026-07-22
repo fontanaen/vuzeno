@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: CarouselDemo
+component: carousel
+name: basic
 ---
 ::
 
@@ -68,7 +69,8 @@ To create a controlled Carousel component, you can manage the state of the carou
 
 ::component-preview
 ---
-name: CarouselControlledDemo
+component: carousel
+name: controlled
 ---
 ::
 
@@ -78,7 +80,8 @@ An alternative way to control the carousel is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: CarouselRootProviderDemo
+component: carousel
+name: root-provider
 ---
 ::
 
@@ -88,7 +91,8 @@ Pass the `autoplay` and `loop` props to `Carousel.Root` to make the carousel pla
 
 ::component-preview
 ---
-name: CarouselAutoplayDemo
+component: carousel
+name: autoplay
 ---
 ::
 
@@ -98,7 +102,8 @@ This feature isn't built-in, but you can use the `play()` and `pause()` methods 
 
 ::component-preview
 ---
-name: CarouselPauseOnHoverDemo
+component: carousel
+name: pause-on-hover
 ---
 ::
 
@@ -108,7 +113,8 @@ Replace default indicator dots with image thumbnails. Render each thumbnail insi
 
 ::component-preview
 ---
-name: CarouselThumbnailIndicatorsDemo
+component: carousel
+name: thumbnail-indicators
 ---
 ::
 
@@ -118,7 +124,8 @@ Add the `orientation="vertical"` prop to `Carousel.Root` to switch the carousel 
 
 ::component-preview
 ---
-name: CarouselVerticalDemo
+component: carousel
+name: vertical
 ---
 ::
 
@@ -128,7 +135,8 @@ Manage slides dynamically by storing them in state and syncing the carousel page
 
 ::component-preview
 ---
-name: CarouselDynamicDemo
+component: carousel
+name: dynamic
 ---
 ::
 
@@ -138,7 +146,8 @@ Use `Carousel.Context` to access the carousel API and call `api.scrollToIndex(in
 
 ::component-preview
 ---
-name: CarouselScrollToSlideDemo
+component: carousel
+name: scroll-to-slide
 ---
 ::
 
@@ -148,7 +157,8 @@ Display multiple slides simultaneously by setting the `slidesPerPage` prop on `C
 
 ::component-preview
 ---
-name: CarouselSlidesPerPageDemo
+component: carousel
+name: slides-per-page
 ---
 ::
 
@@ -158,7 +168,8 @@ Control the gap between slides using the `spacing` prop on `Carousel.Root`. Comb
 
 ::component-preview
 ---
-name: CarouselSpacingDemo
+component: carousel
+name: spacing
 ---
 ::
 
@@ -168,7 +179,8 @@ To allow slides with different widths, set the `autoSize` prop on `Carousel.Root
 
 ::component-preview
 ---
-name: CarouselVariableSizesDemo
+component: carousel
+name: variable-sizes
 ---
 ::
 

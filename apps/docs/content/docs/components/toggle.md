@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ToggleDemo
+component: toggle
+name: basic
 ---
 ::
 
@@ -53,7 +54,8 @@ Use the `variant` prop to change the visual style of the toggle.
 
 ::component-preview
 ---
-name: ToggleVariantsDemo
+component: toggle
+name: variants
 ---
 ::
 
@@ -63,7 +65,8 @@ Use the `size` prop to change the size of the toggle.
 
 ::component-preview
 ---
-name: ToggleSizesDemo
+component: toggle
+name: sizes
 ---
 ::
 
@@ -73,7 +76,8 @@ Use the `pressed` and `onPressedChange` props to control the toggle's state.
 
 ::component-preview
 ---
-name: ToggleControlledDemo
+component: toggle
+name: controlled
 ---
 ::
 
@@ -83,7 +87,8 @@ Use the `disabled` prop to disable the toggle.
 
 ::component-preview
 ---
-name: ToggleDisabledDemo
+component: toggle
+name: disabled
 ---
 ::
 
@@ -93,7 +98,8 @@ Use the `Toggle.Indicator` component to render different indicators based on the
 
 ::component-preview
 ---
-name: ToggleIndicatorDemo
+component: toggle
+name: indicator
 ---
 ::
 

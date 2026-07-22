@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: AlertDialogDemo
+component: alert-dialog
+name: basic
 ---
 ::
 

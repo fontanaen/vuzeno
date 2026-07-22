@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: BreadcrumbDemo
+component: breadcrumb
+name: basic
 ---
 ::
 
@@ -80,7 +81,8 @@ Use a custom icon or character inside `Breadcrumb.Separator`.
 
 ::component-preview
 ---
-name: BreadcrumbCustomSeparatorDemo
+component: breadcrumb
+name: custom-separator
 ---
 ::
 
@@ -90,7 +92,8 @@ Compose `Breadcrumb.Item` with `Menu` to create a dropdown for nested navigation
 
 ::component-preview
 ---
-name: BreadcrumbDropdownDemo
+component: breadcrumb
+name: dropdown
 ---
 ::
 
@@ -100,7 +103,8 @@ Use `Breadcrumb.Ellipsis` to collapse intermediate path segments.
 
 ::component-preview
 ---
-name: BreadcrumbEllipsisDemo
+component: breadcrumb
+name: ellipsis
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: StepsDemo
+component: steps
+name: basic
 ---
 ::
 
@@ -64,7 +65,8 @@ Using the `RootProvider` component, you can control the active step by using the
 
 ::component-preview
 ---
-name: StepsControlledDemo
+component: steps
+name: controlled
 ---
 ::
 
@@ -74,7 +76,8 @@ An alternative way to control the steps is to use the `RootProvider` component a
 
 ::component-preview
 ---
-name: StepsRootProviderDemo
+component: steps
+name: root-provider
 ---
 ::
 
@@ -84,7 +87,8 @@ Use the `orientation` prop to display the steps vertically.
 
 ::component-preview
 ---
-name: StepsVerticalDemo
+component: steps
+name: vertical
 ---
 ::
 
@@ -94,7 +98,8 @@ Show a circular progress indicator with the current step count (`X/X`), plus the
 
 ::component-preview
 ---
-name: StepsCircularProgressDemo
+component: steps
+name: circular-progress
 ---
 ::
 
@@ -104,7 +109,8 @@ Place a linear progress bar above the steps, synced to the completion percentage
 
 ::component-preview
 ---
-name: StepsLinearProgressDemo
+component: steps
+name: linear-progress
 ---
 ::
 

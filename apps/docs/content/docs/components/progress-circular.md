@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ProgressDemo
+component: progress-circular
+name: basic
 ---
 ::
 
@@ -70,7 +71,8 @@ For example, to show the user a progress from `10` to `30`, you can use:
 
 ::component-preview
 ---
-name: ProgressMinMaxDemo
+component: progress-circular
+name: min-max
 ---
 ::
 
@@ -80,7 +82,8 @@ The progress component is determinate by default, with the value and max set to 
 
 ::component-preview
 ---
-name: ProgressIndeterminateDemo
+component: progress-circular
+name: indeterminate
 ---
 ::
 
@@ -90,7 +93,8 @@ Add a label to provide additional context for the progress indicator.
 
 ::component-preview
 ---
-name: ProgressLabelDemo
+component: progress-circular
+name: label
 ---
 ::
 
@@ -100,7 +104,8 @@ An alternative way to control the progress is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: ProgressRootProviderDemo
+component: progress-circular
+name: root-provider
 ---
 ::
 

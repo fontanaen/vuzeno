@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: MenuDemo
+component: menu
+name: basic
 ---
 ::
 
@@ -70,7 +71,8 @@ Use `onSelect` to handle item selection. The callback receives the item's `id`.
 
 ::component-preview
 ---
-name: MenuControlledDemo
+component: menu
+name: controlled
 ---
 ::
 
@@ -80,7 +82,8 @@ An alternative way to control the menu is to use the `RootProvider` component an
 
 ::component-preview
 ---
-name: MenuRootProviderDemo
+component: menu
+name: root-provider
 ---
 ::
 
@@ -90,7 +93,8 @@ Use `Menu.ItemGroup` and `Menu.ItemGroupLabel` to organize related menu items.
 
 ::component-preview
 ---
-name: MenuGroupingDemo
+component: menu
+name: grouping
 ---
 ::
 
@@ -100,7 +104,8 @@ To render menu items as links, use the `asChild` prop to replace the default ele
 
 ::component-preview
 ---
-name: MenuLinksDemo
+component: menu
+name: links
 ---
 ::
 
@@ -110,7 +115,8 @@ To add a checkbox to a menu item, use the `Menu.CheckboxItem` component.
 
 ::component-preview
 ---
-name: MenuCheckboxDemo
+component: menu
+name: checkbox
 ---
 ::
 
@@ -120,7 +126,8 @@ To group radio option items, use the `Menu.RadioItemGroup` component.
 
 ::component-preview
 ---
-name: MenuRadioGroupDemo
+component: menu
+name: radio-group
 ---
 ::
 
@@ -132,7 +139,8 @@ Context menus are also opened during a long-press of roughly `700ms` when the po
 
 ::component-preview
 ---
-name: MenuContextDemo
+component: menu
+name: context
 ---
 ::
 
@@ -142,7 +150,8 @@ To show a nested menu, render another `Menu` component and use the `Menu.Trigger
 
 ::component-preview
 ---
-name: MenuNestedDemo
+component: menu
+name: nested
 ---
 ::
 
@@ -152,7 +161,8 @@ When rendering a menu inside a dialog, use `lazyMount` and `unmountOnExit` to en
 
 ::component-preview
 ---
-name: MenuInDialogDemo
+component: menu
+name: in-dialog
 ---
 ::
 
@@ -162,7 +172,8 @@ Open a confirmation dialog from a menu item. This pattern is useful for destruct
 
 ::component-preview
 ---
-name: MenuItemDialogDemo
+component: menu
+name: item-dialog
 ---
 ::
 
@@ -172,7 +183,8 @@ Share a single menu across multiple trigger elements. Pass a `value` to each `Me
 
 ::component-preview
 ---
-name: MenuMultipleTriggersDemo
+component: menu
+name: multiple-triggers
 ---
 ::
 

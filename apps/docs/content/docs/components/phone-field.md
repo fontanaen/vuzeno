@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: PhoneFieldDemo
+component: phone-field
+name: basic
 ---
 ::
 
@@ -76,7 +77,8 @@ exec: false
 
 ::component-preview
 ---
-name: PhoneFieldWithIndicatorDemo
+component: phone-field
+name: with-indicator
 ---
 ::
 
@@ -84,7 +86,8 @@ name: PhoneFieldWithIndicatorDemo
 
 ::component-preview
 ---
-name: PhoneFieldSizesDemo
+component: phone-field
+name: sizes
 ---
 ::
 
@@ -94,7 +97,8 @@ The `format` prop controls how the phone number is displayed:
 
 ::component-preview
 ---
-name: PhoneFieldFormatsDemo
+component: phone-field
+name: formats
 ---
 ::
 

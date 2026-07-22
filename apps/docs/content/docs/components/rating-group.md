@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: RatingGroupDemo
+component: rating-group
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ When using the `RatingGroup` component, you can use the `value` and `onValueChan
 
 ::component-preview
 ---
-name: RatingGroupControlledDemo
+component: rating-group
+name: controlled
 ---
 ::
 
@@ -68,7 +70,8 @@ An alternative way to control the rating group is to use the `RootProvider` comp
 
 ::component-preview
 ---
-name: RatingGroupRootProviderDemo
+component: rating-group
+name: root-provider
 ---
 ::
 
@@ -78,7 +81,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: RatingGroupFieldDemo
+component: rating-group
+name: field
 ---
 ::
 
@@ -88,7 +92,8 @@ Allow `0.5` value steps by setting the `allowHalf` prop to `true`. Ensure to ren
 
 ::component-preview
 ---
-name: RatingGroupHalfRatingDemo
+component: rating-group
+name: half-rating
 ---
 ::
 
@@ -98,7 +103,8 @@ To use the rating group within forms, pass the prop `name`. It will render a hid
 
 ::component-preview
 ---
-name: RatingGroupFormsDemo
+component: rating-group
+name: forms
 ---
 ::
 
@@ -108,7 +114,8 @@ To make the rating group disabled, set the `disabled` prop to `true`.
 
 ::component-preview
 ---
-name: RatingGroupDisabledDemo
+component: rating-group
+name: disabled
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: InputDemo
+component: input
+name: basic
 ---
 ::
 
@@ -43,7 +44,8 @@ Use the `size` prop to change the height of the input.
 
 ::component-preview
 ---
-name: InputSizesDemo
+component: input
+name: sizes
 ---
 ::
 
@@ -53,7 +55,8 @@ Combine the `Input` component with `Field` to add a label, helper text, and vali
 
 ::component-preview
 ---
-name: InputFieldDemo
+component: input
+name: field
 ---
 ::
 

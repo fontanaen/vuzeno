@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: AvatarDemo
+component: avatar
+name: basic
 ---
 ::
 
@@ -61,7 +62,8 @@ Use the `size` prop on `Avatar.Root` to change the size of the avatar.
 
 ::component-preview
 ---
-name: AvatarSizesDemo
+component: avatar
+name: sizes
 ---
 ::
 
@@ -71,7 +73,8 @@ Stack multiple avatars using `Avatar.Group`. Apply negative spacing and ring uti
 
 ::component-preview
 ---
-name: AvatarGroupDemo
+component: avatar
+name: group
 ---
 ::
 

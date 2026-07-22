@@ -9,7 +9,6 @@ const ARK_UI_ROOT = dirname(fileURLToPath(import.meta.resolve("@ark-ui/vue/packa
 const ARK_COMPONENTS = join(ARK_UI_ROOT, "dist/components");
 const OUTPUT_ROOT = join(REGISTRY_ROOT, "ark-ui");
 const DOCS_ROOT = join(REPO_ROOT, "apps/docs/content/docs/components");
-const DEMOS_ROOT = join(REPO_ROOT, "apps/docs/app/components/demo");
 
 const filterArg = process.argv.find((arg) => arg.startsWith("--component="));
 const componentFilter = filterArg?.split("=")[1];
@@ -303,7 +302,6 @@ const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 
 function generateDocPage(meta: ComponentMeta, usesNamespace: boolean): string {
   const composition = buildCompositionTree(meta.namespace, meta.vueParts, usesNamespace);
-  const demoName = `${meta.namespace}Demo`;
 
   return `---
 title: ${meta.title}
@@ -313,7 +311,8 @@ tag: new
 
 ::component-preview
 ---
-name: ${demoName}
+component: ${meta.kebab}
+name: basic
 ---
 ::
 
@@ -446,11 +445,12 @@ async function generateComponent(meta: ComponentMeta) {
   }
 
   await mkdir(DOCS_ROOT, { recursive: true });
-  await mkdir(DEMOS_ROOT, { recursive: true });
 
   if (meta.vueParts.length > 0) {
+    const examplesDir = join(outputDir, "examples");
+    await mkdir(examplesDir, { recursive: true });
     await writeFile(join(DOCS_ROOT, `${meta.kebab}.md`), generateDocPage(meta, usesNamespace));
-    await writeFile(join(DEMOS_ROOT, `${meta.namespace}Demo.vue`), generateDemo(meta, usesNamespace));
+    await writeFile(join(examplesDir, "basic.vue"), generateDemo(meta, usesNamespace));
   } else {
     await writeFile(
       join(DOCS_ROOT, `${meta.kebab}.md`),

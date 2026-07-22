@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: CheckboxDemo
+component: checkbox
+name: basic
 ---
 ::
 
@@ -59,7 +60,8 @@ Use the `defaultChecked` prop to set the initial checked state in an uncontrolle
 
 ::component-preview
 ---
-name: CheckboxDefaultCheckedDemo
+component: checkbox
+name: default-checked
 ---
 ::
 
@@ -69,7 +71,8 @@ Use the `checked` and `@checked-change` props to programmatically control the ch
 
 ::component-preview
 ---
-name: CheckboxControlledDemo
+component: checkbox
+name: controlled
 ---
 ::
 
@@ -79,7 +82,8 @@ An alternative way to control the checkbox is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: CheckboxRootProviderDemo
+component: checkbox
+name: root-provider
 ---
 ::
 
@@ -89,7 +93,8 @@ Use the `disabled` prop to make the checkbox non-interactive.
 
 ::component-preview
 ---
-name: CheckboxDisabledDemo
+component: checkbox
+name: disabled
 ---
 ::
 
@@ -99,7 +104,8 @@ Use the `indeterminate` prop to create a checkbox in an indeterminate state (par
 
 ::component-preview
 ---
-name: CheckboxIndeterminateDemo
+component: checkbox
+name: indeterminate
 ---
 ::
 
@@ -109,7 +115,8 @@ Use the `Checkbox.Group` component to manage a group of checkboxes. The `Checkbo
 
 ::component-preview
 ---
-name: CheckboxGroupDemo
+component: checkbox
+name: group
 ---
 ::
 
@@ -119,7 +126,8 @@ Use `v-model` (or the `model-value` prop with the `@value-change` event) to prog
 
 ::component-preview
 ---
-name: CheckboxGroupControlledDemo
+component: checkbox
+name: group-controlled
 ---
 ::
 
@@ -129,7 +137,8 @@ Use the `useCheckboxGroup` hook to create the checkbox group store and pass it t
 
 ::component-preview
 ---
-name: CheckboxGroupProviderDemo
+component: checkbox
+name: group-provider
 ---
 ::
 
@@ -139,7 +148,8 @@ Use the `invalid` prop on `Checkbox.Group` to mark the entire group as invalid f
 
 ::component-preview
 ---
-name: CheckboxGroupInvalidDemo
+component: checkbox
+name: group-invalid
 ---
 ::
 
@@ -149,7 +159,8 @@ Use the `maxSelectedValues` prop to limit the number of checkboxes that can be s
 
 ::component-preview
 ---
-name: CheckboxGroupMaxSelectedDemo
+component: checkbox
+name: group-max-selected
 ---
 ::
 
@@ -159,7 +170,8 @@ Implement a "select all" checkbox that controls all checkboxes within a group. T
 
 ::component-preview
 ---
-name: CheckboxSelectAllDemo
+component: checkbox
+name: select-all
 ---
 ::
 

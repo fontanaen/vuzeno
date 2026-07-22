@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TabsDemo
+component: tabs
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ To create a controlled Tabs component, manage the current selected tab using the
 
 ::component-preview
 ---
-name: TabsControlledDemo
+component: tabs
+name: controlled
 ---
 ::
 
@@ -68,7 +70,8 @@ An alternative way to control the tabs is to use the `RootProvider` component an
 
 ::component-preview
 ---
-name: TabsRootProviderDemo
+component: tabs
+name: root-provider
 ---
 ::
 
@@ -78,7 +81,8 @@ To provide a visual cue for the selected tab, use the `Tabs.TabIndicator` compon
 
 ::component-preview
 ---
-name: TabsIndicatorDemo
+component: tabs
+name: indicator
 ---
 ::
 
@@ -88,7 +92,8 @@ To disable a tab, pass the `disabled` prop to the `Tabs.TabTrigger` component.
 
 ::component-preview
 ---
-name: TabsDisabledDemo
+component: tabs
+name: disabled
 ---
 ::
 
@@ -98,7 +103,8 @@ The default orientation of the tabs is `horizontal`. To change the orientation, 
 
 ::component-preview
 ---
-name: TabsVerticalDemo
+component: tabs
+name: vertical
 ---
 ::
 
@@ -108,7 +114,8 @@ Lazy mounting renders tab content only when the tab is first activated. Use `laz
 
 ::component-preview
 ---
-name: TabsLazyMountDemo
+component: tabs
+name: lazy-mount
 ---
 ::
 
@@ -118,7 +125,8 @@ By default, the tab can be selected when it receives focus from either the keybo
 
 ::component-preview
 ---
-name: TabsManualActivationDemo
+component: tabs
+name: manual-activation
 ---
 ::
 
@@ -128,7 +136,8 @@ Use the `as-child` prop to render tab triggers as anchor links. This is useful f
 
 ::component-preview
 ---
-name: TabsLinksDemo
+component: tabs
+name: links
 ---
 ::
 

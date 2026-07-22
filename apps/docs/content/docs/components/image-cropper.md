@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ImageCropperDemo
+component: image-cropper
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ Lock the crop area to a specific aspect ratio. Use the `aspectRatio` prop—pass
 
 ::component-preview
 ---
-name: ImageCropperAspectRatioDemo
+component: image-cropper
+name: aspect-ratio
 ---
 ::
 
@@ -68,7 +70,8 @@ Use `cropShape="circle"` for profile pictures or avatars. The selection becomes 
 
 ::component-preview
 ---
-name: ImageCropperCircleCropDemo
+component: image-cropper
+name: circle-crop
 ---
 ::
 
@@ -78,7 +81,8 @@ Start with a pre-defined crop area using the `initialCrop` prop. Pass an object 
 
 ::component-preview
 ---
-name: ImageCropperInitialCropDemo
+component: image-cropper
+name: initial-crop
 ---
 ::
 
@@ -88,7 +92,8 @@ Control zoom programmatically with the `zoom` and `onZoomChange` props. Useful w
 
 ::component-preview
 ---
-name: ImageCropperControlledZoomDemo
+component: image-cropper
+name: controlled-zoom
 ---
 ::
 
@@ -98,7 +103,8 @@ Set `minZoom` and `maxZoom` to constrain how far users can zoom. Prevents over-z
 
 ::component-preview
 ---
-name: ImageCropperZoomLimitsDemo
+component: image-cropper
+name: zoom-limits
 ---
 ::
 
@@ -108,7 +114,8 @@ Rotate the image with the `rotation` and `onRotationChange` props. Values are in
 
 ::component-preview
 ---
-name: ImageCropperRotationDemo
+component: image-cropper
+name: rotation
 ---
 ::
 
@@ -118,7 +125,8 @@ Flip the image horizontally or vertically using the `flip` prop. Pass an object 
 
 ::component-preview
 ---
-name: ImageCropperFlipDemo
+component: image-cropper
+name: flip
 ---
 ::
 
@@ -128,7 +136,8 @@ Constrain the crop area size with `minWidth`, `minHeight`, `maxWidth`, and `maxH
 
 ::component-preview
 ---
-name: ImageCropperMinAndMaxSizeDemo
+component: image-cropper
+name: min-and-max-size
 ---
 ::
 
@@ -138,7 +147,8 @@ Set `fixedCropArea` to `true` when the crop area should stay fixed while the ima
 
 ::component-preview
 ---
-name: ImageCropperFixedCropAreaDemo
+component: image-cropper
+name: fixed-crop-area
 ---
 ::
 
@@ -148,7 +158,8 @@ Use `getCroppedImage()` from the context to get the cropped result. Call it with
 
 ::component-preview
 ---
-name: ImageCropperCropPreviewDemo
+component: image-cropper
+name: crop-preview
 ---
 ::
 
@@ -158,7 +169,8 @@ The context exposes a `reset()` method that restores the image to its initial st
 
 ::component-preview
 ---
-name: ImageCropperResetDemo
+component: image-cropper
+name: reset
 ---
 ::
 
@@ -168,7 +180,8 @@ Listen to `onCropChange` and `onZoomChange` to track crop position and zoom leve
 
 ::component-preview
 ---
-name: ImageCropperEventsDemo
+component: image-cropper
+name: events
 ---
 ::
 
@@ -178,7 +191,8 @@ Use `ImageCropper.Context` to access the cropper API from anywhere inside the ro
 
 ::component-preview
 ---
-name: ImageCropperContextDemo
+component: image-cropper
+name: context
 ---
 ::
 
@@ -188,7 +202,8 @@ Use `RootProvider` with `useImageCropper` when you need to control the cropper f
 
 ::component-preview
 ---
-name: ImageCropperRootProviderDemo
+component: image-cropper
+name: root-provider
 ---
 ::
 

@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: FormatDemo
+component: format
+name: basic
 ---
 ::
 

@@ -7,6 +7,7 @@ const registryPath = path.join(root, "registry.json");
 const docsRoot = path.join(root, "../../apps/docs/content/docs/components");
 
 const IGNORE_FILES = new Set([".DS_Store", "README.md"]);
+const IGNORE_DIRS = new Set(["examples"]);
 const IGNORE_DEP_PACKAGES = new Set(["vue", "@vuzeno/ui"]);
 const KNOWN_NPM = new Set([
   "@ark-ui/vue",
@@ -77,7 +78,7 @@ function listFiles(dir: string): string[] {
   return fs
     .readdirSync(dir)
     .filter((name) => {
-      if (IGNORE_FILES.has(name) || name.startsWith(".")) {
+      if (IGNORE_FILES.has(name) || IGNORE_DIRS.has(name) || name.startsWith(".")) {
         return false;
       }
       return fs.statSync(path.join(dir, name)).isFile();

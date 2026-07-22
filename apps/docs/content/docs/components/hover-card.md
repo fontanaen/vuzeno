@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: HoverCardDemo
+component: hover-card
+name: basic
 ---
 ::
 
@@ -58,7 +59,8 @@ The controlled `HoverCard` component provides an interface for managing the stat
 
 ::component-preview
 ---
-name: HoverCardControlledDemo
+component: hover-card
+name: controlled
 ---
 ::
 
@@ -68,7 +70,8 @@ An alternative way to control the hover card is to use the `RootProvider` compon
 
 ::component-preview
 ---
-name: HoverCardRootProviderDemo
+component: hover-card
+name: root-provider
 ---
 ::
 
@@ -78,7 +81,8 @@ Control the open and close delay of the hover card using the `openDelay` and `cl
 
 ::component-preview
 ---
-name: HoverCardDelayDemo
+component: hover-card
+name: delay
 ---
 ::
 
@@ -88,7 +92,8 @@ The `HoverCard` component can be customized in its placement and distance from t
 
 ::component-preview
 ---
-name: HoverCardPositioningDemo
+component: hover-card
+name: positioning
 ---
 ::
 
@@ -98,7 +103,8 @@ Access the hover card's state with `HoverCard.Context` or the `useHoverCardConte
 
 ::component-preview
 ---
-name: HoverCardContextDemo
+component: hover-card
+name: context
 ---
 ::
 
@@ -108,7 +114,8 @@ Share a single hover card across multiple trigger elements. Pass a `value` to ea
 
 ::component-preview
 ---
-name: HoverCardMultipleTriggersDemo
+component: hover-card
+name: multiple-triggers
 ---
 ::
 

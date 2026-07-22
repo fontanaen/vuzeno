@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TimerDemo
+component: timer
+name: basic
 ---
 ::
 
@@ -60,7 +61,8 @@ You can create a countdown timer by setting the `countdown` prop to `true` and `
 
 ::component-preview
 ---
-name: TimerCountdownDemo
+component: timer
+name: countdown
 ---
 ::
 
@@ -70,7 +72,8 @@ Use the `interval` prop to control how frequently the timer updates. This is use
 
 ::component-preview
 ---
-name: TimerIntervalDemo
+component: timer
+name: interval
 ---
 ::
 
@@ -83,7 +86,8 @@ The Timer component provides events that you can listen to for various timer-rel
 
 ::component-preview
 ---
-name: TimerEventsDemo
+component: timer
+name: events
 ---
 ::
 
@@ -93,7 +97,8 @@ Here's an example of building a pomodoro timer that alternates between work and 
 
 ::component-preview
 ---
-name: TimerPomodoroDemo
+component: timer
+name: pomodoro
 ---
 ::
 
@@ -103,7 +108,8 @@ An alternative way to control the timer is to use the `RootProvider` component a
 
 ::component-preview
 ---
-name: TimerRootProviderDemo
+component: timer
+name: root-provider
 ---
 ::
 

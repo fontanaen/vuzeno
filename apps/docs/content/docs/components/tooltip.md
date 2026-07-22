@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TooltipDemo
+component: tooltip
+name: basic
 ---
 ::
 
@@ -61,7 +62,8 @@ To create a controlled Tooltip component, manage the state of whether the toolti
 
 ::component-preview
 ---
-name: TooltipControlledDemo
+component: tooltip
+name: controlled
 ---
 ::
 
@@ -71,7 +73,8 @@ An alternative way to control the tooltip is to use the `RootProvider` component
 
 ::component-preview
 ---
-name: TooltipRootProviderDemo
+component: tooltip
+name: root-provider
 ---
 ::
 
@@ -81,7 +84,8 @@ To display an arrow pointing to the trigger from the tooltip, use the `Tooltip.A
 
 ::component-preview
 ---
-name: TooltipArrowDemo
+component: tooltip
+name: arrow
 ---
 ::
 
@@ -91,7 +95,8 @@ To configure the open and close delay for the Tooltip, use the `closeDelay` and 
 
 ::component-preview
 ---
-name: TooltipDelayDemo
+component: tooltip
+name: delay
 ---
 ::
 
@@ -101,7 +106,8 @@ To customize the position of the Tooltip relative to the trigger, use the `posit
 
 ::component-preview
 ---
-name: TooltipPositioningDemo
+component: tooltip
+name: positioning
 ---
 ::
 
@@ -111,7 +117,8 @@ Access the tooltip's state and methods with `Tooltip.Context` or the `useTooltip
 
 ::component-preview
 ---
-name: TooltipContextDemo
+component: tooltip
+name: context
 ---
 ::
 
@@ -121,7 +128,8 @@ When rendering a tooltip inside a fixed-position container, set `positioning.str
 
 ::component-preview
 ---
-name: TooltipWithinFixedDemo
+component: tooltip
+name: within-fixed
 ---
 ::
 
@@ -131,7 +139,8 @@ Share a single tooltip across multiple trigger elements. Pass a `value` to each 
 
 ::component-preview
 ---
-name: TooltipMultipleTriggersDemo
+component: tooltip
+name: multiple-triggers
 ---
 ::
 

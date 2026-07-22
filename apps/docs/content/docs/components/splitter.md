@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: SplitterDemo
+component: splitter
+name: basic
 ---
 ::
 
@@ -56,7 +57,8 @@ Access the splitter's API with `Splitter.Context` or the `useSplitterContext` ho
 
 ::component-preview
 ---
-name: SplitterContextDemo
+component: splitter
+name: context
 ---
 ::
 
@@ -66,7 +68,8 @@ By default, the Splitter component is horizontal. If you need a vertical splitte
 
 ::component-preview
 ---
-name: SplitterVerticalDemo
+component: splitter
+name: vertical
 ---
 ::
 
@@ -78,7 +81,8 @@ To make a panel collapsible, set the `collapsible` prop to `true` on the panel y
 
 ::component-preview
 ---
-name: SplitterCollapsibleDemo
+component: splitter
+name: collapsible
 ---
 ::
 
@@ -88,7 +92,8 @@ Here's an example of how to use the `Splitter` component with multiple panels.
 
 ::component-preview
 ---
-name: SplitterMultiplePanelsDemo
+component: splitter
+name: multiple-panels
 ---
 ::
 
@@ -98,7 +103,8 @@ An alternative way to control the splitter is to use the `RootProvider` componen
 
 ::component-preview
 ---
-name: SplitterRootProviderDemo
+component: splitter
+name: root-provider
 ---
 ::
 
@@ -108,7 +114,8 @@ Use the `Splitter.ResizeTriggerIndicator` component to show a visual indicator o
 
 ::component-preview
 ---
-name: SplitterResizeIndicatorDemo
+component: splitter
+name: resize-indicator
 ---
 ::
 
@@ -118,7 +125,8 @@ Use the `collapsePanel()` and `expandPanel()` methods to programmatically contro
 
 ::component-preview
 ---
-name: SplitterDynamicCollapsibleDemo
+component: splitter
+name: dynamic-collapsible
 ---
 ::
 
@@ -128,7 +136,8 @@ Nest splitters to build grid-like layouts. Use `createSplitterRegistry()` to cre
 
 ::component-preview
 ---
-name: SplitterNestedDemo
+component: splitter
+name: nested
 ---
 ::
 

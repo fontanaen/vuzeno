@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: PopoverDemo
+component: popover
+name: basic
 ---
 ::
 
@@ -62,7 +63,8 @@ Use the `open` and `onOpenChange` props to control the open state of the popover
 
 ::component-preview
 ---
-name: PopoverControlledDemo
+component: popover
+name: controlled
 ---
 ::
 
@@ -72,7 +74,8 @@ An alternative way to control the popover is to use the `RootProvider` component
 
 ::component-preview
 ---
-name: PopoverRootProviderDemo
+component: popover
+name: root-provider
 ---
 ::
 
@@ -82,7 +85,8 @@ Use `Popover.Arrow` and `Popover.ArrowTip` to render an arrow pointing to the tr
 
 ::component-preview
 ---
-name: PopoverArrowDemo
+component: popover
+name: arrow
 ---
 ::
 
@@ -92,7 +96,8 @@ To change the placement of the popover, set the `positioning` prop.
 
 ::component-preview
 ---
-name: PopoverPlacementDemo
+component: popover
+name: placement
 ---
 ::
 
@@ -105,7 +110,8 @@ The popover is designed to close on blur and when the esc key is pressed.
 
 ::component-preview
 ---
-name: PopoverCloseBehaviorDemo
+component: popover
+name: close-behavior
 ---
 ::
 
@@ -115,7 +121,8 @@ In some cases, you might want the popover to be modal. This means that it'll tra
 
 ::component-preview
 ---
-name: PopoverModalityDemo
+component: popover
+name: modality
 ---
 ::
 
@@ -125,7 +132,8 @@ Use `Popover.Anchor` to position the popover relative to a different element tha
 
 ::component-preview
 ---
-name: PopoverAnchorDemo
+component: popover
+name: anchor
 ---
 ::
 
@@ -135,7 +143,8 @@ Use `positioning.sameWidth` to make the popover match the width of its trigger e
 
 ::component-preview
 ---
-name: PopoverSameWidthDemo
+component: popover
+name: same-width
 ---
 ::
 
@@ -145,7 +154,8 @@ When rendering a popover inside a dialog, use `lazyMount` and `unmountOnExit` on
 
 ::component-preview
 ---
-name: PopoverDialogIntegrationDemo
+component: popover
+name: dialog-integration
 ---
 ::
 
@@ -155,7 +165,8 @@ Popovers can be nested within each other. Each nested popover maintains its own 
 
 ::component-preview
 ---
-name: PopoverNestedDemo
+component: popover
+name: nested
 ---
 ::
 
@@ -165,7 +176,8 @@ Share a single popover across multiple trigger elements. Pass a `value` to each 
 
 ::component-preview
 ---
-name: PopoverMultipleTriggersDemo
+component: popover
+name: multiple-triggers
 ---
 ::
 

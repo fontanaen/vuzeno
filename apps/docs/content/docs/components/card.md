@@ -6,7 +6,8 @@ tag: new
 
 ::component-preview
 ---
-name: CardDemo
+component: card
+name: basic
 ---
 ::
 
@@ -74,6 +75,7 @@ Use a card to group related form fields and actions.
 
 ::component-preview
 ---
-name: CardFormDemo
+component: card
+name: form
 ---
 ::

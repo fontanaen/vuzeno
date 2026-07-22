@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: TypographyDemo
+component: typography
+name: basic
 ---
 ::
 
@@ -64,7 +65,8 @@ All parts support the `class` prop for overrides and `as-child` for polymorphic 
 
 ::component-preview
 ---
-name: TypographyH1Demo
+component: typography
+name: h1
 ---
 ::
 
@@ -72,7 +74,8 @@ name: TypographyH1Demo
 
 ::component-preview
 ---
-name: TypographyH2Demo
+component: typography
+name: h2
 ---
 ::
 
@@ -80,7 +83,8 @@ name: TypographyH2Demo
 
 ::component-preview
 ---
-name: TypographyH3Demo
+component: typography
+name: h3
 ---
 ::
 
@@ -88,7 +92,8 @@ name: TypographyH3Demo
 
 ::component-preview
 ---
-name: TypographyH4Demo
+component: typography
+name: h4
 ---
 ::
 
@@ -96,7 +101,8 @@ name: TypographyH4Demo
 
 ::component-preview
 ---
-name: TypographyPDemo
+component: typography
+name: p
 ---
 ::
 
@@ -104,7 +110,8 @@ name: TypographyPDemo
 
 ::component-preview
 ---
-name: TypographyBlockquoteDemo
+component: typography
+name: blockquote
 ---
 ::
 
@@ -112,7 +119,8 @@ name: TypographyBlockquoteDemo
 
 ::component-preview
 ---
-name: TypographyTableDemo
+component: typography
+name: table
 ---
 ::
 
@@ -120,7 +128,8 @@ name: TypographyTableDemo
 
 ::component-preview
 ---
-name: TypographyListDemo
+component: typography
+name: list
 ---
 ::
 
@@ -128,7 +137,8 @@ name: TypographyListDemo
 
 ::component-preview
 ---
-name: TypographyInlineCodeDemo
+component: typography
+name: inline-code
 ---
 ::
 
@@ -136,7 +146,8 @@ name: TypographyInlineCodeDemo
 
 ::component-preview
 ---
-name: TypographyLeadDemo
+component: typography
+name: lead
 ---
 ::
 
@@ -144,7 +155,8 @@ name: TypographyLeadDemo
 
 ::component-preview
 ---
-name: TypographyLargeDemo
+component: typography
+name: large
 ---
 ::
 
@@ -152,7 +164,8 @@ name: TypographyLargeDemo
 
 ::component-preview
 ---
-name: TypographySmallDemo
+component: typography
+name: small
 ---
 ::
 
@@ -160,6 +173,7 @@ name: TypographySmallDemo
 
 ::component-preview
 ---
-name: TypographyMutedDemo
+component: typography
+name: muted
 ---
 ::

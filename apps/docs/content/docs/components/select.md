@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: SelectDemo
+component: select
+name: basic
 ---
 ::
 
@@ -75,7 +76,8 @@ Use the `value` and `onValueChange` props to control the selected items.
 
 ::component-preview
 ---
-name: SelectControlledDemo
+component: select
+name: controlled
 ---
 ::
 
@@ -85,7 +87,8 @@ An alternative way to control the select is to use the `RootProvider` component 
 
 ::component-preview
 ---
-name: SelectRootProviderDemo
+component: select
+name: root-provider
 ---
 ::
 
@@ -95,7 +98,8 @@ To enable `multiple` item selection:
 
 ::component-preview
 ---
-name: SelectMultipleDemo
+component: select
+name: multiple
 ---
 ::
 
@@ -109,7 +113,8 @@ Grouping related options can be useful for organizing options into categories.
 
 ::component-preview
 ---
-name: SelectGroupingDemo
+component: select
+name: grouping
 ---
 ::
 
@@ -119,7 +124,8 @@ Use `Field` to manage form state, ARIA labels, helper text, and error text.
 
 ::component-preview
 ---
-name: SelectFieldDemo
+component: select
+name: field
 ---
 ::
 
@@ -129,7 +135,8 @@ Here's an example of integrating the `Select` component with a form.
 
 ::component-preview
 ---
-name: SelectFormUsageDemo
+component: select
+name: form-usage
 ---
 ::
 
@@ -139,7 +146,8 @@ Here's an example of how to load the items asynchronously when the select is ope
 
 ::component-preview
 ---
-name: SelectAsyncLoadingDemo
+component: select
+name: async-loading
 ---
 ::
 
@@ -149,7 +157,8 @@ Use `lazyMount` and `unmountOnExit` to control when content is mounted, improvin
 
 ::component-preview
 ---
-name: SelectLazyMountDemo
+component: select
+name: lazy-mount
 ---
 ::
 
@@ -159,7 +168,8 @@ Here's an example of automatically selecting items when they are highlighted (ho
 
 ::component-preview
 ---
-name: SelectSelectOnHighlightDemo
+component: select
+name: select-on-highlight
 ---
 ::
 
@@ -169,7 +179,8 @@ Here's an example of limiting the number of items that can be selected in a mult
 
 ::component-preview
 ---
-name: SelectMaxSelectionDemo
+component: select
+name: max-selection
 ---
 ::
 
@@ -179,7 +190,8 @@ Use `selectAll()` from the select context to select all items at once.
 
 ::component-preview
 ---
-name: SelectSelectAllDemo
+component: select
+name: select-all
 ---
 ::
 
@@ -189,7 +201,8 @@ For selects with many items, use `positioning.fitViewport` to ensure the dropdow
 
 ::component-preview
 ---
-name: SelectOverflowDemo
+component: select
+name: overflow
 ---
 ::
 

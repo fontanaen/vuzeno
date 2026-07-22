@@ -8,7 +8,8 @@ links:
 
 ::component-preview
 ---
-name: ColorPickerDemo
+component: color-picker
+name: basic
 ---
 ::
 
@@ -79,7 +80,8 @@ Use the `value` and `onValueChange` props to programatically control the color p
 
 ::component-preview
 ---
-name: ColorPickerControlledDemo
+component: color-picker
+name: controlled
 ---
 ::
 
@@ -89,7 +91,8 @@ Control the open state of the color picker popover programmatically using the `o
 
 ::component-preview
 ---
-name: ColorPickerOpenControlledDemo
+component: color-picker
+name: open-controlled
 ---
 ::
 
@@ -99,7 +102,8 @@ An alternative way to control the color picker is to use the `RootProvider` comp
 
 ::component-preview
 ---
-name: ColorPickerRootProviderDemo
+component: color-picker
+name: root-provider
 ---
 ::
 
@@ -109,7 +113,8 @@ Use the `disabled` prop to disable the color picker.
 
 ::component-preview
 ---
-name: ColorPickerDisabledDemo
+component: color-picker
+name: disabled
 ---
 ::
 
@@ -119,7 +124,8 @@ Render the color picker inline without a popover by using the `inline` prop.
 
 ::component-preview
 ---
-name: ColorPickerInlineDemo
+component: color-picker
+name: inline
 ---
 ::
 
@@ -129,7 +135,8 @@ A minimal color picker with just an input field, value swatch, and eye dropper t
 
 ::component-preview
 ---
-name: ColorPickerInputOnlyDemo
+component: color-picker
+name: input-only
 ---
 ::
 
@@ -139,7 +146,8 @@ Display only the channel sliders for RGB color selection.
 
 ::component-preview
 ---
-name: ColorPickerSliderOnlyDemo
+component: color-picker
+name: slider-only
 ---
 ::
 
@@ -149,7 +157,8 @@ A simple color picker with only preset color swatches.
 
 ::component-preview
 ---
-name: ColorPickerSwatchOnlyDemo
+component: color-picker
+name: swatch-only
 ---
 ::
 
@@ -159,7 +168,8 @@ Include preset color swatches in the color picker content for quick color select
 
 ::component-preview
 ---
-name: ColorPickerSwatchesDemo
+component: color-picker
+name: swatches
 ---
 ::
 
@@ -169,7 +179,8 @@ Display the current color value as a swatch alongside the color area and sliders
 
 ::component-preview
 ---
-name: ColorPickerValueSwatchDemo
+component: color-picker
+name: value-swatch
 ---
 ::
 
@@ -179,7 +190,8 @@ The `Field` component helps manage form-related state and accessibility attribut
 
 ::component-preview
 ---
-name: ColorPickerFieldDemo
+component: color-picker
+name: field
 ---
 ::
 
@@ -189,7 +201,8 @@ Integrate the color picker with form libraries like React Hook Form using the `H
 
 ::component-preview
 ---
-name: ColorPickerFormUsageDemo
+component: color-picker
+name: form-usage
 ---
 ::
 
@@ -199,7 +212,8 @@ Here's an example of how to use the color picker inside a dialog.
 
 ::component-preview
 ---
-name: ColorPickerInsideDialogDemo
+component: color-picker
+name: inside-dialog
 ---
 ::
 
