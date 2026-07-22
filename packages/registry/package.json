@@ -4,8 +4,7 @@
   "private": true,
   "exports": {
     "./ui/*": "./ark-ui/*/index.ts",
-    "./blocks/*": "./ark-ui/*/index.ts",
-    "./legacy/*": "./default-old/*/index.ts"
+    "./blocks/*": "./ark-ui/*/index.ts"
   },
   "scripts": {
     "build": "shadcn-vue build --output ../../apps/docs/public/r",
