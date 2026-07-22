@@ -1,18 +1,8 @@
 <script setup lang="ts">
-import { Button } from "@vuzeno/ui/components/button";
+import { Button } from "@vuzeno/registry/ui/button";
+import { transitionTheme } from "~/lib/transition-theme";
 
 const colorMode = useColorMode();
-
-function transtionTheme(fn: () => void) {
-  if (document.startViewTransition) {
-    document.startViewTransition(() => {
-      fn();
-    });
-    return;
-  }
-
-  fn();
-}
 </script>
 
 <template>
@@ -21,7 +11,7 @@ function transtionTheme(fn: () => void) {
     size="icon"
     class="group/toggle extend-touch-target size-8"
     title="Toggle theme"
-    @click="transtionTheme(() => colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light' )"
+    @click="transitionTheme(() => colorMode.preference = colorMode.preference === 'light' ? 'dark' : 'light' )"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

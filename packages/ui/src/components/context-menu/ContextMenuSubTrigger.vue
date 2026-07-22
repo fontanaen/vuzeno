@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-vue-next";
 import type { ContextMenuSubTriggerProps } from "reka-ui";
 import { ContextMenuSubTrigger, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<ContextMenuSubTriggerProps & { class?: HTMLAttributes["class"]; inset?: boolean }>();
 

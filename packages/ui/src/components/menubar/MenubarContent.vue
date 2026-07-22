@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { MenubarContentProps } from "reka-ui";
 import { MenubarContent, MenubarPortal, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = withDefaults(defineProps<MenubarContentProps & { class?: HTMLAttributes["class"] }>(), {
   align: "start",

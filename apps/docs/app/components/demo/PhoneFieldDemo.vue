@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldInput } from "@vuzeno/registry/ui/phone-field";
+import { PhoneField } from "@vuzeno/registry/ui/phone-field";
 import { ref } from "vue";
 
 const phone = ref<string>("");
@@ -7,8 +7,8 @@ const countryCode = ref<string>("FR");
 </script>
 
 <template>
-    <PhoneField v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
-        <PhoneFieldCountrySelect search-placeholder="Search country" flag-type="cdn" />
-        <PhoneFieldInput placeholder="Enter your phone number" />
-    </PhoneField>
+  <PhoneField.Root v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
+    <PhoneField.CountrySelect search-placeholder="Search country" flag-type="cdn" />
+    <PhoneField.Input placeholder="Enter your phone number" />
+  </PhoneField.Root>
 </template>

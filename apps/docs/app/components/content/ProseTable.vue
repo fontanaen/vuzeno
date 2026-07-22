@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from "@vuzeno/ui/lib/utils";
+import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 
 defineOptions({

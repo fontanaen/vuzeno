@@ -1,0 +1,23 @@
+<script setup lang="ts">
+import { Tabs } from "@vuzeno/registry/ui/tabs";
+</script>
+
+<template>
+  <Tabs.Root default-value="account">
+    <Tabs.TabList>
+      <Tabs.TabTrigger value="account" as-child>
+        <a href="#account">Account</a>
+      </Tabs.TabTrigger>
+      <Tabs.TabTrigger value="password" as-child>
+        <a href="#password">Password</a>
+      </Tabs.TabTrigger>
+      <Tabs.TabTrigger value="billing" as-child>
+        <a href="#billing">Billing</a>
+      </Tabs.TabTrigger>
+      <Tabs.TabIndicator />
+    </Tabs.TabList>
+    <Tabs.TabContent value="account">Make changes to your account here.</Tabs.TabContent>
+    <Tabs.TabContent value="password">Change your password here.</Tabs.TabContent>
+    <Tabs.TabContent value="billing">Manage your billing and payment details.</Tabs.TabContent>
+  </Tabs.Root>
+</template>

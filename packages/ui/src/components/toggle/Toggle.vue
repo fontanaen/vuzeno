@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { ToggleEmits, ToggleProps } from "reka-ui";
 import { Toggle, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 import type { ToggleVariants } from ".";
 import { toggleVariants } from ".";
 

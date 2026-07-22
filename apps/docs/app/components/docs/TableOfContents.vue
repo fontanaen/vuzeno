@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Toc } from "@nuxt/content";
 import { useIntersectionObserver } from "@vueuse/core";
-import { Button } from "@vuzeno/ui/components/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
-import { cn } from "@vuzeno/ui/lib/utils";
+import { Button } from "@vuzeno/registry/ui/button";
+import { Menu } from "@vuzeno/registry/ui/menu";
+import { cn } from "cnfast";
 import { MenuIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
@@ -27,11 +27,9 @@ const tocLinks = computed(() => {
   const result: Toc["links"] = [];
 
   for (const node of props.toc.links) {
-    // Add the current node (without children property)
     const { children, ...nodeWithoutChildren } = node;
     result.push(nodeWithoutChildren);
 
-    // Add all direct children if they exist
     if (children && children.length > 0) {
       for (const child of children) {
         const { children: _, ...childWithoutChildren } = child;
@@ -64,8 +62,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <DropdownMenu v-if="variant === 'dropdown'" v-model:open="open">
-    <DropdownMenuTrigger as-child>
+  <Menu.Root v-if="variant === 'dropdown'" v-model:open="open" :positioning="{ placement: 'bottom-start' }">
+    <Menu.Trigger as-child>
       <Button
         variant="outline"
         size="sm"
@@ -73,23 +71,25 @@ onMounted(() => {
       >
         <MenuIcon /> On This Page
       </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent
-      align="start"
+    </Menu.Trigger>
+    <Menu.Content
       class="no-scrollbar max-h-[70svh]"
     >
-      <DropdownMenuItem
+      <Menu.Item
         v-for="item in tocLinks"
         :key="item.id"
+        :value="item.id"
         as-child
+        :class="cn(
+          'data-[depth=3]:pl-6 data-[depth=4]:pl-8',
+        )"
         :data-depth="item.depth"
-        class="data-[depth=3]:pl-6 data-[depth=4]:pl-8"
         @click="open = true"
       >
         <a :href="`${path}#${item.id}`">{{ item.text }}</a>
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
+      </Menu.Item>
+    </Menu.Content>
+  </Menu.Root>
 
   <div v-else :class="cn('flex flex-col gap-2 p-4 pt-0 text-sm', props.class)">
     <p v-if="tocLinks.length" class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">

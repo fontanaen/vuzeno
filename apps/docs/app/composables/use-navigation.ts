@@ -3,7 +3,7 @@
 
 import type { ContentNavigationItem } from "@nuxt/content";
 
-export type NavigationItemType = "page" | "component" | "block" | "group";
+export type NavigationItemType = "page" | "component" | "block" | "group" | "asset";
 
 // @see ContentNavigationItem
 export interface NavigationItem {
@@ -42,7 +42,7 @@ function mapWithType(item: ContentNavigationItem, parent: ContentNavigationItem 
 }
 
 export async function useNavigation() {
-  const { data } = useAsyncData(
+  const { data } = await useAsyncData(
     "navigation",
     () => {
       // tag is from our content schema; types may not include custom fields

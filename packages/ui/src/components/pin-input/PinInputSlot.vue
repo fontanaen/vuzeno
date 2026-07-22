@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { PinInputInputProps } from "reka-ui";
 import { PinInputInput, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<PinInputInputProps & { class?: HTMLAttributes["class"] }>();
 

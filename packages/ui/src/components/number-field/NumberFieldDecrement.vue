@@ -4,7 +4,7 @@ import { Minus } from "lucide-vue-next";
 import type { NumberFieldDecrementProps } from "reka-ui";
 import { NumberFieldDecrement, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<NumberFieldDecrementProps & { class?: HTMLAttributes["class"] }>();
 

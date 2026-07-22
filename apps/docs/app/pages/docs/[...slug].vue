@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@vuzeno/ui/components/button";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-vue-next";
+import { Button } from "@vuzeno/registry/ui/button";
+import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from "lucide-vue-next";
 
 const route = useRoute();
 
@@ -44,6 +44,18 @@ useSeoMeta({
                 <p v-if="page.description" class="text-muted-foreground text-[1.05rem] text-pretty sm:text-base">
                   {{ page.description }}
                 </p>
+
+                <div v-if="page.links?.api" class="flex items-center gap-2 pt-1">
+                  <a
+                    :href="page.links.api"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-muted text-foreground hover:bg-muted/80 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium transition-colors"
+                  >
+                    API Reference
+                    <ArrowUpRightIcon class="size-3" />
+                  </a>
+                </div>
               </div>
 
               <div class="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">

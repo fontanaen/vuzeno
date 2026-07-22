@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-vue-next";
 import type { AccordionTriggerProps } from "reka-ui";
 import { AccordionHeader, AccordionTrigger } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes["class"] }>();
 

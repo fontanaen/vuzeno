@@ -25,17 +25,18 @@ import { Separator } from "@vuzeno/ui/components/separator";
         </NuxtLink>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1">
         <DocsSearchMenu />
 
-        <Separator orientation="vertical" class="data-[orientation=vertical]:h-4 hidden md:block ml-2" />
+        <Separator orientation="vertical" class="data-[orientation=vertical]:h-4 hidden md:block ml-4 mr-2" />
 
+        <PaletteThemeSwitcher />
+        <ThemeSwitcher />
+
+        <Separator orientation="vertical" class="data-[orientation=vertical]:h-4 hidden md:block mx-2" />
+        
         <LinksGithubLink />
         <LinksXLink />
-
-        <Separator orientation="vertical" class="data-[orientation=vertical]:h-4 hidden md:block" />
-
-        <ThemeSwitcher />
       </div>
     </div>
   </header>

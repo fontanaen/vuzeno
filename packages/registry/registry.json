@@ -4,263 +4,3887 @@
   "homepage": "https://vuzeno.com",
   "items": [
     {
+      "name": "accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Accordion component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/accordion/AccordionContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionItemContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionItemTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/AccordionRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/accordion.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/accordion/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "action-sheet",
       "type": "registry:component",
-      "title": "Action Sheet",
-      "description": "A mobile-friendly action sheet with promise-based API support.",
-      "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["button", "button-group"],
+      "title": "ActionSheet",
+      "description": "A bottom sheet dialog for actions with a promise-based selection API.",
+      "dependencies": ["@ark-ui/vue", "@vueuse/core"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/action-sheet/ActionSheet.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/ActionSheetCancel.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/ActionSheetContent.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/ActionSheetOption.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/ActionSheetGroup.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/ActionSheetTrigger.vue", "type": "registry:component" },
-        { "path": "default/action-sheet/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/action-sheet/ActionSheetRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/ActionSheetTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/ActionSheetContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/ActionSheetGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/ActionSheetOption.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/ActionSheetCancel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/action-sheet.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "angle-slider",
+      "type": "registry:component",
+      "title": "Angle Slider",
+      "description": "Angle Slider component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/angle-slider/AngleSliderContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderMarkerGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderMarker.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderThumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/AngleSliderValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/angle-slider.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/angle-slider/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "Avatar component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/avatar/AvatarContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/avatar/AvatarFallback.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/avatar/AvatarImage.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/avatar/AvatarRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/avatar/AvatarRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/avatar/avatar.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/avatar/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "Badge component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue", "class-variance-authority"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/badge/Badge.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/badge/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "Button component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/button/Button.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/button/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "Groups related buttons with shared borders and spacing.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/button-group/ButtonGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/button-group/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "Displays the path to the current resource using a hierarchy of links.",
+      "dependencies": ["@ark-ui/vue", "lucide-vue-next"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/breadcrumb/Breadcrumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/BreadcrumbList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/BreadcrumbItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/BreadcrumbLink.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/BreadcrumbPage.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/BreadcrumbSeparator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/BreadcrumbEllipsis.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/breadcrumb.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/breadcrumb/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "Composable card layout with header, content, and footer sections.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/card/Card.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/CardHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/CardTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/CardDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/CardContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/CardFooter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/card.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/card/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "Carousel component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/carousel/CarouselAutoplayIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselProgressText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselAutoplayTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselIndicatorGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselNextTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselPrevTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/CarouselRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/carousel.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/carousel/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "Checkbox component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/checkbox/CheckboxContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxGroupProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/CheckboxRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/checkbox.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/checkbox/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "clipboard",
+      "type": "registry:component",
+      "title": "Clipboard",
+      "description": "Clipboard component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/clipboard/ClipboardContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/ClipboardValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/clipboard.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/clipboard/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "Collapsible component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/collapsible/CollapsibleBody.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/CollapsibleContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/CollapsibleContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/CollapsibleRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/CollapsibleRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/CollapsibleTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/CollapsibleIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/collapsible.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/collapsible/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:component",
+      "title": "Color Picker",
+      "description": "Color Picker component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/color-picker/ColorPickerAreaBackground.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerAreaThumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerArea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerChannelInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerChannelSliderLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerChannelSliderThumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerChannelSliderTrack.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerChannelSliderValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerChannelSlider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerEyeDropperTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerFormatSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerFormatTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerSwatchGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerSwatchIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerSwatchTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerSwatch.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerTransparencyGrid.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerValueSwatch.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/ColorPickerView.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/color-picker.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/color-picker/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
       "name": "autocomplete",
       "type": "registry:component",
       "title": "Autocomplete",
-      "description": "A flexible autocomplete component with async support.",
-      "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["combobox", "input-group"],
+      "description": "Autocomplete component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/autocomplete/Autocomplete.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteContent.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteControl.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteGroup.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteInput.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteItem.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteLabel.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteStatus.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/AutocompleteTrigger.vue", "type": "registry:component" },
-        { "path": "default/autocomplete/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/autocomplete/AutocompleteClearTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteEmpty.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteItemGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/AutocompleteTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/autocomplete.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/autocomplete/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-input",
+      "type": "registry:component",
+      "title": "Date Input",
+      "description": "Date Input component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/date-input/DateInputContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputSegmentContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputSegmentGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/DateInputSegment.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/date-input.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-input/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:component",
+      "title": "Date Picker",
+      "description": "Date Picker component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/date-picker/DatePickerClearTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerMonthSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerNextTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerPresetTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerPrevTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerRangeText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTableBody.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTableCellTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTableCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTableHead.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTableHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTableRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerViewControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerViewTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerView.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerWeekNumberHeaderCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerWeekNumberCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerYearSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/date-picker.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "Dialog component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/dialog/DialogActions.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogBody.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogCloseTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogScrollContainer.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogScrollSection.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/DialogTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/dialog.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "dialog-caller",
+      "type": "registry:component",
+      "title": "DialogCaller",
+      "description": "Programmatically call Vue components with a promise-based stack API.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": ["dialog"],
+      "files": [
+        {
+          "path": "ark-ui/dialog-caller/DialogCallerDialogShell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/DialogCallerEntry.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/DialogCallerHost.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/dialog-caller.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/store.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/useDialogCaller.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "Displays a callout for user attention.",
+      "dependencies": ["@ark-ui/vue", "class-variance-authority", "lucide-vue-next"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/alert/Alert.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert/AlertIcon.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert/AlertTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert/AlertDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert/alert.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:component",
+      "title": "Alert Dialog",
+      "description": "Alert dialog for critical confirmations and destructive actions, built on Ark UI Dialog.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": ["dialog"],
+      "files": [
+        {
+          "path": "ark-ui/alert-dialog/DialogContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert-dialog/DialogRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert-dialog/alert-dialog.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/alert-dialog/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "Drawer component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/drawer/DrawerCloseTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerGrabber.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerGrabberIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerIndent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerIndentBackground.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerStack.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerSwipeArea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/DrawerTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/drawer.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/drawer/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "editable",
+      "type": "registry:component",
+      "title": "Editable",
+      "description": "Editable component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/editable/EditableArea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableCancelTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableEditTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditablePreview.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/EditableSubmitTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/editable.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/editable/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "Field component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/field/FieldContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldErrorText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldHelperText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldRequiredIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/FieldTextarea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/field.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/field/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "fieldset",
+      "type": "registry:component",
+      "title": "Fieldset",
+      "description": "Fieldset component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/fieldset/FieldsetContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/FieldsetErrorText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/FieldsetHelperText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/FieldsetLegend.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/FieldsetRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/FieldsetRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/fieldset.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/fieldset/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:component",
+      "title": "File Upload",
+      "description": "File Upload component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/file-upload/FileUploadClearTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadDropzone.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItemDeleteTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItemName.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItemPreviewImage.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItemPreview.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItemSizeText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/FileUploadTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/file-upload.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/file-upload/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
       "name": "filters",
       "type": "registry:component",
       "title": "Filters",
-      "description": "A powerful filtering system with multiple input types.",
-      "dependencies": ["reka-ui", "@internationalized/date", "@vueuse/core"],
-      "registryDependencies": ["button", "button-group", "dropdown-menu", "popover", "command", "input", "label", "badge", "switch", "slider", "number-field", "calendar", "range-calendar"],
+      "description": "A composable filter system with typed fields, operators, and filter chips.",
+      "dependencies": ["@ark-ui/vue", "@internationalized/date"],
+      "registryDependencies": ["checkbox", "autocomplete", "date-picker", "menu", "number-input", "popover", "slider"],
       "files": [
-        { "path": "default/filters/FiltersProvider.vue", "type": "registry:component" },
-        { "path": "default/filters/Filters.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersClear.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputDate.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputDateRange.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputMultiSelect.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputNumber.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputNumberRange.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputSelect.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputSwitch.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersInputText.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersItem.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersItemField.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersItemOperator.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersItemValue.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersMenu.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersMenuContent.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersMenuItem.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersMenuSub.vue", "type": "registry:component" },
-        { "path": "default/filters/FiltersMenuTrigger.vue", "type": "registry:component" },
-        { "path": "default/filters/context.ts", "type": "registry:component" },
-        { "path": "default/filters/field.ts", "type": "registry:component" },
-        { "path": "default/filters/filter.ts", "type": "registry:component" },
-        { "path": "default/filters/operator.ts", "type": "registry:component" },
-        { "path": "default/filters/index.ts", "type": "registry:component" }
+        { "path": "ark-ui/filters/context.ts", "type": "registry:component" },
+        { "path": "ark-ui/filters/field.ts", "type": "registry:component" },
+        { "path": "ark-ui/filters/filter.ts", "type": "registry:component" },
+        { "path": "ark-ui/filters/operator.ts", "type": "registry:component" },
+        { "path": "ark-ui/filters/sizes.ts", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersProvider.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersGroup.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersClear.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersItem.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersItemField.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersItemOperator.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersItemValue.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersMenu.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersMenuTrigger.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersMenuContent.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersMenuItem.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersMenuSub.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputText.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputSelect.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputMultiSelect.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputNumber.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputNumberRange.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputDate.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputDateRange.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/FiltersInputSwitch.vue", "type": "registry:component" },
+        { "path": "ark-ui/filters/filters.ts", "type": "registry:component" },
+        { "path": "ark-ui/filters/index.ts", "type": "registry:component" }
+      ]
+    },
+    {
+      "name": "floating-panel",
+      "type": "registry:component",
+      "title": "Floating Panel",
+      "description": "Floating Panel component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelBody.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelCloseTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelDragTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelResizeTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelStageTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/FloatingPanelControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/floating-panel.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/floating-panel/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "Hover Card component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/hover-card/HoverCardArrowTip.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardArrow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/HoverCardTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/hover-card.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/hover-card/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
       "name": "image",
       "type": "registry:component",
       "title": "Image",
-      "description": "A composable image component with loading states and fallback support.",
-      "dependencies": ["reka-ui", "@vueuse/core"],
+      "description": "Composable image component with loading state management and fallback support.",
+      "dependencies": ["@ark-ui/vue", "@vueuse/core"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/image/Image.vue", "type": "registry:component" },
-        { "path": "default/image/ImageFallback.vue", "type": "registry:component" },
-        { "path": "default/image/ImageLoading.vue", "type": "registry:component" },
-        { "path": "default/image/ImageError.vue", "type": "registry:component" },
-        { "path": "default/image/ImageSource.vue", "type": "registry:component" },
-        { "path": "default/image/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/image/ImageRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/ImageSource.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/ImageLoading.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/ImageError.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/ImageFallback.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/image.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
-      "name": "image-viewer",
+      "name": "image-cropper",
       "type": "registry:component",
-      "title": "Image Viewer",
-      "description": "Zoom and pan capabilities for images with touch support.",
-      "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["https://vuzeno.com/r/image.json", "button"],
+      "title": "Image Cropper",
+      "description": "Image Cropper component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/image-viewer/ImageViewerProvider.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerContainer.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerSource.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerCarousel.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerCarouselContent.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerZoomInControl.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerZoomOutControl.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerZoomSlider.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/ImageViewerZoomMap.vue", "type": "registry:component" },
-        { "path": "default/image-viewer/utils.ts", "type": "registry:component" },
-        { "path": "default/image-viewer/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/image-cropper/ImageCropperContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperGrid.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperHandle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperImage.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperSelection.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/ImageCropperViewport.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/image-cropper.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image-cropper/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
-      "name": "gallery",
+      "name": "input",
       "type": "registry:component",
-      "title": "Gallery",
-      "description": "A carousel with zoomable images and fullscreen dialog with sidebar.",
-      "dependencies": ["reka-ui", "@vueuse/core"],
-      "registryDependencies": ["https://vuzeno.com/r/image-viewer.json", "carousel", "dialog", "sidebar", "button"],
+      "title": "Input",
+      "description": "Styled input component with size variants.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/gallery/Gallery.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryContent.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryItem.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryNext.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryPrevious.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewer.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerClose.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerContent.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerGallery.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerSidebarTrigger.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryViewerToolbar.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryZoomInControl.vue", "type": "registry:component" },
-        { "path": "default/gallery/GalleryZoomOutControl.vue", "type": "registry:component" },
-        { "path": "default/gallery/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/input/Input.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
-      "name": "time-field",
+      "name": "input-group",
       "type": "registry:component",
-      "title": "Time Field",
-      "description": "A composable time input component with segment-based editing and 12/24-hour format support.",
-      "dependencies": ["reka-ui", "@vueuse/core", "@internationalized/date"],
+      "title": "Input Group",
+      "description": "Composable input group with addons, text, and buttons.",
+      "dependencies": ["@ark-ui/vue", "class-variance-authority"],
+      "registryDependencies": ["input", "textarea"],
       "files": [
-        { "path": "default/time-field/TimeField.vue", "type": "registry:component" },
-        { "path": "default/time-field/TimeFieldInput.vue", "type": "registry:component" },
-        { "path": "default/time-field/TimeFieldSeparator.vue", "type": "registry:component" },
-        { "path": "default/time-field/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/input-group/InputGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input-group/InputGroupAddon.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input-group/InputGroupButton.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input-group/InputGroupInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input-group/InputGroupText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input-group/InputGroupTextarea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/input-group/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "json-tree-view",
+      "type": "registry:component",
+      "title": "Json Tree View",
+      "description": "Json Tree View component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/json-tree-view/JsonTreeViewRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/json-tree-view/JsonTreeViewRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/json-tree-view/JsonTreeViewTree.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/json-tree-view/json-tree-view.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/json-tree-view/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "listbox",
+      "type": "registry:component",
+      "title": "Listbox",
+      "description": "Listbox component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/listbox/ListboxContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxEmpty.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxItemGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/ListboxValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/listbox.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/listbox/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "description": "Marquee component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/marquee/MarqueeContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/MarqueeContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/MarqueeEdge.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/MarqueeItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/MarqueeRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/MarqueeRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/MarqueeViewport.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/marquee.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/marquee/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:component",
+      "title": "Menu",
+      "description": "Menu component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/menu/MenuArrowTip.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuArrow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuCheckboxItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuContextTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuItemGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuRadioItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuRadioItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuSeparator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuTriggerItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/menu.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "number-input",
+      "type": "registry:component",
+      "title": "Number Input",
+      "description": "Number Input component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/number-input/NumberInputContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputDecrementTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputIncrementTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputScrubber.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputTriggerGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/NumberInputValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/number-input.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/number-input/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Pagination component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/pagination/PaginationContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationEllipsis.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationFirstTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationLastTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationNextTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationPrevTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/PaginationRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/pagination.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pagination/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "password-input",
+      "type": "registry:component",
+      "title": "Password Input",
+      "description": "Password Input component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/password-input/PasswordInputContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/PasswordInputIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/PasswordInputInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/PasswordInputRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/PasswordInputRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/PasswordInputVisibilityTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/password-input.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/password-input/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:component",
+      "title": "Pin Input",
+      "description": "Pin Input component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/pin-input/PinInputContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/PinInputControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/PinInputHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/PinInputInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/PinInputLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/PinInputRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/PinInputRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/pin-input.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/pin-input/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
       "name": "phone-field",
       "type": "registry:component",
       "title": "Phone Field",
-      "description": "An international phone number input with country selection.",
-      "dependencies": ["libphonenumber-js", "reka-ui", "@vueuse/core"],
-      "registryDependencies": ["button", "button-group", "input-group", "command", "popover"],
+      "description": "Phone number input with country selector, libphonenumber-js validation, and E.164 output.",
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "libphonenumber-js", "class-variance-authority", "lucide-vue-next"],
+      "registryDependencies": ["autocomplete"],
       "files": [
-        { "path": "default/phone-field/PhoneField.vue", "type": "registry:component" },
-        { "path": "default/phone-field/PhoneFieldCountryFlag.vue", "type": "registry:component" },
-        { "path": "default/phone-field/PhoneFieldCountrySelect.vue", "type": "registry:component" },
-        { "path": "default/phone-field/PhoneFieldIndicator.vue", "type": "registry:component" },
-        { "path": "default/phone-field/PhoneFieldInput.vue", "type": "registry:component" },
-        { "path": "default/phone-field/utils.ts", "type": "registry:component" },
-        { "path": "default/phone-field/validation.ts", "type": "registry:component" },
-        { "path": "default/phone-field/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/phone-field/PhoneFieldRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/PhoneFieldCountrySelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/PhoneFieldCountryFlag.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/PhoneFieldInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/PhoneFieldIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/utils.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/validation.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/variants.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/phone-field.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/phone-field/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
-      "name": "password-field",
+      "name": "popover",
       "type": "registry:component",
-      "title": "Password Field",
-      "description": "A composable password input with visibility toggle and click-outside reset.",
-      "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
-      "registryDependencies": ["input-group"],
+      "title": "Popover",
+      "description": "Popover component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/password-field/PasswordField.vue", "type": "registry:component" },
-        { "path": "default/password-field/PasswordFieldInput.vue", "type": "registry:component" },
-        { "path": "default/password-field/PasswordFieldToggle.vue", "type": "registry:component" },
-        { "path": "default/password-field/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/popover/PopoverAnchor.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverArrowTip.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverArrow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverCloseTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/PopoverTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/popover.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/popover/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
-      "name": "resize-motion",
+      "name": "progress",
       "type": "registry:component",
-      "title": "Resize Motion",
-      "description": "An animated wrapper that tracks content height changes and handles constrained scrolling.",
-      "dependencies": ["reka-ui", "@vueuse/core"],
-      "files": [{ "path": "default/resize-motion/ResizeMotion.vue", "type": "registry:component" }, { "path": "default/resize-motion/index.ts", "type": "registry:component" }]
-    },
-    {
-      "name": "color",
-      "type": "registry:component",
-      "title": "Color",
-      "description": "A composable set of color components with area picker, sliders, fields, swatches, and eye dropper.",
-      "dependencies": ["reka-ui", "@vueuse/core", "class-variance-authority", "lucide-vue-next"],
-      "registryDependencies": ["popover", "input-group", "button", "select"],
+      "title": "Progress",
+      "description": "Progress component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/color/ColorArea.vue", "type": "registry:component" },
-        { "path": "default/color/ColorEyeDropper.vue", "type": "registry:component" },
-        { "path": "default/color/ColorField.vue", "type": "registry:component" },
-        { "path": "default/color/ColorFieldInput.vue", "type": "registry:component" },
-        { "path": "default/color/ColorHexField.vue", "type": "registry:component" },
-        { "path": "default/color/ColorHsbField.vue", "type": "registry:component" },
-        { "path": "default/color/ColorHslField.vue", "type": "registry:component" },
-        { "path": "default/color/ColorRgbField.vue", "type": "registry:component" },
-        { "path": "default/color/ColorSlider.vue", "type": "registry:component" },
-        { "path": "default/color/ColorSpaceSelect.vue", "type": "registry:component" },
-        { "path": "default/color/ColorSwatch.vue", "type": "registry:component" },
-        { "path": "default/color/ColorSwatchPicker.vue", "type": "registry:component" },
-        { "path": "default/color/ColorSwatchPickerItem.vue", "type": "registry:component" },
-        { "path": "default/color/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/progress/ProgressCircleContainer.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressCircleRange.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressCircleTrack.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressCircle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressRange.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressTrack.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/ProgressView.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/progress.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
-      "name": "stack-menu",
+      "name": "progress-linear",
       "type": "registry:component",
-      "title": "Menu Stack",
-      "description": "A mobile-friendly bottom sheet menu with stacked items and collapsible sub menus.",
-      "dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
-      "registryDependencies": ["button"],
+      "title": "Progress Linear",
+      "description": "Linear progress bar component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/stack-menu/StackMenu.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuContent.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuGroup.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuItem.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuSub.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuSubContent.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuSubTrigger.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/StackMenuTrigger.vue", "type": "registry:component" },
-        { "path": "default/stack-menu/utils.ts", "type": "registry:component" },
-        { "path": "default/stack-menu/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/progress-linear/ProgressLinearLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/ProgressLinearRange.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/ProgressLinearRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/ProgressLinearRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/ProgressLinearTrack.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/ProgressLinearValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/progress-linear.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/progress-linear/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "qr-code",
+      "type": "registry:component",
+      "title": "Qr Code",
+      "description": "Qr Code component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/qr-code/QrCodeContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/QrCodeDownloadTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/QrCodeFrame.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/QrCodeOverlay.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/QrCodePattern.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/QrCodeRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/QrCodeRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/qr-code.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/qr-code/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:component",
+      "title": "Radio Group",
+      "description": "Radio Group component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/radio-group/RadioGroupContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupItemControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupItemHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/RadioGroupRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/radio-group.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/radio-group/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "rating-group",
+      "type": "registry:component",
+      "title": "Rating Group",
+      "description": "Rating Group component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/rating-group/RatingGroupContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/RatingGroupRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/rating-group.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/rating-group/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "Scroll Area component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaCorner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaScrollbar.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaShadow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaThumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/ScrollAreaViewport.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/scroll-area.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-area/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "segment-group",
+      "type": "registry:component",
+      "title": "Segment Group",
+      "description": "Segment Group component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/segment-group/SegmentGroupContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupItemControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupItemHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/SegmentGroupRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/segment-group.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/segment-group/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "Select component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/select/SelectClearTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectHiddenSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectIndicators.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectItemGroupLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/SelectValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/select.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/select/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "signature-pad",
+      "type": "registry:component",
+      "title": "Signature Pad",
+      "description": "Signature Pad component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/signature-pad/SignaturePadClearTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadGuide.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/SignaturePadSegment.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/signature-pad.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/signature-pad/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "Slider component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/slider/SliderContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderDraggingIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderMarkerGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderMarker.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderRange.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderThumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderTrack.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/SliderValueText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/slider.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/slider/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "splitter",
+      "type": "registry:component",
+      "title": "Splitter",
+      "description": "Splitter component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/splitter/SplitterContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/SplitterPanel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/SplitterResizeTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/SplitterResizeTriggerIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/SplitterRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/SplitterRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/splitter.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/splitter/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "registry:component",
+      "title": "Steps",
+      "description": "Steps component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/steps/StepsCompletedContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsNextTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsPrevTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsProgress.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsSeparator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/StepsTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/steps.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/steps/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "swap",
+      "type": "registry:component",
+      "title": "Swap",
+      "description": "Swap component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/swap/SwapRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/swap/SwapRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/swap/SwapIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/swap/swap.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/swap/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "Switch component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/switch/SwitchContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/SwitchControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/SwitchHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/SwitchLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/SwitchRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/SwitchRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/SwitchThumb.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/switch.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/switch/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Tabs component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/tabs/TabContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabTriggerIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabsContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabsRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/TabsRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/tabs.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tabs/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "Composable table layout with header, body, footer, and empty states.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/table/Table.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableBody.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableFooter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableHead.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableCaption.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/TableEmpty.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/table.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/table/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tags-input",
+      "type": "registry:component",
+      "title": "Tags Input",
+      "description": "Tags Input component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/tags-input/TagsInputClearTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputHiddenInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputItemContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputItemDeleteTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputItemInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputItemPreview.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/TagsInputRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/tags-input.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tags-input/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "Styled textarea component for multi-line text input.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/textarea/Textarea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/textarea/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "timer",
+      "type": "registry:component",
+      "title": "Timer",
+      "description": "Timer component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/timer/TimerActionTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerItemGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerItemLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerArea.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/TimerSeparator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/timer.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timer/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
       "name": "timeline",
       "type": "registry:component",
       "title": "Timeline",
-      "description": "A vertical or horizontal thread for displaying sequential data with composable items, markers and content.",
-      "dependencies": ["reka-ui"],
+      "description": "A vertical or horizontal thread for displaying sequential data with composable items, markers, and content.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/timeline/Timeline.vue", "type": "registry:component" },
-        { "path": "default/timeline/TimelineItem.vue", "type": "registry:component" },
-        { "path": "default/timeline/TimelineMedia.vue", "type": "registry:component" },
-        { "path": "default/timeline/TimelineContent.vue", "type": "registry:component" },
-        { "path": "default/timeline/TimelineHeader.vue", "type": "registry:component" },
-        { "path": "default/timeline/TimelineTitle.vue", "type": "registry:component" },
-        { "path": "default/timeline/TimelineDescription.vue", "type": "registry:component" },
-        { "path": "default/timeline/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/timeline/TimelineRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/TimelineItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/TimelineMedia.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/TimelineContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/TimelineHeader.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/TimelineTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/TimelineDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/timeline.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/timeline/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:component",
+      "title": "Toast",
+      "description": "Toast component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/toast/ToastActionTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/ToastCloseTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/ToastContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/ToastDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/ToastIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/ToastRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/ToastTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/Toaster.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/toast.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toast/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "Toggle component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/toggle/ToggleRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle/ToggleIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle/ToggleContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle/toggle.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:component",
+      "title": "Toggle Group",
+      "description": "Toggle Group component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/toggle-group/ToggleGroupContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle-group/ToggleGroupItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle-group/ToggleGroupRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle-group/ToggleGroupRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle-group/toggle-group.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toggle-group/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "Tooltip component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/tooltip/TooltipArrowTip.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipArrow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/TooltipTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/tooltip.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tooltip/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "typography",
+      "type": "registry:component",
+      "title": "Typography",
+      "description": "Styles for headings, paragraphs, lists, and more — with responsive defaults.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/typography/TypographyH1.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyH2.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyH3.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyH4.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyP.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyBlockquote.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyInlineCode.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyLead.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyLarge.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographySmall.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyMuted.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyTableContainer.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyTable.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyTableRow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyTableHead.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/TypographyTableCell.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/typography.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/typography/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "tour",
+      "type": "registry:component",
+      "title": "Tour",
+      "description": "Tour component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/tour/TourActionTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourActions.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourArrowTip.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourArrow.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourBackdrop.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourCloseTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourDescription.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourPositioner.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourProgressText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourSpotlight.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/TourTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/tour.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tour/index.ts",
+          "type": "registry:component"
+        }
       ]
     },
     {
       "name": "tree-view",
       "type": "registry:component",
       "title": "Tree View",
-      "description": "Thin wrappers around Reka UI Tree primitives for hierarchical lists.",
-      "dependencies": ["reka-ui"],
+      "description": "Tree View component built on Ark UI.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": [],
       "files": [
-        { "path": "default/tree-view/TreeView.vue", "type": "registry:component" },
-        { "path": "default/tree-view/TreeViewItem.vue", "type": "registry:component" },
-        { "path": "default/tree-view/TreeViewIndicator.vue", "type": "registry:component" },
-        { "path": "default/tree-view/TreeViewVirtualizer.vue", "type": "registry:component" },
-        { "path": "default/tree-view/index.ts", "type": "registry:component" }
+        {
+          "path": "ark-ui/tree-view/TreeViewBranchContent.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewBranchControl.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewBranchIndentGuide.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewBranchIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewBranchText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewBranchTrigger.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewBranch.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewItemIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewItemText.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewLabel.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewNodeCheckbox.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewNodeCheckboxIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewNodeRenameInput.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewNodeContext.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewNodeProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/TreeViewTree.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/tree-view.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/tree-view/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "Composable sidebar layout with responsive drawer, icon collapse, and hover flyout submenus.",
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": ["drawer", "menu", "collapsible", "tooltip", "button"],
+      "files": [
+        { "path": "ark-ui/sidebar/SidebarContent.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarFooter.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarGroup.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarGroupAction.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarGroupContent.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarGroupLabel.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarHeader.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarInset.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenu.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuAction.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuBadge.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuButton.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuButtonChild.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuItem.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuSkeleton.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuSub.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuSubButton.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuSubContent.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuSubItem.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMenuSubTrigger.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarMobileDrawer.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarProvider.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarRail.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarRoot.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarSeparator.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/SidebarTrigger.vue", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/context.ts", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/menusub-context.ts", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/sidebar.ts", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/variants.ts", "type": "registry:component" },
+        { "path": "ark-ui/sidebar/index.ts", "type": "registry:component" }
       ]
     }
   ]

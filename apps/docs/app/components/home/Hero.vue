@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@vuzeno/ui/components/button";
+import { Button } from "@vuzeno/registry/ui/button";
 import { ArrowRightIcon } from "lucide-vue-next";
 
 useReveal();
@@ -23,13 +23,17 @@ useReveal();
           </p>
 
           <div class="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:items-center sm:justify-center reveal" style="--i: 3">
-            <Button variant="secondary" as="a" href="/docs/components/phone-field">
-              Browse components
+            <Button variant="secondary" as-child>
+              <NuxtLink to="/docs/components/phone-field">
+                Browse components
+              </NuxtLink>
             </Button>
 
-            <Button as="a" href="/docs/getting-started">
-              Get Started
-              <ArrowRightIcon />
+            <Button as-child>
+              <NuxtLink to="/docs/getting-started">
+                Get Started
+                <ArrowRightIcon />
+              </NuxtLink>
             </Button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from "@nuxt/content";
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@vuzeno/ui/components/sidebar";
+import { Sidebar } from "@vuzeno/registry/ui/sidebar";
 
 const props = defineProps<{
   tree: ContentNavigationItem;
@@ -10,25 +10,25 @@ const { path } = toRefs(useRoute());
 </script>
 
 <template>
-  <Sidebar
+  <Sidebar.Root
     class="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)-4rem)] bg-transparent lg:flex"
     collapsible="none"
   >
-    <SidebarContent class="no-scrollbar overflow-x-hidden px-2">
-      <div class="from-background via-background/80 to-background/50 sticky -top-1 z-10 h-8 shrink-0 bg-gradient-to-b blur-xs" />
+    <Sidebar.Content class="no-scrollbar overflow-x-hidden px-2">
+      <div class="from-background via-background/80 to-background/50 sticky -top-1 z-10 h-8 shrink-0 bg-linear-to-b blur-xs" />
     
-      <SidebarGroup v-for="item in tree.children" :key="item.title">
-        <SidebarGroupLabel class="text-muted-foreground font-medium">
+      <Sidebar.Group v-for="item in tree?.children ?? []" :key="item.title">
+        <Sidebar.GroupLabel class="text-muted-foreground font-medium">
           {{ item.title }}
-        </SidebarGroupLabel>
-        <SidebarGroupContent>
-          <SidebarMenu class="gap-0.5">
+        </Sidebar.GroupLabel>
+        <Sidebar.GroupContent>
+          <Sidebar.Menu class="gap-0.5">
             <template
               v-for="childItem in item?.children"
-              :key="childItem.url"
+              :key="childItem?.url"
             >
-              <SidebarMenuItem>
-                <SidebarMenuButton
+              <Sidebar.MenuItem>
+                <Sidebar.MenuButton
                   as-child
                   :is-active="childItem?.path === path"
                   class="data-[active=true]:bg-accent data-[active=true]:border-accent xl:w-full xl:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
@@ -49,13 +49,13 @@ const { path } = toRefs(useRoute());
                       {{ childItem.tag }}
                     </span>
                   </NuxtLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+                </Sidebar.MenuButton>
+              </Sidebar.MenuItem>
             </template>
-          </SidebarMenu>
-        </SidebarGroupContent>
-      </SidebarGroup>
-      <div class="from-background via-background/80 to-background/50 sticky -bottom-1 z-10 h-16 shrink-0 bg-gradient-to-t blur-xs" />
-    </SidebarContent>
-  </Sidebar>
+          </Sidebar.Menu>
+        </Sidebar.GroupContent>
+      </Sidebar.Group>
+      <div class="from-background via-background/80 to-background/50 sticky -bottom-1 z-10 h-16 shrink-0 bg-linear-to-t blur-xs" />
+    </Sidebar.Content>
+  </Sidebar.Root>
 </template>

@@ -1,0 +1,113 @@
+---
+title: Steps
+description: Steps component built on Ark UI.
+tag: new
+links:
+  api: https://ark-ui.com/vue/docs/components/steps
+---
+
+::component-preview
+---
+name: StepsDemo
+---
+::
+
+## Installation
+
+Install from the Vuzeno registry with the shadcn-vue CLI:
+
+::installation-tabs
+---
+command: shadcn-vue@latest add https://vuzeno.com/r/steps.json
+exec: true
+---
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Steps } from "@vuzeno/registry/ui/steps";
+</script>
+
+<template>
+  <Steps.Root>
+    <!-- … -->
+  </Steps.Root>
+</template>
+```
+
+## Composition
+
+```
+Steps.Root
+├── Steps.CompletedContent
+├── Steps.Content
+├── Steps.Context
+├── Steps.Indicator
+├── Steps.ItemContext
+├── Steps.Item
+├── Steps.List
+├── Steps.NextTrigger
+├── Steps.PrevTrigger
+├── Steps.Progress
+├── Steps.RootProvider
+├── Steps.Separator
+├── Steps.Trigger
+```
+
+## Examples
+
+### Controlled
+
+Using the `RootProvider` component, you can control the active step by using the `step` prop and handling the `onStepChange` event.
+
+::component-preview
+---
+name: StepsControlledDemo
+---
+::
+
+### Root Provider
+
+An alternative way to control the steps is to use the `RootProvider` component and the `useSteps` hook. This way you can access the state and methods from outside the component.
+
+::component-preview
+---
+name: StepsRootProviderDemo
+---
+::
+
+### Vertical
+
+Use the `orientation` prop to display the steps vertically.
+
+::component-preview
+---
+name: StepsVerticalDemo
+---
+::
+
+### Circular Progress
+
+Show a circular progress indicator with the current step count (`X/X`), plus the title and description of the active step.
+
+::component-preview
+---
+name: StepsCircularProgressDemo
+---
+::
+
+### Linear Progress
+
+Place a linear progress bar above the steps, synced to the completion percentage. The step list below omits separators.
+
+::component-preview
+---
+name: StepsLinearProgressDemo
+---
+::
+
+## API
+
+See [Ark UI Steps docs](https://ark-ui.com/vue/docs/components/steps) for full props and examples.

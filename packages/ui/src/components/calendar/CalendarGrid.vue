@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { CalendarGridProps } from "reka-ui";
 import { CalendarGrid, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<CalendarGridProps & { class?: HTMLAttributes["class"] }>();
 

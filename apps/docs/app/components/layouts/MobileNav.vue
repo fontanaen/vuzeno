@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@vuzeno/ui/components/button";
-import { Sheet, SheetContent, SheetTrigger } from "@vuzeno/ui/components/sheet";
+import { Button } from "@vuzeno/registry/ui/button";
+import { Drawer } from "@vuzeno/registry/ui/drawer";
 import { MenuIcon } from "lucide-vue-next";
 
 const { data } = await useNavigation();
@@ -10,14 +10,14 @@ const open = ref(false);
 </script>
 
 <template>
-  <Sheet v-model:open="open">
-    <SheetTrigger as-child v-bind="$attrs">
+  <Drawer.Root v-model:open="open" swipe-direction="start">
+    <Drawer.Trigger as-child v-bind="$attrs">
       <Button variant="ghost" size="icon">
         <MenuIcon class="size-4" />
       </Button>
-    </SheetTrigger>
+    </Drawer.Trigger>
     
-    <SheetContent side="left" class="no-scrollbar overflow-x-hidden px-4 flex flex-col gap-4">
+    <Drawer.Content class="no-scrollbar h-full max-h-full max-w-[280px] flex-col gap-4 overflow-x-hidden px-4">
       <div v-for="item in tree.children" :key="item.title" class="flex flex-col gap-2">
         <div class="text-muted-foreground font-medium text-xs">
           {{ item.title }}
@@ -28,13 +28,29 @@ const open = ref(false);
             v-for="childItem in item?.children"
             :key="childItem.path"
           >
-            <NuxtLink active-class="bg-accent border-accent" :to="childItem?.path" class="py-1 px-2 text-sm rounded-sm" @click="open = false">
+            <a
+              v-if="childItem?.type === 'asset'"
+              :href="childItem.path"
+              class="py-1 px-2 text-sm rounded-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+              @click="open = false"
+            >
+              {{ childItem.title }}
+            </a>
+            <NuxtLink
+              v-else
+              active-class="bg-accent border-accent"
+              :to="childItem?.path"
+              class="py-1 px-2 text-sm rounded-sm"
+              @click="open = false"
+            >
               {{ childItem.title }}
             </NuxtLink>
           </template>
         </div>
         </div>
       </div>
-    </SheetContent>
-  </Sheet>
+    </Drawer.Content>
+  </Drawer.Root>
 </template>

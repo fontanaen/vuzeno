@@ -3,11 +3,13 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./ui/*": "./default/*/index.ts",
-    "./blocks/*": "./default/*/index.ts"
+    "./ui/*": "./ark-ui/*/index.ts",
+    "./blocks/*": "./ark-ui/*/index.ts",
+    "./legacy/*": "./default-old/*/index.ts"
   },
   "scripts": {
-    "build": "shadcn-vue build --output ../../apps/docs/public/r"
+    "build": "shadcn-vue build --output ../../apps/docs/public/r",
+    "generate:ark-ui": "bun run scripts/generate-ark-ui.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -18,11 +20,12 @@
   "dependencies": {
     "@vuzeno/ui": "workspace:*",
     "@vueuse/core": "catalog:",
+    "@ark-ui/vue": "catalog:",
     "@internationalized/date": "catalog:",
     "libphonenumber-js": "catalog:",
-    "reka-ui": "catalog:",
+    "cnfast": "^0.0.8",
     "class-variance-authority": "^0.7.1",
     "lucide-vue-next": "^0.562.0",
-    "vue": "^3.5.24"
+    "vue": "catalog:"
   }
 }

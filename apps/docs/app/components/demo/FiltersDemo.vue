@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { today } from "@internationalized/date";
 import type { Filter, FiltersSize, FiltersVariant } from "@vuzeno/registry/ui/filters";
-import { Field, Filters, FiltersClear, FiltersItem, FiltersMenu, FiltersMenuContent, FiltersMenuTrigger, FiltersProvider, Operator } from "@vuzeno/registry/ui/filters";
+import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
 import { CalendarIcon, CircleDashedIcon, CircleIcon, CircleMinusIcon, CircleOffIcon, DollarSignIcon, SearchIcon, TagIcon, ToggleRightIcon } from "lucide-vue-next";
 import { type Component, h, type Ref, ref, type VNode } from "vue";
 
@@ -34,7 +34,7 @@ function renderStatusIcon(value: string): VNode | undefined {
 }
 
 function renderStatusOption(option: { label: string; value: string }) {
-  return h("div", { class: "flex items-center gap-2 w-full ml-2" }, [renderStatusIcon(option.value), h("span", option.label), h("span", { class: "text-muted-foreground ml-auto" }, `(${10} issues)`)]);
+  return h("div", { class: "flex items-center gap-2 w-full min-w-48" }, [renderStatusIcon(option.value), h("span", option.label), h("span", { class: "text-muted-foreground ml-auto" }, `(${10} issues)`)]);
 }
 
 function renderSingleStatusValue(value: string) {
@@ -154,19 +154,19 @@ const filters: Ref<Filter[]> = ref([
 
 <template>
   <div class="min-w-96 w-full">
-    <FiltersProvider v-model:filters="filters" :fields="fields" :variant="variant" :size="size">
-      <FiltersMenu>
-        <FiltersMenuTrigger />
-        <FiltersMenuContent />
-      </FiltersMenu>
+    <Filters.Provider v-model:filters="filters" :fields="fields" :variant="variant" :size="size">
+      <Filters.Menu>
+        <Filters.MenuTrigger />
+        <Filters.MenuContent />
+      </Filters.Menu>
 
-      <Filters filter-style="long">
-        <FiltersItem
+      <Filters.Group filter-style="long">
+        <Filters.Item
           v-for="filter in filters.filter((current) => !current.hidden)"
           :key="`${filter.field}:${filter.operator}`"
           :filter="filter"
         />
-      </Filters>
-    </FiltersProvider>
+      </Filters.Group>
+    </Filters.Provider>
   </div>
 </template>

@@ -1,0 +1,96 @@
+---
+title: Radio Group
+description: Radio Group component built on Ark UI.
+tag: new
+links:
+  api: https://ark-ui.com/vue/docs/components/radio-group
+---
+
+::component-preview
+---
+name: RadioGroupDemo
+---
+::
+
+## Installation
+
+Install from the Vuzeno registry with the shadcn-vue CLI:
+
+::installation-tabs
+---
+command: shadcn-vue@latest add https://vuzeno.com/r/radio-group.json
+exec: true
+---
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { RadioGroup } from "@vuzeno/registry/ui/radio-group";
+</script>
+
+<template>
+  <RadioGroup.Root>
+    <!-- … -->
+  </RadioGroup.Root>
+</template>
+```
+
+## Composition
+
+```
+RadioGroup.Root
+├── RadioGroup.Label
+├── RadioGroup.Indicator
+└── RadioGroup.Item
+    ├── RadioGroup.ItemControl
+    ├── RadioGroup.ItemText
+    └── RadioGroup.ItemHiddenInput
+```
+
+## Examples
+
+### Initial Value
+
+To set the radio group's initial value, set the `defaultValue` prop to the value of the radio item to be selected by default.
+
+::component-preview
+---
+name: RadioGroupInitialValueDemo
+---
+::
+
+### Controlled
+
+For a controlled Radio Group, the state is managed using the `value` prop, and updates when the `onValueChange` event handler is called:
+
+::component-preview
+---
+name: RadioGroupControlledDemo
+---
+::
+
+### Root Provider
+
+An alternative way to control the radio group is to use the `RootProvider` component and the `useRadioGroup` hook. This way you can access the state and methods from outside the component.
+
+::component-preview
+---
+name: RadioGroupRootProviderDemo
+---
+::
+
+### Disabled
+
+To make a radio group disabled, set the `disabled` prop to `true`.
+
+::component-preview
+---
+name: RadioGroupDisabledDemo
+---
+::
+
+## API
+
+See [Ark UI Radio Group docs](https://ark-ui.com/vue/docs/components/radio-group) for full props and examples.

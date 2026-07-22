@@ -4,7 +4,7 @@ import { MoreHorizontal } from "lucide-vue-next";
 import type { PaginationEllipsisProps } from "reka-ui";
 import { PaginationEllipsis } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<PaginationEllipsisProps & { class?: HTMLAttributes["class"] }>();
 

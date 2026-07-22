@@ -1,0 +1,26 @@
+<script setup lang="ts">
+import { Image } from "@vuzeno/registry/ui/image";
+import { Skeleton } from "@vuzeno/ui/components/skeleton";
+import { ImageIcon } from "lucide-vue-next";
+</script>
+
+<template>
+  <Image.Root>
+    <Image.Source
+      class="aspect-video w-72 rounded-md object-cover"
+      src="https://deelay.me/3000/https://picsum.photos/id/237/600/400"
+      alt="Dog"
+    />
+
+    <Image.Loading as-child>
+      <Skeleton class="aspect-video w-72" />
+    </Image.Loading>
+
+    <Image.Fallback as-child>
+      <div class="flex aspect-video w-72 flex-col items-center justify-center gap-2 rounded-md bg-muted text-muted-foreground">
+        <ImageIcon class="size-8 opacity-50" />
+        <span class="text-sm">Unavailable</span>
+      </div>
+    </Image.Fallback>
+  </Image.Root>
+</template>

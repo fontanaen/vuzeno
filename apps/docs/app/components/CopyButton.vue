@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useClipboard } from "@vueuse/core";
-import type { ButtonVariants } from "@vuzeno/ui/components/button";
-import { Button } from "@vuzeno/ui/components/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@vuzeno/ui/components/tooltip";
-import { cn } from "@vuzeno/ui/lib/utils";
+import type { ButtonVariants } from "@vuzeno/registry/ui/button";
+import { Button } from "@vuzeno/registry/ui/button";
+import { Tooltip } from "@vuzeno/registry/ui/tooltip";
+import { cn } from "cnfast";
 import { CheckIcon, CopyIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { toRefs } from "vue";
@@ -27,8 +27,8 @@ const { copy, copied } = useClipboard({ source: value });
 </script>
 
 <template>
-  <Tooltip>
-    <TooltipTrigger as-child>
+  <Tooltip.Root lazy-mount unmount-on-exit>
+    <Tooltip.Trigger as-child>
       <Button
         data-slot="copy-button"
         size="icon"
@@ -43,9 +43,9 @@ const { copy, copied } = useClipboard({ source: value });
         <span class="sr-only">Copy</span>
         <CheckIcon v-if="copied" /><CopyIcon v-else />
       </Button>
-    </TooltipTrigger>
-    <TooltipContent>
+    </Tooltip.Trigger>
+    <Tooltip.Content>
       {{ copied ? "Copied" : tooltip }}
-    </TooltipContent>
-  </Tooltip>
+    </Tooltip.Content>
+  </Tooltip.Root>
 </template>

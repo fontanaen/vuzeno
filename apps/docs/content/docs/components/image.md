@@ -1,16 +1,10 @@
 ---
 title: Image
-description: A composable image component with loading state management and fallback support. Use it standalone for simple image display, or combine it with Image Viewer for zoom capabilities.
+description: Composable image component with loading state management and fallback support.
+tag: new
 ---
 
-::alert
----
-title: Disable network cache to see loading state
-variant: info
----
-::
-
-::component-preview 
+::component-preview
 ---
 name: ImageDemo
 ---
@@ -20,7 +14,7 @@ name: ImageDemo
 
 - **Loading states** — Automatic detection of loading, error, and success states
 - **Fallback support** — Display placeholder content during loading or on error
-- **Composable** — Flexible slot-based architecture with `ImageSource`, `ImageLoading`, `ImageError`, and `ImageFallback`
+- **Composable** — Flexible slot-based architecture with `Image.Source`, `Image.Loading`, `Image.Error`, and `Image.Fallback`
 
 ## Installation
 
@@ -33,14 +27,73 @@ exec: true
 ---
 ::
 
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Image } from "@vuzeno/registry/ui/image";
+import { Skeleton } from "@vuzeno/ui/components/skeleton";
+</script>
+
+<template>
+  <Image.Root>
+    <Image.Source class="aspect-video w-72" src="https://picsum.photos/id/229/600/400" alt="..." />
+
+    <Image.Loading as-child>
+      <Skeleton class="aspect-video w-72" />
+    </Image.Loading>
+
+    <Image.Error>
+      <div class="bg-destructive p-2 text-center text-destructive-foreground">
+        An error occurred while loading the image.
+      </div>
+    </Image.Error>
+  </Image.Root>
+</template>
+```
+
 ## Composition
 
-Use the following composition to build an Image:
+```
+Image.Root
+├── Image.Source
+├── Image.Loading
+├── Image.Error
+└── Image.Fallback
+```
 
-```
-Image
-├── ImageSource
-├── ImageLoading
-├── ImageError
-└── ImageFallback
-```
+## Examples
+
+### Fallback
+
+Use `Image.Fallback` to display a placeholder while the image is loading or when it fails to load.
+
+::component-preview
+---
+name: ImageFallbackDemo
+---
+::
+
+### Loading
+
+Use `Image.Loading` to show a dedicated loading indicator. The demo below uses a delayed image URL so you can see the loading state in action.
+
+::component-preview
+---
+name: ImageLoadingDemo
+---
+::
+
+### Controlled
+
+For a controlled image, manage the state with the `state` prop and update it via the `update:state` event (or `v-model:state`). When controlled, `Image.Source` no longer updates the state automatically.
+
+::component-preview
+---
+name: ImageControlledDemo
+---
+::
+
+## API
+
+Built on Ark UI primitives (`ark`, `createContext`, `PolymorphicProps`) and VueUse `useImage` for load state tracking. See [Ark UI composition guide](https://ark-ui.com/docs/guides/composition) for polymorphic rendering details.

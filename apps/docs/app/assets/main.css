@@ -60,7 +60,7 @@ body {
   --color-selection-foreground: var(--selection-foreground);
 }
 
-:root {
+:root[data-theme="shadcn"] {
   --surface: oklch(0.98 0 0);
   --surface-foreground: var(--foreground);
   --code: var(--surface);
@@ -71,7 +71,8 @@ body {
   --selection-foreground: oklch(1 0 0);
 }
 
-.dark {
+.dark[data-theme="shadcn"],
+:root.dark[data-theme="shadcn"] {
   --surface: oklch(0.2 0 0);
   --surface-foreground: oklch(0.708 0 0);
   --code: var(--surface);
@@ -80,6 +81,52 @@ body {
   --code-number: oklch(0.72 0 0);
   --selection: oklch(0.922 0 0);
   --selection-foreground: oklch(0.205 0 0);
+}
+
+:root[data-theme="amber"] {
+  --surface: oklch(0.97 0.01 48);
+  --surface-foreground: var(--foreground);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.92 0.04 48);
+  --code-number: oklch(0.55 0.02 48);
+  --selection: oklch(0.7286 0.1823 48.7057);
+  --selection-foreground: oklch(1 0 0);
+}
+
+.dark[data-theme="amber"],
+:root.dark[data-theme="amber"] {
+  --surface: oklch(0.15 0.002 286);
+  --surface-foreground: oklch(0.6217 0.0074 286.1818);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.2384 0.0348 51.8066);
+  --code-number: oklch(0.6217 0.0074 286.1818);
+  --selection: oklch(0.7286 0.1823 48.7057);
+  --selection-foreground: oklch(0 0 0);
+}
+
+:root[data-theme="olive"] {
+  --surface: oklch(0.97 0.01 90);
+  --surface-foreground: var(--foreground);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.92 0.04 82);
+  --code-number: oklch(0.55 0.02 90);
+  --selection: oklch(0.6883 0.1431 78.35);
+  --selection-foreground: oklch(0.9843 0.0263 102.214);
+}
+
+.dark[data-theme="olive"],
+:root.dark[data-theme="olive"] {
+  --surface: oklch(0.19 0.02 88);
+  --surface-foreground: oklch(0.6814 0.023 85.9586);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.3191 0.0615 82.1861);
+  --code-number: oklch(0.6814 0.023 85.9586);
+  --selection: oklch(0.6883 0.1431 78.35);
+  --selection-foreground: oklch(0.9843 0.0263 102.214);
 }
 
 @layer components {
@@ -165,12 +212,12 @@ body {
   }
 
   [data-line] span {
-    color: var(--shiki-light);
+    color: var(--muted-foreground);
   }
 
   @variant dark {
     [data-line] span {
-      color: var(--shiki-dark);
+      color: var(--muted-foreground);
     }
   }
 

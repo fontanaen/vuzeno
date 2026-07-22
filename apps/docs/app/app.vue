@@ -1,23 +1,15 @@
 <script setup lang="ts">
-import { Toaster } from "@vuzeno/ui/components/sonner";
-import { TooltipProvider } from "@vuzeno/ui/components/tooltip";
-import { ConfigProvider } from "reka-ui";
-
-const colorMode = useColorMode();
+import { DialogCaller } from "@vuzeno/registry/ui/dialog-caller";
 </script>
 
 <template>
   <LayoutsAppBody>
-    <ConfigProvider>
-      <TooltipProvider>
-        <NuxtLayout>
-          <NuxtPage />
-        </NuxtLayout>
-      </TooltipProvider>
-    </ConfigProvider>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
 
     <ClientOnly>
-      <Toaster class="pointer-events-auto" :theme="colorMode.preference as any || 'system'" position="top-center" />
+      <DialogCaller.Host />
     </ClientOnly>
   </LayoutsAppBody>
 </template>

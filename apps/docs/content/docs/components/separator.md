@@ -1,0 +1,81 @@
+---
+title: Separator
+description: Visually or semantically separates content.
+tag: new
+---
+
+::component-preview
+---
+name: SeparatorDemo
+---
+::
+
+## Features
+
+- **Horizontal or vertical** — Use the `orientation` prop to switch layout direction
+- **Styled default** — A subtle `bg-border` line that adapts to orientation
+- **Customizable** — Override with the `class` prop
+
+## Installation
+
+Install from the Vuzeno registry with the shadcn-vue CLI:
+
+::installation-tabs
+---
+command: shadcn-vue@latest add https://vuzeno.com/r/separator.json
+exec: true
+---
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Separator } from "@vuzeno/registry/ui/separator";
+</script>
+
+<template>
+  <Separator />
+</template>
+```
+
+## Examples
+
+### Vertical
+
+Use `orientation="vertical"` for a vertical separator.
+
+::component-preview
+---
+name: SeparatorVerticalDemo
+---
+::
+
+### Menu
+
+Vertical separators between menu items with descriptions.
+
+::component-preview
+---
+name: SeparatorMenuDemo
+---
+::
+
+### List
+
+Horizontal separators between list items.
+
+::component-preview
+---
+name: SeparatorListDemo
+---
+::
+
+## API
+
+### Separator
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction of the separator |
+| `class` | `string` | — | Additional CSS classes |

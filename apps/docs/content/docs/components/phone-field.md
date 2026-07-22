@@ -1,9 +1,10 @@
 ---
 title: PhoneField
-description: Phone number input with country selector, libphonenumber-js validation, and E.164 output
+description: Phone number input with country selector, libphonenumber-js validation, and E.164 output.
+tag: new
 ---
 
-::component-preview 
+::component-preview
 ---
 name: PhoneFieldDemo
 ---
@@ -30,15 +31,32 @@ exec: true
 ---
 ::
 
+## Usage
+
+```vue
+<script setup lang="ts">
+import { PhoneField } from "@vuzeno/registry/ui/phone-field";
+import { ref } from "vue";
+
+const phone = ref("");
+const countryCode = ref("FR");
+</script>
+
+<template>
+  <PhoneField.Root v-model="phone" v-model:country-code="countryCode" :preferred-countries="['FR', 'US']" reset-on-country-change>
+    <PhoneField.CountrySelect search-placeholder="Search country" flag-type="cdn" />
+    <PhoneField.Input placeholder="Enter your phone number" />
+  </PhoneField.Root>
+</template>
+```
+
 ## Composition
 
-Use the following composition to build a PhoneField:
-
 ```
-PhoneField
-├── PhoneFieldCountrySelect
-├── PhoneFieldInput
-└── PhoneFieldIndicator
+PhoneField.Root
+├── PhoneField.CountrySelect
+├── PhoneField.Input
+└── PhoneField.Indicator
 ```
 
 ## Dependencies
@@ -56,7 +74,7 @@ exec: false
 
 ### With indicator
 
-::component-preview 
+::component-preview
 ---
 name: PhoneFieldWithIndicatorDemo
 ---
@@ -64,7 +82,7 @@ name: PhoneFieldWithIndicatorDemo
 
 ### Sizes
 
-::component-preview 
+::component-preview
 ---
 name: PhoneFieldSizesDemo
 ---
@@ -74,7 +92,7 @@ name: PhoneFieldSizesDemo
 
 The `format` prop controls how the phone number is displayed:
 
-::component-preview 
+::component-preview
 ---
 name: PhoneFieldFormatsDemo
 ---
@@ -102,7 +120,7 @@ Country names are formatted using `Intl.DisplayNames`. Set the `locale` prop to 
 |------|---------|
 | `en` | United States, France, Germany |
 | `fr` | États-Unis, France, Allemagne |
-| `de` | Vereinigte Staaten, Frankreich  Deutschland |
+| `de` | Vereinigte Staaten, Frankreich, Deutschland |
 
 ## Validation
 
@@ -119,11 +137,11 @@ type PhoneValidationResult =
   | { success: true }
   | { success: false; error: PhoneValidationError }
 
-type PhoneValidationError = 
-  | "TOO_SHORT" 
-  | "TOO_LONG" 
-  | "INVALID_COUNTRY" 
-  | "INVALID_NUMBER" 
+type PhoneValidationError =
+  | "TOO_SHORT"
+  | "TOO_LONG"
+  | "INVALID_COUNTRY"
+  | "INVALID_NUMBER"
   | "INVALID_FORMAT"
 ```
 
@@ -141,39 +159,37 @@ The validation utilities can be used with `@tanstack/vue-form` by calling them i
 
 ```vue{9-14} showLineNumbers
 <script>
-import { validatePhoneNumber } from "@/components/ui/phone-field"
+import { PhoneField, validatePhoneNumber } from "@/components/ui/phone-field"
 </script>
 
 <template>
-  <form.Field 
+  <form.Field
     name="phone"
-    :validators="
+    :validators="{
       onChange: ({ value }) => {
         const result = validatePhoneNumber(value)
         if (!result.success) {
           return 'Invalid phone number'
         }
       }
-    "
+    }"
     v-slot="{ field }"
   >
     <Field>
       <FieldLabel>Phone number</FieldLabel>
-      <PhoneField
-        :model-value="field.state.value" 
+      <PhoneField.Root
+        :model-value="field.state.value"
         default-country-code="FR"
         @update:model-value="field.handleChange"
       >
-        <PhoneFieldCountrySelect flag-type="cdn" />
-        <PhoneFieldInput placeholder="Enter your phone number">
-          <PhoneFieldIndicator />
-        </PhoneFieldInput>
-      </PhoneField>
+        <PhoneField.CountrySelect flag-type="cdn" />
+        <PhoneField.Input placeholder="Enter your phone number">
+          <PhoneField.Indicator />
+        </PhoneField.Input>
+      </PhoneField.Root>
 
       <FieldError :errors="field.state.errors" />
     </Field>
   </form.Field>
 </template>
 ```
-
-

@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { Image, ImageError, ImageLoading, ImageSource } from "@vuzeno/registry/ui/image";
+import { Image } from "@vuzeno/registry/ui/image";
+import { Skeleton } from "@vuzeno/ui/components/skeleton";
 </script>
-    
+
 <template>
-  <Image>
-    <ImageSource class="w-72 aspect-video" src="https://picsum.photos/id/229/600/400" alt="..." />
+  <Image.Root>
+    <Image.Source class="aspect-video w-72" src="https://picsum.photos/id/229/600/400" alt="..." />
 
-    <ImageLoading as-child>
-      <div class="w-72 aspect-video p-2 text-center text-muted-foreground bg-muted">
-        Loading...
-      </div>
-    </ImageLoading>
+    <Image.Loading as-child>
+      <Skeleton class="aspect-video w-72" />
+    </Image.Loading>
 
-    <ImageError>
-      <div class="p-2 text-center text-destructive-foreground bg-destructive">
+    <Image.Error>
+      <div class="bg-destructive p-2 text-center text-destructive-foreground">
         An error occurred while loading the image.
       </div>
-    </ImageError>
-  </Image>
+    </Image.Error>
+  </Image.Root>
 </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { Field as UiField } from "@vuzeno/registry/ui/field";
 import type { Filter, FiltersSize, FiltersVariant } from "@vuzeno/registry/ui/filters";
-import { Field, Filters, FiltersClear, FiltersItem, FiltersMenu, FiltersMenuContent, FiltersMenuTrigger, FiltersProvider, Operator } from "@vuzeno/registry/ui/filters";
-import { FieldLabel, Field as UiField } from "@vuzeno/ui/components/field";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vuzeno/ui/components/tabs";
+import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
+import { SegmentGroup } from "@vuzeno/registry/ui/segment-group";
 import { DollarSignIcon, TagIcon, UserIcon } from "lucide-vue-next";
 import { type Ref, ref } from "vue";
 
@@ -51,50 +51,53 @@ const filters: Ref<Filter[]> = ref([
 <template>
   <div class="flex min-w-96 w-full flex-col gap-4">
     <div class="flex flex-col gap-4 border border-muted border-dashed rounded-md p-4">
-      <UiField orientation="vertical" class="w-72 mx-auto">
-        <Tabs v-model="variant" class="w-full">
-          <TabsList class="grid w-full grid-cols-2 gap-1 bg-muted p-1">
-            <TabsTrigger value="outline" class="text-xs">Outline</TabsTrigger>
-            <TabsTrigger value="secondary" class="text-xs">Secondary</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </UiField>
+      <UiField.Root orientation="vertical" class="w-72 mx-auto">
+        <UiField.Label>Variant</UiField.Label>
 
-      <UiField orientation="vertical" class="w-72 mx-auto">
-        <Tabs v-model="size" class="w-full">
-          <TabsList class="grid w-full grid-cols-3 gap-1 bg-muted p-1 text-xs">
-            <TabsTrigger value="sm" class="text-xs">sm</TabsTrigger>
-            <TabsTrigger value="md" class="text-xs">md</TabsTrigger>
-            <TabsTrigger value="lg" class="text-xs">lg</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </UiField>
+        <SegmentGroup.Root v-model="variant" class="w-full">
+          <SegmentGroup.Item value="outline" class="text-xs">Outline</SegmentGroup.Item>
+          <SegmentGroup.Item value="secondary" class="text-xs">Secondary</SegmentGroup.Item>
+          <SegmentGroup.Indicator />
+        </SegmentGroup.Root>
+      </UiField.Root>
 
-      <UiField orientation="vertical" class="w-72 mx-auto">
-        <Tabs v-model="filterStyle" class="w-full">
-          <TabsList class="grid w-full grid-cols-2 gap-1 bg-muted p-1 text-xs">
-            <TabsTrigger value="short" class="text-xs">short</TabsTrigger>
-            <TabsTrigger value="long" class="text-xs">long</TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </UiField>
+      <UiField.Root orientation="vertical" class="w-72 mx-auto">
+        <UiField.Label>Size</UiField.Label>
+      
+        <SegmentGroup.Root v-model="size" class="w-full">
+          <SegmentGroup.Item value="sm" class="text-xs justify-center items-center">sm</SegmentGroup.Item>
+          <SegmentGroup.Item value="md" class="text-xs justify-center">md</SegmentGroup.Item>
+          <SegmentGroup.Item value="lg" class="text-xs justify-center">lg</SegmentGroup.Item>
+          <SegmentGroup.Indicator />
+        </SegmentGroup.Root>
+      </UiField.Root>
+
+      <UiField.Root orientation="vertical" class="w-72 mx-auto">
+        <UiField.Label>Filter Style</UiField.Label>
+
+        <SegmentGroup.Root v-model="filterStyle" class="w-full">
+          <SegmentGroup.Item value="short" class="text-xs">short</SegmentGroup.Item>
+          <SegmentGroup.Item value="long" class="text-xs">long</SegmentGroup.Item>
+          <SegmentGroup.Indicator />
+        </SegmentGroup.Root>
+      </UiField.Root>
     </div>
 
-    <FiltersProvider v-model:filters="filters" :fields="fields" :variant="variant" :size="size">
-      <FiltersMenu>
-        <FiltersMenuTrigger />
-        <FiltersMenuContent />
-      </FiltersMenu>
+    <Filters.Provider v-model:filters="filters" :fields="fields" :variant="variant" :size="size">
+      <Filters.Menu>
+        <Filters.MenuTrigger />
+        <Filters.MenuContent />
+      </Filters.Menu>
 
-      <Filters :filter-style="filterStyle">
-        <FiltersItem
+      <Filters.Group :filter-style="filterStyle">
+        <Filters.Item
           v-for="filter in filters"
           :key="`${filter.field}:${filter.operator}`"
           :filter="filter"
         />
-      </Filters>
+      </Filters.Group>
 
-      <FiltersClear />
-    </FiltersProvider>
+      <Filters.Clear />
+    </Filters.Provider>
   </div>
 </template>

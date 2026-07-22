@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Timeline, TimelineContent, TimelineDescription, TimelineHeader, TimelineItem, TimelineMedia, TimelineTitle } from "@vuzeno/registry/ui/timeline";
+import { Timeline } from "@vuzeno/registry/ui/timeline";
 
 type TimelineEvent = {
   id: string;
@@ -17,15 +17,15 @@ const events: TimelineEvent[] = [
 </script>
 
 <template>
-  <Timeline align="center" class="w-full max-w-md">
-    <TimelineItem v-for="event in events" :key="event.id" :side="event.side">
-      <TimelineMedia />
-      <TimelineContent>
-        <TimelineHeader>
-          <TimelineTitle>{{ event.title }}</TimelineTitle>
-          <TimelineDescription>{{ event.description }}</TimelineDescription>
-        </TimelineHeader>
-      </TimelineContent>
-    </TimelineItem>
-  </Timeline>
+  <Timeline.Root align="center" class="w-full max-w-md">
+    <Timeline.Item v-for="event in events" :key="event.id" :side="event.side">
+      <Timeline.Media />
+      <Timeline.Content>
+        <Timeline.Header>
+          <Timeline.Title>{{ event.title }}</Timeline.Title>
+          <Timeline.Description>{{ event.description }}</Timeline.Description>
+        </Timeline.Header>
+      </Timeline.Content>
+    </Timeline.Item>
+  </Timeline.Root>
 </template>

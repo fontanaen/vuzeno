@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { Button } from "@vuzeno/registry/ui/button";
 import type { Filter } from "@vuzeno/registry/ui/filters";
-import { Field, Filters, FiltersClear, FiltersItem, FiltersMenu, FiltersMenuContent, FiltersMenuTrigger, FiltersProvider, Operator } from "@vuzeno/registry/ui/filters";
-import { Button } from "@vuzeno/ui/components/button";
+import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
 import { PlusIcon, TagIcon, UserIcon } from "lucide-vue-next";
 import { type Ref, ref } from "vue";
 
@@ -30,26 +30,26 @@ const filters: Ref<Filter[]> = ref([]);
 
 <template>
   <div class="min-w-96 w-full">
-    <FiltersProvider v-model:filters="filters" :fields="fields" variant="outline" size="md">
-      <FiltersMenu>
-        <FiltersMenuTrigger>
+    <Filters.Provider v-model:filters="filters" :fields="fields" variant="outline" size="md">
+      <Filters.Menu>
+        <Filters.MenuTrigger>
           <Button variant="outline" size="sm">
             <PlusIcon class="size-4" />
             Add filter
           </Button>
-        </FiltersMenuTrigger>
-        <FiltersMenuContent />
-      </FiltersMenu>
+        </Filters.MenuTrigger>
+        <Filters.MenuContent />
+      </Filters.Menu>
 
-      <Filters>
-        <FiltersItem
+      <Filters.Group>
+        <Filters.Item
           v-for="filter in filters"
           :key="`${filter.field}:${filter.operator}`"
           :filter="filter"
         />
-      </Filters>
+      </Filters.Group>
 
-      <FiltersClear />
-    </FiltersProvider>
+      <Filters.Clear />
+    </Filters.Provider>
   </div>
 </template>

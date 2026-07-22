@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { PrimitiveProps } from "reka-ui";
 import { Primitive, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<PrimitiveProps & { class?: HTMLAttributes["class"] }>();
 const delegatedProps = reactiveOmit(props, "class");

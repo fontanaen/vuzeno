@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { ContentCollectionItem } from "@nuxt/content";
 import { isClient, useClipboard } from "@vueuse/core";
-import { Button } from "@vuzeno/ui/components/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
-import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
+import { Button } from "@vuzeno/registry/ui/button";
+import { Menu } from "@vuzeno/registry/ui/menu";
+import { Popover } from "@vuzeno/registry/ui/popover";
 import { Separator } from "@vuzeno/ui/components/separator";
 import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-vue-next";
 
@@ -15,11 +15,15 @@ const url = computed(() => {
   return isClient ? window.location.href : "";
 });
 
+const origin = computed(() => {
+  return isClient ? window.location.origin : "";
+});
+
 const route = useRoute();
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I’m looking at this shadcn-vue documentation: ${url}.
+    `I'm looking at this shadcn-vue documentation: ${url}.
 Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
   `,
   )}`;
@@ -32,7 +36,7 @@ const menuItems = {
     h(
       "a",
       {
-        href: `${window.location.origin}/raw${route.path}.md`,
+        href: `${origin.value}/raw${route.path}.md`,
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -107,7 +111,7 @@ const { copy, copied } = useClipboard();
 </script>
 
 <template>
-  <Popover>
+  <Popover.Root lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-start' }">
     <div class="bg-secondary group/buttons relative flex rounded-lg *:data-[slot=button]:focus-visible:relative *:data-[slot=button]:focus-visible:z-10">
       <Button
         variant="secondary"
@@ -119,8 +123,9 @@ const { copy, copied } = useClipboard();
         <CopyIcon v-else />
         Copy Page
       </Button>
-      <DropdownMenu>
-        <DropdownMenuTrigger as-child class="hidden sm:flex">
+
+      <Menu.Root lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-end' }">
+        <Menu.Trigger as-child class="hidden sm:flex">
           <Button
             variant="secondary"
             size="sm"
@@ -128,18 +133,25 @@ const { copy, copied } = useClipboard();
           >
             <ChevronDownIcon class="rotate-180 sm:rotate-0" />
           </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="shadow-none">
-          <DropdownMenuItem v-for="[key, value] in Object.entries(menuItems)" :key="key" as-child>
+        </Menu.Trigger>
+        <Menu.Content class="shadow-none">
+          <Menu.Item
+            v-for="[key, value] in Object.entries(menuItems)"
+            :key="key"
+            :value="key"
+            as-child
+          >
             <component :is="value(url)" />
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Root>
+
       <Separator
         orientation="vertical"
         class="bg-foreground/10! absolute top-0 right-8 z-0 h-8! peer-focus-visible:opacity-0 sm:right-7 sm:h-7!"
       />
-      <PopoverTrigger as-child class="flex sm:hidden">
+      
+      <Popover.Trigger as-child class="flex sm:hidden">
         <Button
           variant="secondary"
           size="sm"
@@ -147,10 +159,10 @@ const { copy, copied } = useClipboard();
         >
           <ChevronDownIcon class="rotate-180 sm:rotate-0" />
         </Button>
-      </PopoverTrigger>
-      <PopoverContent
+      </Popover.Trigger>
+
+      <Popover.Content
         class="bg-background/70 dark:bg-background/60 w-52 origin-center! rounded-lg p-1 shadow-sm backdrop-blur-sm"
-        align="start"
       >
         <Button
           v-for="[key, value] in Object.entries(menuItems)"
@@ -162,7 +174,7 @@ const { copy, copied } = useClipboard();
         >
           <component :is="value(url)" />
         </Button>
-      </PopoverContent>
+      </Popover.Content>
     </div>
-  </Popover>
+  </Popover.Root>
 </template>

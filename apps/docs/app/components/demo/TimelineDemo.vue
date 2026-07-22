@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Timeline, TimelineContent, TimelineItem, TimelineMedia } from "@vuzeno/registry/ui/timeline";
-import { Avatar, AvatarFallback, AvatarImage } from "@vuzeno/ui/components/avatar";
+import { Avatar } from "@vuzeno/registry/ui/avatar";
+import { Timeline } from "@vuzeno/registry/ui/timeline";
 import { CircleCheckIcon, CircleDotIcon, GitMergeIcon, GitPullRequestIcon, TagIcon } from "lucide-vue-next";
 
 type User = {
@@ -29,7 +29,7 @@ const entries: Entry[] = [
     id: "comment-1",
     kind: "comment",
     user: shadcn,
-    body: "Would love a composable Timeline component — something close to the shadcn-vue style, built on reka-ui primitives, supporting both vertical and horizontal layouts.",
+    body: "Would love a composable Timeline component — something close to the shadcn-vue style, built on Ark UI primitives, supporting both vertical and horizontal layouts.",
     timestamp: "3 days ago",
   },
   {
@@ -66,23 +66,23 @@ const entries: Entry[] = [
 </script>
 
 <template>
-  <Timeline class="w-full max-w-xl">
-    <TimelineItem
+  <Timeline.Root class="w-full max-w-xl">
+    <Timeline.Item
       v-for="(entry, index) in entries"
       :key="entry.id"
       class="animate-in fade-in slide-in-from-left-4 fill-mode-both duration-500"
       :style="{ animationDelay: `${index * 90}ms` }"
     >
       <template v-if="entry.kind === 'comment'">
-        <TimelineMedia variant="icon">
-          <Avatar class="size-full">
-            <AvatarImage :src="entry.user.avatar" :alt="entry.user.username" />
-            <AvatarFallback>{{ initials(entry.user.username) }}</AvatarFallback>
-          </Avatar>
-        </TimelineMedia>
-        <TimelineContent>
-          <div class="overflow-hidden rounded-md border bg-card">
-            <div class="flex items-center justify-between gap-2 border-b bg-muted/40 px-3 py-2 text-sm">
+        <Timeline.Media variant="icon">
+          <Avatar.Root class="size-full">
+            <Avatar.Image :src="entry.user.avatar" :alt="entry.user.username" />
+            <Avatar.Fallback>{{ initials(entry.user.username) }}</Avatar.Fallback>
+          </Avatar.Root>
+        </Timeline.Media>
+        <Timeline.Content>
+          <div class="overflow-hidden rounded-md border border-border bg-card">
+            <div class="flex items-center justify-between gap-2 border-b border-border bg-muted/40 px-3 py-2 text-sm">
               <div>
                 <span class="font-semibold text-foreground">{{ entry.user.username }}</span>
                 <span class="text-muted-foreground"> commented</span>
@@ -91,29 +91,29 @@ const entries: Entry[] = [
             </div>
             <p class="px-3 py-2 text-sm leading-relaxed">{{ entry.body }}</p>
           </div>
-        </TimelineContent>
+        </Timeline.Content>
       </template>
 
       <template v-else>
-        <TimelineMedia variant="icon">
+        <Timeline.Media variant="icon">
           <CircleDotIcon v-if="entry.kind === 'opened'" class="size-4 text-emerald-500" />
           <TagIcon v-else-if="entry.kind === 'labeled'" class="size-4" />
           <GitPullRequestIcon v-else-if="entry.kind === 'linked'" class="size-4 text-emerald-500" />
           <GitMergeIcon v-else-if="entry.kind === 'merged'" class="size-4 text-violet-500" />
           <CircleCheckIcon v-else-if="entry.kind === 'closed'" class="size-4 text-violet-500" />
-        </TimelineMedia>
-        <TimelineContent>
+        </Timeline.Media>
+        <Timeline.Content>
           <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 pt-1.5 text-sm text-muted-foreground">
-            <Avatar class="size-5 text-[10px]">
-              <AvatarImage :src="entry.user.avatar" :alt="entry.user.username" />
-              <AvatarFallback>{{ initials(entry.user.username) }}</AvatarFallback>
-            </Avatar>
+            <Avatar.Root class="size-5 text-[10px]">
+              <Avatar.Image :src="entry.user.avatar" :alt="entry.user.username" />
+              <Avatar.Fallback>{{ initials(entry.user.username) }}</Avatar.Fallback>
+            </Avatar.Root>
             <span class="font-semibold text-foreground">{{ entry.user.username }}</span>
 
             <template v-if="entry.kind === 'opened'">
               <span>opened this issue</span>
             </template>
-            
+
             <template v-if="entry.kind === 'labeled'">
               <span>added the</span>
               <span
@@ -145,8 +145,8 @@ const entries: Entry[] = [
             <span aria-hidden="true">·</span>
             <span>{{ entry.timestamp }}</span>
           </div>
-        </TimelineContent>
+        </Timeline.Content>
       </template>
-    </TimelineItem>
-  </Timeline>
+    </Timeline.Item>
+  </Timeline.Root>
 </template>

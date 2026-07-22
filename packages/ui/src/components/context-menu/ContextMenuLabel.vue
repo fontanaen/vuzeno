@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { ContextMenuLabelProps } from "reka-ui";
 import { ContextMenuLabel } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<ContextMenuLabelProps & { class?: HTMLAttributes["class"]; inset?: boolean }>();
 

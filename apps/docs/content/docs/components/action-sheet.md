@@ -1,6 +1,9 @@
 ---
 title: ActionSheet
-description: A bottom sheet dialog for actions with a promise-based selection API
+description: A bottom sheet dialog for actions with a programmatic, promise-based selection API.
+tag: new
+links:
+  api: https://ark-ui.com/vue/docs/components/dialog
 ---
 
 ::component-preview
@@ -11,9 +14,9 @@ name: ActionSheetDemo
 
 ## Features
 
-- **Promise-based API** — Call `start()` on `ActionSheet` and `await` a typed result (`ActionSheetStartResult`) when the user picks an option, cancels, or dismisses the sheet
-- **Classic usage** — Control visibility with `v-model:open` and open via `ActionSheetTrigger`
-- **Composable layout** — Stack multiple `ActionSheetGroup` blocks for separated groups of actions
+- **Programmatic API** — Define the action sheet with `useActionSheet()`, pass it to `ActionSheet.Provider`, then `await show()` for a typed result (`ActionSheetStartResult`) when the user picks an option, cancels, or dismisses the sheet
+- **Classic usage** — Control visibility with `v-model:open` and open via `ActionSheet.Trigger`
+- **Composable layout** — Stack multiple `ActionSheet.Group` blocks for separated groups of actions
 
 ## Installation
 
@@ -26,87 +29,84 @@ exec: true
 ---
 ::
 
-## Composition
+## Usage
 
-Use the following composition to build an ActionSheet:
-
-```
-ActionSheet
-├── ActionSheetTrigger
-└── ActionSheetContent
-    ├── ActionSheetGroup
-    │   └── ActionSheetOption
-    └── ActionSheetCancel
-```
-
-## Examples
-
-### Classic action sheet
-
-Use `ActionSheetTrigger` to open the sheet and `ActionSheetOption` for each choice. `ActionSheetCancel` fires the cancel path (and closes the sheet).
-
-```vue showLineNumbers
+```vue
 <script setup lang="ts">
-import {
-  ActionSheet,
-  ActionSheetCancel,
-  ActionSheetContent,
-  ActionSheetOption,
-  ActionSheetGroup,
-  ActionSheetTrigger,
-} from "@vuzeno/registry/ui/action-sheet";
-import { Button } from "@/components/button";
+import { ActionSheet } from "@vuzeno/registry/ui/action-sheet";
+import { Button } from "@vuzeno/registry/ui/button";
 import { ref } from "vue";
 
 const isOpen = ref(false);
 </script>
 
 <template>
-  <ActionSheet v-model:open="isOpen">
-    <ActionSheetTrigger>
+  <ActionSheet.Root v-model:open="isOpen">
+    <ActionSheet.Trigger as-child>
       <Button>Open Action Sheet</Button>
-    </ActionSheetTrigger>
+    </ActionSheet.Trigger>
 
-    <ActionSheetContent>
-      <ActionSheetGroup>
-        <ActionSheetOption value="option1">Option 1</ActionSheetOption>
-        <ActionSheetOption value="option2">Option 2</ActionSheetOption>
-        <ActionSheetOption value="option3">Option 3</ActionSheetOption>
-        <ActionSheetOption value="option4">Option 4</ActionSheetOption>
-      </ActionSheetGroup>
+    <ActionSheet.Content>
+      <ActionSheet.Group>
+        <ActionSheet.Option value="option1">Option 1</ActionSheet.Option>
+        <ActionSheet.Option value="option2">Option 2</ActionSheet.Option>
+      </ActionSheet.Group>
 
-      <ActionSheetCancel>Cancel</ActionSheetCancel>
-    </ActionSheetContent>
-  </ActionSheet>
+      <ActionSheet.Cancel>Cancel</ActionSheet.Cancel>
+    </ActionSheet.Content>
+  </ActionSheet.Root>
 </template>
 ```
 
-### Promise API
+## Composition
 
-Expose the root with `ref` and `useTemplateRef`, then call `start()`. The promise resolves when the user selects an option, taps cancel, or closes the overlay (when `closeOnClickOutside` is enabled).
+```
+ActionSheet.Root
+├── ActionSheet.Trigger
+└── ActionSheet.Content
+    ├── ActionSheet.Group
+    │   └── ActionSheet.Option
+    └── ActionSheet.Cancel
 
-```vue{14,17} showLineNumbers
+ActionSheet.Provider
+└── ActionSheet.Content
+    ├── ActionSheet.Group
+    │   └── ActionSheet.Option
+    └── ActionSheet.Cancel
+```
+
+## Examples
+
+### Classic action sheet
+
+Use `ActionSheet.Trigger` to open the sheet and `ActionSheet.Option` for each choice. `ActionSheet.Cancel` fires the cancel path (and closes the sheet).
+
+::component-preview
+---
+name: ActionSheetDemo
+---
+::
+
+### Provider API
+
+Define the action sheet with `useActionSheet()`, then pass it to `ActionSheet.Provider` to drive it programmatically. Call `show()` and `await` the result — the promise resolves when the user selects an option, taps cancel, or closes the overlay (when `closeOnClickOutside` is enabled).
+
+```vue showLineNumbers
 <script setup lang="ts">
-import {
-  ActionSheet,
-  ActionSheetCancel,
-  ActionSheetContent,
-  ActionSheetOption,
-  ActionSheetGroup,
-  ActionSheetTrigger,
-} from "@vuzeno/registry/ui/action-sheet";
-import { Button } from "@/components/button";
-import { ref, useTemplateRef } from "vue";
+import { ActionSheet, useActionSheet } from "@vuzeno/registry/ui/action-sheet";
+import { Button } from "@vuzeno/registry/ui/button";
+import { ref } from "vue";
 
-const isOpen = ref(false);
-const actionSheet = useTemplateRef<InstanceType<typeof ActionSheet>>("actionSheet");
+const open = ref(false);
+
+const actionSheet = useActionSheet({
+  open,
+  showOverlay: ref(true),
+  closeOnClickOutside: ref(true),
+});
 
 async function openActionSheet() {
-  const result = await actionSheet.value?.start<string>();
-
-  if (!result) {
-    return;
-  }
+  const result = await actionSheet.show<string>();
 
   if (result.cancelled) {
     // result.cancelledReason is "cancel" | "close"
@@ -118,58 +118,53 @@ async function openActionSheet() {
 
 <template>
   <div class="flex flex-col gap-4">
-    <Button @click="openActionSheet()">Open Action Sheet #1</Button>
-    <ActionSheet v-model:open="isOpen" ref="actionSheet">
-      <ActionSheetTrigger>
-        <Button>Open Action Sheet #2</Button>
-      </ActionSheetTrigger>
+    <Button @click="openActionSheet()">Open Action Sheet</Button>
 
-      <ActionSheetContent>
-        <ActionSheetGroup>
-          <ActionSheetOption value="option1">Option 1</ActionSheetOption>
-          <ActionSheetOption value="option2">Option 2</ActionSheetOption>
-          <ActionSheetOption value="option3">Option 3</ActionSheetOption>
-          <ActionSheetOption value="option4">Option 4</ActionSheetOption>
-        </ActionSheetGroup>
+    <ActionSheet.Provider :value="actionSheet">
+      <ActionSheet.Content>
+        <ActionSheet.Group>
+          <ActionSheet.Option value="option1">Option 1</ActionSheet.Option>
+          <ActionSheet.Option value="option2">Option 2</ActionSheet.Option>
+        </ActionSheet.Group>
 
-        <ActionSheetCancel>Cancel</ActionSheetCancel>
-      </ActionSheetContent>
-    </ActionSheet>
+        <ActionSheet.Cancel>Cancel</ActionSheet.Cancel>
+      </ActionSheet.Content>
+    </ActionSheet.Provider>
   </div>
 </template>
 ```
 
 ### Multiple option groups
 
-Compose several `ActionSheetGroup` components inside `ActionSheetContent` to separate primary actions from secondary ones. Spacing between groups is handled by `ActionSheetContent`.
+Compose several `ActionSheet.Group` components inside `ActionSheet.Content` to separate primary actions from secondary ones.
 
 ```vue showLineNumbers
 <template>
-  <ActionSheet v-model:open="isOpen">
-    <ActionSheetTrigger>
+  <ActionSheet.Root v-model:open="isOpen">
+    <ActionSheet.Trigger as-child>
       <Button>Open</Button>
-    </ActionSheetTrigger>
+    </ActionSheet.Trigger>
 
-    <ActionSheetContent>
-      <ActionSheetGroup>
-        <ActionSheetOption value="edit">Edit</ActionSheetOption>
-        <ActionSheetOption value="duplicate">Duplicate</ActionSheetOption>
-      </ActionSheetGroup>
+    <ActionSheet.Content>
+      <ActionSheet.Group>
+        <ActionSheet.Option value="edit">Edit</ActionSheet.Option>
+        <ActionSheet.Option value="duplicate">Duplicate</ActionSheet.Option>
+      </ActionSheet.Group>
 
-      <ActionSheetGroup>
-        <ActionSheetOption value="archive">Archive</ActionSheetOption>
-        <ActionSheetOption value="delete">Delete</ActionSheetOption>
-      </ActionSheetGroup>
+      <ActionSheet.Group>
+        <ActionSheet.Option value="archive">Archive</ActionSheet.Option>
+        <ActionSheet.Option value="delete">Delete</ActionSheet.Option>
+      </ActionSheet.Group>
 
-      <ActionSheetCancel>Cancel</ActionSheetCancel>
-    </ActionSheetContent>
-  </ActionSheet>
+      <ActionSheet.Cancel>Cancel</ActionSheet.Cancel>
+    </ActionSheet.Content>
+  </ActionSheet.Root>
 </template>
 ```
 
 ## API Reference
 
-### ActionSheet
+### ActionSheet.Root
 
 | Prop | Type | Default |
 |------|------|---------|
@@ -177,12 +172,39 @@ Compose several `ActionSheetGroup` components inside `ActionSheetContent` to sep
 | `closeOnClickOutside` | `boolean` | `true` |
 | `showOverlay` | `boolean` | `true` |
 
-`ActionSheet` forwards other props and emits from Reka UI’s `DialogRoot`.
+`ActionSheet.Root` forwards other props and emits from Ark UI's `Dialog.Root`.
+
+### ActionSheet.Provider
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `ActionSheetApi` | — |
+
+Takes the object returned by `useActionSheet()` and drives the sheet's open state and callbacks from it.
+
+### useActionSheet
+
+```ts
+function useActionSheet(props: {
+  open: Ref<boolean>;
+  showOverlay: Ref<boolean>;
+  closeOnClickOutside: Ref<boolean>;
+}): ActionSheetApi;
+```
+
+Returns an `ActionSheetApi` with:
+
+| Member | Type | Description |
+|--------|------|-------------|
+| `show()` | `<O>() => Promise<ActionSheetStartResult<O>>` | Opens the sheet and resolves when the user selects an option, cancels, or closes it |
+| `close()` | `() => void` | Closes the sheet without resolving `show()` |
 
 ### ActionSheetStartResult
 
 ```ts
-type ActionSheetStartResult<O> = 
+type ActionSheetStartResult<O> =
   | { cancelled: false; cancelledReason: null; selectedOption: O }
   | { cancelled: true; cancelledReason: "cancel" | "close"; selectedOption: null }
 ```
+
+See [Ark UI Dialog docs](https://ark-ui.com/vue/docs/components/dialog) for underlying dialog props and behavior.

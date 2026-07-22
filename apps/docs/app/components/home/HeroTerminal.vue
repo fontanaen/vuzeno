@@ -9,7 +9,7 @@ const STEP_DURATION_MS = 1000;
 const installLines = ["Resolving @vuzeno/phone-field from the Vuzeno registry", "Installing registry dependencies", "Writing components/ui/phone-field", "Component ready for your Vue app"];
 
 const addedFiles = [
-  "components/ui/phone-field/PhoneField.vue",
+  "components/ui/phone-field/PhoneFieldRoot.vue",
   "components/ui/phone-field/PhoneFieldInput.vue",
   "components/ui/phone-field/PhoneFieldCountrySelect.vue",
   "components/ui/phone-field/PhoneFieldIndicator.vue",

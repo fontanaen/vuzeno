@@ -4,6 +4,6 @@
   "buildCommand": "bun run registry:build && bun run docs:build",
   "outputDirectory": ".vercel/output",
   "env": {
-    "NODE_OPTIONS": "--max-old-space-size=6144"
+    "NODE_OPTIONS": "--max-old-space-size=8192"
   }
 }
