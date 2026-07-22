@@ -2,12 +2,18 @@
 import { reactiveOmit } from "@vueuse/core";
 import { Separator } from "@vuzeno/registry/ui/separator";
 import { cn } from "cnfast";
-import type { SeparatorProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 
-const props = withDefaults(defineProps<SeparatorProps & { class?: HTMLAttributes["class"] }>(), {
-  orientation: "vertical",
-});
+const props = withDefaults(
+  defineProps<{
+    orientation?: "horizontal" | "vertical";
+    class?: HTMLAttributes["class"];
+  }>(),
+  {
+    orientation: "vertical",
+  },
+);
+
 const delegatedProps = reactiveOmit(props, "class");
 </script>
 

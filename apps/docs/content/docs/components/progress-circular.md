@@ -18,7 +18,7 @@ Install from the Vuzeno registry with the shadcn-vue CLI:
 
 ::installation-tabs
 ---
-command: shadcn-vue@latest add https://vuzeno.com/r/progress.json
+command: shadcn-vue@latest add https://vuzeno.com/r/progress-circular.json
 exec: true
 ---
 ::
@@ -27,7 +27,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Progress } from "@vuzeno/registry/ui/progress";
+import { Progress } from "@vuzeno/registry/ui/progress-circular";
 </script>
 
 <template>
