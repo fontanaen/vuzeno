@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useFilter } from "@ark-ui/vue/locale";
+import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon, ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 
 const filters = useFilter({ sensitivity: "base" });
 

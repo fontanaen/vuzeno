@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ZoomIn, ZoomOut } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ImageCropper } from "@vuzeno/registry/ui/image-cropper";
-import { ZoomIn, ZoomOut } from "lucide-vue-next";
 </script>
 
 <template>

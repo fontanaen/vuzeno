@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { PencilIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Editable } from "@vuzeno/registry/ui/editable";
 import { Field } from "@vuzeno/registry/ui/field";
-import { PencilIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const value = ref("Hello World");

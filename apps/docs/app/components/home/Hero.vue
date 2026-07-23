@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ArrowRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
-import { ArrowRightIcon } from "lucide-vue-next";
 
 useReveal();
 </script>

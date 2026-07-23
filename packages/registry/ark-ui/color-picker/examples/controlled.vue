@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { parseColor } from "@ark-ui/vue";
+import { Pipette } from "@lucide/vue";
 import { ColorPicker } from "@vuzeno/registry/ui/color-picker";
-import { Pipette } from "lucide-vue-next";
 import { ref } from "vue";
 
 const value = ref(parseColor("hsl(20, 100%, 50%)"));

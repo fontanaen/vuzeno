@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useAsyncList } from "@ark-ui/vue";
+import { CheckIcon, ChevronsUpDownIcon, LoaderIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, createListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon, ChevronsUpDownIcon, LoaderIcon, XIcon } from "lucide-vue-next";
 import { computed } from "vue";
 
 type Movie = {

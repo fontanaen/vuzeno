@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Drawer, useDrawer } from "@vuzeno/registry/ui/drawer";
-import { XIcon } from "lucide-vue-next";
 
 const drawer = useDrawer({
   defaultSnapPoint: 0.5,

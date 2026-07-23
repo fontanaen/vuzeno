@@ -21,7 +21,7 @@ import {
 import { Button } from "@vuzeno/ui/components/button";
 import { Field, FieldGroup, FieldLabel } from "@vuzeno/ui/components/field";
 import { SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem } from "@vuzeno/ui/components/sidebar";
-import { XIcon } from "lucide-vue-next";
+import { XIcon } from "@lucide/vue";
 import { ref } from "vue";
 
 definePage({

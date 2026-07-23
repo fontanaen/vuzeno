@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { FunnelXIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { cn } from "cnfast";
-import { FunnelXIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { type FiltersSize, injectFiltersContext } from "./context";
 

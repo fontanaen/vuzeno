@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronRightIcon } from "@lucide/vue";
 import { Collapsible } from "@vuzeno/registry/ui/collapsible";
-import { ChevronRightIcon } from "lucide-vue-next";
 </script>
 
 <template>

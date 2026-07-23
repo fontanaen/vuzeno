@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { Listbox, useListCollection } from "@vuzeno/registry/ui/listbox";
-import { CheckIcon } from "lucide-vue-next";
 
 const { collection, filter } = useListCollection({
   initialItems: [

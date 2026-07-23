@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ChevronDownIcon } from "@lucide/vue";
 import { Accordion, useAccordion } from "@vuzeno/registry/ui/accordion";
 import { Button } from "@vuzeno/registry/ui/button";
-import { ChevronDownIcon } from "lucide-vue-next";
 
 const items = [
   {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TagsInput } from "@ark-ui/vue/tags-input";
+import { XIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { XIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

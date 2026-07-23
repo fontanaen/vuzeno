@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails, AutocompleteValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon, ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 import { nextTick, ref } from "vue";
 
 type Item = {

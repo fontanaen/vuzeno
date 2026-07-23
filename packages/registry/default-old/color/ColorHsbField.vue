@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { InputGroup } from "@vuzeno/ui/components/input-group";
-import { cn } from "cnfast";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "cnfast";
 import { type Color, ColorFieldInput, ColorFieldRoot } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 

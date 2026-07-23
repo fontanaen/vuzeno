@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronRight, Plus, Trash } from "@lucide/vue";
 import { TreeView, useTreeViewContext } from "@vuzeno/registry/ui/tree-view";
-import { ChevronRight, Plus, Trash } from "lucide-vue-next";
 import type { FileTreeNode } from "./tree-view-data";
 
 const props = defineProps<{

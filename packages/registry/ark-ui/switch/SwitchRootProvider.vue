@@ -5,12 +5,17 @@ import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 import { provideSwitchContext, type SwitchSize } from "./context";
 
-const props = withDefaults(defineProps<SwitchRootProviderProps & {
-  class?: HTMLAttributes["class"];
-  size?: SwitchSize;
-}>(), {
-  size: "default",
-});
+const props = withDefaults(
+  defineProps<
+    SwitchRootProviderProps & {
+      class?: HTMLAttributes["class"];
+      size?: SwitchSize;
+    }
+  >(),
+  {
+    size: "default",
+  },
+);
 
 const rootProviderProps = reactiveOmit(props, "class", "size");
 const { size } = toRefs(props);

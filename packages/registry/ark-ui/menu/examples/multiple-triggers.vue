@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { EllipsisVerticalIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { EllipsisVerticalIcon } from "lucide-vue-next";
 
 const messages = [
   { id: "1", sender: "Alice Johnson", preview: "Hey, can you review the latest PR?" },

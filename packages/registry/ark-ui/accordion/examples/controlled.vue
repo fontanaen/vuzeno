@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronDownIcon } from "@lucide/vue";
 import { Accordion } from "@vuzeno/registry/ui/accordion";
-import { ChevronDownIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const value = ref<string[]>([]);

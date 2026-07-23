@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { FolderIcon, FolderOpenIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { FolderIcon, FolderOpenIcon } from "lucide-vue-next";
 import { Primitive, type PrimitiveProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 

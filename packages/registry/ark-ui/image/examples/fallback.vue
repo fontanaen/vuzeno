@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ImageIcon } from "@lucide/vue";
 import { Image } from "@vuzeno/registry/ui/image";
 import { Skeleton } from "@vuzeno/ui/components/skeleton";
-import { ImageIcon } from "lucide-vue-next";
 </script>
 
 <template>

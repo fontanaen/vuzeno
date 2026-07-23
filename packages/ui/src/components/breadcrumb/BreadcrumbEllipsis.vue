@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { MoreHorizontal } from "lucide-vue-next";
+import { MoreHorizontal } from "@lucide/vue";
 import type { HTMLAttributes } from "vue";
 import { cn } from "cnfast";
 

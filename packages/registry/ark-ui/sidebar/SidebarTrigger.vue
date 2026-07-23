@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { PanelLeftIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { cn } from "cnfast";
-import { PanelLeftIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { resolveSidebarContext } from "./context";
 

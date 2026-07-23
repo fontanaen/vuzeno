@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { isValidPhoneNumber } from "libphonenumber-js";
-import { CheckIcon } from "lucide-vue-next";
 import { InputGroup } from "../input-group";
 import { injectPhoneFieldContext } from "./PhoneFieldRoot.vue";
 

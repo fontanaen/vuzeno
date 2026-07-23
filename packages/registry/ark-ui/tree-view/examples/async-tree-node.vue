@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckSquareIcon, ChevronRightIcon, FileIcon, FolderIcon, Loader2Icon } from "@lucide/vue";
 import { TreeView } from "@vuzeno/registry/ui/tree-view";
-import { CheckSquareIcon, ChevronRightIcon, FileIcon, FolderIcon, Loader2Icon } from "lucide-vue-next";
 import type { FileTreeNode } from "./tree-view-data";
 
 defineProps<{

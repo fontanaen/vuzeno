@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { Crop } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ImageCropper, useImageCropper } from "@vuzeno/registry/ui/image-cropper";
-import { Crop } from "lucide-vue-next";
 import { ref } from "vue";
 
 const imageCropper = useImageCropper();

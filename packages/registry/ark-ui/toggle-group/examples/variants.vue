@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from "@lucide/vue";
 import { ToggleGroup } from "@vuzeno/registry/ui/toggle-group";
-import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from "lucide-vue-next";
 </script>
 
 <template>

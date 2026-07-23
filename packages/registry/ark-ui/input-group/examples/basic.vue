@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Search } from "@lucide/vue";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
-import { Search } from "lucide-vue-next";
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { FileUpload } from "@vuzeno/registry/ui/file-upload";
-import { XIcon } from "lucide-vue-next";
 </script>
 
 <template>

@@ -24,7 +24,7 @@
     "libphonenumber-js": "catalog:",
     "cnfast": "^0.0.8",
     "class-variance-authority": "^0.7.1",
-    "lucide-vue-next": "^0.562.0",
+    "@lucide/vue": "^1.17.0",
     "vue": "catalog:"
   }
 }

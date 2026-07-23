@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { cn } from "cnfast";
 import { type PolymorphicProps } from "@ark-ui/vue";
-import { type HTMLAttributes, onMounted, useTemplateRef } from "vue";
 import { Image } from "@vuzeno/registry/ui/image";
+import { cn } from "cnfast";
+import { type HTMLAttributes, onMounted, useTemplateRef } from "vue";
 import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 import { useTouchZoom } from "./utils";
 

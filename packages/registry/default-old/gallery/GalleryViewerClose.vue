@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { cn } from "cnfast";
-import { XIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { injectGalleryViewerContext } from "./GalleryViewer.vue";
 

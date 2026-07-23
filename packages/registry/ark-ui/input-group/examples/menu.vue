@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ChevronDownIcon, MoreHorizontalIcon } from "@lucide/vue";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { ChevronDownIcon, MoreHorizontalIcon } from "lucide-vue-next";
 </script>
 
 <template>

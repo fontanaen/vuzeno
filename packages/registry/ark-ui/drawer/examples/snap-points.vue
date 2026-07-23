@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Drawer } from "@vuzeno/registry/ui/drawer";
-import { XIcon } from "lucide-vue-next";
 </script>
 
 <template>

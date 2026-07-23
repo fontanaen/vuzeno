@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { BoldIcon, ItalicIcon, StrikethroughIcon, UnderlineIcon } from "@lucide/vue";
 import { Tooltip } from "@vuzeno/registry/ui/tooltip";
-import { BoldIcon, ItalicIcon, StrikethroughIcon, UnderlineIcon } from "lucide-vue-next";
 import type { Component } from "vue";
 import { ref } from "vue";
 

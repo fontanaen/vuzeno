@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CloudIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Empty } from "@vuzeno/registry/ui/empty";
-import { CloudIcon } from "lucide-vue-next";
 </script>
 
 <template>

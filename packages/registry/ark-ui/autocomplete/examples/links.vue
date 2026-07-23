@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
 
 const initialItems = [
   { label: "GitHub", href: "https://github.com", value: "github" },

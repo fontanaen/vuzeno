@@ -34,7 +34,7 @@ exec: true
 <script setup lang="ts">
 import { Empty } from "@vuzeno/registry/ui/empty";
 import { Button } from "@vuzeno/registry/ui/button";
-import { InboxIcon } from "lucide-vue-next";
+import { InboxIcon } from "@lucide/vue";
 </script>
 
 <template>

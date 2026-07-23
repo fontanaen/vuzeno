@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { MoveHorizontalIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
 import { Slider } from "@vuzeno/ui/components/slider";
 import { cn } from "cnfast";
-import { MoveHorizontalIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { injectFiltersContext } from "./context";
 import type { NumberField } from "./field";

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@vuzeno/ui/components/select";
-import { cn } from "cnfast";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "cnfast";
 import { type ColorSpace } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 

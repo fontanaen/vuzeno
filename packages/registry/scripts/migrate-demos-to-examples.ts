@@ -94,11 +94,11 @@ function moveDemoFile(sourceName: string, component: string, exampleName: string
 }
 
 function rewriteDialogCallerImports(filePath: string) {
-  let content = fs.readFileSync(filePath, "utf8");
+  const content = fs.readFileSync(filePath, "utf8");
   const next = content
-    .replaceAll('./DialogCallerDeleteConfirmDialog.vue', "./delete-confirm-dialog.vue")
-    .replaceAll('./DialogCallerFormDialog.vue', "./form-dialog.vue")
-    .replaceAll('./DialogCallerUnsavedConfirmDialog.vue', "./unsaved-confirm-dialog.vue");
+    .replaceAll("./DialogCallerDeleteConfirmDialog.vue", "./delete-confirm-dialog.vue")
+    .replaceAll("./DialogCallerFormDialog.vue", "./form-dialog.vue")
+    .replaceAll("./DialogCallerUnsavedConfirmDialog.vue", "./unsaved-confirm-dialog.vue");
 
   if (next !== content) {
     fs.writeFileSync(filePath, next);
@@ -108,7 +108,7 @@ function rewriteDialogCallerImports(filePath: string) {
 function migrateMarkdown(fileName: string) {
   const component = fileName.replace(/\.md$/, "");
   const filePath = path.join(docsRoot, fileName);
-  let content = fs.readFileSync(filePath, "utf8");
+  const content = fs.readFileSync(filePath, "utf8");
 
   if (/::component-preview\n---\ncomponent:\s*/.test(content)) {
     return { component, moved: 0, updated: 0 };
@@ -133,13 +133,10 @@ function migrateMarkdown(fileName: string) {
     }
   }
 
-  const updatedContent = content.replace(
-    /::component-preview\n---\nname:\s*([A-Za-z0-9]+)\n---\n::/g,
-    (_full, demoName: string) => {
-      const exampleName = demoToExampleName(demoName, component);
-      return `::component-preview\n---\ncomponent: ${component}\nname: ${exampleName}\n---\n::`;
-    },
-  );
+  const updatedContent = content.replace(/::component-preview\n---\nname:\s*([A-Za-z0-9]+)\n---\n::/g, (_full, demoName: string) => {
+    const exampleName = demoToExampleName(demoName, component);
+    return `::component-preview\n---\ncomponent: ${component}\nname: ${exampleName}\n---\n::`;
+  });
 
   fs.writeFileSync(filePath, updatedContent);
   return { component, moved, updated: names.size };
@@ -187,9 +184,7 @@ for (const fileName of markdownFiles) {
 
 migrateHelpers();
 
-const remaining = fs.existsSync(demosRoot)
-  ? fs.readdirSync(demosRoot).filter((name) => !name.startsWith("."))
-  : [];
+const remaining = fs.existsSync(demosRoot) ? fs.readdirSync(demosRoot).filter((name) => !name.startsWith(".")) : [];
 
 console.log(`\nMoved ${totalMoved} demo files, updated ${totalUpdated} preview refs`);
 console.log(`Remaining under demo/: ${remaining.length}`);

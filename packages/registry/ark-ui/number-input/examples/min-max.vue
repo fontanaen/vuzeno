@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronDownIcon, ChevronUpIcon } from "@lucide/vue";
 import { NumberInput } from "@vuzeno/registry/ui/number-input";
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-vue-next";
 </script>
 
 <template>

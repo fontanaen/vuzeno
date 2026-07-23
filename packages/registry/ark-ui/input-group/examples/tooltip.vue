@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { EyeIcon, InfoIcon } from "@lucide/vue";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
 import { Tooltip } from "@vuzeno/registry/ui/tooltip";
-import { EyeIcon, InfoIcon } from "lucide-vue-next";
 </script>
 
 <template>

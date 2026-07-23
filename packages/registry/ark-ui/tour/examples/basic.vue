@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { MoreHorizontalIcon, SaveIcon, SparklesIcon, UploadIcon, XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Tour, type TourStepDetails, useTour } from "@vuzeno/registry/ui/tour";
-import { MoreHorizontalIcon, SaveIcon, SparklesIcon, UploadIcon, XIcon } from "lucide-vue-next";
 
 const steps: TourStepDetails[] = [
   {

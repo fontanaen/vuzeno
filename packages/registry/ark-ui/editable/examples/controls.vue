@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { CheckIcon, PencilIcon, XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Editable } from "@vuzeno/registry/ui/editable";
 import { Field } from "@vuzeno/registry/ui/field";
-import { CheckIcon, PencilIcon, XIcon } from "lucide-vue-next";
 </script>
 
 <template>

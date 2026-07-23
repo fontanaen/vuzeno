@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import type { UseAutocompleteProps } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useAutocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon } from "lucide-vue-next";
 import { computed, ref, watch, watchEffect } from "vue";
 
 type Character = {

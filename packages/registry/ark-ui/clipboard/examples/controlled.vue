@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon, ClipboardCopyIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Clipboard } from "@vuzeno/registry/ui/clipboard";
-import { CheckIcon, ClipboardCopyIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const url = ref("https://ark-ui.com");

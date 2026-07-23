@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog, useDialog } from "@vuzeno/registry/ui/dialog";
 import { Textarea } from "@vuzeno/registry/ui/textarea";
-import { XIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const formContent = ref("");

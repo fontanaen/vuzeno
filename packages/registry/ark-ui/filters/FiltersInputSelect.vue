@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Menu } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
-import { CheckIcon } from "lucide-vue-next";
 import { computed, type HTMLAttributes, watch } from "vue";
 import { Button, buttonVariants } from "../button";
 import { injectFiltersContext } from "./context";

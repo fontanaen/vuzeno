@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { CalendarDate, type DateValue, getLocalTimeZone } from "@internationalized/date";
+import { CalendarIcon } from "@lucide/vue";
 import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
 import { RangeCalendar } from "@vuzeno/ui/components/range-calendar";
 import { cn } from "cnfast";
-import { CalendarIcon } from "lucide-vue-next";
 import { Button } from "../button";
 import { injectFiltersContext } from "./context";
 import type { DateField } from "./field";

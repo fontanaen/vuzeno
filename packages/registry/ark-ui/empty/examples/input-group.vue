@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { SearchIcon } from "@lucide/vue";
 import { Empty } from "@vuzeno/registry/ui/empty";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
 import { Kbd } from "@vuzeno/ui/components/kbd";
-import { SearchIcon } from "lucide-vue-next";
 </script>
 
 <template>

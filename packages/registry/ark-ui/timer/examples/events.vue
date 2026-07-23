@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { PlayIcon, RotateCcwIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Timer } from "@vuzeno/registry/ui/timer";
-import { PlayIcon, RotateCcwIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const ticks = ref(0);

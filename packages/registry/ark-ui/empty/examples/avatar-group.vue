@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { PlusIcon } from "@lucide/vue";
 import { Avatar } from "@vuzeno/registry/ui/avatar";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Empty } from "@vuzeno/registry/ui/empty";
-import { PlusIcon } from "lucide-vue-next";
 </script>
 
 <template>

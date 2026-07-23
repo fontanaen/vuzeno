@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronRightIcon } from "@lucide/vue";
 import { JsonTreeView } from "@vuzeno/registry/ui/json-tree-view";
-import { ChevronRightIcon } from "lucide-vue-next";
 
 const data = new Map<string, unknown>([
   ["name", "ark-ui-json-tree"],

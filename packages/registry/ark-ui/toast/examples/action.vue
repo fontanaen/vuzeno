@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { createToaster, Toast } from "@vuzeno/registry/ui/toast";
-import { XIcon } from "lucide-vue-next";
 
 const toaster = createToaster({
   placement: "bottom-end",

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ZoomOutIcon } from "@lucide/vue";
 import { Button, type ButtonVariants } from "@vuzeno/ui/components/button";
-import { ZoomOutIcon } from "lucide-vue-next";
 import type { PrimitiveProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { injectGalleryContext } from "./Gallery.vue";

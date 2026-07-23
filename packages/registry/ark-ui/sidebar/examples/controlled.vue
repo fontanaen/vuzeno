@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { HomeIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Sidebar } from "@vuzeno/registry/ui/sidebar";
-import { HomeIcon } from "lucide-vue-next";
 
 const open = defineModel<boolean>("sidebarOpen", { default: true });
 

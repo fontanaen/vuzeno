@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { parseColor } from "@ark-ui/vue";
+import { Pipette, X } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ColorPicker } from "@vuzeno/registry/ui/color-picker";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
-import { Pipette, X } from "lucide-vue-next";
 </script>
 
 <template>

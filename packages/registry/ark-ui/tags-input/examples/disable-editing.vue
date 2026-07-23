@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { TagsInput } from "@vuzeno/registry/ui/tags-input";
-import { XIcon } from "lucide-vue-next";
 </script>
 
 <template>

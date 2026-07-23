@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { BookOpenIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon } from "@lucide/vue";
 import { Sidebar } from "@vuzeno/registry/ui/sidebar";
-import { BookOpenIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon } from "lucide-vue-next";
 </script>
 
 <template>

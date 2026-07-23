@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronRight, ExternalLink, File } from "@lucide/vue";
 import { TreeView } from "@vuzeno/registry/ui/tree-view";
-import { ChevronRight, ExternalLink, File } from "lucide-vue-next";
 import type { FileTreeNode } from "./tree-view-data";
 
 defineProps<{

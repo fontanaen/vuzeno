@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ark } from "@ark-ui/vue";
+import { ChevronRightIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { ChevronRightIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{

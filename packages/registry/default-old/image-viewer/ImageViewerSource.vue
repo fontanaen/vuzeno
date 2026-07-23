@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMediaQuery, useMouseInElement, watchThrottled, whenever } from "@vueuse/core";
-import { computed, nextTick, ref, watch } from "vue";
 import { Image } from "@vuzeno/registry/ui/image";
+import { computed, nextTick, ref, watch } from "vue";
 import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";
 import { calculateCursorTranslate } from "./utils";
 

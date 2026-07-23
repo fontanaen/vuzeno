@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { EyeIcon, EyeOffIcon } from "@lucide/vue";
 import { InputGroupAddon, InputGroupButton } from "@vuzeno/ui/components/input-group";
-import { EyeIcon, EyeOffIcon } from "lucide-vue-next";
 import { type HTMLAttributes } from "vue";
 import { injectPasswordFieldContext } from "./PasswordField.vue";
 

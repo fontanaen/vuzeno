@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DateInput, useDateInput } from "@vuzeno/registry/ui/date-input";
-import { XIcon } from "lucide-vue-next";
 
 const dateInput = useDateInput();
 </script>

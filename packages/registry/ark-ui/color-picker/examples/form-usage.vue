@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { parseColor } from "@ark-ui/vue";
+import { Pipette } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ColorPicker } from "@vuzeno/registry/ui/color-picker";
-import { Pipette } from "lucide-vue-next";
 
 function onSubmit(event: Event) {
   event.preventDefault();

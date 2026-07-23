@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CircleCheckIcon, CircleDashedIcon, CircleXIcon, ClockIcon, CreditCardIcon, DollarSignIcon, FileIcon } from "@lucide/vue";
 import { Badge } from "@vuzeno/registry/ui/badge";
 import { Table } from "@vuzeno/registry/ui/table";
-import { CircleCheckIcon, CircleDashedIcon, CircleXIcon, ClockIcon, CreditCardIcon, DollarSignIcon, FileIcon } from "lucide-vue-next";
 
 const statuses = {
   paid: {

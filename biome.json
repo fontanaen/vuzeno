@@ -22,9 +22,9 @@
       "vue": "all"
     },
     "rules": {
-      "recommended": true,
       "style": {
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "useVueMultiWordComponentNames": "off"
       },
       "nursery": {
         "useExplicitType": "off"

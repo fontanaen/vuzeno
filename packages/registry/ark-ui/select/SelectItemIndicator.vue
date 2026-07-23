@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Select } from "@ark-ui/vue/select";
+import { CheckIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { CheckIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

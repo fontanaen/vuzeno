@@ -86,7 +86,7 @@ export default defineNuxtConfig({
     },
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "@vueuse/core", "lucide-vue-next", "cnfast"],
+      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "@vueuse/core", "@lucide/vue", "cnfast"],
     },
   },
 

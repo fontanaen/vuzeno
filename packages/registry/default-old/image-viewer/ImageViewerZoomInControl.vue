@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ZoomInIcon } from "@lucide/vue";
 import { Button, type ButtonVariants } from "@vuzeno/ui/components/button";
-import { ZoomInIcon } from "lucide-vue-next";
 import type { PrimitiveProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { injectImageViewerProviderContext } from "./ImageViewerProvider.vue";

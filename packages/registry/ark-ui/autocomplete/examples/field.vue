@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Field } from "@vuzeno/registry/ui/field";
-import { CheckIcon, ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 
 const initialItems = [
   { label: "Engineering", value: "engineering" },

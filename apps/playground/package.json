@@ -16,7 +16,7 @@
     "@internationalized/date": "catalog:",
     "reka-ui": "catalog:",
     "@vueuse/core": "catalog:",
-    "lucide-vue-next": "^0.562.0",
+    "@lucide/vue": "^1.17.0",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
     "tw-animate-css": "catalog:",

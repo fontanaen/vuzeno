@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { RotateCcw, RotateCw } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ImageCropper } from "@vuzeno/registry/ui/image-cropper";
-import { RotateCcw, RotateCw } from "lucide-vue-next";
 import { ref } from "vue";
 
 const rotation = ref(0);

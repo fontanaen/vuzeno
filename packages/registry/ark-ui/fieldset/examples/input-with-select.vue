@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { createListCollection } from "@ark-ui/vue";
+import { ChevronsUpDownIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { Fieldset } from "@vuzeno/registry/ui/fieldset";
 import { Select } from "@vuzeno/registry/ui/select";
-import { ChevronsUpDownIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const extensions = createListCollection({

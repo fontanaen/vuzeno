@@ -9,26 +9,9 @@ const docsRoot = path.join(root, "../../apps/docs/content/docs/components");
 const IGNORE_FILES = new Set([".DS_Store", "README.md"]);
 const IGNORE_DIRS = new Set(["examples"]);
 const IGNORE_DEP_PACKAGES = new Set(["vue", "@vuzeno/ui"]);
-const KNOWN_NPM = new Set([
-  "@ark-ui/vue",
-  "@vueuse/core",
-  "@internationalized/date",
-  "libphonenumber-js",
-  "cnfast",
-  "class-variance-authority",
-  "lucide-vue-next",
-  "reka-ui",
-]);
+const KNOWN_NPM = new Set(["@ark-ui/vue", "@vueuse/core", "@internationalized/date", "libphonenumber-js", "cnfast", "class-variance-authority", "@lucide/vue", "reka-ui"]);
 
-const DEP_ORDER = [
-  "@ark-ui/vue",
-  "@vueuse/core",
-  "@internationalized/date",
-  "libphonenumber-js",
-  "class-variance-authority",
-  "lucide-vue-next",
-  "cnfast",
-];
+const DEP_ORDER = ["@ark-ui/vue", "@vueuse/core", "@internationalized/date", "libphonenumber-js", "class-variance-authority", "@lucide/vue", "cnfast"];
 
 type FileEntry = { path: string; type: "registry:component" };
 type Item = {

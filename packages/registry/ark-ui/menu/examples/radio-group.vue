@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronDownIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { CheckIcon, ChevronDownIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const sortBy = ref("date");

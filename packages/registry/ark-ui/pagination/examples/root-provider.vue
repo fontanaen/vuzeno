@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ChevronLeft, ChevronRight } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Pagination, usePagination } from "@vuzeno/registry/ui/pagination";
-import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 
 const pagination = usePagination({ count: 5000, pageSize: 10, siblingCount: 2 });
 </script>

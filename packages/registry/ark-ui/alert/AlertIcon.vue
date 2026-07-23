@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { BellIcon, CircleAlertIcon, CircleCheckIcon, InfoIcon, ShieldAlertIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { BellIcon, CircleAlertIcon, CircleCheckIcon, InfoIcon, ShieldAlertIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { computed } from "vue";
 import { injectAlertContext } from "./context";

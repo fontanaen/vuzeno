@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { TerminalIcon } from "@lucide/vue";
 import { Tabs } from "@vuzeno/registry/ui/tabs";
-import { TerminalIcon } from "lucide-vue-next";
 
 const props = defineProps<{
   code: string;

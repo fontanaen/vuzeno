@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { PencilIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Editable, useEditable } from "@vuzeno/registry/ui/editable";
 import { Field } from "@vuzeno/registry/ui/field";
-import { PencilIcon } from "lucide-vue-next";
 
 const editable = useEditable({ defaultValue: "Hello World" });
 </script>

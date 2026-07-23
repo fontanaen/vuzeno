@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
-import { CheckIcon } from "lucide-vue-next";
 import { type FiltersSize, injectFiltersContext } from "./context";
 import type { Operator } from "./operator";
 import { DropdownItemSizeVariant, PopoverTriggerSizeVariant } from "./sizes";

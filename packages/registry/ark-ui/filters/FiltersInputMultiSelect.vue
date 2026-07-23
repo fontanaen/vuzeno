@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { CheckboxCheckedChangeDetails } from "@ark-ui/vue/checkbox";
+import { SearchIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Checkbox } from "@vuzeno/registry/ui/checkbox";
 import { Menu } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
-import { SearchIcon } from "lucide-vue-next";
 import { computed, type HTMLAttributes, isVNode, watch } from "vue";
 import { Button, buttonVariants } from "../button";
 import { injectFiltersContext } from "./context";

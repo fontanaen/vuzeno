@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Pagination } from "@vuzeno/registry/ui/pagination";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-vue-next";
 </script>
 
 <template>

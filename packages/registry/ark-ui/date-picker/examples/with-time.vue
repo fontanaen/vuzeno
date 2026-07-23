@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { DatePickerValueChangeDetails } from "@ark-ui/vue";
 import { CalendarDateTime, DateFormatter, getLocalTimeZone } from "@internationalized/date";
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-vue-next";
 import { computed, ref } from "vue";
 
 const formatter = new DateFormatter("en-US", {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronLeft, ChevronRight } from "@lucide/vue";
 import { Pagination } from "@vuzeno/registry/ui/pagination";
-import { ChevronLeft, ChevronRight } from "lucide-vue-next";
 
 const users = [
   { id: 1, name: "Emma Wilson", email: "emma@example.com" },

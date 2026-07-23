@@ -19,6 +19,7 @@
       "dependencies": {
         "@ark-ui/vue": "catalog:",
         "@fontsource-variable/rubik": "^5.2.8",
+        "@lucide/vue": "^1.17.0",
         "@nuxt/content": "^3.12.0",
         "@nuxt/fonts": "0.14.0",
         "@nuxtjs/color-mode": "^4.0.0",
@@ -31,7 +32,6 @@
         "@vuzeno/tailwind-config": "workspace:*",
         "@vuzeno/ui": "workspace:*",
         "cnfast": "^0.0.8",
-        "lucide-vue-next": "^0.577.0",
         "nuxt": "4.5.0",
         "nuxt-llms": "^0.2.0",
         "nuxt-shiki": "0.3.2",
@@ -53,12 +53,12 @@
       "version": "0.0.0",
       "dependencies": {
         "@internationalized/date": "catalog:",
+        "@lucide/vue": "^1.17.0",
         "@tailwindcss/vite": "^4.1.16",
         "@vueuse/core": "catalog:",
         "@vuzeno/registry": "workspace:*",
         "@vuzeno/tailwind-config": "workspace:*",
         "@vuzeno/ui": "workspace:*",
-        "lucide-vue-next": "^0.562.0",
         "reka-ui": "catalog:",
         "tailwindcss": "catalog:",
         "tailwindcss-animate": "catalog:",
@@ -82,11 +82,11 @@
       "name": "@vuzeno/cli",
       "dependencies": {
         "@internationalized/date": "catalog:",
+        "@lucide/vue": "^1.17.0",
         "@vueuse/core": "catalog:",
         "@vuzeno/ui": "workspace:*",
         "class-variance-authority": "^0.7.1",
         "libphonenumber-js": "catalog:",
-        "lucide-vue-next": "^0.562.0",
         "reka-ui": "catalog:",
         "vue": "catalog:",
       },
@@ -102,12 +102,12 @@
       "dependencies": {
         "@ark-ui/vue": "catalog:",
         "@internationalized/date": "catalog:",
+        "@lucide/vue": "^1.17.0",
         "@vueuse/core": "catalog:",
         "@vuzeno/ui": "workspace:*",
         "class-variance-authority": "^0.7.1",
         "cnfast": "^0.0.8",
         "libphonenumber-js": "catalog:",
-        "lucide-vue-next": "^0.562.0",
         "vue": "catalog:",
       },
       "devDependencies": {
@@ -128,7 +128,6 @@
         "class-variance-authority": "^0.7.1",
         "cnfast": "^0.0.8",
         "embla-carousel-vue": "^8.6.0",
-        "lucide-vue-next": "^0.562.0",
         "reka-ui": "^2.9.9",
         "tw-animate-css": "catalog:",
         "vaul-vue": "^0.4.1",
@@ -2051,8 +2050,6 @@
 
     "lru-cache": ["lru-cache@11.5.2", "", {}, "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g=="],
 
-    "lucide-vue-next": ["lucide-vue-next@0.562.0", "", { "peerDependencies": { "vue": ">=3.0.1" } }, "sha512-LN0BLGKMFulv0lnfK29r14DcngRUhIqdcaL0zXTt2o0oS9odlrjCGaU3/X9hIihOjjN8l8e+Y9G/famcNYaI7Q=="],
-
     "magic-regexp": ["magic-regexp@0.10.0", "", { "dependencies": { "estree-walker": "^3.0.3", "magic-string": "^0.30.12", "mlly": "^1.7.2", "regexp-tree": "^0.1.27", "type-level-regexp": "~0.1.17", "ufo": "^1.5.4", "unplugin": "^2.0.0" } }, "sha512-Uly1Bu4lO1hwHUW0CQeSWuRtzCMNO00CmXtS8N6fyvB3B979GOEEeAkiTUDsmbYLAbvpUS/Kt5c4ibosAzVyVg=="],
 
     "magic-string": ["magic-string@0.30.21", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ=="],
@@ -3067,7 +3064,7 @@
 
     "@vue/devtools-kit/birpc": ["birpc@2.9.0", "", {}, "sha512-KrayHS5pBi69Xi9JmvoqrIgYGDkD6mcSe/i6YKi3w5kekCLzrX4+nawcXqrj2tIp50Kw/mT/s3p+GVK0A0sKxw=="],
 
-    "@vuzeno/docs/lucide-vue-next": ["lucide-vue-next@0.577.0", "", { "peerDependencies": { "vue": ">=3.0.1" } }, "sha512-py05bAfv9SHVJqscbiOnjcnLlEmOffA58a+7XhZuFxrs6txe1E8VoR1ngWGTYO+9aVKABAz8l3ee3PqiQN9QPA=="],
+    "@vuzeno/playground/tailwindcss": ["tailwindcss@4.3.3", "", {}, "sha512-gOhV3P7ufE62QDGg1zVaTgCR+EtPv92k2nIhVcVKcLmxT1sUBsQGhnZj175j+MqRt4zLF7ic+sCYjfhxMxj7YQ=="],
 
     "@vuzeno/playground/typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 

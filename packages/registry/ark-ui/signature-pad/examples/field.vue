@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { RotateCcwIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { SignaturePad } from "@vuzeno/registry/ui/signature-pad";
-import { RotateCcwIcon } from "lucide-vue-next";
 </script>
 
 <template>

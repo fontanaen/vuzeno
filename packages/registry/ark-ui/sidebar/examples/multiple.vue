@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { BellIcon, HomeIcon } from "@lucide/vue";
 import { Sidebar } from "@vuzeno/registry/ui/sidebar";
-import { BellIcon, HomeIcon } from "lucide-vue-next";
 </script>
 
 <template>

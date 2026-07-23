@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog, useDialog } from "@vuzeno/registry/ui/dialog";
-import { XIcon } from "lucide-vue-next";
 
 const parentDialog = useDialog();
 const childDialog = useDialog();

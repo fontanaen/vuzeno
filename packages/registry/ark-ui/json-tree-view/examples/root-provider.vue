@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronRightIcon } from "@lucide/vue";
 import { JsonTreeView, useJsonTreeView } from "@vuzeno/registry/ui/json-tree-view";
-import { ChevronRightIcon } from "lucide-vue-next";
 
 const jsonTreeView = useJsonTreeView({
   defaultExpandedDepth: 1,

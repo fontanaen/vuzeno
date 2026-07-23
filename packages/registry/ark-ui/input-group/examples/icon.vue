@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckIcon, CreditCardIcon, InfoIcon, MailIcon, SearchIcon, StarIcon } from "@lucide/vue";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
-import { CheckIcon, CreditCardIcon, InfoIcon, MailIcon, SearchIcon, StarIcon } from "lucide-vue-next";
 </script>
 
 <template>

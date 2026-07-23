@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckIcon, MinusIcon } from "@lucide/vue";
 import { createListCollection, Listbox, type UseListboxContext } from "@vuzeno/registry/ui/listbox";
-import { CheckIcon, MinusIcon } from "lucide-vue-next";
 
 const frameworks = createListCollection({
   items: [

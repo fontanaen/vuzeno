@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@vuzeno/ui/components/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
 import { cn } from "cnfast";
-import { CheckIcon } from "lucide-vue-next";
 import type { AcceptableValue } from "reka-ui";
 import { computed, type HTMLAttributes, isVNode, ref } from "vue";
 import { injectFiltersContext } from "./context";

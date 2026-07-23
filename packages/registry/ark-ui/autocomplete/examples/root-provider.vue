@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import { Autocomplete, useAutocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Button } from "@vuzeno/registry/ui/button";
-import { CheckIcon, ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 
 const initialItems = [
   { label: "Designer", value: "designer" },

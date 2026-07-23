@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { BellIcon, CreditCardIcon, ShieldIcon, UserIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 import { Sidebar } from "@vuzeno/registry/ui/sidebar";
-import { BellIcon, CreditCardIcon, ShieldIcon, UserIcon } from "lucide-vue-next";
 </script>
 
 <template>

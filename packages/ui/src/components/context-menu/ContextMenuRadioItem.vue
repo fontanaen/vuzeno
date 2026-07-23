@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactiveOmit } from "@vueuse/core";
-import { Circle } from "lucide-vue-next";
+import { Circle } from "@lucide/vue";
 import type { ContextMenuRadioItemEmits, ContextMenuRadioItemProps } from "reka-ui";
 import { ContextMenuItemIndicator, ContextMenuRadioItem, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";

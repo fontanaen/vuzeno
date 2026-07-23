@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { ListFilterPlusIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
 import { cn } from "cnfast";
-import { ListFilterPlusIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { type FiltersSize, injectFiltersContext } from "./context";
 

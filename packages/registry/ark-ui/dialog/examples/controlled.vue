@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
-import { XIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const open = ref(false);

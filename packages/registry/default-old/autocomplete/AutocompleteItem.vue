@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { ComboboxItem } from "@vuzeno/ui/components/combobox";
-import { CheckIcon } from "lucide-vue-next";
 import { type ComboboxItemEmits, ComboboxItemIndicator, type ComboboxItemProps, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 

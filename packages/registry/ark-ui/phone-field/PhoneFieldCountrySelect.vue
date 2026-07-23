@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails, AutocompleteValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { cn } from "cnfast";
 import { type CountryCode, getCountries, getCountryCallingCode } from "libphonenumber-js";
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
 import { computed, watch } from "vue";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 import { injectPhoneFieldContext } from "./PhoneFieldRoot.vue";

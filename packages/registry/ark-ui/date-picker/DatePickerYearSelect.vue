@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DatePicker } from "@ark-ui/vue/date-picker";
+import { ChevronDownIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { ChevronDownIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

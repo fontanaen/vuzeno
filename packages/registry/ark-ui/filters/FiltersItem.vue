@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { XIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { Button } from "../button";
 import { ButtonGroup } from "../button-group";

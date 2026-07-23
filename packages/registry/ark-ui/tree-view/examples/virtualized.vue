@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { ChevronRight, File, Folder } from "@lucide/vue";
 import { useVirtualizer } from "@tanstack/vue-virtual";
 import { Button } from "@vuzeno/registry/ui/button";
 import { createTreeCollection, TreeView, useTreeView } from "@vuzeno/registry/ui/tree-view";
-import { ChevronRight, File, Folder } from "lucide-vue-next";
 import { computed, nextTick, ref } from "vue";
 import type { FileTreeNode } from "./tree-view-data";
 

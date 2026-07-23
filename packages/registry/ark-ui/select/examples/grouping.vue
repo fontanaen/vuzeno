@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { createListCollection, Select } from "@vuzeno/registry/ui/select";
-import { ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 
 const collection = createListCollection({
   items: [

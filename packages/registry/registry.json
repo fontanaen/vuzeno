@@ -8,11 +8,7 @@
       "type": "registry:component",
       "title": "Accordion",
       "description": "Accordion component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -62,11 +58,7 @@
       "type": "registry:component",
       "title": "ActionSheet",
       "description": "A bottom sheet dialog for actions with a promise-based selection API.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -120,12 +112,7 @@
       "type": "registry:component",
       "title": "Alert",
       "description": "Displays a callout for user attention.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "class-variance-authority",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "class-variance-authority", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -163,14 +150,8 @@
       "type": "registry:component",
       "title": "Alert Dialog",
       "description": "Alert dialog for critical confirmations and destructive actions, built on Ark UI Dialog.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
-      "registryDependencies": [
-        "dialog"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "registryDependencies": ["dialog"],
       "files": [
         {
           "path": "ark-ui/alert-dialog/alert-dialog.ts",
@@ -203,11 +184,7 @@
       "type": "registry:component",
       "title": "Angle Slider",
       "description": "Angle Slider component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -265,12 +242,7 @@
       "type": "registry:component",
       "title": "Autocomplete",
       "description": "Autocomplete component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -384,12 +356,7 @@
       "type": "registry:component",
       "title": "Avatar",
       "description": "Avatar component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -431,11 +398,7 @@
       "type": "registry:component",
       "title": "Badge",
       "description": "Badge component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -453,11 +416,7 @@
       "type": "registry:component",
       "title": "Breadcrumb",
       "description": "Displays the path to the current resource using a hierarchy of links.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -503,11 +462,7 @@
       "type": "registry:component",
       "title": "Button",
       "description": "Button component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -525,15 +480,8 @@
       "type": "registry:component",
       "title": "Button Group",
       "description": "Groups related buttons with shared borders and spacing.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "cnfast"
-      ],
-      "registryDependencies": [
-        "separator"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
+      "registryDependencies": ["separator"],
       "files": [
         {
           "path": "ark-ui/button-group/ButtonGroup.vue",
@@ -558,10 +506,7 @@
       "type": "registry:component",
       "title": "Card",
       "description": "Composable card layout with header, content, and footer sections.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -603,12 +548,7 @@
       "type": "registry:component",
       "title": "Carousel",
       "description": "Carousel component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -682,12 +622,7 @@
       "type": "registry:component",
       "title": "Checkbox",
       "description": "Checkbox component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -741,12 +676,7 @@
       "type": "registry:component",
       "title": "Clipboard",
       "description": "Clipboard component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -792,11 +722,7 @@
       "type": "registry:component",
       "title": "Collapsible",
       "description": "Collapsible component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -842,11 +768,7 @@
       "type": "registry:component",
       "title": "Color Picker",
       "description": "Color Picker component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -980,11 +902,7 @@
       "type": "registry:component",
       "title": "Date Input",
       "description": "Date Input component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1038,12 +956,7 @@
       "type": "registry:component",
       "title": "Date Picker",
       "description": "Date Picker component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1177,12 +1090,7 @@
       "type": "registry:component",
       "title": "Dialog",
       "description": "Dialog component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1256,12 +1164,8 @@
       "type": "registry:component",
       "title": "DialogCaller",
       "description": "Programmatically call Vue components with a promise-based stack API.",
-      "dependencies": [
-        "@ark-ui/vue"
-      ],
-      "registryDependencies": [
-        "dialog"
-      ],
+      "dependencies": ["@ark-ui/vue"],
+      "registryDependencies": ["dialog"],
       "files": [
         {
           "path": "ark-ui/dialog-caller/context.ts",
@@ -1306,11 +1210,7 @@
       "type": "registry:component",
       "title": "Drawer",
       "description": "Drawer component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1384,11 +1284,7 @@
       "type": "registry:component",
       "title": "Editable",
       "description": "Editable component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1442,11 +1338,7 @@
       "type": "registry:component",
       "title": "Empty",
       "description": "Composable empty state with header, media, and actions.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1488,12 +1380,7 @@
       "type": "registry:component",
       "title": "Field",
       "description": "Field component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1555,11 +1442,7 @@
       "type": "registry:component",
       "title": "Fieldset",
       "description": "Fieldset component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1601,11 +1484,7 @@
       "type": "registry:component",
       "title": "File Upload",
       "description": "File Upload component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1683,25 +1562,8 @@
       "type": "registry:component",
       "title": "Filters",
       "description": "A composable filter system with typed fields, operators, and filter chips.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@internationalized/date",
-        "class-variance-authority",
-        "lucide-vue-next",
-        "cnfast"
-      ],
-      "registryDependencies": [
-        "autocomplete",
-        "button",
-        "button-group",
-        "checkbox",
-        "date-picker",
-        "menu",
-        "number-input",
-        "popover",
-        "slider",
-        "switch"
-      ],
+      "dependencies": ["@ark-ui/vue", "@internationalized/date", "class-variance-authority", "@lucide/vue", "cnfast"],
+      "registryDependencies": ["autocomplete", "button", "button-group", "checkbox", "date-picker", "menu", "number-input", "popover", "slider", "switch"],
       "files": [
         {
           "path": "ark-ui/filters/context.ts",
@@ -1826,11 +1688,7 @@
       "type": "registry:component",
       "title": "Floating Panel",
       "description": "Floating Panel component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1904,10 +1762,7 @@
       "type": "registry:component",
       "title": "Format",
       "description": "Format component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1941,11 +1796,7 @@
       "type": "registry:component",
       "title": "Hover Card",
       "description": "Hover Card component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -1995,11 +1846,7 @@
       "type": "registry:component",
       "title": "Image",
       "description": "Composable image component with loading state management and fallback support.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2037,11 +1884,7 @@
       "type": "registry:component",
       "title": "Image Cropper",
       "description": "Image Cropper component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2091,12 +1934,7 @@
       "type": "registry:component",
       "title": "Input",
       "description": "Styled input component with size variants.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2114,16 +1952,8 @@
       "type": "registry:component",
       "title": "Input Group",
       "description": "Composable input group with addons, text, and buttons.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "class-variance-authority",
-        "cnfast"
-      ],
-      "registryDependencies": [
-        "button",
-        "input",
-        "textarea"
-      ],
+      "dependencies": ["@ark-ui/vue", "class-variance-authority", "cnfast"],
+      "registryDependencies": ["button", "input", "textarea"],
       "files": [
         {
           "path": "ark-ui/input-group/index.ts",
@@ -2164,12 +1994,7 @@
       "type": "registry:component",
       "title": "Json Tree View",
       "description": "Json Tree View component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2199,11 +2024,7 @@
       "type": "registry:component",
       "title": "Listbox",
       "description": "Listbox component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2277,11 +2098,7 @@
       "type": "registry:component",
       "title": "Marquee",
       "description": "Marquee component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2327,13 +2144,7 @@
       "type": "registry:component",
       "title": "Menu",
       "description": "Menu component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2439,11 +2250,7 @@
       "type": "registry:component",
       "title": "Number Input",
       "description": "Number Input component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2505,11 +2312,7 @@
       "type": "registry:component",
       "title": "Pagination",
       "description": "Pagination component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2563,12 +2366,7 @@
       "type": "registry:component",
       "title": "Password Input",
       "description": "Password Input component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2610,18 +2408,8 @@
       "type": "registry:component",
       "title": "Phone Field",
       "description": "Phone number input with country selector, libphonenumber-js validation, and E.164 output.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "libphonenumber-js",
-        "class-variance-authority",
-        "lucide-vue-next",
-        "cnfast"
-      ],
-      "registryDependencies": [
-        "autocomplete",
-        "button-group"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "libphonenumber-js", "class-variance-authority", "@lucide/vue", "cnfast"],
+      "registryDependencies": ["autocomplete", "button-group"],
       "files": [
         {
           "path": "ark-ui/phone-field/index.ts",
@@ -2670,11 +2458,7 @@
       "type": "registry:component",
       "title": "Pin Input",
       "description": "Pin Input component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2720,11 +2504,7 @@
       "type": "registry:component",
       "title": "Popover",
       "description": "Popover component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2790,11 +2570,7 @@
       "type": "registry:component",
       "title": "Progress Circular",
       "description": "Circular progress indicator built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2860,11 +2636,7 @@
       "type": "registry:component",
       "title": "Progress Linear",
       "description": "Linear progress bar component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2902,11 +2674,7 @@
       "type": "registry:component",
       "title": "Qr Code",
       "description": "Qr Code component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2952,11 +2720,7 @@
       "type": "registry:component",
       "title": "Radio Group",
       "description": "Radio Group component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3010,11 +2774,7 @@
       "type": "registry:component",
       "title": "Rating Group",
       "description": "Rating Group component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3064,11 +2824,7 @@
       "type": "registry:component",
       "title": "Scroll Area",
       "description": "Scroll Area component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3122,11 +2878,7 @@
       "type": "registry:component",
       "title": "Segment Group",
       "description": "Segment Group component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3184,12 +2936,7 @@
       "type": "registry:component",
       "title": "Select",
       "description": "Select component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3275,10 +3022,7 @@
       "type": "registry:component",
       "title": "Separator",
       "description": "Visually or semantically separates content.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3296,20 +3040,8 @@
       "type": "registry:component",
       "title": "Sidebar",
       "description": "Composable sidebar layout with responsive drawer, icon collapse, and hover flyout submenus.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "lucide-vue-next",
-        "cnfast"
-      ],
-      "registryDependencies": [
-        "button",
-        "collapsible",
-        "drawer",
-        "menu",
-        "tooltip"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "@lucide/vue", "cnfast"],
+      "registryDependencies": ["button", "collapsible", "drawer", "menu", "tooltip"],
       "files": [
         {
           "path": "ark-ui/sidebar/context.ts",
@@ -3442,11 +3174,7 @@
       "type": "registry:component",
       "title": "Signature Pad",
       "description": "Signature Pad component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3500,11 +3228,7 @@
       "type": "registry:component",
       "title": "Slider",
       "description": "Slider component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3574,11 +3298,7 @@
       "type": "registry:component",
       "title": "Splitter",
       "description": "Splitter component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3620,11 +3340,7 @@
       "type": "registry:component",
       "title": "Steps",
       "description": "Steps component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3698,12 +3414,7 @@
       "type": "registry:component",
       "title": "Switch",
       "description": "Switch component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3757,10 +3468,7 @@
       "type": "registry:component",
       "title": "Table",
       "description": "Composable table layout with header, body, footer, and empty states.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3814,11 +3522,7 @@
       "type": "registry:component",
       "title": "Tabs",
       "description": "Tabs component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3868,12 +3572,7 @@
       "type": "registry:component",
       "title": "Tags Input",
       "description": "Tags Input component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3939,10 +3638,7 @@
       "type": "registry:component",
       "title": "Textarea",
       "description": "Styled textarea component for multi-line text input.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3960,10 +3656,7 @@
       "type": "registry:component",
       "title": "Timeline",
       "description": "A vertical or horizontal thread for displaying sequential data with composable items, markers, and content.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4009,11 +3702,7 @@
       "type": "registry:component",
       "title": "Timer",
       "description": "Timer component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4071,13 +3760,7 @@
       "type": "registry:component",
       "title": "Toast",
       "description": "Toast component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "lucide-vue-next",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "@lucide/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4131,12 +3814,7 @@
       "type": "registry:component",
       "title": "Toggle",
       "description": "Toggle component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4170,12 +3848,7 @@
       "type": "registry:component",
       "title": "Toggle Group",
       "description": "Toggle Group component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "class-variance-authority",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4217,11 +3890,7 @@
       "type": "registry:component",
       "title": "Tooltip",
       "description": "Tooltip component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4263,11 +3932,7 @@
       "type": "registry:component",
       "title": "Tour",
       "description": "Tour component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4345,11 +4010,7 @@
       "type": "registry:component",
       "title": "Tree View",
       "description": "Tree View component built on Ark UI.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@vueuse/core",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -4447,10 +4108,7 @@
       "type": "registry:component",
       "title": "Typography",
       "description": "Styles for headings, paragraphs, lists, and more — with responsive defaults.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "cnfast"
-      ],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {

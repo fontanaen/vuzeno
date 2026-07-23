@@ -2,6 +2,6 @@
   "root": false,
   "extends": "//",
   "files": {
-    "includes": ["!**/*.d.ts", "!public/**/*", "!.vercel/**/*", "!.output/**/*", "!.nuxt/**/*"]
+    "includes": ["!**/*.d.ts", "!public/**/*", "!.vercel/**/*", "!.output/**/*", "!.nuxt/**/*", "!dist/**/*"]
   }
 }

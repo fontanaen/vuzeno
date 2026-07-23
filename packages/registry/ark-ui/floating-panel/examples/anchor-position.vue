@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ArrowDownLeft, GripVertical, Maximize2, Minus, XIcon } from "@lucide/vue";
 import type { FloatingPanelAnchorPositionDetails } from "@vuzeno/registry/ui/floating-panel";
 import { FloatingPanel } from "@vuzeno/registry/ui/floating-panel";
-import { ArrowDownLeft, GripVertical, Maximize2, Minus, XIcon } from "lucide-vue-next";
 
 function getAnchorPosition({ triggerRect }: FloatingPanelAnchorPositionDetails) {
   if (!triggerRect) {

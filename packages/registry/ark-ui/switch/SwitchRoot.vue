@@ -6,12 +6,17 @@ import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 import { provideSwitchContext, type SwitchSize } from "./context";
 
-const props = withDefaults(defineProps<SwitchRootProps & {
-  class?: HTMLAttributes["class"];
-  size?: SwitchSize;
-}>(), {
-  size: "default",
-});
+const props = withDefaults(
+  defineProps<
+    SwitchRootProps & {
+      class?: HTMLAttributes["class"];
+      size?: SwitchSize;
+    }
+  >(),
+  {
+    size: "default",
+  },
+);
 const emits = defineEmits<SwitchRootEmits>();
 
 const rootProps = reactiveOmit(props, "class", "size");

@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { FlipHorizontal, RefreshCw, RotateCcw, RotateCw, ZoomIn, ZoomOut } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ImageCropper, useImageCropper } from "@vuzeno/registry/ui/image-cropper";
-import { FlipHorizontal, RefreshCw, RotateCcw, RotateCw, ZoomIn, ZoomOut } from "lucide-vue-next";
 
 const imageCropper = useImageCropper();
 </script>

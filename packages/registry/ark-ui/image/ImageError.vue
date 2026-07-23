@@ -3,9 +3,11 @@ import { ark, type PolymorphicProps } from "@ark-ui/vue";
 import type { HTMLAttributes } from "vue";
 import { injectImageContext } from "./ImageRoot.vue";
 
-const props = defineProps<{
-  class?: HTMLAttributes["class"];
-} & PolymorphicProps>();
+const props = defineProps<
+  {
+    class?: HTMLAttributes["class"];
+  } & PolymorphicProps
+>();
 
 const { state } = injectImageContext();
 </script>

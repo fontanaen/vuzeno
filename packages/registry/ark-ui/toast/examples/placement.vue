@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { X } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { createToaster, Toast } from "@vuzeno/registry/ui/toast";
-import { X } from "lucide-vue-next";
 
 const toaster = createToaster({
   placement: "top-end",

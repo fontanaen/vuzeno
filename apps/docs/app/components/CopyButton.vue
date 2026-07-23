@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { CheckIcon, CopyIcon } from "@lucide/vue";
 import { useClipboard } from "@vueuse/core";
 import type { ButtonVariants } from "@vuzeno/registry/ui/button";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Tooltip } from "@vuzeno/registry/ui/tooltip";
 import { cn } from "cnfast";
-import { CheckIcon, CopyIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { toRefs } from "vue";
 

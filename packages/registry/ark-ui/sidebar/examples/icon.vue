@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronRightIcon, CreditCardIcon, HomeIcon, SettingsIcon, UserIcon } from "@lucide/vue";
 import { Sidebar } from "@vuzeno/registry/ui/sidebar";
-import { ChevronRightIcon, CreditCardIcon, HomeIcon, SettingsIcon, UserIcon } from "lucide-vue-next";
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Listbox, useListCollection } from "@ark-ui/vue";
+import { SearchIcon } from "@lucide/vue";
 import { useHotkey } from "@tanstack/vue-hotkeys";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 import { Kbd, KbdGroup } from "@vuzeno/ui/components/kbd";
-import { SearchIcon } from "lucide-vue-next";
 import { useIsMac } from "~/composables/use-is-mac";
 
 const open = ref(false);

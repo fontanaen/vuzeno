@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ArrowLeftRightIcon, MinusIcon, PlusIcon } from "@lucide/vue";
 import { NumberInput } from "@vuzeno/registry/ui/number-input";
-import { ArrowLeftRightIcon, MinusIcon, PlusIcon } from "lucide-vue-next";
 </script>
 
 <template>

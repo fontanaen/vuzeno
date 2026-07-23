@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { HeartIcon } from "@lucide/vue";
 import { Toggle } from "@vuzeno/registry/ui/toggle";
-import { HeartIcon } from "lucide-vue-next";
 </script>
 
 <template>

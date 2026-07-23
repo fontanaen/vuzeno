@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { RotateCcwIcon } from "@lucide/vue";
 import { SignaturePad, useSignaturePad } from "@vuzeno/registry/ui/signature-pad";
-import { RotateCcwIcon } from "lucide-vue-next";
 
 const signaturePad = useSignaturePad();
 </script>

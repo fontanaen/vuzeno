@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-vue-next";
 </script>
 
 <template>

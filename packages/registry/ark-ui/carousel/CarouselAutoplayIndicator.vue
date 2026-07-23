@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Carousel, type CarouselAutoplayIndicatorProps } from "@ark-ui/vue/carousel";
+import { PauseIcon, PlayIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { PauseIcon, PlayIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<CarouselAutoplayIndicatorProps & { class?: HTMLAttributes["class"] }>();

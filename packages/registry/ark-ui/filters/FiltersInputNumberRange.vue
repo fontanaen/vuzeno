@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { MoveHorizontalIcon } from "@lucide/vue";
 import { Popover } from "@vuzeno/registry/ui/popover";
 import { Slider } from "@vuzeno/registry/ui/slider";
 import { cn } from "cnfast";
-import { MoveHorizontalIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { buttonVariants } from "../button";
 import { injectFiltersContext } from "./context";

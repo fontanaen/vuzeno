@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { JsonTreeView, type JsonTreeViewTreeProps } from "@ark-ui/vue/json-tree-view";
+import { ChevronRightIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { ChevronRightIcon } from "lucide-vue-next";
 import { type HTMLAttributes, useSlots } from "vue";
 
 const props = withDefaults(defineProps<JsonTreeViewTreeProps & { class?: HTMLAttributes["class"] }>(), { indentGuide: true });

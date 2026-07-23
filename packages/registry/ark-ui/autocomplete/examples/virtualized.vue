@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon } from "@lucide/vue";
 import { useVirtualizer } from "@tanstack/vue-virtual";
 import type { AutocompleteInputValueChangeDetails, UseAutocompleteProps } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
 import { computed, ref } from "vue";
 
 type Country = {

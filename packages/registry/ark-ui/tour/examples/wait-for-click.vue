@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { SparklesIcon, XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Tour, type TourStepDetails, useTour, waitForEvent } from "@vuzeno/registry/ui/tour";
-import { SparklesIcon, XIcon } from "lucide-vue-next";
 
 const steps: TourStepDetails[] = [
   {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Highlight } from "@ark-ui/vue";
+import { ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 
 function containsFilter(itemString: string, filterText: string) {
   return itemString.toLowerCase().includes(filterText.toLowerCase());

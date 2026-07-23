@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ListFilterPlusIcon } from "@lucide/vue";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { ListFilterPlusIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { Button } from "../button";
 import { injectFiltersContext } from "./context";

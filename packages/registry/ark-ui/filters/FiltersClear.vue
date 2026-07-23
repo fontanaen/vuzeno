@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ark } from "@ark-ui/vue";
+import { FunnelXIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { FunnelXIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { type ButtonVariantsProps, buttonVariants } from "../button";
 import { injectFiltersContext } from "./context";

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { today } from "@internationalized/date";
+import { CalendarIcon, CircleDashedIcon, CircleIcon, CircleMinusIcon, CircleOffIcon, DollarSignIcon, SearchIcon, TagIcon, ToggleRightIcon } from "@lucide/vue";
 import type { Filter, FiltersSize, FiltersVariant } from "@vuzeno/registry/ui/filters";
 import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
-import { CalendarIcon, CircleDashedIcon, CircleIcon, CircleMinusIcon, CircleOffIcon, DollarSignIcon, SearchIcon, TagIcon, ToggleRightIcon } from "lucide-vue-next";
 import { type Component, h, type Ref, ref, type VNode } from "vue";
 
 const statusItems = [

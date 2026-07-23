@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronDownIcon, CopyIcon } from "@lucide/vue";
 import type { ContentCollectionItem } from "@nuxt/content";
 import { isClient, useClipboard } from "@vueuse/core";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
 import { Popover } from "@vuzeno/registry/ui/popover";
 import { Separator } from "@vuzeno/ui/components/separator";
-import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-vue-next";
 
 const props = defineProps<{
   page: ContentCollectionItem;

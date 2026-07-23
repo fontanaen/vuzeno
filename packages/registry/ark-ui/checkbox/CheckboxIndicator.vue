@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Checkbox, type CheckboxIndicatorProps } from "@ark-ui/vue/checkbox";
+import { CheckIcon, MinusIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { CheckIcon, MinusIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<CheckboxIndicatorProps & { class?: HTMLAttributes["class"] }>();

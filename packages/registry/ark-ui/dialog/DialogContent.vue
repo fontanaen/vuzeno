@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Dialog, type DialogContentProps } from "@ark-ui/vue/dialog";
+import { XIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { XIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { Button } from "../button";
 

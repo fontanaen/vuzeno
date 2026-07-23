@@ -3,8 +3,6 @@ import { Field } from "@ark-ui/vue/field";
 import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 
-
-
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 </script>
 

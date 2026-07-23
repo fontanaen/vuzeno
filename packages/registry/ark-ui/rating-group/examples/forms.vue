@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { StarIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Field } from "@vuzeno/registry/ui/field";
 import { RatingGroup } from "@vuzeno/registry/ui/rating-group";
-import { StarIcon } from "lucide-vue-next";
 
 function onSubmit(event: Event) {
   event.preventDefault();

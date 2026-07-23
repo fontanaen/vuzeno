@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { StarIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { RatingGroup, useRatingGroup } from "@vuzeno/registry/ui/rating-group";
-import { StarIcon } from "lucide-vue-next";
 
 const ratingGroup = useRatingGroup({ defaultValue: 3 });
 </script>

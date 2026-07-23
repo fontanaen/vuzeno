@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { ButtonGroup } from "@vuzeno/ui/components/button-group";
 import { cn } from "cnfast";
-import { XIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { type FiltersSize, injectFiltersContext, injectFiltersStyleContext } from "./context";
 import FiltersItemField from "./FiltersItemField.vue";

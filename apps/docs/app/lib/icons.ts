@@ -1,4 +1,4 @@
-import { FileIcon } from "lucide-vue-next";
+import { FileIcon } from "@lucide/vue";
 import type { VNode } from "vue";
 import { defineComponent, h } from "vue";
 

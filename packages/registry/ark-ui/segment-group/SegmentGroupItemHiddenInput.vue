@@ -3,8 +3,6 @@ import { SegmentGroup } from "@ark-ui/vue/segment-group";
 import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 
-
-
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 </script>
 

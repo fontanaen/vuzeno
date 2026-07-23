@@ -3,8 +3,6 @@ import { Combobox } from "@ark-ui/vue/combobox";
 import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 
-
-
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 </script>
 

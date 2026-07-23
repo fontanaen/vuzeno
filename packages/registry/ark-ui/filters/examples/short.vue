@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { DollarSignIcon, TagIcon, UserIcon } from "@lucide/vue";
 import { Field as UiField } from "@vuzeno/registry/ui/field";
 import type { Filter, FiltersSize, FiltersVariant } from "@vuzeno/registry/ui/filters";
 import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
 import { SegmentGroup } from "@vuzeno/registry/ui/segment-group";
-import { DollarSignIcon, TagIcon, UserIcon } from "lucide-vue-next";
 import { type Ref, ref } from "vue";
 
 const variant = ref<FiltersVariant>("outline");

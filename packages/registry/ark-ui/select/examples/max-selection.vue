@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SelectValueChangeDetails } from "@ark-ui/vue/select";
+import { ChevronsUpDownIcon, XIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { createListCollection, Select } from "@vuzeno/registry/ui/select";
-import { ChevronsUpDownIcon, XIcon } from "lucide-vue-next";
 import { computed, ref } from "vue";
 
 const items = ["React", "Solid", "Vue", "Svelte"];

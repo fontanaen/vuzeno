@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { MinusIcon, PlusIcon } from "@lucide/vue";
 import { NumberInput } from "@vuzeno/registry/ui/number-input";
 import { cn } from "cnfast";
-import { MinusIcon, PlusIcon } from "lucide-vue-next";
 import { type HTMLAttributes } from "vue";
 import { injectFiltersContext } from "./context";
 import type { NumberField as NumberFieldDef } from "./field";

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { CalendarDate, type DateValue, getLocalTimeZone } from "@internationalized/date";
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@lucide/vue";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
 import { cn } from "cnfast";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-vue-next";
 import { computed } from "vue";
 import { Button } from "../button";
 import { injectFiltersContext } from "./context";

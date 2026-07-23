@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { CheckIcon } from "lucide-vue-next";
 import { Button } from "../button";
 import { injectFiltersContext } from "./context";
 import type { Operator } from "./operator";

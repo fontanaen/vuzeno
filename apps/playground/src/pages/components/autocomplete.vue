@@ -11,7 +11,7 @@ import {
   AutocompleteTrigger,
 } from "@vuzeno/registry/ui/autocomplete";
 import { InputGroupAddon } from "@vuzeno/ui/components/input-group";
-import { LoaderIcon, SearchIcon } from "lucide-vue-next";
+import { LoaderIcon, SearchIcon } from "@lucide/vue";
 import { ref, watch } from "vue";
 
 definePage({

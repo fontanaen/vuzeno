@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { AlertTriangleIcon, CheckIcon, ChevronDownIcon, CopyIcon, ShareIcon, Trash2Icon, UserRoundXIcon, VolumeOffIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ButtonGroup } from "@vuzeno/registry/ui/button-group";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { AlertTriangleIcon, CheckIcon, ChevronDownIcon, CopyIcon, ShareIcon, Trash2Icon, UserRoundXIcon, VolumeOffIcon } from "lucide-vue-next";
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { ChevronDownIcon, XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { ChevronDownIcon, XIcon } from "lucide-vue-next";
 </script>
 
 <template>

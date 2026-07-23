@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ark } from "@ark-ui/vue";
+import { MoreHorizontal } from "@lucide/vue";
 import { cn } from "cnfast";
-import { MoreHorizontal } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{

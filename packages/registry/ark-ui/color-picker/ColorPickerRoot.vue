@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ColorPicker, type ColorPickerRootProps, type ColorPickerRootEmits } from "@ark-ui/vue/color-picker";
+import { useForwardPropsEmits } from "@ark-ui/vue";
+import { ColorPicker, type ColorPickerRootEmits, type ColorPickerRootProps } from "@ark-ui/vue/color-picker";
+import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
-import { reactiveOmit } from "@vueuse/core";
-import { useForwardPropsEmits } from "@ark-ui/vue";
 
 const props = defineProps<ColorPickerRootProps & { class?: HTMLAttributes["class"] }>();
 const emits = defineEmits<ColorPickerRootEmits>();

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { parseColor } from "@ark-ui/vue";
+import { CheckIcon } from "@lucide/vue";
 import { ColorPicker } from "@vuzeno/registry/ui/color-picker";
-import { CheckIcon } from "lucide-vue-next";
 
 const swatches = ["red", "blue", "green", "orange"];
 </script>

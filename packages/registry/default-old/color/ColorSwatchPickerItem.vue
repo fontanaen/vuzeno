@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { CheckIcon } from "lucide-vue-next";
 import { ColorSwatchPickerItem, ColorSwatchPickerItemIndicator, type ColorSwatchPickerItemProps, ColorSwatchPickerItemSwatch, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 

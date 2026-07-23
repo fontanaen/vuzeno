@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { BoldIcon } from "@lucide/vue";
 import { Toggle } from "@vuzeno/registry/ui/toggle";
-import { BoldIcon } from "lucide-vue-next";
 </script>
 
 <template>

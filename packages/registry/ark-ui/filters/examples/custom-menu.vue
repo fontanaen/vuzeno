@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { PlusIcon, TagIcon, UserIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import type { Filter } from "@vuzeno/registry/ui/filters";
 import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
-import { PlusIcon, TagIcon, UserIcon } from "lucide-vue-next";
 import { type Ref, ref } from "vue";
 
 const fields = ref([

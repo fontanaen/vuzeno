@@ -1,5 +1,5 @@
 import { useLocalStorage } from "@vueuse/core";
-import { appThemeStorageKey, defaultAppThemeId, normalizeAppThemeId, type AppThemeId } from "~/lib/themes";
+import { type AppThemeId, appThemeStorageKey, defaultAppThemeId, normalizeAppThemeId } from "~/lib/themes";
 import { transitionTheme } from "~/lib/transition-theme";
 
 function applyAppTheme(themeId: AppThemeId) {
@@ -22,9 +22,13 @@ export function useAppTheme() {
     },
   });
 
-  watch(theme, (themeId) => {
-    applyAppTheme(themeId);
-  }, { immediate: true });
+  watch(
+    theme,
+    (themeId) => {
+      applyAppTheme(themeId);
+    },
+    { immediate: true },
+  );
 
   function setTheme(themeId: AppThemeId) {
     transitionTheme(() => {

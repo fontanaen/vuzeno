@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { BellIcon, RefreshCcwIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Empty } from "@vuzeno/registry/ui/empty";
-import { BellIcon, RefreshCcwIcon } from "lucide-vue-next";
 </script>
 
 <template>

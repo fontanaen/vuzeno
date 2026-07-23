@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Popover } from "@vuzeno/registry/ui/popover";
-import { XIcon } from "lucide-vue-next";
 </script>
 
 <template>

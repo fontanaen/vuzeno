@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { cn } from "cnfast";
 import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "cnfast";
 import { ColorFieldInput, ColorFieldRoot, colorToString } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { InputGroup } from "../../ark-ui/input-group";

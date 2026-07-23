@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ArrowDownLeft, GripVertical, Maximize2, Minus, XIcon } from "@lucide/vue";
 import { FloatingPanel } from "@vuzeno/registry/ui/floating-panel";
-import { ArrowDownLeft, GripVertical, Maximize2, Minus, XIcon } from "lucide-vue-next";
 </script>
 
 <template>

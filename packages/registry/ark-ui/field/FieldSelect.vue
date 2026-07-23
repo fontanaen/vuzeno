@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Field, type FieldSelectProps } from "@ark-ui/vue/field";
+import { ChevronsUpDownIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { ChevronsUpDownIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<FieldSelectProps & { class?: HTMLAttributes["class"] }>();

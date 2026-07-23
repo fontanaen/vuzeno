@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SelectOpenChangeDetails } from "@ark-ui/vue/select";
+import { ChevronsUpDownIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { createListCollection, Select } from "@vuzeno/registry/ui/select";
-import { ChevronsUpDownIcon } from "lucide-vue-next";
 import { computed, ref } from "vue";
 
 function loadData() {

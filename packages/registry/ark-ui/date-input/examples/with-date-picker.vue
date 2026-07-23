@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DateInput, useDateInput } from "@vuzeno/registry/ui/date-input";
 import { DatePicker, useDatePicker } from "@vuzeno/registry/ui/date-picker";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-vue-next";
 import { computed } from "vue";
 
 const datePicker = useDatePicker();

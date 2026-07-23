@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Carousel } from "@ark-ui/vue/carousel";
+import { ArrowLeftIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { ArrowLeftIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

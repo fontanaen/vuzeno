@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { ArrowRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ButtonGroup } from "@vuzeno/registry/ui/button-group";
 import { Input } from "@vuzeno/registry/ui/input";
 import { createListCollection, Select } from "@vuzeno/registry/ui/select";
-import { ArrowRightIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 const currency = ref(["$"]);

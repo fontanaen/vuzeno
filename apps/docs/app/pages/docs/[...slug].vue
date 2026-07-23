@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
-import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from "lucide-vue-next";
 
 const route = useRoute();
 

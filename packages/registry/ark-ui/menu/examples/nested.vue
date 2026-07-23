@@ -1,20 +1,7 @@
 <script setup lang="ts">
+import { ChevronDownIcon, DownloadIcon, FileCode2Icon, FilePlusIcon, FileTextIcon, FolderOpenIcon, ImageIcon, MailIcon, MessageSquareIcon, PrinterIcon, RadioIcon, Share2Icon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import {
-  ChevronDownIcon,
-  DownloadIcon,
-  FileCode2Icon,
-  FilePlusIcon,
-  FileTextIcon,
-  FolderOpenIcon,
-  ImageIcon,
-  MailIcon,
-  MessageSquareIcon,
-  PrinterIcon,
-  RadioIcon,
-  Share2Icon,
-} from "lucide-vue-next";
 </script>
 
 <template>

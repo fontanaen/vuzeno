@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { Check, Copy, Star } from "@lucide/vue";
 import { Clipboard } from "@vuzeno/registry/ui/clipboard";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
-import { Check, Copy, Star } from "lucide-vue-next";
 import { ref } from "vue";
 
 const url = "https://x.com/shadcn";

@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { FlipHorizontal, FlipVertical } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ImageCropper } from "@vuzeno/registry/ui/image-cropper";
-import { FlipHorizontal, FlipVertical } from "lucide-vue-next";
 import { ref } from "vue";
 
 const flip = ref({ horizontal: false, vertical: false });

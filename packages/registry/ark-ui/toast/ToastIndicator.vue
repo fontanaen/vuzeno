@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { type ToastType, useToastContext } from "@ark-ui/vue/toast";
+import { CircleAlertIcon, CircleCheckIcon, InfoIcon, LoaderIcon, ShieldAlertIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { CircleAlertIcon, CircleCheckIcon, InfoIcon, LoaderIcon, ShieldAlertIcon } from "lucide-vue-next";
 import type { Component, HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

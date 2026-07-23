@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { MenuIcon } from "@lucide/vue";
 import type { Toc } from "@nuxt/content";
 import { useIntersectionObserver } from "@vueuse/core";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
-import { MenuIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = withDefaults(

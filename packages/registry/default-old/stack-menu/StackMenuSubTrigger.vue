@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRightIcon } from "lucide-vue-next";
+import { ChevronRightIcon } from "@lucide/vue";
 import type { HTMLAttributes } from "vue";
 import { StackMenuItem } from ".";
 import { injectMenuSubStackContext } from "./StackMenuSub.vue";

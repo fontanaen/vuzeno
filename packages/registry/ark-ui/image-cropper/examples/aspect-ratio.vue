@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { RectangleHorizontal, RectangleVertical, Square } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ImageCropper } from "@vuzeno/registry/ui/image-cropper";
-import { RectangleHorizontal, RectangleVertical, Square } from "lucide-vue-next";
 import { markRaw, ref } from "vue";
 
 const aspects = [

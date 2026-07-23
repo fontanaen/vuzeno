@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Clipboard } from "@ark-ui/vue/clipboard";
+import { CheckIcon, ClipboardCopyIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { CheckIcon, ClipboardCopyIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

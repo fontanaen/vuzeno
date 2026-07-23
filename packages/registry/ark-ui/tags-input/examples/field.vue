@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { Field } from "@vuzeno/registry/ui/field";
 import { TagsInput } from "@vuzeno/registry/ui/tags-input";
-import { XIcon } from "lucide-vue-next";
 </script>
 
 <template>

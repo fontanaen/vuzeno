@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { PanelRightCloseIcon, PanelRightOpenIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/ui/components/button";
 import { useSidebar } from "@vuzeno/ui/components/sidebar";
 import { cn } from "cnfast";
-import { PanelRightCloseIcon, PanelRightOpenIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 import { injectGalleryViewerContext } from "./GalleryViewer.vue";
 

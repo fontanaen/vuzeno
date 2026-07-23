@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { MenuIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Drawer } from "@vuzeno/registry/ui/drawer";
-import { MenuIcon } from "lucide-vue-next";
 
 const { data } = await useNavigation();
 const tree = computed(() => data.value!.find((i) => i.stem === "docs")!);

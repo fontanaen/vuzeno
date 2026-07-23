@@ -3,8 +3,6 @@ import { SignaturePad } from "@ark-ui/vue/signature-pad";
 import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 
-
-
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 </script>
 

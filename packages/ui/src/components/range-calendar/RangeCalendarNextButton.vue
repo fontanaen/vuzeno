@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { reactiveOmit } from "@vueuse/core";
-import { ChevronRight } from "lucide-vue-next";
+import { ChevronRight } from "@lucide/vue";
 import type { RangeCalendarNextProps } from "reka-ui";
 import { RangeCalendarNext, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";

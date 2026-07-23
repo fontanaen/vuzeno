@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { CheckIcon } from "@lucide/vue";
 import { Autocomplete, useAutocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Field } from "@vuzeno/registry/ui/field";
 import { TagsInput, useTagsInput } from "@vuzeno/registry/ui/tags-input";
-import { CheckIcon } from "lucide-vue-next";
 import { useId } from "vue";
 
 const initialItems = ["React", "Solid", "Vue", "Svelte", "Angular", "Preact", "Next.js", "Astro", "Nuxt"];

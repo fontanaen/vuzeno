@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronsUpDownIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails, AutocompleteValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-vue-next";
 import { ref } from "vue";
 
 function containsFilter(itemString: string, filterText: string) {

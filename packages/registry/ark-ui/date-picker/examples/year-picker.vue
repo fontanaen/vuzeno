@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { type DateValue, parseDate } from "@internationalized/date";
+import { CalendarIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
-import { CalendarIcon } from "lucide-vue-next";
 
 const format = (date: DateValue) => date.year.toString();
 

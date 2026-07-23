@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { AudioLinesIcon, PlusIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { ButtonGroup } from "@vuzeno/registry/ui/button-group";
 import { Input } from "@vuzeno/registry/ui/input";
 import { Tooltip } from "@vuzeno/registry/ui/tooltip";
-import { AudioLinesIcon, PlusIcon } from "lucide-vue-next";
 </script>
 
 <template>

@@ -1,4 +1,3 @@
-import type { Component } from "vue";
 import DialogActions from "./DialogActions.vue";
 import DialogBody from "./DialogBody.vue";
 import DialogCloseTrigger from "./DialogCloseTrigger.vue";

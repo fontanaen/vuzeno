@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ChevronDownIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu, useMenu } from "@vuzeno/registry/ui/menu";
-import { ChevronDownIcon } from "lucide-vue-next";
 
 const menu = useMenu();
 </script>

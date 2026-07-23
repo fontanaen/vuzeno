@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Carousel, type CarouselNextTriggerProps } from "@ark-ui/vue/carousel";
+import { ArrowRightIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { ArrowRightIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<CarouselNextTriggerProps & { class?: HTMLAttributes["class"] }>();

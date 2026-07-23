@@ -30,11 +30,7 @@ const tooltipDisabled = computed(() => {
     return true;
   }
 
-  return (
-    sidebar.isMobile.value
-    || sidebar.state.value !== "collapsed"
-    || sidebar.collapsible !== "icon"
-  );
+  return sidebar.isMobile.value || sidebar.state.value !== "collapsed" || sidebar.collapsible !== "icon";
 });
 
 const tooltipPlacement = computed(() => (sidebar?.side === "right" ? "left" : "right"));

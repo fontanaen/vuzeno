@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { PauseIcon, PlayIcon, RotateCcwIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Timer, useTimer } from "@vuzeno/registry/ui/timer";
-import { PauseIcon, PlayIcon, RotateCcwIcon } from "lucide-vue-next";
 
 const timer = useTimer({ targetMs: 60 * 60 * 1000 });
 </script>

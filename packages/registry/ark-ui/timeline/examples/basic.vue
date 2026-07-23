@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { CircleCheckIcon, CircleDotIcon, GitMergeIcon, GitPullRequestIcon, TagIcon } from "@lucide/vue";
 import { Avatar } from "@vuzeno/registry/ui/avatar";
 import { Timeline } from "@vuzeno/registry/ui/timeline";
-import { CircleCheckIcon, CircleDotIcon, GitMergeIcon, GitPullRequestIcon, TagIcon } from "lucide-vue-next";
 
 type User = {
   username: string;

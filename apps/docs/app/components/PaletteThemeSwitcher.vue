@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { PaletteIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
-import { PaletteIcon } from "lucide-vue-next";
 import { type AppThemeId, appThemes } from "~/lib/themes";
 
 const { theme, setTheme } = useAppTheme();

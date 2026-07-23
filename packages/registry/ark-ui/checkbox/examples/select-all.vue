@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { MinusIcon } from "@lucide/vue";
 import { Checkbox, type CheckboxCheckedChangeDetails, type CheckboxCheckedState } from "@vuzeno/registry/ui/checkbox";
-import { MinusIcon } from "lucide-vue-next";
 import { computed, ref } from "vue";
 
 const frameworks = [

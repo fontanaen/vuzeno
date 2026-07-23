@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { SlashIcon } from "@lucide/vue";
 import { Breadcrumb } from "@vuzeno/registry/ui/breadcrumb";
-import { SlashIcon } from "lucide-vue-next";
 </script>
 
 <template>

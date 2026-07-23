@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { PipetteIcon } from "@lucide/vue";
 import { useEyeDropper } from "@vueuse/core";
 import { Button, type ButtonVariants } from "@vuzeno/ui/components/button";
 import { cn } from "cnfast";
-import { PipetteIcon } from "lucide-vue-next";
 import { type Color, normalizeColor } from "reka-ui";
 import { type HTMLAttributes, watch } from "vue";
 

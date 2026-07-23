@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { FileIcon, XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { FileUpload, useFileUpload } from "@vuzeno/registry/ui/file-upload";
-import { FileIcon, XIcon } from "lucide-vue-next";
 
 const fileUpload = useFileUpload({ maxFiles: 5 });
 </script>

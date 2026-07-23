@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ChevronDownIcon, ChevronUpIcon } from "@lucide/vue";
 import { HoverCard } from "@vuzeno/registry/ui/hover-card";
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-vue-next";
 </script>
 
 <template>

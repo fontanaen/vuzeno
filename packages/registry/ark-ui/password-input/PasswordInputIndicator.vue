@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PasswordInput } from "@ark-ui/vue/password-input";
+import { EyeIcon, EyeOffIcon } from "@lucide/vue";
 import { cn } from "cnfast";
-import { EyeIcon, EyeOffIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<{ class?: HTMLAttributes["class"] }>();

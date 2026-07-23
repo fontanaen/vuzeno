@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Menu, type MenuTriggerItemProps } from "@ark-ui/vue/menu";
+import { ChevronRightIcon } from "@lucide/vue";
 import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { ChevronRightIcon } from "lucide-vue-next";
 import type { HTMLAttributes } from "vue";
 
 const props = defineProps<MenuTriggerItemProps & { class?: HTMLAttributes["class"] }>();

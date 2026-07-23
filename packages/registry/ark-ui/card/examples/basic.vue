@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { ClockIcon, GitBranchIcon, TimerIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Card } from "@vuzeno/registry/ui/card";
-import { ClockIcon, GitBranchIcon, TimerIcon } from "lucide-vue-next";
 
 const data = [
   { icon: ClockIcon, label: "Last deployment", value: "2 min ago" },
