@@ -10,7 +10,9 @@
     "playground:dev": "bun run --filter=@vuzeno/playground dev",
     "docs:dev": "bun run --filter=@vuzeno/docs dev",
     "docs:preview": "bun run --filter=@vuzeno/docs preview",
+    "docs:preview:cf": "bun run --filter=@vuzeno/docs preview:cf",
     "docs:build": "bun run --filter=@vuzeno/docs build",
+    "docs:deploy": "bun run --filter=@vuzeno/docs deploy",
     "registry:build": "bun run --filter=@vuzeno/cli build"
   },
   "workspaces": {
@@ -38,7 +40,8 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",
     "@types/bun": "latest",
-    "typescript": "6.0.2"
+    "typescript": "6.0.2",
+    "wrangler": "^4.113.0"
   },
   "dependencies": {
     "shadcn-vue": "^2.4.3"

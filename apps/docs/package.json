@@ -7,6 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview --port 3001",
+    "preview:cf": "wrangler dev",
+    "deploy": "wrangler deploy",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -18,7 +20,6 @@
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/vue-virtual": "^3.13.28",
     "@tanstack/vue-hotkeys": "^0.4.1",
-    "@vercel/analytics": "^2.0.1",
     "@ark-ui/vue": "catalog:",
     "@vueuse/core": "catalog:",
     "@vuzeno/registry": "workspace:*",
@@ -37,5 +38,8 @@
     "vue-router": "5.2.0",
     "vue-sonner": "^2.0.9",
     "vue3-simple-icons": "^16.10.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.113.0"
   }
 }

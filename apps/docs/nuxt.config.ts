@@ -19,7 +19,6 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "nuxt-llms",
     "@nuxtjs/sitemap",
-    "@vercel/analytics",
     // Runs after content/mdc so we can drop optimizeDeps includes Bun can't resolve
     // (`parent > child` nested paths don't match bun's flat .bun store).
     (_options, nuxt) => {
@@ -40,10 +39,20 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "vercel",
+    preset: "cloudflare-module",
     minify: true,
-    output: {
-      dir: "../../.vercel/output",
+    cloudflare: {
+      deployConfig: true,
+      wrangler: {
+        d1_databases: [
+          {
+            binding: "DB",
+            database_name: "vuzeno-docs",
+            // Set after: bunx wrangler d1 create vuzeno-docs
+            database_id: "",
+          },
+        ],
+      },
     },
     // Avoid Nuxt 4.5 fs payload-cache collisions in dev (EEXIST/ENOTDIR on .nuxt/cache/nuxt/payload).
     // https://github.com/nuxt/nuxt/issues/34961
