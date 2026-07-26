@@ -1,24 +1,29 @@
 <script setup lang="ts">
 import { useForwardPropsEmits } from "@ark-ui/vue";
-import { Drawer, type DrawerOpenChangeDetails, type DrawerRootProps, type DrawerSnapPointChangeDetails, type DrawerTriggerValueChangeDetails } from "@ark-ui/vue/drawer";
+import { Drawer, type DrawerRootProps, type DrawerSnapPointChangeDetails, type DrawerTriggerValueChangeDetails } from "@ark-ui/vue/drawer";
 import { reactiveOmit } from "@vueuse/core";
-import { cn } from "cnfast";
-import type { HTMLAttributes } from "vue";
 
-const props = defineProps<DrawerRootProps & { class?: HTMLAttributes["class"] }>();
+const open = defineModel<boolean>({ default: () => false });
+
+const props = defineProps<DrawerRootProps>();
 
 const emits = defineEmits<{
-  openChange: [details: DrawerOpenChangeDetails];
   snapPointChange: [details: DrawerSnapPointChangeDetails];
   triggerValueChange: [details: DrawerTriggerValueChangeDetails];
 }>();
-
-const rootProps = reactiveOmit(props, "class");
-const forwarded = useForwardPropsEmits(rootProps, emits);
 </script>
 
 <template>
-  <Drawer.Root v-bind="forwarded" :class="cn(props.class)">
+  <Drawer.Root 
+    :open="open" 
+    :swipe-direction="swipeDirection" 
+    :lazy-mount="lazyMount" 
+    :unmount-on-exit="unmountOnExit" 
+    :snap-points="snapPoints"
+    @open-change="open = $event.open"
+    @snap-point-change="emits('snapPointChange', $event)"
+    @trigger-value-change="emits('triggerValueChange', $event)"
+  >
     <slot />
   </Drawer.Root>
 </template>

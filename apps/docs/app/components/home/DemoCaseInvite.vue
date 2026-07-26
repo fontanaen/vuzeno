@@ -3,6 +3,7 @@ import { CheckIcon, SearchIcon, SendIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Avatar } from "@vuzeno/registry/ui/avatar";
+import { Badge } from "@vuzeno/registry/ui/badge";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Kbd } from "@vuzeno/registry/ui/kbd";
 import { createListCollection, Select } from "@vuzeno/registry/ui/select";
@@ -12,21 +13,15 @@ type Person = {
   name: string;
   email: string;
   team: string;
-  initials: string;
-  avatar: string;
+  gradient: string;
 };
 
-function avatarUrl(seed: string) {
-  return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(seed)}`;
-}
-
 const people: Person[] = [
-  { name: "Ada Lovelace", email: "ada@vuzeno.dev", team: "Engineering", initials: "AL", avatar: avatarUrl("Ada Lovelace") },
-  { name: "Linus Torvalds", email: "linus@vuzeno.dev", team: "Engineering", initials: "LT", avatar: avatarUrl("Linus Torvalds") },
-  { name: "Margaret Hamilton", email: "margaret@vuzeno.dev", team: "Engineering", initials: "MH", avatar: avatarUrl("Margaret Hamilton") },
-  { name: "Grace Hopper", email: "grace@vuzeno.dev", team: "Design", initials: "GH", avatar: avatarUrl("Grace Hopper") },
-  { name: "Susan Kare", email: "susan@vuzeno.dev", team: "Design", initials: "SK", avatar: avatarUrl("Susan Kare") },
-  { name: "Katherine Johnson", email: "katherine@vuzeno.dev", team: "Operations", initials: "KJ", avatar: avatarUrl("Katherine Johnson") },
+  { name: "shadcn", email: "shadcn@gmail.com", team: "Design", gradient: "from-neutral-800 to-neutral-400" },
+  { name: "OrcDev", email: "orcdev@gmail.com", team: "Engineering", gradient: "from-emerald-600 to-lime-300" },
+  { name: "Zeno", email: "zeno@gmail.com", team: "Engineering", gradient: "from-sky-500 to-cyan-200" },
+  { name: "Emil Kowalski", email: "emil@gmail.com", team: "Design", gradient: "from-violet-500 to-fuchsia-200" },
+  { name: "Michael Thiessen", email: "michael@gmail.com", team: "Education", gradient: "from-amber-500 to-yellow-200" },
 ];
 
 const roles = createListCollection({
@@ -37,9 +32,9 @@ const roles = createListCollection({
   ],
 });
 
-const invitees = ref<string[]>(["grace@vuzeno.dev"]);
+const invitees = ref<string[]>(["zeno@gmail.com"]);
 const rolesByEmail = ref<Record<string, string>>({
-  "grace@vuzeno.dev": "editor",
+  "zeno@vuzeno.dev": "editor",
 });
 const sentCount = ref(0);
 const sentReset = ref<ReturnType<typeof setTimeout>>();
@@ -113,7 +108,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-3">
+  <div class="flex flex-col gap-4">
     <Autocomplete.Root
       v-model="invitees"
       :collection="collection"
@@ -126,7 +121,7 @@ onBeforeUnmount(() => {
           <SearchIcon />
         </Autocomplete.Indicators>
 
-        <Autocomplete.Input placeholder="Search teammates" />
+        <Autocomplete.Input placeholder="Search teammates" size="sm" />
 
         <Autocomplete.Indicators align="inline-end">
           <Kbd.Group>
@@ -144,8 +139,11 @@ onBeforeUnmount(() => {
 
           <Autocomplete.Item v-for="person in members" :key="person.email" :item="person">
             <Avatar.Root size="sm">
-              <Avatar.Image :src="person.avatar" :alt="person.name" />
-              <Avatar.Fallback>{{ person.initials }}</Avatar.Fallback>
+              <Avatar.Fallback
+                class="size-full bg-linear-to-tr"
+                :class="person.gradient"
+                :aria-label="person.name"
+              />
             </Avatar.Root>
 
             <Autocomplete.ItemText>
@@ -168,8 +166,11 @@ onBeforeUnmount(() => {
         class="flex items-center gap-3 bg-background dark:bg-input/30 px-3 py-2 animate-in fade-in-0 slide-in-from-top-1 duration-200"
       >
         <Avatar.Root size="sm">
-          <Avatar.Image :src="person.avatar" :alt="person.name" />
-          <Avatar.Fallback>{{ person.initials }}</Avatar.Fallback>
+          <Avatar.Fallback
+            class="size-full bg-linear-to-tr"
+            :class="person.gradient"
+            :aria-label="person.name"
+          />
         </Avatar.Root>
 
         <div class="min-w-0 flex-1">
@@ -177,13 +178,17 @@ onBeforeUnmount(() => {
           <p class="truncate text-xs text-muted-foreground">{{ person.email }}</p>
         </div>
 
-        <div class="w-32 shrink-0">
+        <Badge variant="secondary">
+          {{ person.team }}
+        </Badge>
+
+        <div class="w-26 shrink-0">
           <Select.Root
             :model-value="roleFor(person.email)"
             :collection="roles"
             @update:model-value="setRole(person.email, $event)"
           >
-            <Select.Trigger size="sm">
+            <Select.Trigger size="sm" class="h-7 text-xs px-2">
               <Select.Value placeholder="Access" />
               <Select.Indicator />
             </Select.Trigger>

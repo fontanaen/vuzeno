@@ -67,7 +67,7 @@ useHead({
 
             <div class="space-y-4 animate-in fade-in-0 slide-in-from-bottom-3 duration-500 delay-75">
               <h1 class="max-w-xl text-4xl font-bold tracking-tighter text-balance text-foreground md:text-5xl">
-                Own the UI you ship<span class="hero-accent">.</span>
+                Your own design system<span class="hero-accent">.</span>
               </h1>
               <p class="max-w-md text-base leading-relaxed text-pretty text-muted-foreground">
                 A complete design system based on shadcn-vue and ark-ui. 

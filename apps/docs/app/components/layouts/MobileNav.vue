@@ -11,13 +11,13 @@ const open = ref(false);
 
 <template>
   <Drawer.Root v-model:open="open" swipe-direction="start" lazy-mount unmount-on-exit>
-    <Drawer.Trigger as-child v-bind="$attrs">
-      <Button variant="ghost" size="icon">
+    <Drawer.Trigger as-child>
+      <Button variant="ghost" size="icon" v-bind="$attrs">
         <MenuIcon class="size-4" />
       </Button>
     </Drawer.Trigger>
     
-    <Drawer.Content class="no-scrollbar h-full max-h-full max-w-[280px] flex-col gap-4 overflow-x-hidden px-4">
+    <Drawer.Content class="no-scrollbar h-full max-h-full data-[swipe-direction=left]:max-w-70 flex-col gap-4 overflow-x-hidden p-4 data-[swipe-direction=left]:rounded-r-none">
       <div v-for="item in tree.children" :key="item.title" class="flex flex-col gap-2">
         <div class="text-muted-foreground font-medium text-xs">
           {{ item.title }}

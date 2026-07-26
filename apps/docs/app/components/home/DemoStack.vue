@@ -36,13 +36,6 @@ const cases = [
     demo: DemoCaseTriage,
     components: ["filters", "badge", "avatar"],
   },
-  {
-    id: "payment",
-    title: "Check out",
-    description: "Pick Apple Pay, Google Pay, or a card — save it for next time with a single switch.",
-    demo: DemoCasePayment,
-    components: ["radio-group", "input-group", "switch"],
-  },
 ];
 
 function componentLabel(name: string) {

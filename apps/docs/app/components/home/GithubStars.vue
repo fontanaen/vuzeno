@@ -24,7 +24,7 @@ const starCount = computed(() => {
     :href="siteConfig.links.github"
     target="_blank"
     rel="noopener noreferrer"
-    class="github-stars inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/70 px-3 py-1.5 text-sm text-muted-foreground transition-[color,border-color,transform] duration-150 ease-out hover:border-border hover:text-foreground"
+    class="github-stars inline-flex items-center gap-2 pb-1 border-b border-transparent bg-background/70 text-sm text-muted-foreground transition-[color,border-color,transform] duration-100 ease-out hover:border-primary hover:text-foreground"
     :aria-label="starCount ? `Vuzeno on GitHub, ${starCount} stars` : 'Vuzeno on GitHub'"
   >
     <GitHubIcon class="size-3.5" aria-hidden="true" />
