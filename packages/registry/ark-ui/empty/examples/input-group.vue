@@ -2,7 +2,7 @@
 import { SearchIcon } from "@lucide/vue";
 import { Empty } from "@vuzeno/registry/ui/empty";
 import { InputGroup } from "@vuzeno/registry/ui/input-group";
-import { Kbd } from "@vuzeno/ui/components/kbd";
+import { Kbd } from "@vuzeno/registry/ui/kbd";
 </script>
 
 <template>
@@ -20,7 +20,7 @@ import { Kbd } from "@vuzeno/ui/components/kbd";
           <SearchIcon />
         </InputGroup.Addon>
         <InputGroup.Addon align="inline-end">
-          <Kbd>/</Kbd>
+          <Kbd.Item>/</Kbd.Item>
         </InputGroup.Addon>
       </InputGroup.Root>
       <Empty.Description>

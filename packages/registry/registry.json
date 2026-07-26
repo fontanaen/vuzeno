@@ -964,6 +964,10 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/date-picker/DatePickerCalendar.vue",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/date-picker/DatePickerClearTrigger.vue",
           "type": "registry:component"
         },
@@ -980,6 +984,10 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/date-picker/DatePickerDayView.vue",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/date-picker/DatePickerInput.vue",
           "type": "registry:component"
         },
@@ -989,6 +997,10 @@
         },
         {
           "path": "ark-ui/date-picker/DatePickerMonthSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerMonthView.vue",
           "type": "registry:component"
         },
         {
@@ -1064,6 +1076,10 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/date-picker/DatePickerViewNav.vue",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/date-picker/DatePickerViewTrigger.vue",
           "type": "registry:component"
         },
@@ -1077,6 +1093,10 @@
         },
         {
           "path": "ark-ui/date-picker/DatePickerYearSelect.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/date-picker/DatePickerYearView.vue",
           "type": "registry:component"
         },
         {
@@ -1563,7 +1583,7 @@
       "title": "Filters",
       "description": "A composable filter system with typed fields, operators, and filter chips.",
       "dependencies": ["@ark-ui/vue", "@internationalized/date", "class-variance-authority", "@lucide/vue", "cnfast"],
-      "registryDependencies": ["autocomplete", "button", "button-group", "checkbox", "date-picker", "menu", "number-input", "popover", "slider", "switch"],
+      "registryDependencies": ["button", "button-group", "checkbox", "date-picker", "menu", "number-input", "popover", "slider", "switch"],
       "files": [
         {
           "path": "ark-ui/filters/context.ts",
@@ -2020,6 +2040,32 @@
       ]
     },
     {
+      "name": "kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "Used to display textual user input from keyboard.",
+      "dependencies": ["@ark-ui/vue", "cnfast"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/kbd/Kbd.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/kbd/KbdGroup.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/kbd/kbd.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/kbd/index.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "listbox",
       "type": "registry:component",
       "title": "Listbox",
@@ -2180,6 +2226,18 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/menu/MenuEmpty.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuFilter.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/MenuFilterInput.vue",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/menu/MenuIndicator.vue",
           "type": "registry:component"
         },
@@ -2237,6 +2295,14 @@
         },
         {
           "path": "ark-ui/menu/MenuTriggerItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/menu-filter-context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/use-menu-filter.ts",
           "type": "registry:component"
         },
         {
@@ -2409,7 +2475,7 @@
       "title": "Phone Field",
       "description": "Phone number input with country selector, libphonenumber-js validation, and E.164 output.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "libphonenumber-js", "class-variance-authority", "@lucide/vue", "cnfast"],
-      "registryDependencies": ["autocomplete", "button-group"],
+      "registryDependencies": ["button", "button-group", "menu"],
       "files": [
         {
           "path": "ark-ui/phone-field/index.ts",
@@ -3219,6 +3285,24 @@
         },
         {
           "path": "ark-ui/signature-pad/SignaturePadSegment.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Use to show a placeholder while content is loading.",
+      "dependencies": ["@ark-ui/vue", "cnfast"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/skeleton/Skeleton.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/skeleton/index.ts",
           "type": "registry:component"
         }
       ]

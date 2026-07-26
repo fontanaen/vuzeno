@@ -10,7 +10,7 @@ const open = ref(false);
 </script>
 
 <template>
-  <Drawer.Root v-model:open="open" swipe-direction="start">
+  <Drawer.Root v-model:open="open" swipe-direction="start" lazy-mount unmount-on-exit>
     <Drawer.Trigger as-child v-bind="$attrs">
       <Button variant="ghost" size="icon">
         <MenuIcon class="size-4" />

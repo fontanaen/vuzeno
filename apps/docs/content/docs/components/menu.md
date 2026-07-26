@@ -48,6 +48,9 @@ Menu.Root
 ├── Menu.Content
 ├── Menu.ContextTrigger
 ├── Menu.Context
+├── Menu.Empty
+├── Menu.Filter
+│   └── Menu.FilterInput
 ├── Menu.Indicator
 ├── Menu.ItemContext
 ├── Menu.ItemGroupLabel
@@ -185,6 +188,28 @@ Share a single menu across multiple trigger elements. Pass a `value` to each `Me
 ---
 component: menu
 name: multiple-triggers
+---
+::
+
+### Filterable
+
+Use `Menu.Filter` and `Menu.FilterInput` with `useMenuFilterCollection` to filter menu items. Set `:typeahead="false"` on `Menu.Root` so typing goes to the search field instead of menu typeahead.
+
+::component-preview
+---
+component: menu
+name: filterable
+---
+::
+
+### Filterable Multiple
+
+Combine a filterable menu with `Menu.CheckboxItem` and `:close-on-select="false"` for multi-select.
+
+::component-preview
+---
+component: menu
+name: filterable-multiple
 ---
 ::
 

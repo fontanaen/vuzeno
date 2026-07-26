@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import { CheckIcon, ChevronDownIcon, CopyIcon } from "@lucide/vue";
 import type { ContentCollectionItem } from "@nuxt/content";
-import { isClient, useClipboard } from "@vueuse/core";
+import { isClient, useClipboard, useMediaQuery } from "@vueuse/core";
 import { Button } from "@vuzeno/registry/ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@vuzeno/registry/ui/button-group";
 import { Menu } from "@vuzeno/registry/ui/menu";
 import { Popover } from "@vuzeno/registry/ui/popover";
-import { Separator } from "@vuzeno/ui/components/separator";
+import { h } from "vue";
 
 const props = defineProps<{
   page: ContentCollectionItem;
 }>();
+
+const { copy, copied } = useClipboard();
+const isDesktop = useMediaQuery("(min-width: 768px)");
+const route = useRoute();
 
 const url = computed(() => {
   return isClient ? window.location.href : "";
@@ -19,8 +24,6 @@ const origin = computed(() => {
   return isClient ? window.location.origin : "";
 });
 
-const route = useRoute();
-
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
     `I'm looking at this shadcn-vue documentation: ${url}.
@@ -28,8 +31,6 @@ Help me understand how to use it. Be ready to explain concepts, give examples, o
   `,
   )}`;
 }
-
-import { h } from "vue";
 
 const menuItems = {
   markdown: () =>
@@ -106,17 +107,15 @@ const menuItems = {
       ],
     ),
 };
-
-const { copy, copied } = useClipboard();
 </script>
 
 <template>
   <Popover.Root lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-start' }">
-    <div class="bg-secondary group/buttons relative flex rounded-lg *:data-[slot=button]:focus-visible:relative *:data-[slot=button]:focus-visible:z-10">
+    <ButtonGroup>
       <Button
         variant="secondary"
         size="sm"
-        class="h-8 shadow-none md:h-7 md:text-[0.8rem]"
+        class="h-8 md:h-7 md:text-[0.8rem]"
         @click="copy(page.rawbody)"
       >
         <CheckIcon v-if="copied" /> 
@@ -124,12 +123,14 @@ const { copy, copied } = useClipboard();
         Copy Page
       </Button>
 
-      <Menu.Root lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-end' }">
-        <Menu.Trigger as-child class="hidden sm:flex">
+      <ButtonGroupSeparator orientation="vertical" />
+
+      <Menu.Root v-if="isDesktop" lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-end' }">
+        <Menu.Trigger as-child>
           <Button
             variant="secondary"
             size="sm"
-            class="peer -ml-0.5 size-8 shadow-none md:size-7 md:text-[0.8rem]"
+            class="size-8 md:size-7 md:text-[0.8rem]"
           >
             <ChevronDownIcon class="rotate-180 sm:rotate-0" />
           </Button>
@@ -146,16 +147,11 @@ const { copy, copied } = useClipboard();
         </Menu.Content>
       </Menu.Root>
 
-      <Separator
-        orientation="vertical"
-        class="bg-foreground/10! absolute top-0 right-8 z-0 h-8! peer-focus-visible:opacity-0 sm:right-7 sm:h-7!"
-      />
-      
-      <Popover.Trigger as-child class="flex sm:hidden">
+      <Popover.Trigger v-else as-child>
         <Button
           variant="secondary"
           size="sm"
-          class="peer -ml-0.5 size-8 shadow-none md:size-7 md:text-[0.8rem]"
+          class="size-8 shadow-none md:size-7 md:text-[0.8rem]"
         >
           <ChevronDownIcon class="rotate-180 sm:rotate-0" />
         </Button>
@@ -175,6 +171,6 @@ const { copy, copied } = useClipboard();
           <component :is="value(url)" />
         </Button>
       </Popover.Content>
-    </div>
+    </ButtonGroup>
   </Popover.Root>
 </template>

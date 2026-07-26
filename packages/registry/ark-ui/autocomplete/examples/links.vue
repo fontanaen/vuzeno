@@ -49,14 +49,17 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     @input-value-change="handleInputChange"
   >
     <Autocomplete.Label>Developer Resources</Autocomplete.Label>
+    
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. GitHub" />
-      <Autocomplete.Indicators>
+      
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+    
     <Autocomplete.Content>
       <Autocomplete.Item
         v-for="item in collection.items"

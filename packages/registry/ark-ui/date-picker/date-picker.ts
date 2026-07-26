@@ -1,10 +1,13 @@
+import DatePickerCalendar from "./DatePickerCalendar.vue";
 import DatePickerClearTrigger from "./DatePickerClearTrigger.vue";
 import DatePickerContent from "./DatePickerContent.vue";
 import DatePickerContext from "./DatePickerContext.vue";
 import DatePickerControl from "./DatePickerControl.vue";
+import DatePickerDayView from "./DatePickerDayView.vue";
 import DatePickerInput from "./DatePickerInput.vue";
 import DatePickerLabel from "./DatePickerLabel.vue";
 import DatePickerMonthSelect from "./DatePickerMonthSelect.vue";
+import DatePickerMonthView from "./DatePickerMonthView.vue";
 import DatePickerNextTrigger from "./DatePickerNextTrigger.vue";
 import DatePickerPositioner from "./DatePickerPositioner.vue";
 import DatePickerPresetTrigger from "./DatePickerPresetTrigger.vue";
@@ -23,19 +26,24 @@ import DatePickerTrigger from "./DatePickerTrigger.vue";
 import DatePickerValueText from "./DatePickerValueText.vue";
 import DatePickerView from "./DatePickerView.vue";
 import DatePickerViewControl from "./DatePickerViewControl.vue";
+import DatePickerViewNav from "./DatePickerViewNav.vue";
 import DatePickerViewTrigger from "./DatePickerViewTrigger.vue";
 import DatePickerWeekNumberCell from "./DatePickerWeekNumberCell.vue";
 import DatePickerWeekNumberHeaderCell from "./DatePickerWeekNumberHeaderCell.vue";
 import DatePickerYearSelect from "./DatePickerYearSelect.vue";
+import DatePickerYearView from "./DatePickerYearView.vue";
 
 export const DatePicker = {
+  Calendar: DatePickerCalendar,
   ClearTrigger: DatePickerClearTrigger,
   Content: DatePickerContent,
   Context: DatePickerContext,
   Control: DatePickerControl,
+  DayView: DatePickerDayView,
   Input: DatePickerInput,
   Label: DatePickerLabel,
   MonthSelect: DatePickerMonthSelect,
+  MonthView: DatePickerMonthView,
   NextTrigger: DatePickerNextTrigger,
   Positioner: DatePickerPositioner,
   PresetTrigger: DatePickerPresetTrigger,
@@ -53,9 +61,11 @@ export const DatePicker = {
   Table: DatePickerTable,
   Trigger: DatePickerTrigger,
   ViewControl: DatePickerViewControl,
+  ViewNav: DatePickerViewNav,
   ViewTrigger: DatePickerViewTrigger,
   View: DatePickerView,
   WeekNumberHeaderCell: DatePickerWeekNumberHeaderCell,
   WeekNumberCell: DatePickerWeekNumberCell,
   YearSelect: DatePickerYearSelect,
+  YearView: DatePickerYearView,
 } as const;

@@ -69,9 +69,11 @@ watchEffect(() => {
 <template>
   <Autocomplete.RootProvider :value="autocomplete">
     <Autocomplete.Label>Search Star Wars Characters</Autocomplete.Label>
+    
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. Luke" />
     </Autocomplete.Control>
+    
     <Autocomplete.Content>
       <Autocomplete.Status v-if="loading"> Loading... </Autocomplete.Status>
       <Autocomplete.Status v-else-if="error">

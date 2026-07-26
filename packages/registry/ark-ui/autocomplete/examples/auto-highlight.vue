@@ -38,15 +38,17 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     <Autocomplete.Label>Department</Autocomplete.Label>
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. Engineering" />
-      <Autocomplete.Indicators>
+
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.ClearTrigger>
-          <XIcon />
+          <XIcon class="size-4 text-muted-foreground" />
         </Autocomplete.ClearTrigger>
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+    
     <Autocomplete.Content>
       <Autocomplete.Empty>No results found</Autocomplete.Empty>
       <Autocomplete.Item

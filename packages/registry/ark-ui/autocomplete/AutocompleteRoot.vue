@@ -15,10 +15,6 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
 <template>
   <Combobox.Root
     v-bind="forwarded"
-    :class="cn(
-      'flex w-full max-w-xs flex-col gap-1.5 text-foreground',
-      props.class,
-    )"
     data-slot="autocomplete"
   >
     <slot />

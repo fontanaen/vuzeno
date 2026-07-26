@@ -10,7 +10,7 @@ const props = defineProps<{ class?: HTMLAttributes["class"] }>();
   <Progress.CircleRange
     :class="cn(
       'fill-none stroke-primary [stroke-linecap:round]',
-      'transition-all duration-300 ease-out',
+      'transition-[stroke-dasharray,stroke-dashoffset] duration-300 ease-out',
       props.class,
     )"
     data-slot="progress-circle-range"

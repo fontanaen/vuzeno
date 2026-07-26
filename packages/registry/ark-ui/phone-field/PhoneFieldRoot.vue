@@ -23,7 +23,7 @@ export type PhoneFieldProps = {
    * @default "international"
    */
   format?: "international" | "national" | "e164";
-  size?: "sm" | "default" | "lg";
+  size?: "sm" | "md" | "lg";
   /**
    * Preferred countries to show first in the country select
    */
@@ -74,7 +74,7 @@ const props = withDefaults(defineProps<PhoneFieldProps & {
 }>(), {
   format: "international",
   ignoredCountries: () => ["AC", "TA"],
-  size: "default",
+  size: "md",
   resetOnCountryChange: false,
   locale: "en",
   disabled: false,

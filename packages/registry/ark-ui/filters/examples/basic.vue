@@ -13,10 +13,10 @@ const statusItems = [
 ];
 
 const statusIcons: Record<string, { icon: Component; class: string }> = {
-  active: { icon: CircleIcon, class: "size-3.5! rounded-full" },
-  inactive: { icon: CircleMinusIcon, class: "size-3.5! rounded-full text-muted-foreground" },
-  pending: { icon: CircleDashedIcon, class: "size-3.5! rounded-full text-yellow-500" },
-  cancelled: { icon: CircleOffIcon, class: "size-3.5! rounded-full text-red-400" },
+  active: { icon: CircleIcon, class: "size-3.5! rounded-full text-foreground!" },
+  inactive: { icon: CircleMinusIcon, class: "size-3.5! rounded-full text-muted-foreground!" },
+  pending: { icon: CircleDashedIcon, class: "size-3.5! rounded-full text-yellow-500!" },
+  cancelled: { icon: CircleOffIcon, class: "size-3.5! rounded-full text-destructive!" },
 };
 
 function statusLabel(value: string): string {

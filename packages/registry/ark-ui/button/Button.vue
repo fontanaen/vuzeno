@@ -13,9 +13,12 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <ark.button
-    :as-child="asChild"
-    :class="cn(buttonVariants({ variant, size }), props.class)"
+  <ark.button 
+    :as-child="asChild" 
+    :class="cn(buttonVariants({ variant, size }), props.class)" 
+    data-slot="button" 
+    :data-variant="variant" 
+    :data-size="size"
   >
     <slot />
   </ark.button>

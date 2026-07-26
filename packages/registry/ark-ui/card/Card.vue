@@ -12,7 +12,7 @@ const props = defineProps<{
   <ark.div
     :class="
       cn(
-        'rounded-xl border bg-card text-card-foreground shadow-sm p-1',
+        'rounded-xl border bg-accent/30 dark:bg-card text-card-foreground shadow-sm p-1',
         props.class,
       )
     "

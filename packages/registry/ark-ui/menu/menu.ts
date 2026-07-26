@@ -4,6 +4,9 @@ import MenuCheckboxItem from "./MenuCheckboxItem.vue";
 import MenuContent from "./MenuContent.vue";
 import MenuContext from "./MenuContext.vue";
 import MenuContextTrigger from "./MenuContextTrigger.vue";
+import MenuEmpty from "./MenuEmpty.vue";
+import MenuFilter from "./MenuFilter.vue";
+import MenuFilterInput from "./MenuFilterInput.vue";
 import MenuIndicator from "./MenuIndicator.vue";
 import MenuItem from "./MenuItem.vue";
 import MenuItemContext from "./MenuItemContext.vue";
@@ -26,6 +29,9 @@ export const Menu = {
   Content: MenuContent,
   ContextTrigger: MenuContextTrigger,
   Context: MenuContext,
+  Empty: MenuEmpty,
+  FilterInput: MenuFilterInput,
+  Filter: MenuFilter,
   Indicator: MenuIndicator,
   ItemContext: MenuItemContext,
   ItemGroupLabel: MenuItemGroupLabel,

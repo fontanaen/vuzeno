@@ -1,4 +1,5 @@
 import { Combobox } from "@ark-ui/vue";
+import { InputGroup } from "../input-group";
 import AutocompleteClearTrigger from "./AutocompleteClearTrigger.vue";
 import AutocompleteContent from "./AutocompleteContent.vue";
 import AutocompleteControl from "./AutocompleteControl.vue";
@@ -30,7 +31,7 @@ export const Autocomplete = {
   Empty: AutocompleteEmpty,
   Context: Combobox.Context,
   Control: AutocompleteControl,
-  Indicators: AutocompleteIndicators,
+  Indicators: InputGroup.Addon,
   Input: AutocompleteInput,
   ItemContext: AutocompleteItemContext,
   ItemGroupLabel: AutocompleteItemGroupLabel,

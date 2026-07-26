@@ -143,15 +143,18 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     <Autocomplete.Label>Movie</Autocomplete.Label>
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. Inception" />
-      <Autocomplete.Indicators>
+      
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.ClearTrigger>
-          <XIcon />
+          <XIcon class="size-4 text-muted-foreground" />
         </Autocomplete.ClearTrigger>
+
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+    
     <Autocomplete.Content>
       <Autocomplete.Status v-if="list.loading">
         <LoaderIcon />

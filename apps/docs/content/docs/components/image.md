@@ -32,8 +32,8 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Image } from "@vuzeno/registry/ui/image";
-import { Skeleton } from "@vuzeno/ui/components/skeleton";
+import { Image } from "@/components/ui/image";
+import { Skeleton } from "@/components/ui/skeleton";
 </script>
 
 <template>

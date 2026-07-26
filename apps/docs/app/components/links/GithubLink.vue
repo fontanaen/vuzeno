@@ -24,7 +24,7 @@ const starCount = computed(() => {
     as-child
     variant="ghost"
     size="sm"
-    class="h-8 gap-1.5 px-2"
+    class="h-8 px-2 gap-1.5"
     :aria-label="starCount ? `GitHub repository with ${starCount} stars` : 'GitHub repository'"
   >
     <a

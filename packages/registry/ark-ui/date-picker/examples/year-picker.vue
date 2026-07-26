@@ -40,30 +40,7 @@ const parse = (value: string | undefined) => {
       </DatePicker.ClearTrigger>
     </DatePicker.Control>
     <DatePicker.Content>
-      <DatePicker.View view="year">
-        <DatePicker.Context v-slot="{ api }">
-          <DatePicker.Table>
-            <DatePicker.TableBody>
-              <DatePicker.TableRow
-                v-for="(years, id) in api.getYearsGrid({ columns: 4 })"
-                :key="id"
-               
-              >
-                <DatePicker.TableCell
-                  v-for="(year, id) in years"
-                  :key="id"
-                  :value="year.value"
-                 
-                >
-                  <DatePicker.TableCellTrigger>
-                    {{ year.label }}
-                  </DatePicker.TableCellTrigger>
-                </DatePicker.TableCell>
-              </DatePicker.TableRow>
-            </DatePicker.TableBody>
-          </DatePicker.Table>
-        </DatePicker.Context>
-      </DatePicker.View>
+      <DatePicker.YearView />
     </DatePicker.Content>
   </DatePicker.Root>
 </template>

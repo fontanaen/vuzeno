@@ -29,26 +29,27 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     @input-value-change="handleInputChange"
   >
     <Autocomplete.Label>Country</Autocomplete.Label>
+
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. Canada" />
-      <Autocomplete.Indicators>
+
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.ClearTrigger>
-          <XIcon />
+          <XIcon class="size-4 text-muted-foreground" />
         </Autocomplete.ClearTrigger>
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+
     <Autocomplete.Content>
       <Autocomplete.Item
         v-for="item in collection.items"
         :key="item.code"
         :item="item"
       >
-        <Autocomplete.ItemText
-          >{{ item.flag }} {{ item.country }}</Autocomplete.ItemText
-        >
+        <Autocomplete.ItemText>{{ item.flag }} {{ item.country }}</Autocomplete.ItemText>
         <Autocomplete.ItemIndicator>
           <CheckIcon />
         </Autocomplete.ItemIndicator>

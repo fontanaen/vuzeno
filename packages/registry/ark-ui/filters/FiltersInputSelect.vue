@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { CheckIcon } from "@lucide/vue";
-import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails } from "@vuzeno/registry/ui/autocomplete";
-import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
-import { Menu } from "@vuzeno/registry/ui/menu";
+import { Menu, useMenuFilterCollection } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
 import { computed, type HTMLAttributes, watch } from "vue";
-import { Button, buttonVariants } from "../button";
+import { Button } from "../button";
 import { injectFiltersContext } from "./context";
 import FiltersOptionRender from "./FiltersOptionRender.vue";
 import type { BaseField } from "./field";
@@ -60,7 +58,7 @@ function getItemString(item: SelectCollectionItem) {
   return `${item.label} ${renderedLabel}`.trim();
 }
 
-const { collection, filter, set } = useListCollection<SelectCollectionItem>({
+const { collection, set, searchTerm } = useMenuFilterCollection<SelectCollectionItem>({
   get initialItems() {
     return selectItems.value;
   },
@@ -69,20 +67,11 @@ const { collection, filter, set } = useListCollection<SelectCollectionItem>({
   filter: (itemString, filterText) => itemString.toLowerCase().includes(filterText.toLowerCase()),
 });
 
-const autocompleteValue = computed({
-  get() {
-    const index = items.value.findIndex((option) => option.value === modelValue.value);
-
-    return index >= 0 ? [String(index)] : [];
-  },
-  set(values) {
-    const option = items.value[Number(values[0])];
-
-    if (option) {
-      modelValue.value = option.value;
-    }
-  },
+watch(selectItems, (next) => {
+  set(next);
 });
+
+const displayedItems = computed(() => (isSearchable.value ? collection.value.items : selectItems.value));
 
 function selectOption(option: OperatorOption<unknown>) {
   modelValue.value = option.value;
@@ -91,87 +80,10 @@ function selectOption(option: OperatorOption<unknown>) {
 function isSelected(option: OperatorOption<unknown>) {
   return modelValue.value === option.value;
 }
-
-function handleInputChange(details: AutocompleteInputValueChangeDetails) {
-  filter(details.inputValue);
-}
-
-function handleOpenChange({ open }: AutocompleteOpenChangeDetails) {
-  if (open) {
-    filter("");
-  }
-}
-
-watch(selectItems, (next) => {
-  set(next);
-});
 </script>
 
 <template>
-  <Autocomplete.Root
-    v-if="isSearchable"
-    v-model="autocompleteValue"
-    :collection="collection"
-    class="h-full w-auto max-w-none"
-    @input-value-change="handleInputChange"
-    @open-change="handleOpenChange"
-  >
-    <Autocomplete.Control class="h-full w-auto gap-0">
-      <Autocomplete.Trigger :class="cn(buttonVariants({ variant, size }), triggerClass)">
-        <template v-if="renderedValue !== undefined">
-          <FiltersOptionRender :render="renderedValue" />
-        </template>
-        <template v-else-if="selectedOption">
-          <template v-if="renderOption">
-            <FiltersOptionRender :render="renderOption(selectedOption)" />
-          </template>
-          <template v-else>
-            {{ selectedOption.label }}
-          </template>
-        </template>
-        <span v-else>Select option</span>
-      </Autocomplete.Trigger>
-    </Autocomplete.Control>
-    
-    <Autocomplete.Content class="w-min min-w-48 overflow-hidden p-0">
-      <div class="border-b border-input shrink-0">
-        <Autocomplete.Input
-          :placeholder="operator.options?.searchPlaceholder ?? 'Search option'"
-          :class="
-            cn(
-              'h-8 border-0 shadow-none dark:bg-transparent',
-              filtersMenuItemVariants({ size }),
-            )
-          "
-        />
-      </div>
-
-      <Autocomplete.Empty
-        :class="cn('py-6 justify-center', filtersMenuItemVariants({ size }))"
-      >
-        {{ operator.options?.emptyLabel ?? "No results found." }}
-      </Autocomplete.Empty>
-
-      <div
-        class="max-h-[min(var(--available-height,300px),300px)] overflow-y-auto p-1"
-      >
-        <Autocomplete.Item
-          v-for="item in collection.items"
-          :key="item.id"
-          :item="item"
-          :class="filtersMenuItemVariants({ size })"
-        >
-          <FiltersOptionRender :render="renderOption?.(item)">
-            <Autocomplete.ItemText>{{ item.label }}</Autocomplete.ItemText>
-          </FiltersOptionRender>
-
-          <Autocomplete.ItemIndicator />
-        </Autocomplete.Item>
-      </div>
-    </Autocomplete.Content>
-  </Autocomplete.Root>
-
-  <Menu.Root v-else class="w-auto">
+  <Menu.Root :typeahead="!isSearchable" class="w-auto">
     <Menu.Trigger as-child>
       <Button :variant="variant" :size="size" :class="triggerClass">
         <template v-if="renderedValue !== undefined">
@@ -186,23 +98,39 @@ watch(selectItems, (next) => {
       </Button>
     </Menu.Trigger>
 
-    <Menu.Content>
-      <Menu.Item
-        v-for="option in items"
-        :key="String(option.value)"
-        :value="String(option.value)"
-        :class="filtersMenuItemVariants({ size })"
-        @click="selectOption(option)"
-      >
-        <FiltersOptionRender :render="renderOption?.(option)">
-          {{ option.label }}
-        </FiltersOptionRender>
-
-        <CheckIcon
-          class="ml-auto size-4 text-primary"
-          :class="{ 'opacity-0': !isSelected(option) }"
+    <Menu.Content :class="{ 'p-0 min-w-48': isSearchable }">
+      <Menu.Filter v-if="isSearchable" v-model:search-term="searchTerm">
+        <Menu.FilterInput
+          :placeholder="operator.options?.searchPlaceholder ?? 'Search option'"
+          :class="filtersMenuItemVariants({ size })"
         />
-      </Menu.Item>
+      </Menu.Filter>
+
+      <Menu.Empty
+        v-if="isSearchable && displayedItems.length === 0"
+        :class="cn('py-6 justify-center text-center', filtersMenuItemVariants({ size }))"
+      >
+        {{ operator.options?.emptyLabel ?? "No results found." }}
+      </Menu.Empty>
+
+      <div :class="isSearchable ? 'max-h-[min(var(--available-height,300px),300px)] overflow-y-auto p-1' : undefined">
+        <Menu.Item
+          v-for="option in displayedItems"
+          :key="option.id"
+          :value="option.id"
+          :class="filtersMenuItemVariants({ size })"
+          @click="selectOption(option)"
+        >
+          <FiltersOptionRender :render="renderOption?.(option)">
+            {{ option.label }}
+          </FiltersOptionRender>
+
+          <CheckIcon
+            class="ml-auto size-4 text-primary"
+            :class="{ 'opacity-0': !isSelected(option) }"
+          />
+        </Menu.Item>
+      </div>
     </Menu.Content>
   </Menu.Root>
 </template>

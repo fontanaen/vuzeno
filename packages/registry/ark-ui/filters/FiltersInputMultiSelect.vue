@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import type { CheckboxCheckedChangeDetails } from "@ark-ui/vue/checkbox";
 import { SearchIcon } from "@lucide/vue";
-import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails } from "@vuzeno/registry/ui/autocomplete";
-import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 import { Checkbox } from "@vuzeno/registry/ui/checkbox";
-import { Menu } from "@vuzeno/registry/ui/menu";
+import { Menu, useMenuFilterCollection } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
-import { computed, type HTMLAttributes, isVNode, watch } from "vue";
-import { Button, buttonVariants } from "../button";
+import { computed, type HTMLAttributes, watch } from "vue";
+import { Button } from "../button";
 import { injectFiltersContext } from "./context";
 import FiltersOptionRender from "./FiltersOptionRender.vue";
 import type { BaseField } from "./field";
@@ -72,7 +70,7 @@ function getItemString(item: SelectCollectionItem) {
   return `${item.label} ${renderedLabel}`.trim();
 }
 
-const { collection, filter, set } = useListCollection<SelectCollectionItem>({
+const { collection, set, searchTerm } = useMenuFilterCollection<SelectCollectionItem>({
   get initialItems() {
     return selectItems.value;
   },
@@ -85,30 +83,7 @@ watch(selectItems, (next) => {
   set(next);
 });
 
-const autocompleteValue = computed({
-  get() {
-    if (!Array.isArray(modelValue.value)) {
-      return [];
-    }
-
-    return (modelValue.value as unknown[])
-      .map((current) => {
-        const index = items.value.findIndex((option) => option.value === current);
-
-        return index >= 0 ? String(index) : null;
-      })
-      .filter((id): id is string => id !== null);
-  },
-  set(values) {
-    const next = values.map((id) => items.value[Number(id)]?.value).filter((value) => value !== undefined);
-
-    if (maxSelections.value !== undefined && next.length > maxSelections.value) {
-      return;
-    }
-
-    modelValue.value = next;
-  },
-});
+const displayedItems = computed(() => (isSearchable.value ? collection.value.items : selectItems.value));
 
 function isChecked(option: OperatorOption<unknown>) {
   return Array.isArray(modelValue.value) && (modelValue.value as unknown[]).includes(option.value);
@@ -132,115 +107,15 @@ function toggleOption(option: OperatorOption<unknown>) {
 function handleCheckboxChange(option: OperatorOption<unknown>, _details: CheckboxCheckedChangeDetails) {
   toggleOption(option);
 }
-
-function handleInputChange(details: AutocompleteInputValueChangeDetails) {
-  filter(details.inputValue);
-}
-
-function handleOpenChange({ open }: AutocompleteOpenChangeDetails) {
-  if (open) {
-    filter("");
-  }
-}
 </script>
 
 <template>
-  <Autocomplete.Root
-    v-if="isSearchable"
-    v-model="autocompleteValue"
-    :collection="collection"
-    multiple
-    class="h-full w-auto max-w-none"
-    @input-value-change="handleInputChange"
-    @open-change="handleOpenChange"
-  >
-    <Autocomplete.Control class="h-full w-auto gap-0">
-      <Autocomplete.Trigger :class="cn(buttonVariants({ variant, size }), triggerClass)">
-        <template v-if="renderedValue !== undefined">
-          <FiltersOptionRender :render="renderedValue" />
-        </template>
-        <template
-          v-else-if="Array.isArray(modelValue) && modelValue.length > 0"
-        >
-          {{ visibleSelections.map((option) => option.label).join(", ") }}
-
-          <span
-            v-if="modelValue.length > visibleSelections.length"
-            class="text-muted-foreground text-xs ml-1"
-          >
-            +{{ modelValue.length - visibleSelections.length }}
-          </span>
-        </template>
-        <span v-else>Select options</span>
-      </Autocomplete.Trigger>
-    </Autocomplete.Control>
-    
-    <Autocomplete.Content class="w-min min-w-48 overflow-hidden p-0">
-      <div class="relative border-b border-input shrink-0">
-        <SearchIcon
-          class="absolute top-1/2 left-3 -translate-y-1/2 size-4 text-muted-foreground"
-        />
-        <Autocomplete.Input
-          :placeholder="operator.options?.searchPlaceholder ?? 'Search option'"
-          :class="
-            cn(
-              'h-8 border-0 shadow-none dark:bg-transparent pl-9',
-              filtersMenuItemVariants({ size }),
-            )
-          "
-        />
-      </div>
-
-      <Autocomplete.Empty
-        :class="cn('py-6 justify-center', filtersMenuItemVariants({ size }))"
-      >
-        {{ operator.options?.emptyLabel ?? "No results found." }}
-      </Autocomplete.Empty>
-
-      <div
-        class="max-h-[min(var(--available-height,300px),300px)] overflow-y-auto p-1"
-      >
-        <Autocomplete.Item
-          v-for="item in collection.items"
-          :key="item.id"
-          :item="item"
-          :class="filtersMenuItemVariants({ size })"
-        >
-          <Checkbox.Root
-            :checked="isChecked(item)"
-            @click.stop
-            @checked-change="handleCheckboxChange(item, $event)"
-          >
-            <Checkbox.Control :class="filtersCheckboxVariants({ size })">
-              <Checkbox.Indicator />
-            </Checkbox.Control>
-          </Checkbox.Root>
-
-          <template v-if="renderOption">
-            <component
-              :is="renderOption(item)"
-              v-if="isVNode(renderOption(item))"
-            />
-            <template v-else>
-              {{ renderOption(item) }}
-            </template>
-          </template>
-          <template v-else>
-            <Autocomplete.ItemText>{{ item.label }}</Autocomplete.ItemText>
-          </template>
-        </Autocomplete.Item>
-      </div>
-    </Autocomplete.Content>
-  </Autocomplete.Root>
-
-  <Menu.Root v-else :close-on-select="false" class="w-auto">
+  <Menu.Root :typeahead="!isSearchable" :close-on-select="false" class="w-auto">
     <Menu.Trigger as-child>
       <Button :variant="variant" :size="size" :class="triggerClass">
         <FiltersOptionRender v-if="renderedValue !== undefined" :render="renderedValue" />
-        
-        <template
-          v-else-if="Array.isArray(modelValue) && modelValue.length > 0"
-        >
+
+        <template v-else-if="Array.isArray(modelValue) && modelValue.length > 0">
           {{ visibleSelections.map((option) => option.label).join(", ") }}
 
           <span
@@ -254,28 +129,45 @@ function handleOpenChange({ open }: AutocompleteOpenChangeDetails) {
       </Button>
     </Menu.Trigger>
 
-    <Menu.Content class="min-w-48">
-      <Menu.Item
-        v-for="option in items"
-        :key="String(option.value)"
-        :value="String(option.value)"
-        :class="filtersMenuItemVariants({ size })"
-        @click="toggleOption(option)"
-      >
-        <Checkbox.Root
-          :checked="isChecked(option)"
-          @click.stop
-          @checked-change="handleCheckboxChange(option, $event)"
-        >
-          <Checkbox.Control :class="filtersCheckboxVariants({ size })">
-            <Checkbox.Indicator />
-          </Checkbox.Control>
-        </Checkbox.Root>
+    <Menu.Content class="min-w-48" :class="{ 'p-0': isSearchable }">
+      <Menu.Filter v-if="isSearchable" v-model:search-term="searchTerm" class="relative">
+        <SearchIcon class="absolute top-1/2 left-3 -translate-y-1/2 size-4 text-muted-foreground" />
+        <Menu.FilterInput
+          :placeholder="operator.options?.searchPlaceholder ?? 'Search option'"
+          :class="cn('pl-9', filtersMenuItemVariants({ size }))"
+        />
+      </Menu.Filter>
 
-        <FiltersOptionRender :render="renderOption?.(option)">
-          {{ option.label }}
-        </FiltersOptionRender>
-      </Menu.Item>
+      <Menu.Empty
+        v-if="isSearchable && displayedItems.length === 0"
+        :class="cn('py-6 justify-center text-center', filtersMenuItemVariants({ size }))"
+      >
+        {{ operator.options?.emptyLabel ?? "No results found." }}
+      </Menu.Empty>
+
+      <div :class="isSearchable ? 'max-h-[min(var(--available-height,300px),300px)] overflow-y-auto p-1' : undefined">
+        <Menu.Item
+          v-for="option in displayedItems"
+          :key="option.id"
+          :value="option.id"
+          :class="filtersMenuItemVariants({ size })"
+          @click="toggleOption(option)"
+        >
+          <Checkbox.Root
+            :checked="isChecked(option)"
+            @click.stop
+            @checked-change="handleCheckboxChange(option, $event)"
+          >
+            <Checkbox.Control :class="filtersCheckboxVariants({ size })">
+              <Checkbox.Indicator />
+            </Checkbox.Control>
+          </Checkbox.Root>
+
+          <FiltersOptionRender :render="renderOption?.(option)">
+            {{ option.label }}
+          </FiltersOptionRender>
+        </Menu.Item>
+      </div>
     </Menu.Content>
   </Menu.Root>
 </template>

@@ -31,17 +31,20 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     @input-value-change="handleInputChange"
   >
     <Autocomplete.Label>Sea Creature</Autocomplete.Label>
+    
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. Dolphin" />
-      <Autocomplete.Indicators>
+      
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.ClearTrigger>
-          <XIcon />
+          <XIcon class="size-4 text-muted-foreground" />
         </Autocomplete.ClearTrigger>
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+
     <Autocomplete.Content>
       <Autocomplete.Empty>No results found</Autocomplete.Empty>
       <Autocomplete.Item

@@ -23,14 +23,17 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     @input-value-change="handleInputChange"
   >
     <Autocomplete.Label>Email</Autocomplete.Label>
+
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. john" />
-      <Autocomplete.Indicators>
+
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+    
     <Autocomplete.Content>
       <Autocomplete.Item v-for="item in collection.items" :key="item" :item="item">
         <Autocomplete.ItemText>{{ item }}</Autocomplete.ItemText>

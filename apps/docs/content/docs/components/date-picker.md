@@ -28,15 +28,30 @@ exec: true
 
 ```vue
 <script setup lang="ts">
+import { CalendarIcon } from "@lucide/vue";
+import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
 </script>
 
 <template>
   <DatePicker.Root>
-    <!-- … -->
+    <DatePicker.Label>Label</DatePicker.Label>
+    <DatePicker.Control>
+      <DatePicker.Input />
+      <DatePicker.Trigger as-child>
+        <Button size="icon-sm" variant="outline">
+          <CalendarIcon />
+        </Button>
+      </DatePicker.Trigger>
+    </DatePicker.Control>
+    <DatePicker.Content>
+      <DatePicker.Calendar />
+    </DatePicker.Content>
   </DatePicker.Root>
 </template>
 ```
+
+Use `DatePicker.Calendar` for the default day / month / year views, or compose `DatePicker.DayView`, `DatePicker.MonthView`, and `DatePicker.YearView` individually. All Ark UI primitives remain available for custom layouts.
 
 ## Composition
 
@@ -44,6 +59,10 @@ import { DatePicker } from "@vuzeno/registry/ui/date-picker";
 DatePicker.Root
 ├── DatePicker.ClearTrigger
 ├── DatePicker.Content
+│   └── DatePicker.Calendar
+│       ├── DatePicker.DayView
+│       ├── DatePicker.MonthView
+│       └── DatePicker.YearView
 ├── DatePicker.Context
 ├── DatePicker.Control
 ├── DatePicker.Input
@@ -65,6 +84,7 @@ DatePicker.Root
 ├── DatePicker.Table
 ├── DatePicker.Trigger
 ├── DatePicker.ViewControl
+├── DatePicker.ViewNav
 ├── DatePicker.ViewTrigger
 ├── DatePicker.View
 ├── DatePicker.WeekNumberHeaderCell

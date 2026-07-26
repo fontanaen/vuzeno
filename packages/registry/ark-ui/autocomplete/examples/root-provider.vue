@@ -39,17 +39,20 @@ const autocomplete = useAutocomplete({
 
     <Autocomplete.RootProvider :value="autocomplete">
       <Autocomplete.Label>Job Title</Autocomplete.Label>
+
       <Autocomplete.Control>
         <Autocomplete.Input placeholder="e.g. Designer" />
-        <Autocomplete.Indicators>
+      
+        <Autocomplete.Indicators align="inline-end">
           <Autocomplete.ClearTrigger>
-            <XIcon />
+            <XIcon class="size-4 text-muted-foreground" />
           </Autocomplete.ClearTrigger>
           <Autocomplete.Trigger>
-            <ChevronsUpDownIcon />
+            <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
           </Autocomplete.Trigger>
         </Autocomplete.Indicators>
       </Autocomplete.Control>
+      
       <Autocomplete.Content>
         <Autocomplete.Item
           v-for="item in collection.items"

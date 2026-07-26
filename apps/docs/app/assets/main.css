@@ -1,4 +1,4 @@
-@import "@fontsource-variable/rubik";
+@import "@fontsource-variable/geist";
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -9,7 +9,7 @@
 @source "../../../../packages/registry";
 
 body {
-  font-family: "Rubik Variable", sans-serif;
+  font-family: "Geist Variable", sans-serif;
 }
 
 @theme {

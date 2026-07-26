@@ -14,8 +14,8 @@ const rootProviderProps = reactiveOmit(props, "class");
     v-bind="rootProviderProps"
     :class="cn(
       'relative isolate inline-flex items-center',
-      'rounded-lg bg-[var(--demo-neutral-subtle)] p-1 text-muted',
-      'shadow-[inset_0_0_0_1px_var(--demo-border)]',
+      'rounded-lg bg-muted dark:bg-muted p-1 text-muted',
+      'shadow-[inset_0_0_0_1px_var(--border)]',
       'data-disabled:opacity-50 data-disabled:grayscale',
       props.class,
     )"

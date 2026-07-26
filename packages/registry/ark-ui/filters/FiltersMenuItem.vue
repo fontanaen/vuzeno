@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Checkbox } from "@vuzeno/registry/ui/checkbox";
-import { Menu } from "@vuzeno/registry/ui/menu";
+import { Menu, useMenuFilterCollection } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
-import { computed, ref } from "vue";
+import { computed, watch } from "vue";
 import { injectFiltersContext } from "./context";
 import FiltersOptionRender from "./FiltersOptionRender.vue";
 import type { BaseField } from "./field";
@@ -10,13 +10,13 @@ import type { FilterValue } from "./filter";
 import { getOperatorDefaultValue, type Operator, OperatorInputType, type OperatorOption } from "./operator";
 import { filtersCheckboxVariants, filtersMenuItemVariants } from "./variants";
 
+type SelectCollectionItem = OperatorOption<unknown> & { id: string };
+
 const props = defineProps<{
   field: BaseField;
 }>();
 
 const { filters, addFilter, updateFilter, removeFilter, size } = injectFiltersContext();
-
-const searchValue = ref("");
 
 const defaultOperator = computed<Operator<unknown>>(() => {
   const operator = props.field.operators.find((candidate) => candidate.default) ?? props.field.operators[0];
@@ -35,33 +35,34 @@ const hasOptionsMenu = computed(() => {
 
   return options !== undefined && (inputType === OperatorInputType.SELECT || inputType === OperatorInputType.MULTI_SELECT);
 });
+const isSearchable = computed(() => defaultOperator.value.options?.searchable === true);
 const disabled = computed(() => !isMultiSelect.value && existingFilter.value !== undefined);
 
-const filteredOptions = computed(() => {
-  const options = defaultOperator.value.options?.items ?? [];
-  const search = searchValue.value.trim().toLocaleLowerCase();
+const selectItems = computed<SelectCollectionItem[]>(() =>
+  (defaultOperator.value.options?.items ?? []).map((option, index) => ({ ...option, id: String(index) })),
+);
 
-  if (!search) {
-    return options;
-  }
-
-  return options.filter((option) => getOptionSearchValue(option).includes(search));
-});
-
-function getOptionSearchValue(option: OperatorOption<unknown>): string {
-  const renderedOption = defaultOperator.value.options?.renderOption?.(option);
+function getItemString(item: SelectCollectionItem) {
+  const renderedOption = defaultOperator.value.options?.renderOption?.(item);
   const renderedLabel = typeof renderedOption === "string" ? renderedOption : "";
 
-  return `${option.label} ${renderedLabel}`.toLocaleLowerCase();
+  return `${item.label} ${renderedLabel}`.trim();
 }
 
-function handleSearchKeydown(event: KeyboardEvent) {
-  if (event.key === "Escape") {
-    return;
-  }
+const { collection, set, searchTerm } = useMenuFilterCollection<SelectCollectionItem>({
+  get initialItems() {
+    return selectItems.value;
+  },
+  itemToString: getItemString,
+  itemToValue: (item) => item.id,
+  filter: (itemString, filterText) => itemString.toLowerCase().includes(filterText.toLowerCase()),
+});
 
-  event.stopPropagation();
-}
+watch(selectItems, (next) => {
+  set(next);
+});
+
+const displayedItems = computed(() => (isSearchable.value ? collection.value.items : selectItems.value));
 
 function addLeafFilter() {
   addFilter({
@@ -119,37 +120,36 @@ function selectOption(option: OperatorOption<unknown>) {
 </script>
 
 <template>
-  <Menu.Root v-if="hasOptionsMenu && defaultOperator.options" :close-on-select="!isMultiSelect">
+  <Menu.Root
+    v-if="hasOptionsMenu && defaultOperator.options"
+    :typeahead="!isSearchable"
+    :close-on-select="!isMultiSelect"
+  >
     <Menu.TriggerItem :class="cn(filtersMenuItemVariants({ size }), 'gap-2 data-disabled:opacity-50')">
       <component :is="field.icon" v-if="field.icon" class="size-4 text-muted-foreground" />
       {{ field.label }}
     </Menu.TriggerItem>
 
-    <Menu.Content class="border-b border-muted" :class="{ 'min-w-48 p-0': defaultOperator.options.searchable }">
-      <div v-if="defaultOperator.options.searchable" class="px-3 border-b border-muted">
-        <input
-          v-model="searchValue"
+    <Menu.Content class="border-b border-muted" :class="{ 'min-w-48 p-0': isSearchable }">
+      <Menu.Filter v-if="isSearchable" v-model:search-term="searchTerm" class="px-0">
+        <Menu.FilterInput
           :placeholder="defaultOperator.options.searchPlaceholder ?? 'Search option'"
-          class="h-8 w-full bg-transparent text-xs outline-none placeholder:text-muted-foreground"
-          @click.stop
-          @keydown="handleSearchKeydown"
-          @pointerdown.stop
-        >
-      </div>
+          :class="cn('px-3 text-xs', filtersMenuItemVariants({ size }))"
+        />
+      </Menu.Filter>
 
-      <div :class="{ 'p-1': defaultOperator.options.searchable }">
-        <div
-          v-if="filteredOptions.length === 0"
-          class="px-2 py-1.5 text-muted-foreground"
-          :class="filtersMenuItemVariants({ size })"
-        >
-          {{ defaultOperator.options.emptyLabel ?? "No results found." }}
-        </div>
+      <Menu.Empty
+        v-if="isSearchable && displayedItems.length === 0"
+        :class="filtersMenuItemVariants({ size })"
+      >
+        {{ defaultOperator.options.emptyLabel ?? "No results found." }}
+      </Menu.Empty>
 
+      <div :class="{ 'p-1': isSearchable }">
         <Menu.Item
-          v-for="option in filteredOptions"
-          :key="String(option.value)"
-          :value="String(option.value)"
+          v-for="option in displayedItems"
+          :key="option.id"
+          :value="option.id"
           :class="filtersMenuItemVariants({ size })"
           :disabled="disabled"
           @click="selectOption(option)"

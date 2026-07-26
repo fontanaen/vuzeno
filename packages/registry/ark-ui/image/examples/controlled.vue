@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Image, type ImageState } from "@vuzeno/registry/ui/image";
 import { SegmentGroup } from "@vuzeno/registry/ui/segment-group";
-import { Skeleton } from "@vuzeno/ui/components/skeleton";
+import { Skeleton } from "@vuzeno/registry/ui/skeleton";
 import { ref } from "vue";
 
 const states: ImageState[] = ["loading", "error", "success"];
@@ -26,11 +26,11 @@ const state = ref<ImageState>("loading");
         alt="Landscape"
       />
 
-      <Image.Loading as-child>
+      <Image.Loading>
         <Skeleton class="aspect-video w-72" />
       </Image.Loading>
 
-      <Image.Error as-child>
+      <Image.Error>
         <div class="flex aspect-video w-72 items-center justify-center rounded-md bg-destructive/10 text-sm text-destructive">
           Failed to load image.
         </div>

@@ -4,7 +4,7 @@ import { SearchIcon } from "@lucide/vue";
 import { useHotkey } from "@tanstack/vue-hotkeys";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
-import { Kbd, KbdGroup } from "@vuzeno/ui/components/kbd";
+import { Kbd } from "@vuzeno/registry/ui/kbd";
 import { useIsMac } from "~/composables/use-is-mac";
 
 const open = ref(false);
@@ -48,20 +48,23 @@ useHotkey("Mod+K", () => {
 </script>
 
 <template>
-  <Dialog.Root v-model:open="open">
+  <Dialog.Root v-model:open="open" lazy-mount unmount-on-exit>
     <Dialog.Trigger as-child>
-      <div class="hidden md:flex items-center gap-2 bg-input dark:bg-input/30 border border-input rounded-md h-8 px-2">
+      <button
+        type="button"
+        class="hidden md:flex items-center gap-2 bg-background dark:bg-input/30 border border-input rounded-md h-8 px-2"
+      >
         <div class="w-40 flex gap-2 items-center text-sm text-muted-foreground">
           <SearchIcon class="size-4" />
           Search
         </div>
         
-        <KbdGroup>
-          <Kbd v-if="isMac">⌘</Kbd>
-          <Kbd v-else>Ctrl</Kbd>
-          <Kbd>K</Kbd>
-        </KbdGroup>
-      </div>
+        <Kbd.Group>
+          <Kbd.Item v-if="isMac">⌘</Kbd.Item>
+          <Kbd.Item v-else>Ctrl</Kbd.Item>
+          <Kbd.Item>K</Kbd.Item>
+        </Kbd.Group>
+      </button>
     </Dialog.Trigger>
 
     <Dialog.Content class="top-0 p-0 border-2 border-accent translate-y-0 data-[state=open]:slide-in-from-bottom-1/3" :show-close-button="false">

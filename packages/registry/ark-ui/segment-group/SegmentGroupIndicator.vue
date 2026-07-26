@@ -13,7 +13,7 @@ const indicatorProps = reactiveOmit(props, "class");
   <SegmentGroup.Indicator
     v-bind="indicatorProps"
     :class="cn(
-      'absolute z-0 rounded-md bg-background dark:bg-primary/10 shadow-sm',
+      'absolute z-0 rounded-md bg-background dark:bg-primary shadow-sm',
       'top-(--top) left-(--left) h-(--height) w-(--width)',
       'transition-[width,height,left,top] duration-150 ease-out',
       props.class,

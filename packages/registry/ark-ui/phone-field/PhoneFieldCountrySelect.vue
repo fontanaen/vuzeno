@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { CheckIcon, ChevronsUpDownIcon } from "@lucide/vue";
-import type { AutocompleteInputValueChangeDetails, AutocompleteOpenChangeDetails, AutocompleteValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
-import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
+import { Menu, useMenuFilterCollection } from "@vuzeno/registry/ui/menu";
 import { cn } from "cnfast";
 import { type CountryCode, getCountries, getCountryCallingCode } from "libphonenumber-js";
 import { computed, watch } from "vue";
+import { Button } from "../button";
 import PhoneFieldCountryFlag from "./PhoneFieldCountryFlag.vue";
 import { injectPhoneFieldContext } from "./PhoneFieldRoot.vue";
 
@@ -14,7 +14,7 @@ type CountryItem = {
   callingCode: string;
 };
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     searchPlaceholder?: string;
     flagType?: "cdn" | "unicode";
@@ -44,7 +44,7 @@ const countryItems = computed<CountryItem[]>(() => {
     });
 });
 
-const { collection, filter, set } = useListCollection<CountryItem>({
+const { collection, set, searchTerm } = useMenuFilterCollection<CountryItem>({
   get initialItems() {
     return countryItems.value;
   },
@@ -57,104 +57,49 @@ watch(countryItems, (items) => {
   set(items);
 });
 
-const autocompleteValue = computed({
-  get() {
-    return countryCode.value ? [countryCode.value] : [];
-  },
-  set(value: string[]) {
-    countryCode.value = (value[0] ?? "") as CountryCode;
-  },
-});
+const selectedCountry = computed(() => countryItems.value.find((item) => item.value === countryCode.value));
 
-const triggerSizeClass = computed(() => {
-  if (size.value === "sm") {
-    return "h-9 px-3";
-  }
-
-  if (size.value === "lg") {
-    return "h-11 px-5";
-  }
-
-  return "h-10 px-4";
-});
-
-function handleInputChange(details: AutocompleteInputValueChangeDetails) {
-  filter(details.inputValue);
-}
-
-function handleValueChange({ value }: AutocompleteValueChangeDetails) {
-  if (value[0]) {
-    countryCode.value = value[0] as CountryCode;
-  }
-}
-
-function handleOpenChange({ open }: AutocompleteOpenChangeDetails) {
-  if (open) {
-    filter("");
-  }
+function selectCountry(value: CountryCode) {
+  countryCode.value = value;
 }
 </script>
 
 <template>
-  <Autocomplete.Root
-    v-model="autocompleteValue"
-    :collection="collection"
-    :disabled="disabled"
-    selection-behavior="clear"
-    class="w-auto max-w-none"
-    @input-value-change="handleInputChange"
-    @value-change="handleValueChange"
-    @open-change="handleOpenChange"
-  >
-    <Autocomplete.Control class="relative w-auto">
-      <Autocomplete.Trigger
-        :disabled="disabled"
-        data-slot="phone-field-country-select"
-        :class="
-          cn(
-            'flex items-center gap-2 rounded-s-md border border-input bg-background dark:bg-input/30 shadow-xs',
-            'hover:bg-accent hover:text-accent-foreground',
-            'disabled:cursor-not-allowed disabled:opacity-50',
-            '[&_svg]:size-3',
-            triggerSizeClass,
-          )
-        "
-      >
+  <Menu.Root :typeahead="false">
+    <Menu.Trigger as-child>
+      <Button :size="size" variant="outline" :class="cn('[&_svg]:size-3 px-3')" :disabled="disabled">
         <template v-if="countryCode">
           <PhoneFieldCountryFlag
             :country-code="countryCode"
             :type="flagType"
-            :alt="
-              countryItems.find((item) => item.value === countryCode)?.label ??
-              ''
-            "
+            :alt="selectedCountry?.label ?? ''"
           />
         </template>
         <template v-else>
           <div class="bg-muted-foreground rounded-xs h-3.5 w-5"></div>
         </template>
         <ChevronsUpDownIcon class="text-muted-foreground" />
-      </Autocomplete.Trigger>
-    </Autocomplete.Control>
-    <Autocomplete.Content class="w-auto min-w-64 p-0">
-      <div class="border-b border-input shrink-0">
-        <Autocomplete.Input
-          :placeholder="searchPlaceholder"
+      </Button>
+    </Menu.Trigger>
+
+    <Menu.Content class="w-auto min-w-64 p-0">
+      <Menu.Filter v-model:search-term="searchTerm">
+        <Menu.FilterInput
+          :placeholder="props.searchPlaceholder"
           class="dark:bg-transparent border-0 shadow-none focus:border-0 focus:shadow-none"
         />
-      </div>
+      </Menu.Filter>
 
-      <Autocomplete.Empty class="py-6 justify-center text-sm">
+      <Menu.Empty v-if="collection.items.length === 0" class="py-6 justify-center text-center text-sm">
         No country found.
-      </Autocomplete.Empty>
+      </Menu.Empty>
 
-      <div
-        class="max-h-[min(var(--available-height,300px),300px)] overflow-y-auto p-1"
-      >
-        <Autocomplete.Item
+      <div class="max-h-[min(var(--available-height,300px),300px)] overflow-y-auto p-1">
+        <Menu.Item
           v-for="item in collection.items"
           :key="item.value"
-          :item="item"
+          :value="item.value"
+          @click="selectCountry(item.value)"
         >
           <PhoneFieldCountryFlag
             :country-code="item.value"
@@ -162,18 +107,17 @@ function handleOpenChange({ open }: AutocompleteOpenChangeDetails) {
             :alt="item.label"
           />
 
-          <Autocomplete.ItemText class="flex items-center gap-2">
+          <Menu.ItemText class="flex items-center gap-2">
             <span class="font-medium">{{ item.label }}</span>
-            <span class="text-muted-foreground text-xs tabular-nums"
-              >(+{{ item.callingCode }})</span
-            >
-          </Autocomplete.ItemText>
+            <span class="text-muted-foreground text-xs tabular-nums">(+{{ item.callingCode }})</span>
+          </Menu.ItemText>
 
-          <Autocomplete.ItemIndicator>
-            <CheckIcon class="size-4" />
-          </Autocomplete.ItemIndicator>
-        </Autocomplete.Item>
+          <CheckIcon
+            class="ml-auto size-4 text-primary"
+            :class="{ 'opacity-0': countryCode !== item.value }"
+          />
+        </Menu.Item>
       </div>
-    </Autocomplete.Content>
-  </Autocomplete.Root>
+    </Menu.Content>
+  </Menu.Root>
 </template>

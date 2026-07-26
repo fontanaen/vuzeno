@@ -3,6 +3,8 @@ import { cva } from "class-variance-authority";
 import type { HTMLAttributes } from "vue";
 import type { ButtonVariants } from "../button";
 
+export type { InputGroupInputProps } from "./InputGroupInput.vue";
+
 export { InputGroup } from "./input-group";
 
 export const inputGroupAddonVariants = cva(

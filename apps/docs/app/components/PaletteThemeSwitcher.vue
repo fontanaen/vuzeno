@@ -12,7 +12,7 @@ function onThemeChange(value: string) {
 </script>
 
 <template>
-  <Menu.Root :positioning="{ placement: 'bottom-end' }">
+  <Menu.Root lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-end' }">
     <Menu.Trigger as-child>
       <Button
         variant="ghost"

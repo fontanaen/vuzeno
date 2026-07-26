@@ -4,13 +4,13 @@ import { cva } from "class-variance-authority";
 export const phoneFieldVariants = cva(undefined, {
   variants: {
     size: {
-      default: "h-10",
-      sm: "h-9",
-      lg: "h-11",
+      sm: "h-8",
+      md: "h-9",
+      lg: "h-10",
     },
   },
   defaultVariants: {
-    size: "default",
+    size: "md",
   },
 });
 

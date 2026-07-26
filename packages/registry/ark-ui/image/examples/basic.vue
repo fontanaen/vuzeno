@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Image } from "@vuzeno/registry/ui/image";
-import { Skeleton } from "@vuzeno/ui/components/skeleton";
+import { Skeleton } from "@vuzeno/registry/ui/skeleton";
 </script>
 
 <template>

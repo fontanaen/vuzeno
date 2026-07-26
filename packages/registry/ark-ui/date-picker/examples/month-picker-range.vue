@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { CalendarDate, type DateValue } from "@internationalized/date";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@lucide/vue";
+import { CalendarIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
 
@@ -44,76 +44,8 @@ const parse = (value: string) => {
       </DatePicker.ClearTrigger>
     </DatePicker.Control>
     <DatePicker.Content>
-      <DatePicker.View view="month">
-        <DatePicker.ViewControl>
-          <DatePicker.PrevTrigger>
-            <ChevronLeftIcon />
-          </DatePicker.PrevTrigger>
-          <DatePicker.ViewTrigger>
-            <DatePicker.RangeText />
-          </DatePicker.ViewTrigger>
-          <DatePicker.NextTrigger>
-            <ChevronRightIcon />
-          </DatePicker.NextTrigger>
-        </DatePicker.ViewControl>
-        <DatePicker.Context v-slot="{ api }">
-          <DatePicker.Table>
-            <DatePicker.TableBody>
-              <DatePicker.TableRow
-                v-for="(months, id) in api.getMonthsGrid({ columns: 4, format: 'short' })"
-                :key="id"
-               
-              >
-                <DatePicker.TableCell
-                  v-for="(month, idx) in months"
-                  :key="idx"
-                  :value="month.value"
-                 
-                >
-                  <DatePicker.TableCellTrigger>
-                    {{ month.label }}
-                  </DatePicker.TableCellTrigger>
-                </DatePicker.TableCell>
-              </DatePicker.TableRow>
-            </DatePicker.TableBody>
-          </DatePicker.Table>
-        </DatePicker.Context>
-      </DatePicker.View>
-      <DatePicker.View view="year">
-        <DatePicker.ViewControl>
-          <DatePicker.PrevTrigger>
-            <ChevronLeftIcon />
-          </DatePicker.PrevTrigger>
-          <DatePicker.ViewTrigger>
-            <DatePicker.RangeText />
-          </DatePicker.ViewTrigger>
-          <DatePicker.NextTrigger>
-            <ChevronRightIcon />
-          </DatePicker.NextTrigger>
-        </DatePicker.ViewControl>
-        <DatePicker.Context v-slot="{ api }">
-          <DatePicker.Table>
-            <DatePicker.TableBody>
-              <DatePicker.TableRow
-                v-for="(years, id) in api.getYearsGrid({ columns: 4 })"
-                :key="id"
-               
-              >
-                <DatePicker.TableCell
-                  v-for="(year, idx) in years"
-                  :key="idx"
-                  :value="year.value"
-                 
-                >
-                  <DatePicker.TableCellTrigger>
-                    {{ year.label }}
-                  </DatePicker.TableCellTrigger>
-                </DatePicker.TableCell>
-              </DatePicker.TableRow>
-            </DatePicker.TableBody>
-          </DatePicker.Table>
-        </DatePicker.Context>
-      </DatePicker.View>
+      <DatePicker.MonthView />
+      <DatePicker.YearView />
     </DatePicker.Content>
   </DatePicker.Root>
 </template>

@@ -31,17 +31,20 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     @input-value-change="handleInputChange"
   >
     <Autocomplete.Label>Assignee</Autocomplete.Label>
+
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. John Smith" />
-      <Autocomplete.Indicators>
+      
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.ClearTrigger>
-          <XIcon />
+          <XIcon class="size-4 text-muted-foreground" />
         </Autocomplete.ClearTrigger>
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+
     <Autocomplete.Content>
       <Autocomplete.Item
         v-for="item in collection.items"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useFilter } from "@ark-ui/vue/locale";
-import { CheckIcon, ChevronsUpDownIcon, XIcon } from "@lucide/vue";
+import { CheckIcon, ChevronsUpDownIcon, SearchIcon, XIcon } from "@lucide/vue";
 import type { AutocompleteInputValueChangeDetails } from "@vuzeno/registry/ui/autocomplete";
 import { Autocomplete, useListCollection } from "@vuzeno/registry/ui/autocomplete";
 
@@ -29,18 +29,27 @@ function handleInputChange(details: AutocompleteInputValueChangeDetails) {
     @input-value-change="handleInputChange"
   >
     <Autocomplete.Label>Fruit</Autocomplete.Label>
-    <Autocomplete.Control>
+
+    <Autocomplete.Control class="w-80">
+      <Autocomplete.Indicators align="inline-start">
+        <Autocomplete.Trigger as-child>
+          <SearchIcon class="size-4 text-muted-foreground" />
+        </Autocomplete.Trigger>
+      </Autocomplete.Indicators>
+
       <Autocomplete.Input placeholder="e.g. Apple" />
-      <Autocomplete.Indicators>
-        <Autocomplete.ClearTrigger>
-          <XIcon />
+      
+      <Autocomplete.Indicators align="inline-end">
+        <Autocomplete.ClearTrigger as-child>
+          <XIcon class="size-4 text-muted-foreground" />
         </Autocomplete.ClearTrigger>
-        <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+        
+        <Autocomplete.Trigger as-child>
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
-    
+
     <Autocomplete.Content>
       <Autocomplete.Empty>No results found</Autocomplete.Empty>
       <Autocomplete.Item

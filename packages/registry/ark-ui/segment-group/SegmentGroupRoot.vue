@@ -19,7 +19,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
     v-bind="forwarded"
     :class="cn(
       'relative isolate inline-flex items-center',
-      'rounded-lg bg-muted p-1 text-muted',
+      'rounded-lg bg-muted dark:bg-muted p-1 text-muted',
       'shadow-[inset_0_0_0_1px_var(--border)]',
       'data-disabled:opacity-50 data-disabled:grayscale',
       props.class,

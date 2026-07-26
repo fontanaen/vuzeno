@@ -40,6 +40,7 @@ function handleValueChange(details: AutocompleteValueChangeDetails) {
     @value-change="handleValueChange"
   >
     <Autocomplete.Label>Skills</Autocomplete.Label>
+
     <Autocomplete.Tags>
       <Autocomplete.TagPlaceholder v-if="selectedItems.length === 0">
         None selected
@@ -48,14 +49,17 @@ function handleValueChange(details: AutocompleteValueChangeDetails) {
         {{ item.label }}
       </Autocomplete.Tag>
     </Autocomplete.Tags>
+    
     <Autocomplete.Control>
       <Autocomplete.Input placeholder="e.g. JavaScript" />
-      <Autocomplete.Indicators>
+      
+      <Autocomplete.Indicators align="inline-end">
         <Autocomplete.Trigger>
-          <ChevronsUpDownIcon />
+          <ChevronsUpDownIcon class="size-4 text-muted-foreground" />
         </Autocomplete.Trigger>
       </Autocomplete.Indicators>
     </Autocomplete.Control>
+    
     <Autocomplete.Content>
       <Autocomplete.Empty>No skills found</Autocomplete.Empty>
       <Autocomplete.Item

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { DatePickerValueChangeDetails } from "@ark-ui/vue";
 import { CalendarDateTime, DateFormatter, getLocalTimeZone } from "@internationalized/date";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@lucide/vue";
+import { CalendarIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
 import { computed, ref } from "vue";
@@ -56,40 +56,9 @@ const onDateChange = (details: DatePickerValueChangeDetails) => {
       </DatePicker.Trigger>
     </DatePicker.Control>
     <DatePicker.Content>
-      <DatePicker.View view="day">
-        <DatePicker.Context v-slot="{ api }">
-          <DatePicker.ViewControl>
-            <DatePicker.PrevTrigger>
-              <ChevronLeftIcon />
-            </DatePicker.PrevTrigger>
-            <DatePicker.ViewTrigger>
-              <DatePicker.RangeText />
-            </DatePicker.ViewTrigger>
-            <DatePicker.NextTrigger>
-              <ChevronRightIcon />
-            </DatePicker.NextTrigger>
-          </DatePicker.ViewControl>
-          <DatePicker.Table>
-            <DatePicker.TableHead>
-              <DatePicker.TableRow>
-                <DatePicker.TableHeader v-for="(weekDay, id) in api.weekDays" :key="id">
-                  {{ weekDay.short }}
-                </DatePicker.TableHeader>
-              </DatePicker.TableRow>
-            </DatePicker.TableHead>
-            <DatePicker.TableBody>
-              <DatePicker.TableRow v-for="(week, id) in api.weeks" :key="id">
-                <DatePicker.TableCell v-for="(day, id) in week" :key="id" :value="day">
-                  <DatePicker.TableCellTrigger>
-                    {{ day.day }}
-                  </DatePicker.TableCellTrigger>
-                </DatePicker.TableCell>
-              </DatePicker.TableRow>
-            </DatePicker.TableBody>
-          </DatePicker.Table>
-          <input type="time" :value="timeValue" @input="onTimeChange" />
-        </DatePicker.Context>
-      </DatePicker.View>
+      <DatePicker.DayView>
+        <input type="time" :value="timeValue" @input="onTimeChange" />
+      </DatePicker.DayView>
     </DatePicker.Content>
   </DatePicker.Root>
 </template>
