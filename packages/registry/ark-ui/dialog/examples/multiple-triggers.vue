@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 import { Field } from "@vuzeno/registry/ui/field";
@@ -34,7 +33,7 @@ const activeUser = ref<User | null>(null);
         :value="user.id"
         as-child
       >
-        <Button variant="outline" size="sm">Edit {{ user.name }}</Button>
+        <Button variant="secondary" size="sm">Edit {{ user.name }}</Button>
       </Dialog.Trigger>
     </div>
     <Dialog.Content>
@@ -55,18 +54,13 @@ const activeUser = ref<User | null>(null);
         </Dialog.Body>
         <Dialog.Actions>
           <Dialog.CloseTrigger as-child>
-            <Button variant="outline" size="sm">Cancel</Button>
+            <Button variant="secondary" size="sm">Cancel</Button>
           </Dialog.CloseTrigger>
           <Dialog.CloseTrigger as-child>
             <Button size="sm">Save Changes</Button>
           </Dialog.CloseTrigger>
         </Dialog.Actions>
       </template>
-      <Dialog.CloseTrigger as-child>
-        <Button variant="outline" size="sm">
-          <XIcon />
-        </Button>
-      </Dialog.CloseTrigger>
     </Dialog.Content>
   </Dialog.Root>
 </template>

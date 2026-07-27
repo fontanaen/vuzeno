@@ -6,7 +6,7 @@ import { Dialog } from "@vuzeno/registry/ui/dialog";
 <template>
   <Dialog.Root>
     <Dialog.Trigger as-child>
-      <Button variant="outline" size="sm">Open Dialog</Button>
+      <Button variant="secondary" size="sm">Open Dialog</Button>
     </Dialog.Trigger>
 
     <Dialog.Content>
@@ -19,7 +19,7 @@ import { Dialog } from "@vuzeno/registry/ui/dialog";
 
       <Dialog.Footer>
         <Dialog.CloseTrigger as-child>
-          <Button variant="outline" size="sm">Cancel</Button>
+          <Button variant="secondary" size="sm">Cancel</Button>
         </Dialog.CloseTrigger>
         
         <Button size="sm">Sign in</Button>

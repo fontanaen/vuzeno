@@ -29,7 +29,7 @@ const entries: Entry[] = [
     id: "comment-1",
     kind: "comment",
     user: shadcn,
-    body: "Would love a composable Timeline component — something close to the shadcn-vue style, built on Ark UI primitives, supporting both vertical and horizontal layouts.",
+    body: "Would love a composable Timeline component — built on Ark UI primitives, supporting both vertical and horizontal layouts.",
     timestamp: "3 days ago",
   },
   {

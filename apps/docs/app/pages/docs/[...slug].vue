@@ -3,6 +3,7 @@ import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 
 const route = useRoute();
+const isComponentsIndex = computed(() => route.path === "/docs/components");
 
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection("content").path(route.path).first();
@@ -33,7 +34,10 @@ useSeoMeta({
     >
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="h-(--top-spacing) shrink-0" />
-        <div class="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
+        <div
+          class="mx-auto flex w-full min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300"
+          :class="isComponentsIndex ? 'max-w-4xl' : 'max-w-2xl'"
+        >
           <div class="flex flex-col gap-2">
             <div class="flex items-start justify-between gap-4">
               <div class="flex flex-col gap-2">
@@ -90,7 +94,12 @@ useSeoMeta({
             </div>
           </div>
 
-          <ContentRenderer :value="page" class="w-full flex-1 *:data-[slot=alert]:first:mt-0" />
+          <DocsComponentCards v-if="isComponentsIndex" />
+          <ContentRenderer
+            v-else
+            :value="page"
+            class="w-full flex-1 *:data-[slot=alert]:first:mt-0"
+          />
 
           <div class="flex justify-between gap-2">
             <Button
@@ -125,9 +134,9 @@ useSeoMeta({
         </div>
       </div>
 
-      <div class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
+      <div v-if="page.body.toc?.links.length" class="sticky top-[calc(var(--header-height)+1px)] z-30 ml-auto hidden h-[calc(100svh-var(--header-height)-var(--footer-height))] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
         <div class="h-(--top-spacing) shrink-0" />
-        <div v-if="page.body.toc?.links.length" class="no-scrollbar overflow-y-auto px-8">
+        <div class="no-scrollbar overflow-y-auto px-8">
           <DocsTableOfContents :toc="page.body.toc" />
           <div class="h-12" />
         </div>

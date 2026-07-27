@@ -23,7 +23,7 @@ name: basic
 
 ## Installation
 
-Install from the Vuzeno registry with the shadcn-vue CLI:
+Install from the Vuzeno registry:
 
 ::installation-tabs
 ---

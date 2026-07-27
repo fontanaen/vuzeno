@@ -7,15 +7,15 @@ import { siteConfig } from "~/lib/site-config";
     <div class="container-wrapper px-4 xl:px-6">
       <div class="flex h-(--footer-height) items-center justify-between">
         <div class="text-muted-foreground w-full text-center text-xs leading-loose sm:text-sm">
-          Built with 
-          <a 
-            href="https://shadcn-vue.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          Built on
+          <a
+            href="https://ark-ui.com"
+            target="_blank"
+            rel="noopener noreferrer"
             class="font-medium underline underline-offset-4 hover:text-primary"
           >
-            shadcn-vue
-          </a>. 
+            Ark UI
+          </a>.
           The source code is available on
           <a
             :href="siteConfig.links.github"

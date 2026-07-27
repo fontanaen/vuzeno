@@ -2,6 +2,6 @@
 
 ![Vuzeno](apps/docs/public/social/og.png)
 
-A component registry for Vue that extends [shadcn-vue](https://www.shadcn-vue.com/).
+A complete design system for Vue, built on [Ark UI](https://ark-ui.com/).
 
 **[Documentation →](https://vuzeno.com)**

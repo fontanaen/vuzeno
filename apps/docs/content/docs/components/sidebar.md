@@ -13,7 +13,7 @@ name: basic
 
 ## Installation
 
-Install from the Vuzeno registry with the shadcn-vue CLI:
+Install from the Vuzeno registry:
 
 ::installation-tabs
 ---
@@ -24,7 +24,7 @@ exec: true
 
 ## Overview
 
-The Sidebar is a composite layout component inspired by [shadcn-vue Sidebar](https://www.shadcn-vue.com/docs/components/sidebar), rebuilt for the Vuzeno registry with Ark UI primitives. It supports classic and inset variants, icon collapse with hover flyout submenus, responsive mobile drawer, multiple independent sidebars, and nested usage inside dialogs.
+The Sidebar is a composite layout component built on Ark UI primitives. It supports classic and inset variants, icon collapse with hover flyout submenus, responsive mobile drawer, multiple independent sidebars, and nested usage inside dialogs.
 
 ## Composition
 

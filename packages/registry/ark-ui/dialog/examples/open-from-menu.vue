@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronDownIcon, XIcon } from "@lucide/vue";
+import { ChevronDownIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 import { Menu } from "@vuzeno/registry/ui/menu";
@@ -11,7 +11,7 @@ const open = ref(false);
 <template>
   <Menu.Root>
     <Menu.Trigger as-child>
-      <Button variant="outline" size="sm">
+      <Button variant="secondary" size="sm">
         Actions
         <Menu.Indicator>
           <ChevronDownIcon />
@@ -32,11 +32,6 @@ const open = ref(false);
       <Dialog.Description>
         Are you sure you want to delete this item? This action cannot be undone.
       </Dialog.Description>
-      <Dialog.CloseTrigger as-child>
-        <Button variant="outline" size="sm">
-          <XIcon />
-        </Button>
-      </Dialog.CloseTrigger>
     </Dialog.Content>
   </Dialog.Root>
 </template>

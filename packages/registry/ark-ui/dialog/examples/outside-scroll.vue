@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 
@@ -58,14 +57,9 @@ const contentSections = [
 <template>
   <Dialog.Root>
     <Dialog.Trigger as-child>
-      <Button variant="outline" size="sm">Open Dialog</Button>
+      <Button variant="secondary" size="sm">Open Dialog</Button>
     </Dialog.Trigger>
     <Dialog.Content scroll="outside" class="my-16 max-h-none">
-      <Dialog.CloseTrigger as-child>
-        <Button variant="outline" size="sm">
-          <XIcon />
-        </Button>
-      </Dialog.CloseTrigger>
       <Dialog.Title>Privacy Policy</Dialog.Title>
       <Dialog.Description>
         This layout allows the dialog to extend beyond the viewport while

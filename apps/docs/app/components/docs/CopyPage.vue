@@ -26,7 +26,7 @@ const origin = computed(() => {
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I'm looking at this shadcn-vue documentation: ${url}.
+    `I'm looking at this Vuzeno documentation: ${url}.
 Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
   `,
   )}`;

@@ -4,7 +4,7 @@ import { Button } from "@vuzeno/registry/ui/button";
 import { siteConfig } from "~/lib/site-config";
 
 const homepageTitle = "Vuzeno — Your own design system.";
-const homepageDescription = "A shadcn-vue registry for Vue. Install production-ready components with one CLI command — phone fields, filters, calendars, and more. Keep the source.";
+const homepageDescription = "A complete design system for Vue, built on Ark UI. Install production-ready components with one CLI command — phone fields, filters, calendars, and more. Keep the source.";
 
 const benefits = [
   {
@@ -20,7 +20,7 @@ const benefits = [
   {
     icon: BoxesIcon,
     title: "Ready to use",
-    body: "Install with one shadcn-vue CLI command. Styled defaults, production-ready.",
+    body: "Install with one CLI command. Styled defaults, production-ready.",
   },
   {
     icon: FileCodeIcon,
@@ -70,7 +70,7 @@ useHead({
                 Your own design system<span class="hero-accent">.</span>
               </h1>
               <p class="max-w-md text-base leading-relaxed text-pretty text-muted-foreground">
-                A complete design system based on shadcn-vue and ark-ui. 
+                A complete design system built on Ark UI.
                 <br />
                 Install production-ready components with one CLI command.
               </p>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { XIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
 
@@ -38,18 +37,9 @@ const contentSections = [
 <template>
   <Dialog.Root>
     <Dialog.Trigger as-child>
-      <Button variant="outline" size="sm">Open Dialog</Button>
+      <Button variant="secondary" size="sm">Open Dialog</Button>
     </Dialog.Trigger>
     <Dialog.Content class="max-h-[min(32rem,calc(100vh-4rem))]">
-      <Dialog.CloseTrigger as-child>
-        <Button
-          variant="ghost"
-          size="icon-xs"
-          class="absolute top-3 right-3 size-6"
-        >
-          <XIcon />
-        </Button>
-      </Dialog.CloseTrigger>
       <Dialog.Title>Terms of Service</Dialog.Title>
       <Dialog.Description
         >Please review our terms before continuing.</Dialog.Description
@@ -62,7 +52,7 @@ const contentSections = [
       </Dialog.ScrollContainer>
       <Dialog.Actions>
         <Dialog.CloseTrigger as-child>
-          <Button variant="outline" size="sm">Decline</Button>
+          <Button variant="secondary" size="sm">Decline</Button>
         </Dialog.CloseTrigger>
         <Dialog.CloseTrigger as-child>
           <Button size="sm">Accept</Button>

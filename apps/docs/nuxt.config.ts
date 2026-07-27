@@ -166,7 +166,7 @@ export default defineNuxtConfig({
         { rel: "icon", href: "/favicon.ico" },
       ],
       meta: [
-        { name: "keywords", content: "Vue,Components,shadcn,registry" },
+        { name: "keywords", content: "Vue,Components,Ark UI,design system,registry" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Vuzeno" },
         { property: "og:image", content: siteConfig.ogImage },
