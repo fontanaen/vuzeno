@@ -152,6 +152,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       script: [
         {
           innerHTML: getAppThemeFoucScript(),

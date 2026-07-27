@@ -3,7 +3,7 @@ import { ArrowRightIcon, BoxesIcon, CodeXmlIcon, FileCodeIcon, LayersIcon } from
 import { Button } from "@vuzeno/registry/ui/button";
 import { siteConfig } from "~/lib/site-config";
 
-const homepageTitle = "Vuzeno — Own the UI you ship";
+const homepageTitle = "Vuzeno — Your own design system.";
 const homepageDescription = "A shadcn-vue registry for Vue. Install production-ready components with one CLI command — phone fields, filters, calendars, and more. Keep the source.";
 
 const benefits = [
