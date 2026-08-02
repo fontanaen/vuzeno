@@ -62,20 +62,16 @@ const invoices = computed(() => [
   <Table.Root>
     <Table.Header>
       <Table.Row>
-        <Table.Head class="w-[100px]">
-          <FileIcon />
+        <Table.Head class="w-25">
           Invoice
         </Table.Head>
         <Table.Head>
-          <CircleDashedIcon />
           Status
         </Table.Head>
         <Table.Head>
-          <CreditCardIcon />
           Method
         </Table.Head>
         <Table.Head class="justify-end">
-          <DollarSignIcon />
           Amount
         </Table.Head>
       </Table.Row>

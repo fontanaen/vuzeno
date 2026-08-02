@@ -19,7 +19,6 @@ const props = defineProps<
     :class="
       cn(
         'px-4 py-2 align-middle has-[[role=checkbox]]:pr-0',
-        'first:rounded-l-md last:rounded-r-md',
         props.class,
       )
     "

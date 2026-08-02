@@ -11,10 +11,10 @@ const props = defineProps<
 </script>
 
 <template>
-  <div data-slot="table" class="relative w-full overflow-auto">
+  <div data-slot="table" class="relative w-full px-1 pb-1 has-[tfoot]:pb-0 overflow-auto bg-accent dark:bg-card rounded-xl">
     <ark.table
       :as-child="asChild"
-      :class="cn('w-full caption-bottom text-sm border-separate border-spacing-x-0 border-spacing-y-2', props.class)"
+      :class="cn('w-full caption-bottom text-sm border-separate border-spacing-0', props.class)"
     >
       <slot />
     </ark.table>

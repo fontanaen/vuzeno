@@ -15,10 +15,7 @@ const props = defineProps<
     :as-child="asChild"
     data-slot="table-head"
     :class="
-      cn(
-        'h-10 px-4 font-medium text-foreground has-[[role=checkbox]]:pr-0',
-        'first:rounded-l-md last:rounded-r-md',
-      )
+      cn('h-10 px-4 text-sm font-medium text-accent-foreground/60 has-[[role=checkbox]]:pr-0')
     "
   >
     <div :class="cn('flex items-center gap-2 [&>svg]:size-4 [&>svg]:text-muted-foreground w-full', props.class)">

@@ -16,7 +16,7 @@ const props = defineProps<
     data-slot="table-footer"
     :class="
       cn(
-        'bg-muted dark:bg-muted/50 font-medium [&_tr]:h-10',
+        'font-medium [&_tr]:h-10',
         props.class
       )
     "

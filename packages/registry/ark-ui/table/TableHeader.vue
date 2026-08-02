@@ -14,7 +14,7 @@ const props = defineProps<
   <ark.thead
     :as-child="asChild"
     data-slot="table-header"
-    :class="cn('bg-muted dark:bg-muted/50', props.class)"
+    :class="cn('', props.class)"
   >
     <slot />
   </ark.thead>

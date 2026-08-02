@@ -34,5 +34,5 @@ onMounted(async () => {
 </script>
 
 <template>
-  <ProsePre v-if="code" meta="showLineNumbers" language="vue" :code="code" />
+  <ProsePre v-if="code" meta="showLineNumbers" language="vue" :code="code" class="rounded-none border-none" />
 </template>

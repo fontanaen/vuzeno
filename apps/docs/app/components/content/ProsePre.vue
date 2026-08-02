@@ -83,7 +83,7 @@ const codeAttributes = computed(() =>
       </pre>
     </template>
 
-    <pre v-else :data-language="lang" :class="cn('flex bg-black dark:bg-muted/50 no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)">
+    <pre v-else :data-language="lang" :class="cn('flex bg-black/90 dark:bg-muted/40 border border-border rounded-lg no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-[[data-highlighted-line]]:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0', props.class)">
       <CopyButton :value="code" />
       <code v-bind="codeAttributes" v-html="highlighted" />
     </pre>

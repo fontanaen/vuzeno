@@ -36,6 +36,13 @@ const cases = [
     demo: DemoCaseTriage,
     components: ["filters", "badge", "avatar"],
   },
+  {
+    id: "payment",
+    title: "Make a payment",
+    description: "Choose a payment method, enter the amount, and complete the transaction.",
+    demo: DemoCasePayment,
+    components: ["card", "button"],
+  },
 ];
 
 function componentLabel(name: string) {

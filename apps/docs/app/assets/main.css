@@ -149,7 +149,6 @@ body {
   }
 
   [data-pretty-code-figure] {
-    background-color: var(--color-code);
     color: var(--color-code-foreground);
     border-radius: var(--radius-lg);
     border-width: 0px;

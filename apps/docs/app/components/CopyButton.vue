@@ -34,7 +34,7 @@ const { copy, copied } = useClipboard({ source: value });
         size="icon"
         :variant="variant"
         :class="cn(
-          'bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100',
+          'bg-secondary dark:bg-muted absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100',
           props.class,
         )"
         v-bind="$attrs"

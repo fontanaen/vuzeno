@@ -36,7 +36,7 @@ function getCommand(packageManager: (typeof PACKAGE_MANAGERS)[number]) {
 <template>
   <Tabs.Root
     v-model="packageManager"
-    class="bg-muted/75 border border-border rounded-lg mt-4 w-full"
+    class="bg-muted/20 border border-border rounded-lg mt-4 w-full"
   >
     <Tabs.TabList class="p-2 items-center">
       <div class="bg-black/90 text-white dark:bg-muted size-7 flex items-center justify-center rounded-sm mr-2">
@@ -58,10 +58,10 @@ function getCommand(packageManager: (typeof PACKAGE_MANAGERS)[number]) {
       :key="pkg"
       tabindex="-1"
       :value="pkg"
-      class="mt-0"
+      class="mt-0 py-0"
     >
       <div class="**:data-pretty-code-figure:m-0! **:data-pretty-code-figure:rounded-t-none!">
-        <ProsePre language="bash" :code="getCommand(pkg) || ''" />
+        <ProsePre language="bash" :code="getCommand(pkg) || ''" class="rounded-none border-none" />
       </div>
     </Tabs.TabContent>
   </Tabs.Root>
