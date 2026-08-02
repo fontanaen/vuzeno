@@ -1,6 +1,6 @@
 ---
 title: Button
-description: Button component built on Ark UI.
+description: Vue button with variants and sizes for primary actions, secondary controls, and icon buttons.
 tag: new
 links:
   api: https://ark-ui.com/docs/guides/composition

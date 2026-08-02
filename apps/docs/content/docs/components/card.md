@@ -1,6 +1,6 @@
 ---
 title: Card
-description: Composable card layout with header, content, and footer sections.
+description: Vue card layout with composable header, content, and footer sections for grouping related UI.
 tag: new
 ---
 

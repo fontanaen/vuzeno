@@ -1,6 +1,6 @@
 ---
 title: Autocomplete
-description: Autocomplete component built on Ark UI.
+description: Vue autocomplete combobox to search and select from a filtered list of suggestions as you type.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/combobox

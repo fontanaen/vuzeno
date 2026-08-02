@@ -1,6 +1,6 @@
 ---
 title: Empty
-description: Composable empty state with header, media, and actions.
+description: Vue empty state with header, media, and actions for zero-data, error, or onboarding screens.
 tag: new
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Kbd
-description: Used to display textual user input from keyboard.
+description: Vue kbd element to display keyboard shortcuts and key combinations in docs and command UIs.
 tag: new
 ---
 

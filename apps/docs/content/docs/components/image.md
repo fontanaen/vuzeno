@@ -1,6 +1,6 @@
 ---
 title: Image
-description: Composable image component with loading state management and fallback support.
+description: Vue image component with loading states and fallback support for reliable media rendering.
 tag: new
 ---
 

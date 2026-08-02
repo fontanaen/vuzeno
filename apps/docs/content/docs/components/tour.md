@@ -1,6 +1,6 @@
 ---
 title: Tour
-description: Tour component built on Ark UI.
+description: Vue product tour to highlight UI steps with guided tooltips for onboarding and feature discovery.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/tour

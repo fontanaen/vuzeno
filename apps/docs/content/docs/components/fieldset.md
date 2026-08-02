@@ -1,6 +1,6 @@
 ---
 title: Fieldset
-description: Fieldset component built on Ark UI.
+description: Vue fieldset to group related form controls under a shared legend with consistent spacing.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/fieldset

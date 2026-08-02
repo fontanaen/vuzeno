@@ -1,6 +1,6 @@
 ---
 title: Clipboard
-description: Clipboard component built on Ark UI.
+description: Vue clipboard component to copy text to the clipboard with a trigger and copied-state feedback.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/clipboard

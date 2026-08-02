@@ -1,6 +1,6 @@
 ---
 title: PhoneField
-description: Phone number input with country selector, libphonenumber-js validation, and E.164 output.
+description: Vue phone number input with country selector, libphonenumber validation, and E.164 output.
 tag: new
 ---
 

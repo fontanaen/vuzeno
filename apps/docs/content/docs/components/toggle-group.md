@@ -1,6 +1,6 @@
 ---
 title: Toggle Group
-description: Styled toggle group component with variant and size options.
+description: Vue toggle group for single or multi-select toolbars of related toggle buttons.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/toggle-group

@@ -1,6 +1,6 @@
 ---
 title: Splitter
-description: Splitter component built on Ark UI.
+description: Vue splitter for resizable panes that let users adjust layout width or height interactively.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/splitter

@@ -1,6 +1,6 @@
 ---
 title: Breadcrumb
-description: Displays the path to the current resource using a hierarchy of links.
+description: Vue breadcrumb navigation that shows the path to the current page with hierarchical links.
 tag: new
 ---
 

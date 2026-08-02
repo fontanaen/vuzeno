@@ -1,6 +1,6 @@
 ---
 title: Alert
-description: Displays a callout for user attention.
+description: Vue alert callout to highlight important status, warnings, errors, or success messages in your UI.
 tag: new
 ---
 

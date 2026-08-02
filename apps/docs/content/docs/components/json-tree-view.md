@@ -1,6 +1,6 @@
 ---
 title: Json Tree View
-description: Json Tree View component built on Ark UI.
+description: Vue JSON tree view to explore nested objects and arrays in a collapsible, readable hierarchy.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/utilities/json-tree-view

@@ -1,6 +1,6 @@
 ---
 title: DialogCaller
-description: Programmatically call Vue components with a promise-based stack API.
+description: Vue dialog caller to open components programmatically with a promise-based stack API.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/dialog

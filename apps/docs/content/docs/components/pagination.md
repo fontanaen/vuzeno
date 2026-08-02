@@ -1,6 +1,6 @@
 ---
 title: Pagination
-description: Pagination component built on Ark UI.
+description: Vue pagination controls to navigate multi-page lists and tables with page size and ranges.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/pagination

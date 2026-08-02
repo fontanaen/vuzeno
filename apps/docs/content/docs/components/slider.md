@@ -1,6 +1,6 @@
 ---
 title: Slider
-description: Slider component built on Ark UI.
+description: Vue slider to select a numeric value or range along a track with keyboard and pointer input.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/slider

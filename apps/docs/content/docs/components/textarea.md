@@ -1,6 +1,6 @@
 ---
 title: Textarea
-description: Styled textarea component for multi-line text input.
+description: Vue textarea for multi-line text entry with size variants for comments, notes, and forms.
 tag: new
 ---
 

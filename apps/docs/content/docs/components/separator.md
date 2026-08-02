@@ -1,6 +1,6 @@
 ---
 title: Separator
-description: Visually or semantically separates content.
+description: Vue separator to visually or semantically divide sections of content and menus.
 tag: new
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Angle Slider
-description: Angle Slider component built on Ark UI.
+description: Vue angle slider to pick a rotation or direction value on a circular control with keyboard support.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/angle-slider

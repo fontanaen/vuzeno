@@ -1,6 +1,6 @@
 ---
 title: Sidebar
-description: Composable sidebar layout with responsive drawer, icon collapse, and hover flyout submenus.
+description: Vue sidebar layout with responsive drawer, icon collapse, and hover flyout submenus for app navigation.
 tag: new
 ---
 

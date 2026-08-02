@@ -1,6 +1,6 @@
 ---
 title: Listbox
-description: Listbox component built on Ark UI.
+description: Vue listbox for selecting one or more options from a keyboard-navigable list.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/listbox

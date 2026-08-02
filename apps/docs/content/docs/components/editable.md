@@ -1,6 +1,6 @@
 ---
 title: Editable
-description: Editable component built on Ark UI.
+description: Vue editable text field that switches between read and edit modes for inline content updates.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/editable

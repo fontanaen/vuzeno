@@ -1,6 +1,6 @@
 ---
 title: Popover
-description: Popover component built on Ark UI.
+description: Vue popover to show contextual content anchored to a trigger without blocking the page.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/popover

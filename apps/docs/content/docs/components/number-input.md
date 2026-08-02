@@ -1,6 +1,6 @@
 ---
 title: Number Input
-description: Number Input component built on Ark UI.
+description: Vue number input with steppers, min and max bounds, and precise numeric entry for forms.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/number-input

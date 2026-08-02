@@ -1,6 +1,6 @@
 ---
 title: Collapsible
-description: Collapsible component built on Ark UI.
+description: Vue collapsible panel to show or hide content behind a trigger, ideal for progressive disclosure.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/collapsible

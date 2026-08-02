@@ -1,6 +1,6 @@
 ---
 title: Alert Dialog
-description: Alert dialog for critical confirmations and destructive actions, built on Ark UI Dialog.
+description: Vue alert dialog for critical confirmations and destructive actions that require an explicit user decision.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/dialog

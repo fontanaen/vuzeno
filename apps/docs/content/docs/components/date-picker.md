@@ -1,6 +1,6 @@
 ---
 title: Date Picker
-description: Date Picker component built on Ark UI.
+description: Vue date picker calendar to select a single date or range with keyboard and localization support.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/date-picker

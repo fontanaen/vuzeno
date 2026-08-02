@@ -1,6 +1,6 @@
 ---
 title: Image Cropper
-description: Image Cropper component built on Ark UI.
+description: Vue image cropper to pan, zoom, and crop photos before upload or avatar updates.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/image-cropper

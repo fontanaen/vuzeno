@@ -1,6 +1,6 @@
 ---
 title: Pin Input
-description: Pin Input component built on Ark UI.
+description: Vue PIN and OTP input for one-time codes and verification flows with per-digit fields.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/pin-input

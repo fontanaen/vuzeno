@@ -1,6 +1,6 @@
 ---
 title: Progress Linear
-description: Linear progress bar component built on Ark UI.
+description: Vue linear progress bar for uploads, multi-step flows, and determinate task completion.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/progress-linear

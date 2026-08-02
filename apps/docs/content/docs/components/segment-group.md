@@ -1,6 +1,6 @@
 ---
 title: Segment Group
-description: Segment Group component built on Ark UI.
+description: Vue segment group (segmented control) to switch between exclusive view or filter options.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/segment-group

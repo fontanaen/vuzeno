@@ -1,6 +1,6 @@
 ---
 title: Carousel
-description: Carousel component built on Ark UI.
+description: Vue carousel for sliding through images or content panels with previous, next, and indicator controls.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/carousel

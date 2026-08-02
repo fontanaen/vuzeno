@@ -1,6 +1,6 @@
 ---
 title: Table
-description: Composable table layout with header, body, footer, and empty states.
+description: Vue table layout with header, body, footer, and empty states for structured data display.
 tag: new
 links:
   api: https://ark-ui.com/docs/guides/composition

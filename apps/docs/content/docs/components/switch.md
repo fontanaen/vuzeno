@@ -1,6 +1,6 @@
 ---
 title: Switch
-description: Switch component built on Ark UI.
+description: Vue switch toggle for binary on and off settings with an accessible, thumb-style control.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/switch

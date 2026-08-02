@@ -1,6 +1,6 @@
 ---
 title: Typography
-description: Styles for headings, paragraphs, lists, and more — with responsive defaults.
+description: Vue typography styles for headings, paragraphs, lists, and prose with responsive defaults.
 tag: new
 links:
   api: https://ark-ui.com/docs/guides/composition

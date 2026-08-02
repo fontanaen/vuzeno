@@ -1,6 +1,6 @@
 ---
 title: Dialog
-description: Dialog component built on Ark UI.
+description: Vue dialog modal overlay for focused tasks, forms, and confirmations above the main page content.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/dialog

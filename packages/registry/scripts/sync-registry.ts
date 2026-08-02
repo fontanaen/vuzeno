@@ -112,7 +112,7 @@ if (existingByName.has("progress") && !existingByName.has("progress-circular")) 
     ...progress,
     name: "progress-circular",
     title: "Progress Circular",
-    description: "Circular progress indicator built on Ark UI.",
+    description: "Vue circular progress indicator for loading states and determinate completion percentages.",
   });
 }
 existingByName.delete("progress");
@@ -161,7 +161,7 @@ for (const name of folders) {
   const existing = existingByName.get(name);
   const docs = readDocsMeta(name);
   const title = existing?.title ?? docs.title ?? titleCase(name);
-  let description = existing?.description ?? docs.description ?? `${title} component built on Ark UI.`;
+  let description = docs.description ?? existing?.description ?? `${title} component built on Ark UI.`;
   if (!description.endsWith(".")) {
     description += ".";
   }

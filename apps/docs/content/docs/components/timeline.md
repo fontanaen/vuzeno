@@ -1,6 +1,6 @@
 ---
 title: Timeline
-description: A vertical or horizontal thread for displaying sequential data with composable items, markers, and content.
+description: Vue timeline for sequential events with items, markers, and content in vertical or horizontal layouts.
 tag: new
 ---
 

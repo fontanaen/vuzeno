@@ -1,6 +1,6 @@
 ---
 title: Qr Code
-description: Qr Code component built on Ark UI.
+description: Vue QR code generator to encode URLs and text as scannable codes for sharing and auth flows.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/qr-code

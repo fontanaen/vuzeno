@@ -1,6 +1,6 @@
 ---
 title: Hover Card
-description: Hover Card component built on Ark UI.
+description: Vue hover card that previews rich content on hover or focus without leaving the current page.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/hover-card

@@ -1,6 +1,6 @@
 ---
 title: Marquee
-description: Marquee component built on Ark UI.
+description: Vue marquee for continuously scrolling text or content, useful for tickers and highlight strips.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/marquee

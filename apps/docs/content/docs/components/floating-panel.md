@@ -1,6 +1,6 @@
 ---
 title: Floating Panel
-description: Floating Panel component built on Ark UI.
+description: Vue floating panel window that can be dragged, resized, and positioned over the main interface.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/floating-panel

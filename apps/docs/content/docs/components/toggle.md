@@ -1,6 +1,6 @@
 ---
 title: Toggle
-description: Styled toggle component with variant and size options.
+description: Vue toggle button for pressed and unpressed states, useful for formatting and view options.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/toggle

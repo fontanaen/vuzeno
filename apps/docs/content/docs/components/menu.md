@@ -1,6 +1,6 @@
 ---
 title: Menu
-description: Menu component built on Ark UI.
+description: Vue menu dropdown for actions and navigation with nested submenus and keyboard shortcuts.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/menu

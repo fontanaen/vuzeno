@@ -1,6 +1,6 @@
 ---
 title: Date Input
-description: Date Input component built on Ark UI.
+description: Vue date input for typing and parsing calendar dates with accessible, localized field behavior.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/date-input

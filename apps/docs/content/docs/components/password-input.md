@@ -1,6 +1,6 @@
 ---
 title: Password Input
-description: Password Input component built on Ark UI.
+description: Vue password input with show and hide toggle for secure credential entry in login forms.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/password-input

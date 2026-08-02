@@ -1,6 +1,6 @@
 ---
 title: Timer
-description: Timer component built on Ark UI.
+description: Vue timer for countdowns and elapsed time displays in workflows, quizzes, and live sessions.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/timer

@@ -1,6 +1,6 @@
 ---
 title: Filters
-description: A composable filter system with typed fields, operators, and filter chips.
+description: Vue filter builder with typed fields, operators, and chips to narrow lists and data tables.
 tag: new
 ---
 

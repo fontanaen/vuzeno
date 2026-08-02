@@ -1,6 +1,6 @@
 ---
 title: Tree View
-description: Tree View component built on Ark UI.
+description: Vue tree view for nested folders and hierarchical data with expand, collapse, and selection.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/tree-view

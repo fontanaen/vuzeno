@@ -1,6 +1,6 @@
 ---
 title: Tabs
-description: Tabs component built on Ark UI.
+description: Vue tabs to switch between related views or panels in a compact, keyboard-accessible layout.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/tabs

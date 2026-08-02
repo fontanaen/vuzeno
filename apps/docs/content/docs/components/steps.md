@@ -1,6 +1,6 @@
 ---
 title: Steps
-description: Steps component built on Ark UI.
+description: Vue steps (stepper) to guide users through multi-step wizards and onboarding flows.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/steps

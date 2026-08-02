@@ -1,6 +1,6 @@
 ---
 title: Accordion
-description: Accordion component built on Ark UI.
+description: Vue accordion for expandable FAQ and content sections, with single or multiple open panels and keyboard support.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/accordion

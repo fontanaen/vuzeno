@@ -1,6 +1,6 @@
 ---
 title: Radio Group
-description: Radio Group component built on Ark UI.
+description: Vue radio group for choosing a single option from a mutually exclusive set of choices.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/radio-group

@@ -1,6 +1,6 @@
 ---
 title: ActionSheet
-description: A bottom sheet dialog for actions with a programmatic, promise-based selection API.
+description: Vue bottom sheet action dialog with a promise-based API for picking an option on mobile and desktop.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/dialog

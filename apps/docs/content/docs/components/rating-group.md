@@ -1,6 +1,6 @@
 ---
 title: Rating Group
-description: Rating Group component built on Ark UI.
+description: Vue rating group for star or score selection in reviews, feedback, and preference forms.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/rating-group

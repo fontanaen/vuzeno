@@ -1,6 +1,6 @@
 ---
 title: Signature Pad
-description: Signature Pad component built on Ark UI.
+description: Vue signature pad to capture handwritten signatures with draw, clear, and export support.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/signature-pad

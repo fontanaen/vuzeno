@@ -1,6 +1,6 @@
 ---
 title: Tags Input
-description: Tags Input component built on Ark UI.
+description: Vue tags input to enter, edit, and remove multiple tags or tokens in a single field.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/tags-input

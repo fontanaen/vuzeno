@@ -1,6 +1,6 @@
 ---
 title: Scroll Area
-description: Scroll Area component built on Ark UI.
+description: Vue scroll area with custom scrollbars for overflowing content in panels and sidebars.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/scroll-area

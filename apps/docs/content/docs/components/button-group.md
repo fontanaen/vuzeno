@@ -1,6 +1,6 @@
 ---
 title: Button Group
-description: Groups related buttons with shared borders and spacing.
+description: Vue button group that joins related actions with shared borders, spacing, and consistent sizing.
 tag: new
 links:
   api: https://ark-ui.com/docs/guides/composition

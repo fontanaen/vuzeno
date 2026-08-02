@@ -1,6 +1,6 @@
 ---
 title: File Upload
-description: A component that is used to upload multiple files.
+description: Vue file upload for drag-and-drop or browse selection of single or multiple files with item previews.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/file-upload

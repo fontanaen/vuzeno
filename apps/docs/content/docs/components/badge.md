@@ -1,6 +1,6 @@
 ---
 title: Badge
-description: Badge component built on Ark UI.
+description: Vue badge for compact status labels, counts, and categorical tags next to text or controls.
 tag: new
 links:
   api: https://ark-ui.com/docs/guides/composition

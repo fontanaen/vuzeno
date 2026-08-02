@@ -1,6 +1,6 @@
 ---
 title: Color Picker
-description: Color Picker component built on Ark UI.
+description: Vue color picker to choose colors with swatches, channels, and hex or RGB values in forms and editors.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/color-picker

@@ -1,6 +1,6 @@
 ---
 title: Skeleton
-description: Use to show a placeholder while content is loading.
+description: Vue skeleton placeholder that reserves layout space while content or data is loading.
 tag: new
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Toast
-description: Toast component built on Ark UI.
+description: Vue toast notifications for brief success, error, and info feedback without blocking the UI.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/toast

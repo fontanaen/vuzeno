@@ -1,6 +1,6 @@
 ---
 title: Progress Circular
-description: Progress component built on Ark UI.
+description: Vue circular progress indicator for loading states and determinate completion percentages.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/progress-circular

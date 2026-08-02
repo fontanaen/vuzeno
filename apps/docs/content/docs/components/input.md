@@ -1,6 +1,6 @@
 ---
 title: Input
-description: Styled input component with size variants.
+description: Vue text input with size variants for forms, search fields, and general single-line entry.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/field

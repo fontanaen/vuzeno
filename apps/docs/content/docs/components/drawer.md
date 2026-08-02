@@ -1,6 +1,6 @@
 ---
 title: Drawer
-description: Drawer component built on Ark UI.
+description: Vue drawer panel that slides in from the edge for navigation, filters, or secondary content.
 tag: beta
 links:
   api: https://ark-ui.com/vue/docs/components/drawer

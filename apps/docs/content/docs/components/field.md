@@ -1,6 +1,6 @@
 ---
 title: Field
-description: Field component built on Ark UI.
+description: Vue form field wrapper that shares label, helper, and error context with inputs and controls.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/field

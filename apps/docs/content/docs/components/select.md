@@ -1,6 +1,6 @@
 ---
 title: Select
-description: Select component built on Ark UI.
+description: Vue select dropdown to pick a value from a searchable, keyboard-accessible list of options.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/select

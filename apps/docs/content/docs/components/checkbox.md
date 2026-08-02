@@ -1,6 +1,6 @@
 ---
 title: Checkbox
-description: Checkbox component built on Ark UI.
+description: Vue checkbox for boolean and indeterminate selections in forms, filters, and multi-select lists.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/checkbox

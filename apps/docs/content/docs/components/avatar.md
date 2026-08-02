@@ -1,6 +1,6 @@
 ---
 title: Avatar
-description: Avatar component built on Ark UI.
+description: Vue avatar component for user profile images with fallback initials or placeholders when media fails.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/avatar

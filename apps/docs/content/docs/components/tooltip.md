@@ -1,6 +1,6 @@
 ---
 title: Tooltip
-description: Tooltip component built on Ark UI.
+description: Vue tooltip that shows a short hint on hover or focus for icons, truncated labels, and controls.
 tag: new
 links:
   api: https://ark-ui.com/vue/docs/components/tooltip

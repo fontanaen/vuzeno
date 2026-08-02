@@ -1,6 +1,6 @@
 ---
 title: Input Group
-description: Composable input group with addons, text, and buttons.
+description: Vue input group to compose inputs with addons, prefix or suffix text, and inline action buttons.
 tag: new
 ---
 
