@@ -1778,40 +1778,6 @@
       ]
     },
     {
-      "name": "format",
-      "type": "registry:component",
-      "title": "Format",
-      "description": "Format component built on Ark UI.",
-      "dependencies": ["@ark-ui/vue", "cnfast"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "ark-ui/format/format.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/format/FormatByte.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/format/FormatNumber.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/format/FormatRelativeTime.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/format/FormatTime.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/format/index.ts",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "hover-card",
       "type": "registry:component",
       "title": "Hover Card",
