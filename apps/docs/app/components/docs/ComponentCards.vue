@@ -16,9 +16,9 @@ const { data: components } = await useAsyncData("docs-component-cards", async ()
       :to="component.path"
       :class="[
         'group flex flex-col gap-1.5 rounded-lg p-4 transition-colors duration-150 min-h-36',
-        'border border-muted',
-        'bg-no-repeat bg-origin-border bg-card/40 hover:bg-muted/50 active:bg-muted/70 bg-linear-to-b from-foreground/7',
-        'shadow-[inset_0_-1px_0_0_color-mix(in_oklab,var(--foreground)_20%,transparent)]'
+        'border border-primary/10',
+        'bg-no-repeat bg-origin-border bg-card/40 hover:bg-primary/5 active:bg-primary/10 bg-linear-to-b from-primary/7',
+        'shadow-[inset_0_-1px_0_0_color-mix(in_oklab,var(--primary)_20%,transparent)]'
       ]"
     >
       <div class="flex items-center justify-between group">
@@ -26,7 +26,7 @@ const { data: components } = await useAsyncData("docs-component-cards", async ()
           {{ component.title }}
         </h3>
 
-        <ArrowUpRightIcon class="size-4 text-muted-foreground opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-150"/>
+        <ArrowUpRightIcon class="size-4 text-primary/75 opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-150"/>
       </div>
       <p
         v-if="component.description"
