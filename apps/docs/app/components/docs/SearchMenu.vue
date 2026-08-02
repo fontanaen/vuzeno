@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Listbox, useListCollection } from "@ark-ui/vue";
-import { SearchIcon } from "@lucide/vue";
+import { ArrowRightIcon, SearchIcon } from "@lucide/vue";
 import { useHotkey } from "@tanstack/vue-hotkeys";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Dialog } from "@vuzeno/registry/ui/dialog";
@@ -94,10 +94,12 @@ useHotkey("Mod+K", () => {
               :item="item"
               as-child
             >
-              <Button variant="ghost" class="w-full justify-start">
+              <Button variant="ghost" class="w-full justify-start group transition-all duration-200">
                 <NuxtLink class="w-full text-left" :to="item.href" @click="open = false">
                   <Listbox.ItemText class="text-sm font-normal">{{ item.label }}</Listbox.ItemText>
                 </NuxtLink>
+
+                <ArrowRightIcon class="size-4 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
               </Button>
             </Listbox.Item>
           </Listbox.ItemGroup>

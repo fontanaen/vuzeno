@@ -87,3 +87,14 @@ component: table
 name: empty
 ---
 ::
+
+### With filters
+
+Compose [Filters](/docs/components/filters) above the table to narrow rows client-side. Use `Table.Empty` when nothing matches.
+
+::component-preview
+---
+component: table
+name: with-filters
+---
+::

@@ -27,7 +27,7 @@ const contentProps = reactiveOmit(props, "class", "backdrop", "scroll");
     <Dialog.Backdrop
       v-if="props.backdrop"
       :class="cn(
-        'fixed inset-0 z-[calc(10+var(--layer-index,0))] bg-black/40',
+        'fixed inset-0 z-[calc(50+var(--layer-index,0))] bg-black/40',
       )"
       data-slot="dialog-backdrop"
     />
@@ -39,7 +39,7 @@ const contentProps = reactiveOmit(props, "class", "backdrop", "scroll");
               'flex items-start justify-center overflow-y-auto overscroll-y-contain pointer-events-auto',
             ]
           : [
-              'fixed inset-0 z-[calc(10+var(--layer-index,0))]',
+              'fixed inset-0 z-[calc(50+var(--layer-index,0))]',
               'flex items-center justify-center overscroll-y-none scrollbar-gutter-both',
             ],
       )"
@@ -48,7 +48,7 @@ const contentProps = reactiveOmit(props, "class", "backdrop", "scroll");
       <Dialog.Content
         v-bind="contentProps"
         :class="cn(
-          'relative z-[calc(10+var(--layer-index,0))]',
+          'relative z-[calc(50+var(--layer-index,0))]',
           'flex w-96 max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] flex-col items-start gap-y-4 p-4',
           'rounded-xl border border-border bg-popover shadow-xl outline-none',
           'translate-x-[calc(-1*var(--scrollbar-width,0)/2)] transition-transform duration-100 ease-in-out',
