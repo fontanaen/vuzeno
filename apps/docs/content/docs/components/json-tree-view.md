@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { JsonTreeView } from "@vuzeno/registry/ui/json-tree-view";
+import { JsonTreeView } from "@/components/ui/json-tree-view";
 import { ChevronRightIcon } from "@lucide/vue";
 
 const data = { name: "John Doe", age: 30 };

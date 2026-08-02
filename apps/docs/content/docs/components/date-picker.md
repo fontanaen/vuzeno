@@ -29,8 +29,8 @@ exec: true
 ```vue
 <script setup lang="ts">
 import { CalendarIcon } from "@lucide/vue";
-import { Button } from "@vuzeno/registry/ui/button";
-import { DatePicker } from "@vuzeno/registry/ui/date-picker";
+import { Button } from "@/components/ui/button";
+import { DatePicker } from "@/components/ui/date-picker";
 </script>
 
 <template>

@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Field } from "@vuzeno/registry/ui/field";
+import { Field } from "@/components/ui/field";
 </script>
 
 <template>

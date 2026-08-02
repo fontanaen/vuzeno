@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { ScrollArea } from "@vuzeno/registry/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 </script>
 
 <template>

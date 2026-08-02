@@ -21,9 +21,11 @@ const inputProps = reactiveOmit(props, "class", "size");
     v-bind="inputProps"
     :class="cn(
       inputVariants({ size }),
-      '[&:is(textarea)]:min-h-20 [&:is(textarea)]:resize-y [&:is(textarea)]:whitespace-pre-wrap [&:is(textarea)]:leading-6',
+      '[textarea]:min-h-20 [textarea]:resize-y [textarea]:whitespace-pre-wrap [textarea]:leading-6',
       props.class,
     )"
     data-slot="editable-input"
-  />
+  >
+    <slot />
+  </Editable.Input>
 </template>

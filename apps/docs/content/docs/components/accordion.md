@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Accordion } from "@vuzeno/registry/ui/accordion";
+import { Accordion } from "@/components/ui/accordion";
 </script>
 
 <template>

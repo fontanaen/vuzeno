@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Drawer } from "@vuzeno/registry/ui/drawer";
+import { Drawer } from "@/components/ui/drawer";
 </script>
 
 <template>

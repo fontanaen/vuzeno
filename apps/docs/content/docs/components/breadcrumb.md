@@ -32,7 +32,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Breadcrumb } from "@vuzeno/registry/ui/breadcrumb";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 </script>
 
 <template>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { Trash2Icon } from "@lucide/vue";
 import { Badge } from "@vuzeno/registry/ui/badge";
 import { Button } from "@vuzeno/registry/ui/button";
 import { useDialogCaller } from "@vuzeno/registry/ui/dialog-caller";
+import { Table } from "@vuzeno/registry/ui/table";
 import { createToaster } from "@vuzeno/registry/ui/toast";
-import { Typography } from "@vuzeno/registry/ui/typography";
 import { ref } from "vue";
 import DialogCallerDeleteConfirmDialog from "./delete-confirm-dialog.vue";
 
@@ -51,38 +52,40 @@ async function onDelete(document: DocumentRow) {
 </script>
 
 <template>
-  <Typography.TableContainer>
-    <Typography.Table>
-      <thead>
-        <Typography.TableRow>
-          <Typography.TableHead>Document</Typography.TableHead>
-          <Typography.TableHead>Status</Typography.TableHead>
-          <Typography.TableHead>Updated</Typography.TableHead>
-          <Typography.TableHead class="text-right">
-            Actions
-          </Typography.TableHead>
-        </Typography.TableRow>
-      </thead>
-      <tbody>
-        <Typography.TableRow v-for="document in documents" :key="document.id">
-          <Typography.TableCell class="font-medium">
-            {{ document.name }}
-          </Typography.TableCell>
-          <Typography.TableCell>
-            <Badge :variant="document.status === 'Published' ? 'default' : 'secondary'">
-              {{ document.status }}
-            </Badge>
-          </Typography.TableCell>
-          <Typography.TableCell class="text-muted-foreground">
-            {{ document.updatedAt }}
-          </Typography.TableCell>
-          <Typography.TableCell class="text-right">
-            <Button variant="outline" size="sm" @click="onDelete(document)">
-              Delete
-            </Button>
-          </Typography.TableCell>
-        </Typography.TableRow>
-      </tbody>
-    </Typography.Table>
-  </Typography.TableContainer>
+  <Table.Root>
+    <Table.Header>
+      <Table.Row>
+        <Table.Head>Document</Table.Head>
+        <Table.Head>Status</Table.Head>
+        <Table.Head>Updated</Table.Head>
+        <Table.Head class="text-right">
+          Actions
+        </Table.Head>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      <Table.Row v-for="document in documents" :key="document.id">
+        <Table.Cell class="font-medium">
+          {{ document.name }}
+        </Table.Cell>
+        <Table.Cell>
+          <Badge :variant="document.status === 'Published' ? 'default' : 'secondary'">
+            {{ document.status }}
+          </Badge>
+        </Table.Cell>
+        <Table.Cell class="text-muted-foreground">
+          {{ document.updatedAt }}
+        </Table.Cell>
+        <Table.Cell class="text-right">
+          <Button variant="destructive" size="icon" @click="onDelete(document)">
+            <Trash2Icon class="size-4" />
+          </Button>
+        </Table.Cell>
+      </Table.Row>
+
+      <Table.Empty v-if="documents.length === 0" :colspan="4">
+        No documents found.
+      </Table.Empty>
+    </Table.Body>
+  </Table.Root>
 </template>

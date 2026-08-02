@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Splitter } from "@vuzeno/registry/ui/splitter";
+import { Splitter } from "@/components/ui/splitter";
 </script>
 
 <template>

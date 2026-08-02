@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { RadioGroup } from "@vuzeno/registry/ui/radio-group";
+import { RadioGroup } from "@/components/ui/radio-group";
 </script>
 
 <template>

@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { PinInput } from "@vuzeno/registry/ui/pin-input";
+import { PinInput } from "@/components/ui/pin-input";
 </script>
 
 <template>

@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { ImageCropper } from "@vuzeno/registry/ui/image-cropper";
+import { ImageCropper } from "@/components/ui/image-cropper";
 </script>
 
 <template>

@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Switch } from "@vuzeno/registry/ui/switch";
+import { Switch } from "@/components/ui/switch";
 </script>
 
 <template>

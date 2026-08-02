@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Timer } from "@vuzeno/registry/ui/timer";
+import { Timer } from "@/components/ui/timer";
 </script>
 
 <template>

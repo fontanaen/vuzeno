@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { TreeView } from "@vuzeno/registry/ui/tree-view";
+import { TreeView } from "@/components/ui/tree-view";
 </script>
 
 <template>

@@ -35,8 +35,8 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Button } from "@vuzeno/registry/ui/button";
-import { ButtonGroup } from "@vuzeno/registry/ui/button-group";
+import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
 </script>
 
 <template>

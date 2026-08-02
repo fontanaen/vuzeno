@@ -32,8 +32,8 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Empty } from "@vuzeno/registry/ui/empty";
-import { Button } from "@vuzeno/registry/ui/button";
+import { Empty } from "@/components/ui/empty";
+import { Button } from "@/components/ui/button";
 import { InboxIcon } from "@lucide/vue";
 </script>
 

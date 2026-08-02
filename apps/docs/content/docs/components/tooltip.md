@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Tooltip } from "@vuzeno/registry/ui/tooltip";
+import { Tooltip } from "@/components/ui/tooltip";
 </script>
 
 <template>

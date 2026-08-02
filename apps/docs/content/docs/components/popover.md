@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Popover } from "@vuzeno/registry/ui/popover";
+import { Popover } from "@/components/ui/popover";
 </script>
 
 <template>

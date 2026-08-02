@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Progress } from "@vuzeno/registry/ui/progress-circular";
+import { Progress } from "@/components/ui/progress-circular";
 </script>
 
 <template>

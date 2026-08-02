@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { DateInput } from "@vuzeno/registry/ui/date-input";
+import { DateInput } from "@/components/ui/date-input";
 </script>
 
 <template>

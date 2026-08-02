@@ -51,7 +51,7 @@ Table.Root
 
 ```vue
 <script setup lang="ts">
-import { Table } from "@vuzeno/registry/ui/table";
+import { Table } from "@/components/ui/table";
 </script>
 
 <template>

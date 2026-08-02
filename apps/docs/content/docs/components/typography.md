@@ -30,7 +30,7 @@ Import the `Typography` namespace and compose text elements with opinionated, re
 
 ```vue
 <script setup lang="ts">
-import { Typography } from "@vuzeno/registry/ui/typography";
+import { Typography } from "@/components/ui/typography";
 </script>
 
 <template>

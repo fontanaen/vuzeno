@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Clipboard } from "@vuzeno/registry/ui/clipboard";
+import { Clipboard } from "@/components/ui/clipboard";
 </script>
 
 <template>

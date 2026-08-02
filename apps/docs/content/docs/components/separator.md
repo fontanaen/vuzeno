@@ -32,7 +32,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Separator } from "@vuzeno/registry/ui/separator";
+import { Separator } from "@/components/ui/separator";
 </script>
 
 <template>

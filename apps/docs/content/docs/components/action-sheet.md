@@ -34,8 +34,8 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { ActionSheet } from "@vuzeno/registry/ui/action-sheet";
-import { Button } from "@vuzeno/registry/ui/button";
+import { ActionSheet } from "@/components/ui/action-sheet";
+import { Button } from "@/components/ui/button";
 import { ref } from "vue";
 
 const isOpen = ref(false);
@@ -95,8 +95,8 @@ Define the action sheet with `useActionSheet()`, then pass it to `ActionSheet.Pr
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { ActionSheet, useActionSheet } from "@vuzeno/registry/ui/action-sheet";
-import { Button } from "@vuzeno/registry/ui/button";
+import { ActionSheet, useActionSheet } from "@/components/ui/action-sheet";
+import { Button } from "@/components/ui/button";
 import { ref } from "vue";
 
 const open = ref(false);

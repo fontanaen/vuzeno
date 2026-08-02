@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { FileUpload } from "@vuzeno/registry/ui/file-upload";
+import { FileUpload } from "@/components/ui/file-upload";
 </script>
 
 <template>

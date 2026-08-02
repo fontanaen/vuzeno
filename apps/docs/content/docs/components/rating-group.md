@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { RatingGroup } from "@vuzeno/registry/ui/rating-group";
+import { RatingGroup } from "@/components/ui/rating-group";
 </script>
 
 <template>

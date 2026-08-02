@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { QrCode } from "@vuzeno/registry/ui/qr-code";
+import { QrCode } from "@/components/ui/qr-code";
 </script>
 
 <template>

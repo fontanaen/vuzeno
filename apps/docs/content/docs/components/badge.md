@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Badge } from "@vuzeno/registry/ui/badge";
+import { Badge } from "@/components/ui/badge";
 </script>
 
 <template>

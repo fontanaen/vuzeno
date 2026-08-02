@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Fieldset } from "@vuzeno/registry/ui/fieldset";
+import { Fieldset } from "@/components/ui/fieldset";
 </script>
 
 <template>

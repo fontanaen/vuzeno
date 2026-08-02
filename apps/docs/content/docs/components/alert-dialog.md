@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { AlertDialog } from "@vuzeno/registry/ui/alert-dialog";
+import { AlertDialog } from "@/components/ui/alert-dialog";
 </script>
 
 <template>
@@ -83,5 +83,5 @@ import {
   useDialog,
   useDialogContext,
   dialogAnatomy,
-} from "@vuzeno/registry/ui/alert-dialog";
+} from "@/components/ui/alert-dialog";
 ```

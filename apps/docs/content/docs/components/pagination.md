@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Pagination } from "@vuzeno/registry/ui/pagination";
+import { Pagination } from "@/components/ui/pagination";
 </script>
 
 <template>

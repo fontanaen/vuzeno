@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Collapsible } from "@vuzeno/registry/ui/collapsible";
+import { Collapsible } from "@/components/ui/collapsible";
 </script>
 
 <template>

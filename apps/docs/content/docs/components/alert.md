@@ -33,7 +33,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Alert } from "@vuzeno/registry/ui/alert";
+import { Alert } from "@/components/ui/alert";
 </script>
 
 <template>

@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { ProgressLinear } from "@vuzeno/registry/ui/progress-linear";
+import { ProgressLinear } from "@/components/ui/progress-linear";
 </script>
 
 <template>

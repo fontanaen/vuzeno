@@ -43,8 +43,8 @@ Card.Root
 
 ```vue
 <script setup lang="ts">
-import { Card } from "@vuzeno/registry/ui/card";
-import { Button } from "@vuzeno/registry/ui/button";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 </script>
 
 <template>

@@ -33,7 +33,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Timeline } from "@vuzeno/registry/ui/timeline";
+import { Timeline } from "@/components/ui/timeline";
 </script>
 
 <template>
@@ -99,7 +99,7 @@ name: horizontal
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import { Timeline } from "@vuzeno/registry/ui/timeline";
+import { Timeline } from "@/components/ui/timeline";
 </script>
 
 <template>

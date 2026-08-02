@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Checkbox } from "@vuzeno/registry/ui/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 </script>
 
 <template>

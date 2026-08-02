@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { SignaturePad } from "@vuzeno/registry/ui/signature-pad";
+import { SignaturePad } from "@/components/ui/signature-pad";
 </script>
 
 <template>

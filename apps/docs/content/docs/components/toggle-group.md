@@ -37,7 +37,7 @@ ToggleGroup.Root
 
 ```vue
 <script setup lang="ts">
-import { ToggleGroup } from "@vuzeno/registry/ui/toggle-group";
+import { ToggleGroup } from "@/components/ui/toggle-group";
 </script>
 
 <template>

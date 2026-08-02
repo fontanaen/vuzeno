@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Slider } from "@vuzeno/registry/ui/slider";
+import { Slider } from "@/components/ui/slider";
 </script>
 
 <template>

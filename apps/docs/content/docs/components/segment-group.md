@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { SegmentGroup } from "@vuzeno/registry/ui/segment-group";
+import { SegmentGroup } from "@/components/ui/segment-group";
 </script>
 
 <template>

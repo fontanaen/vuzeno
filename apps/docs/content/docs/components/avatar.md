@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Avatar } from "@vuzeno/registry/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 </script>
 
 <template>

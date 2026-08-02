@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Dialog } from "@vuzeno/registry/ui/dialog";
+import { Dialog } from "@/components/ui/dialog";
 </script>
 
 <template>

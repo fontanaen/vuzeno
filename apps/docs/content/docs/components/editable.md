@@ -30,9 +30,9 @@ Wrap `Editable` in `Field` and use `Field.Label` instead of a dedicated editable
 
 ```vue
 <script setup lang="ts">
-import { Button } from "@vuzeno/registry/ui/button";
-import { Editable } from "@vuzeno/registry/ui/editable";
-import { Field } from "@vuzeno/registry/ui/field";
+import { Button } from "@/components/ui/button";
+import { Editable } from "@/components/ui/editable";
+import { Field } from "@/components/ui/field";
 </script>
 
 <template>

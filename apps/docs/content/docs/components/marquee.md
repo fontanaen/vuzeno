@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Marquee } from "@vuzeno/registry/ui/marquee";
+import { Marquee } from "@/components/ui/marquee";
 </script>
 
 <template>

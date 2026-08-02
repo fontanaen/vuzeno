@@ -33,7 +33,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Kbd } from "@vuzeno/registry/ui/kbd";
+import { Kbd } from "@/components/ui/kbd";
 </script>
 
 <template>

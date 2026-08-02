@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Listbox } from "@vuzeno/registry/ui/listbox";
+import { Listbox } from "@/components/ui/listbox";
 </script>
 
 <template>

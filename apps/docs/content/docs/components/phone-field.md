@@ -36,7 +36,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { PhoneField } from "@vuzeno/registry/ui/phone-field";
+import { PhoneField } from "@/components/ui/phone-field";
 import { ref } from "vue";
 
 const phone = ref("");

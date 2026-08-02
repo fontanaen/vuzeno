@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Autocomplete } from "@vuzeno/registry/ui/autocomplete";
+import { Autocomplete } from "@/components/ui/autocomplete";
 </script>
 
 <template>

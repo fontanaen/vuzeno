@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { HoverCard } from "@vuzeno/registry/ui/hover-card";
+import { HoverCard } from "@/components/ui/hover-card";
 </script>
 
 <template>

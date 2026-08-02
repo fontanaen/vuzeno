@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Toggle } from "@vuzeno/registry/ui/toggle";
+import { Toggle } from "@/components/ui/toggle";
 </script>
 
 <template>

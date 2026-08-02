@@ -35,7 +35,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Field, Filters, Operator } from "@vuzeno/registry/ui/filters";
+import { Field, Filters, Operator } from "@/components/ui/filters";
 import { ref } from "vue";
 
 const fields = ref([

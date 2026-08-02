@@ -37,7 +37,7 @@ Mount the host once in your app root:
 
 ```vue
 <script setup lang="ts">
-import { DialogCaller } from "@vuzeno/registry/ui/dialog-caller";
+import { DialogCaller } from "@/components/ui/dialog-caller";
 </script>
 
 <template>
@@ -52,7 +52,7 @@ Register a dialog component once, then call it imperatively:
 
 ```vue
 <script setup lang="ts">
-import { useDialogCaller } from "@vuzeno/registry/ui/dialog-caller";
+import { useDialogCaller } from "@/components/ui/dialog-caller";
 import DeleteConfirmDialog from "./DeleteConfirmDialog.vue";
 
 const deleteDialog = useDialogCaller(DeleteConfirmDialog, {

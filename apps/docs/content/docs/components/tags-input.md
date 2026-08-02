@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { TagsInput } from "@vuzeno/registry/ui/tags-input";
+import { TagsInput } from "@/components/ui/tags-input";
 </script>
 
 <template>

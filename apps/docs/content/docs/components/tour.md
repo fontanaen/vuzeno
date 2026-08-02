@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Tour, useTour } from "@vuzeno/registry/ui/tour";
+import { Tour, useTour } from "@/components/ui/tour";
 </script>
 
 <template>

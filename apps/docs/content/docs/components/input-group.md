@@ -26,7 +26,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { InputGroup } from "@vuzeno/registry/ui/input-group";
+import { InputGroup } from "@/components/ui/input-group";
 </script>
 
 <template>

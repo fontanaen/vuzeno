@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { Toast, createToaster } from "@vuzeno/registry/ui/toast";
+import { Toast, createToaster } from "@/components/ui/toast";
 import { X } from "@lucide/vue";
 
 const toaster = createToaster({

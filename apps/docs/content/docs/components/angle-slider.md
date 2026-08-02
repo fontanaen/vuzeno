@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { AngleSlider } from "@vuzeno/registry/ui/angle-slider";
+import { AngleSlider } from "@/components/ui/angle-slider";
 </script>
 
 <template>

@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { FloatingPanel } from "@vuzeno/registry/ui/floating-panel";
+import { FloatingPanel } from "@/components/ui/floating-panel";
 </script>
 
 <template>

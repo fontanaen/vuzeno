@@ -28,7 +28,7 @@ exec: true
 
 ```vue
 <script setup lang="ts">
-import { ColorPicker } from "@vuzeno/registry/ui/color-picker";
+import { ColorPicker } from "@/components/ui/color-picker";
 </script>
 
 <template>
