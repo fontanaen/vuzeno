@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useImage, whenever } from "@vueuse/core";
-import { type HTMLAttributes, toRefs } from "vue";
-import { injectImageContext } from "./ImageRoot.vue";
+import { mergeProps } from "@zag-js/core";
+import { cn } from "cnfast";
+import { computed, type HTMLAttributes } from "vue";
+import { injectImageContext } from "./context";
 
 const props = defineProps<{
   src: string;
@@ -9,30 +10,17 @@ const props = defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 
-const { src } = toRefs(props);
+const image = injectImageContext();
 
-const { state, controlled } = injectImageContext();
-
-const { isLoading } = useImage(() => ({ src: src.value }), {
-  onSuccess() {
-    if (!controlled.value) {
-      state.value = "success";
-    }
-  },
-  onError() {
-    if (!controlled.value) {
-      state.value = "error";
-    }
-  },
-});
-
-whenever(isLoading, () => {
-  if (!controlled.value) {
-    state.value = "loading";
-  }
-});
+const sourceProps = computed(() =>
+  mergeProps(image.value.getSourceProps(), {
+    src: props.src,
+    alt: props.alt,
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
-  <img v-if="state === 'success'" :src="src" :alt="alt" :class="props.class" data-slot="image-source" />
+  <img v-bind="sourceProps" data-slot="image-source" />
 </template>

@@ -1870,9 +1870,25 @@
       "type": "registry:component",
       "title": "Image",
       "description": "Vue image component with loading states and fallback support for reliable media rendering.",
-      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "dependencies": ["@ark-ui/vue", "@zag-js/anatomy", "@zag-js/core", "@zag-js/dom-query", "@zag-js/types", "@zag-js/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
+        {
+          "path": "ark-ui/image/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/connect.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/dom.ts",
+          "type": "registry:component"
+        },
         {
           "path": "ark-ui/image/image.ts",
           "type": "registry:component"
@@ -1894,11 +1910,27 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/image/ImageRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/image/ImageSource.vue",
           "type": "registry:component"
         },
         {
           "path": "ark-ui/image/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/machine.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/image/use-image.ts",
           "type": "registry:component"
         }
       ]

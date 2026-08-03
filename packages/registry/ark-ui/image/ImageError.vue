@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ark, type PolymorphicProps } from "@ark-ui/vue";
-import type { HTMLAttributes } from "vue";
-import { injectImageContext } from "./ImageRoot.vue";
+import { mergeProps } from "@zag-js/core";
+import { cn } from "cnfast";
+import { computed, type HTMLAttributes } from "vue";
+import { injectImageContext } from "./context";
 
 const props = defineProps<
   {
@@ -9,14 +11,20 @@ const props = defineProps<
   } & PolymorphicProps
 >();
 
-const { state } = injectImageContext();
+const image = injectImageContext();
+
+const errorProps = computed(() =>
+  mergeProps(image.value.getErrorProps(), {
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
   <ark.div
-    v-if="state === 'error'"
+    v-if="image.state === 'error'"
+    v-bind="errorProps"
     :as-child="asChild"
-    :class="props.class"
     data-slot="image-error"
   >
     <slot />

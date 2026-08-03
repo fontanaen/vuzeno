@@ -16,6 +16,7 @@ name: basic
 - **Loading states** — Automatic detection of loading, error, and success states
 - **Fallback support** — Display placeholder content during loading or on error
 - **Composable** — Flexible slot-based architecture with `Image.Source`, `Image.Loading`, `Image.Error`, and `Image.Fallback`
+- **Zag-powered** — State machine API via `useImage` and `Image.Provider`
 
 ## Installation
 
@@ -78,7 +79,7 @@ name: fallback
 
 ### Loading
 
-Use `Image.Loading` to show a dedicated loading indicator. The demo below uses a delayed image URL so you can see the loading state in action.
+Use `Image.Loading` to show a dedicated loading indicator.
 
 ::component-preview
 ---
@@ -89,7 +90,7 @@ name: loading
 
 ### Controlled
 
-For a controlled image, manage the state with the `state` prop and update it via the `update:state` event (or `v-model:state`). When controlled, `Image.Source` no longer updates the state automatically.
+For a controlled image, manage the state with `v-model:state`. When controlled, image load and error events no longer update the state automatically — use `setState` from `useImage` or bind the model yourself.
 
 ::component-preview
 ---
@@ -100,4 +101,4 @@ name: controlled
 
 ## API
 
-Built on Ark UI primitives (`ark`, `createContext`, `PolymorphicProps`) and VueUse `useImage` for load state tracking. See [Ark UI composition guide](https://ark-ui.com/docs/guides/composition) for polymorphic rendering details.
+Built with a custom Zag.js state machine. Use `useImage()` with `Image.Provider` for imperative control (`api.value.setState(...)`, `api.value.state`). Polymorphic parts use Ark UI `ark` / `as-child`.

@@ -4,7 +4,7 @@ import { Skeleton } from "@vuzeno/registry/ui/skeleton";
 </script>
 
 <template>
-  <Image.Root>
+  <Image.Root state="loading">
     <Image.Loading>
       <Skeleton class="aspect-video w-72" />
     </Image.Loading>

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ark, type PolymorphicProps } from "@ark-ui/vue";
-import type { HTMLAttributes } from "vue";
-import { injectImageContext } from "./ImageRoot.vue";
+import { mergeProps } from "@zag-js/core";
+import { cn } from "cnfast";
+import { computed, type HTMLAttributes } from "vue";
+import { injectImageContext } from "./context";
 
 const props = defineProps<
   {
@@ -9,14 +11,20 @@ const props = defineProps<
   } & PolymorphicProps
 >();
 
-const { state } = injectImageContext();
+const image = injectImageContext();
+
+const loadingProps = computed(() =>
+  mergeProps(image.value.getLoadingProps(), {
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
   <ark.div
-    v-if="state === 'loading'"
+    v-if="image.state === 'loading'"
+    v-bind="loadingProps"
     :as-child="asChild"
-    :class="props.class"
     data-slot="image-loading"
   >
     <slot />
