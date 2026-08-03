@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useForwardPropsEmits } from "@ark-ui/vue";
 import { Drawer, type DrawerRootProps, type DrawerSnapPointChangeDetails, type DrawerTriggerValueChangeDetails } from "@ark-ui/vue/drawer";
-import { reactiveOmit } from "@vueuse/core";
 
 const open = defineModel<boolean>({ default: () => false });
 
