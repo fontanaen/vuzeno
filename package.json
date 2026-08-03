@@ -13,7 +13,8 @@
     "docs:preview:cf": "bun run --filter=@vuzeno/docs preview:cf",
     "docs:build": "bun run --filter=@vuzeno/docs build",
     "docs:deploy": "bun run --filter=@vuzeno/docs deploy",
-    "registry:build": "bun run --filter=@vuzeno/cli build"
+    "registry:build": "bun run --filter=@vuzeno/cli build",
+    "prepare": "husky"
   },
   "workspaces": {
     "packages": [
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.6",
     "@types/bun": "latest",
+    "husky": "^9.1.7",
     "typescript": "6.0.2",
     "wrangler": "^4.113.0"
   },

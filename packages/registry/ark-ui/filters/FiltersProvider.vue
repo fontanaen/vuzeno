@@ -7,6 +7,8 @@ import { type BaseField, type FilterFieldItem, isField, isFieldGroup, isFieldSub
 import type { Filter } from "./filter";
 import type { FiltersSize, FiltersVariant } from "./variants";
 
+const filters = defineModel<Filter[]>("filters", { default: () => [] });
+
 const props = withDefaults(
   defineProps<{
     fields: FilterFieldItem[];
@@ -19,8 +21,6 @@ const props = withDefaults(
     size: "md",
   },
 );
-
-const filters = defineModel<Filter[]>("filters", { default: () => [] });
 
 const { fields, variant, size } = toRefs(props);
 

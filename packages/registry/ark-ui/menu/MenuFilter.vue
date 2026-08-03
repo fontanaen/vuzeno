@@ -4,6 +4,8 @@ import { cn } from "cnfast";
 import { type HTMLAttributes, watch } from "vue";
 import { provideMenuFilterContext } from "./menu-filter-context";
 
+const searchTerm = defineModel<string>("searchTerm", { default: "" });
+
 const props = withDefaults(
   defineProps<{
     defaultSearchTerm?: string;
@@ -15,8 +17,6 @@ const props = withDefaults(
     resetOnClose: true,
   },
 );
-
-const searchTerm = defineModel<string>("searchTerm", { default: "" });
 
 if (props.defaultSearchTerm && searchTerm.value === "") {
   searchTerm.value = props.defaultSearchTerm;

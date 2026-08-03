@@ -4,7 +4,6 @@ import AutocompleteClearTrigger from "./AutocompleteClearTrigger.vue";
 import AutocompleteContent from "./AutocompleteContent.vue";
 import AutocompleteControl from "./AutocompleteControl.vue";
 import AutocompleteEmpty from "./AutocompleteEmpty.vue";
-import AutocompleteIndicators from "./AutocompleteIndicators.vue";
 import AutocompleteInput from "./AutocompleteInput.vue";
 import AutocompleteItem from "./AutocompleteItem.vue";
 import AutocompleteItemContext from "./AutocompleteItemContext.vue";

@@ -8,8 +8,9 @@ interface Props {
   defaultValue?: string | number;
 }
 
-const props = defineProps<Props>();
 const modelValue = defineModel<string | number>({ default: (props) => props.defaultValue });
+
+const props = defineProps<Props>();
 </script>
 
 <template>

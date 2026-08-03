@@ -19,5 +19,5 @@ export function useMenuFilterCollection<T extends CollectionItem>(options: UseLi
   };
 }
 
-export { useMenuFilterContext } from "./menu-filter-context";
 export type { MenuFilterContext } from "./menu-filter-context";
+export { useMenuFilterContext } from "./menu-filter-context";

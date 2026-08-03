@@ -17,6 +17,8 @@ import {
 } from "./context";
 import SidebarMobileDrawer from "./SidebarMobileDrawer.vue";
 
+const open = defineModel<boolean>("open", { default: true });
+
 const props = withDefaults(
   defineProps<{
     id?: string;
@@ -38,8 +40,6 @@ const props = withDefaults(
     shortcut: SIDEBAR_KEYBOARD_SHORTCUT,
   },
 );
-
-const open = defineModel<boolean>("open", { default: true });
 
 const provider = injectSidebarProviderContext();
 const isMobile = useMediaQuery("(max-width: 768px)");

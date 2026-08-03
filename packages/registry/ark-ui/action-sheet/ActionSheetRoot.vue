@@ -6,14 +6,14 @@ import { cn } from "cnfast";
 import { toRefs } from "vue";
 import { type ActionSheetEmits, type ActionSheetProps, provideActionSheetContext } from "./api";
 
+const open = defineModel<boolean>("open", { default: false });
+
 const props = withDefaults(defineProps<ActionSheetProps>(), {
   closeOnClickOutside: true,
   showOverlay: true,
 });
 
 const emits = defineEmits<ActionSheetEmits>();
-
-const open = defineModel<boolean>("open", { default: false });
 
 const { showOverlay, closeOnClickOutside } = toRefs(props);
 

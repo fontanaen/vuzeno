@@ -38,9 +38,7 @@ const hasOptionsMenu = computed(() => {
 const isSearchable = computed(() => defaultOperator.value.options?.searchable === true);
 const disabled = computed(() => !isMultiSelect.value && existingFilter.value !== undefined);
 
-const selectItems = computed<SelectCollectionItem[]>(() =>
-  (defaultOperator.value.options?.items ?? []).map((option, index) => ({ ...option, id: String(index) })),
-);
+const selectItems = computed<SelectCollectionItem[]>(() => (defaultOperator.value.options?.items ?? []).map((option, index) => ({ ...option, id: String(index) })));
 
 function getItemString(item: SelectCollectionItem) {
   const renderedOption = defaultOperator.value.options?.renderOption?.(item);
