@@ -1,33 +1,38 @@
 <script setup lang="ts">
 import { ark, type PolymorphicProps } from "@ark-ui/vue";
-import { reactiveOmit } from "@vueuse/core";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import type { HTMLAttributes } from "vue";
+import { computed, type HTMLAttributes } from "vue";
 import { type ButtonVariantsProps, buttonVariants } from "../button";
-import { injectActionSheetContext } from "./api";
+import { injectActionSheetContext } from "./context";
 
-interface Props extends ButtonVariantsProps, PolymorphicProps {
-  class?: HTMLAttributes["class"];
-}
+const props = withDefaults(
+  defineProps<
+    {
+      class?: HTMLAttributes["class"];
+    } & ButtonVariantsProps &
+      PolymorphicProps
+  >(),
+  {
+    variant: "outline",
+    size: "lg",
+  },
+);
 
-const props = withDefaults(defineProps<Props>(), {
-  variant: "outline",
-  size: "lg",
-});
+const actionSheet = injectActionSheetContext();
 
-const buttonProps = reactiveOmit(props, "class", "variant", "size");
-
-const context = injectActionSheetContext();
+const cancelProps = computed(() =>
+  mergeProps(actionSheet.value.getCancelProps(), {
+    class: cn(buttonVariants({ variant: props.variant, size: props.size }), "dark:bg-background dark:hover:bg-accent w-full text-destructive", props.class),
+  }),
+);
 </script>
 
 <template>
   <ark.button
-    v-bind="buttonProps"
-    type="button"
-    data-scope="action-sheet"
-    data-part="cancel"
-    :class="cn(buttonVariants({ variant, size }), 'dark:bg-background dark:hover:bg-accent w-full text-destructive', props.class)"
-    @click="context.onCancel()"
+    v-bind="cancelProps"
+    :as-child="asChild"
+    data-slot="action-sheet-cancel"
   >
     <slot />
   </ark.button>

@@ -1,22 +1,31 @@
 <script setup lang="ts">
-import { Dialog, type DialogTriggerProps } from "@ark-ui/vue/dialog";
-import { reactiveOmit } from "@vueuse/core";
-import type { HTMLAttributes } from "vue";
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
+import { cn } from "cnfast";
+import { computed, type HTMLAttributes } from "vue";
+import { injectActionSheetContext } from "./context";
 
-interface Props extends DialogTriggerProps {
-  class?: HTMLAttributes["class"];
-}
+const props = defineProps<
+  {
+    class?: HTMLAttributes["class"];
+  } & PolymorphicProps
+>();
 
-const props = defineProps<Props>();
+const actionSheet = injectActionSheetContext();
 
-const triggerProps = reactiveOmit(props, "class");
+const triggerProps = computed(() =>
+  mergeProps(actionSheet.value.getTriggerProps(), {
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
-  <Dialog.Trigger
+  <ark.button
     v-bind="triggerProps"
+    :as-child="asChild"
     data-slot="action-sheet-trigger"
   >
     <slot />
-  </Dialog.Trigger>
+  </ark.button>
 </template>

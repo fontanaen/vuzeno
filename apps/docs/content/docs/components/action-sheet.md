@@ -2,8 +2,6 @@
 title: ActionSheet
 description: Vue bottom sheet action dialog with a promise-based API for picking an option on mobile and desktop.
 tag: new
-links:
-  api: https://ark-ui.com/vue/docs/components/dialog
 ---
 
 ::component-preview
@@ -15,6 +13,7 @@ name: basic
 
 ## Features
 
+- **Zag state machine** — Open/close, dismiss, option selection, and cancel are modeled with a custom `@zag-js` machine (not Ark Dialog)
 - **Programmatic API** — Define the action sheet with `useActionSheet()`, pass it to `ActionSheet.Provider`, then `await show()` for a typed result (`ActionSheetStartResult`) when the user picks an option, cancels, or dismisses the sheet
 - **Classic usage** — Control visibility with `v-model:open` and open via `ActionSheet.Trigger`
 - **Composable layout** — Stack multiple `ActionSheet.Group` blocks for separated groups of actions
@@ -97,18 +96,14 @@ Define the action sheet with `useActionSheet()`, then pass it to `ActionSheet.Pr
 <script setup lang="ts">
 import { ActionSheet, useActionSheet } from "@/components/ui/action-sheet";
 import { Button } from "@/components/ui/button";
-import { ref } from "vue";
-
-const open = ref(false);
 
 const actionSheet = useActionSheet({
-  open,
-  showOverlay: ref(true),
-  closeOnClickOutside: ref(true),
+  showOverlay: true,
+  closeOnClickOutside: true,
 });
 
 async function openActionSheet() {
-  const result = await actionSheet.show<string>();
+  const result = await actionSheet.value.show();
 
   if (result.cancelled) {
     // result.cancelledReason is "cancel" | "close"
@@ -173,8 +168,7 @@ Compose several `ActionSheet.Group` components inside `ActionSheet.Content` to s
 | `open` | `boolean` | `false` |
 | `closeOnClickOutside` | `boolean` | `true` |
 | `showOverlay` | `boolean` | `true` |
-
-`ActionSheet.Root` forwards other props and emits from Ark UI's `Dialog.Root`.
+| `closeOnEscape` | `boolean` | `true` |
 
 ### ActionSheet.Provider
 
@@ -187,19 +181,27 @@ Takes the object returned by `useActionSheet()` and drives the sheet's open stat
 ### useActionSheet
 
 ```ts
-function useActionSheet(props: {
-  open: Ref<boolean>;
-  showOverlay: Ref<boolean>;
-  closeOnClickOutside: Ref<boolean>;
-}): ActionSheetApi;
+function useActionSheet(props?: {
+  showOverlay?: boolean;
+  closeOnClickOutside?: boolean;
+  closeOnEscape?: boolean;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (details: { open: boolean }) => void;
+  onSelectOption?: (details: { value: unknown }) => void;
+  onCancel?: () => void;
+  onDismiss?: () => void;
+}): ComputedRef<ActionSheetApi>;
 ```
 
-Returns an `ActionSheetApi` with:
+Returns a computed `ActionSheetApi` with:
 
 | Member | Type | Description |
 |--------|------|-------------|
-| `show()` | `<O>() => Promise<ActionSheetStartResult<O>>` | Opens the sheet and resolves when the user selects an option, cancels, or closes it |
-| `close()` | `() => void` | Closes the sheet without resolving `show()` |
+| `show()` | `() => Promise<ActionSheetStartResult>` | Opens the sheet and resolves when the user selects an option, cancels, or dismisses it |
+| `close()` | `() => void` | Closes the sheet |
+| `setOpen(open)` | `(open: boolean) => void` | Opens or closes the sheet |
+| `open` | `boolean` | Current open state |
 
 ### ActionSheetStartResult
 
@@ -208,5 +210,3 @@ type ActionSheetStartResult<O> =
   | { cancelled: false; cancelledReason: null; selectedOption: O }
   | { cancelled: true; cancelledReason: "cancel" | "close"; selectedOption: null }
 ```
-
-See [Ark UI Dialog docs](https://ark-ui.com/vue/docs/components/dialog) for underlying dialog props and behavior.

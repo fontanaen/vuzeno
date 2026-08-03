@@ -1,40 +1,52 @@
 <script setup lang="ts">
 import { ark, type PolymorphicProps } from "@ark-ui/vue";
-import { reactiveOmit } from "@vueuse/core";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import type { HTMLAttributes } from "vue";
+import { computed, type HTMLAttributes } from "vue";
 import { type ButtonVariantsProps, buttonVariants } from "../button";
-import { type ActionSheetOptionAcceptableValue, injectActionSheetContext } from "./api";
+import { injectActionSheetContext } from "./context";
+import type { ActionSheetOptionAcceptableValue } from "./types";
 
-interface Props extends ButtonVariantsProps, PolymorphicProps {
-  value: ActionSheetOptionAcceptableValue;
-  disabled?: boolean;
-  class?: HTMLAttributes["class"];
-}
+const props = withDefaults(
+  defineProps<
+    {
+      value: ActionSheetOptionAcceptableValue;
+      disabled?: boolean;
+      class?: HTMLAttributes["class"];
+    } & ButtonVariantsProps &
+      PolymorphicProps
+  >(),
+  {
+    variant: "outline",
+    size: "lg",
+    disabled: false,
+  },
+);
 
-const props = withDefaults(defineProps<Props>(), {
-  variant: "outline",
-  size: "lg",
-  disabled: false,
-});
+const actionSheet = injectActionSheetContext();
 
-const buttonProps = reactiveOmit(props, "class", "variant", "size", "value");
-
-const context = injectActionSheetContext();
+const itemProps = computed(() =>
+  mergeProps(
+    actionSheet.value.getItemProps({
+      value: props.value,
+      disabled: props.disabled,
+    }),
+    {
+      class: cn(
+        buttonVariants({ variant: props.variant, size: props.size }),
+        "dark:bg-background dark:hover:bg-accent first:rounded-t-md first:border-b-0 last:rounded-b-md not-last:border-b-0 rounded-none",
+        props.class,
+      ),
+    },
+  ),
+);
 </script>
 
 <template>
   <ark.button
-    v-bind="buttonProps"
-    type="button"
-    data-scope="action-sheet"
-    data-part="item"
-    :class="cn(
-      buttonVariants({ variant, size }), 
-      'dark:bg-background dark:hover:bg-accent first:rounded-t-md first:border-b-0 last:rounded-b-md not-last:border-b-0 rounded-none', 
-      props.class
-    )"
-    @click="context.onSelectOption(props.value)"
+    v-bind="itemProps"
+    :as-child="asChild"
+    data-slot="action-sheet-item"
   >
     <slot />
   </ark.button>

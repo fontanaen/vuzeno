@@ -1,42 +1,36 @@
 <script setup lang="ts">
+import { XIcon } from "@lucide/vue";
 import { ActionSheet, useActionSheet } from "@vuzeno/registry/ui/action-sheet";
 import { Button } from "@vuzeno/registry/ui/button";
 import { createToaster, Toast } from "@vuzeno/registry/ui/toast";
-import { ref } from "vue";
-
-const open = ref(false);
 
 const toaster = createToaster({
   placement: "bottom-end",
 });
 
 const actionSheet = useActionSheet({
-  open,
-  showOverlay: ref(true),
-  closeOnClickOutside: ref(true),
+  showOverlay: true,
+  closeOnClickOutside: true,
 });
 
 async function openActionSheet() {
-  const result = await actionSheet.show();
-
-  if (!result) {
-    return;
-  }
+  const result = await actionSheet.value.show();
 
   if (result.cancelled) {
     toaster.create({
       title: "Action cancelled",
-      description: result.cancelledReason?.toString(),
+      description: result.cancelledReason.toString(),
       type: "error",
     });
-  } else {
-    toaster.create({
-      title: `Option selected`,
-      description: result.selectedOption?.toString(),
-      type: "success",
-      duration: 10000,
-    });
+    return;
   }
+
+  toaster.create({
+    title: "Option selected",
+    description: result.selectedOption?.toString(),
+    type: "success",
+    duration: 10000,
+  });
 }
 </script>
 
@@ -65,7 +59,7 @@ async function openActionSheet() {
     </ActionSheet.Provider>
 
     <ActionSheet.Root>
-      <ActionSheet.Trigger>
+      <ActionSheet.Trigger as-child>
         <Button variant="outline" size="sm">
           Open with trigger
         </Button>
@@ -94,7 +88,7 @@ async function openActionSheet() {
         <Toast.Title>{{ toast.title }}</Toast.Title>
         <Toast.Description>{{ toast.description }}</Toast.Description>
         <Toast.CloseTrigger>
-          <X />
+          <XIcon />
         </Toast.CloseTrigger>
       </Toast.Root>
     </Toast.Toaster>

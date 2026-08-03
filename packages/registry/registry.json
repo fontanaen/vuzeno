@@ -58,11 +58,53 @@
       "type": "registry:component",
       "title": "ActionSheet",
       "description": "Vue bottom sheet action dialog with a promise-based API for picking an option on mobile and desktop.",
-      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "dependencies": [
+        "@ark-ui/vue",
+        "@zag-js/anatomy",
+        "@zag-js/aria-hidden",
+        "@zag-js/core",
+        "@zag-js/dismissable",
+        "@zag-js/dom-query",
+        "@zag-js/focus-trap",
+        "@zag-js/presence",
+        "@zag-js/remove-scroll",
+        "@zag-js/types",
+        "@zag-js/utils",
+        "@zag-js/vue",
+        "cnfast"
+      ],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "ark-ui/action-sheet/action-sheet.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/connect.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/dom.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/machine.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/use-action-sheet.ts",
           "type": "registry:component"
         },
         {
@@ -95,10 +137,6 @@
         },
         {
           "path": "ark-ui/action-sheet/ActionSheetTrigger.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/api.ts",
           "type": "registry:component"
         },
         {

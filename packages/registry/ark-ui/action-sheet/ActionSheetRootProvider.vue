@@ -1,37 +1,20 @@
 <script setup lang="ts">
-import { Dialog } from "@ark-ui/vue/dialog";
-import { type ActionSheetApi, type ActionSheetApiProps, provideActionSheetContext } from "./api";
+import { computed, toValue } from "vue";
+import { provideActionSheetContext } from "./context";
+import type { ActionSheetApi } from "./types";
+import type { UseActionSheetReturn } from "./use-action-sheet";
 
-const props = defineProps<{ value: ActionSheetApi<ActionSheetApiProps> }>();
+const props = defineProps<{
+  value: ActionSheetApi | UseActionSheetReturn;
+}>();
 
-provideActionSheetContext({
-  showOverlay: props.value.props.showOverlay,
-  closeOnClickOutside: props.value.props.closeOnClickOutside,
-  onSelectOption(option) {
-    props.value.onSelectOption(option);
-    props.value.close();
-  },
-  onCancel() {
-    props.value.onCancel();
-    props.value.close();
-  },
-  onClose() {
-    if (props.value.props.closeOnClickOutside.value === false) {
-      return;
-    }
+const actionSheet = computed(() => toValue(props.value));
 
-    props.value.onClose();
-    props.value.close();
-  },
-});
+provideActionSheetContext(actionSheet);
 </script>
 
 <template>
-  <Dialog.Root
-    v-model:open="props.value.props.open.value"
-    :close-on-interact-outside="props.value.props.closeOnClickOutside.value"
-    data-slot="action-sheet"
-  >
+  <div data-slot="action-sheet" :data-state="actionSheet.open ? 'open' : 'closed'">
     <slot />
-  </Dialog.Root>
+  </div>
 </template>

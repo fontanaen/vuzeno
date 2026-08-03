@@ -1,49 +1,70 @@
 <script setup lang="ts">
-import { useForwardPropsEmits } from "@ark-ui/vue";
-import { Dialog } from "@ark-ui/vue/dialog";
-import { reactiveOmit } from "@vueuse/core";
 import { cn } from "cnfast";
-import { toRefs } from "vue";
-import { type ActionSheetEmits, type ActionSheetProps, provideActionSheetContext } from "./api";
+import { computed, type HTMLAttributes, useId } from "vue";
+import { provideActionSheetContext } from "./context";
+import type { ActionSheetOptionAcceptableValue, OpenChangeDetails } from "./types";
+import { useActionSheet } from "./use-action-sheet";
 
 const open = defineModel<boolean>("open", { default: false });
 
-const props = withDefaults(defineProps<ActionSheetProps>(), {
-  closeOnClickOutside: true,
-  showOverlay: true,
-});
-
-const emits = defineEmits<ActionSheetEmits>();
-
-const { showOverlay, closeOnClickOutside } = toRefs(props);
-
-const rootProps = reactiveOmit(props, "class", "closeOnClickOutside", "showOverlay");
-const forwarded = useForwardPropsEmits(rootProps, emits);
-
-provideActionSheetContext({
-  showOverlay,
-  closeOnClickOutside,
-  onSelectOption(option) {
-    emits("selectOption", option);
-    open.value = false;
+const props = withDefaults(
+  defineProps<{
+    closeOnClickOutside?: boolean;
+    showOverlay?: boolean;
+    closeOnEscape?: boolean;
+    "aria-label"?: string;
+    class?: HTMLAttributes["class"];
+  }>(),
+  {
+    closeOnClickOutside: true,
+    showOverlay: true,
+    closeOnEscape: true,
   },
-  onCancel() {
-    emits("cancel");
-  },
-  onClose() {
-    emits("close");
-  },
-});
+);
+
+const emits = defineEmits<{
+  (event: "selectOption", value: ActionSheetOptionAcceptableValue): void;
+  (event: "cancel"): void;
+  (event: "close"): void;
+  (event: "openChange", details: OpenChangeDetails): void;
+}>();
+
+const id = useId();
+
+const actionSheet = useActionSheet(
+  computed(() => ({
+    id,
+    open: open.value,
+    showOverlay: props.showOverlay,
+    closeOnClickOutside: props.closeOnClickOutside,
+    closeOnInteractOutside: props.closeOnClickOutside,
+    closeOnEscape: props.closeOnEscape,
+    "aria-label": props["aria-label"],
+    onOpenChange(details) {
+      open.value = details.open;
+      emits("openChange", details);
+    },
+    onSelectOption(details) {
+      emits("selectOption", details.value);
+    },
+    onCancel() {
+      emits("cancel");
+    },
+    onDismiss() {
+      emits("close");
+    },
+  })),
+);
+
+provideActionSheetContext(actionSheet);
 </script>
 
 <template>
-  <Dialog.Root
-    v-bind="forwarded"
-    v-model:open="open"
-    :close-on-interact-outside="closeOnClickOutside"
-    :class="cn(props.class)"
+  <div
     data-slot="action-sheet"
+    :class="cn(props.class)"
+    :data-state="actionSheet.open ? 'open' : 'closed'"
   >
     <slot />
-  </Dialog.Root>
+  </div>
 </template>
