@@ -2906,6 +2906,40 @@
       ]
     },
     {
+      "name": "scroll-spy",
+      "type": "registry:component",
+      "title": "Scroll Spy",
+      "description": "Vue scroll spy that tracks which section is in view and exposes the active value for paired navigation.",
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "ark-ui/scroll-spy/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/scroll-spy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/ScrollSpyItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/ScrollSpyRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/ScrollSpyTarget.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/ScrollSpyViewport.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "segment-group",
       "type": "registry:component",
       "title": "Segment Group",
@@ -3801,6 +3835,48 @@
         },
         {
           "path": "ark-ui/timer/TimerSeparator.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toc",
+      "type": "registry:component",
+      "title": "Toc",
+      "description": "Vue table of contents with a breadcrumb-style rail indicator and straight or rounded turns toward nested items.",
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "registryDependencies": ["scroll-spy"],
+      "files": [
+        {
+          "path": "ark-ui/toc/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/toc.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocLink.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocTitle.vue",
           "type": "registry:component"
         }
       ]

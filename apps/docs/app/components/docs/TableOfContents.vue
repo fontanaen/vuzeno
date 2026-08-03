@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { MenuIcon } from "@lucide/vue";
-import type { Toc } from "@nuxt/content";
-import { useIntersectionObserver } from "@vueuse/core";
+import type { Toc as ContentToc } from "@nuxt/content";
 import { Button } from "@vuzeno/registry/ui/button";
 import { Menu } from "@vuzeno/registry/ui/menu";
+import { ScrollSpy } from "@vuzeno/registry/ui/scroll-spy";
+import { Toc } from "@vuzeno/registry/ui/toc";
 import { cn } from "cnfast";
 import type { HTMLAttributes } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    toc: Toc;
+    toc: ContentToc;
     variant?: "dropdown" | "list";
     class?: HTMLAttributes["class"];
   }>(),
@@ -21,10 +22,8 @@ const props = withDefaults(
 const open = ref(false);
 const { path } = toRefs(useRoute());
 
-const activeHeading = ref("");
-
 const tocLinks = computed(() => {
-  const result: Toc["links"] = [];
+  const result: ContentToc["links"] = [];
 
   for (const node of props.toc.links) {
     const { children, ...nodeWithoutChildren } = node;
@@ -39,25 +38,6 @@ const tocLinks = computed(() => {
   }
 
   return result;
-});
-
-onMounted(() => {
-  const elements = tocLinks.value.map((link) => document.getElementById(link.id));
-  const observers = useIntersectionObserver(
-    elements,
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          activeHeading.value = entry.target.id;
-        }
-      }
-    },
-    { rootMargin: "0% 0% -80% 0%" },
-  );
-
-  onBeforeUnmount(() => {
-    observers.stop();
-  });
 });
 </script>
 
@@ -91,19 +71,41 @@ onMounted(() => {
     </Menu.Content>
   </Menu.Root>
 
-  <div v-else :class="cn('flex flex-col gap-2 p-4 pt-0 text-sm', props.class)">
-    <p v-if="tocLinks.length" class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">
-      On This Page
-    </p>
-    <a
+  <ScrollSpy.Root
+    v-else
+    :offset="0.2"
+    :class="cn('p-4 pt-0', props.class)"
+  >
+    <ScrollSpy.Target
       v-for="item in tocLinks"
-      :key="item.id"
-      :href="`${path}#${item.id}`"
-      class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=3]:pl-4 data-[depth=4]:pl-6"
-      :data-active="item.id === activeHeading"
-      :data-depth="item.depth"
+      :key="`${path}-${item.id}`"
+      :value="item.id"
+    />
+
+    <Toc.Root
+      v-if="tocLinks.length"
+      turn="rounded"
+      indicator="fill"
     >
-      {{ item.text }}
-    </a>
-  </div>
+      <Toc.Title class="bg-background sticky top-0">
+        On This Page
+      </Toc.Title>
+      <Toc.List>
+        <Toc.Indicator />
+        <Toc.Item
+          v-for="item in tocLinks"
+          :key="item.id"
+          :value="item.id"
+          :depth="item.depth"
+        >
+          <Toc.Link
+            :href="`${path}#${item.id}`"
+            class="data-active:text-foreground"
+          >
+            {{ item.text }}
+          </Toc.Link>
+        </Toc.Item>
+      </Toc.List>
+    </Toc.Root>
+  </ScrollSpy.Root>
 </template>
