@@ -1222,9 +1222,17 @@
       "type": "registry:component",
       "title": "DialogCaller",
       "description": "Vue dialog caller to open components programmatically with a promise-based stack API.",
-      "dependencies": ["@ark-ui/vue"],
+      "dependencies": ["@ark-ui/vue", "@zag-js/anatomy", "@zag-js/core", "@zag-js/types", "@zag-js/vue", "cnfast"],
       "registryDependencies": ["dialog"],
       "files": [
+        {
+          "path": "ark-ui/dialog-caller/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/connect.ts",
+          "type": "registry:component"
+        },
         {
           "path": "ark-ui/dialog-caller/context.ts",
           "type": "registry:component"
@@ -1246,15 +1254,35 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/dialog-caller/DialogCallerRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/dom.ts",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/dialog-caller/index.ts",
           "type": "registry:component"
         },
         {
-          "path": "ark-ui/dialog-caller/store.ts",
+          "path": "ark-ui/dialog-caller/machine.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/registry.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/service.ts",
           "type": "registry:component"
         },
         {
           "path": "ark-ui/dialog-caller/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/dialog-caller/use-dialog-caller-host.ts",
           "type": "registry:component"
         },
         {

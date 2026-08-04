@@ -1,24 +1,51 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from "vue";
+import { mergeProps } from "@zag-js/core";
+import { cn } from "cnfast";
+import { computed, type HTMLAttributes, onMounted, onUnmounted, useId } from "vue";
+import { provideDialogCallerHostContext } from "./context";
 import DialogCallerEntry from "./DialogCallerEntry.vue";
-import { dialogCallerStack, setDialogCallerHostMounted } from "./store";
+import { useDialogCallerHost } from "./use-dialog-caller-host";
+
+const props = defineProps<{
+  class?: HTMLAttributes["class"];
+  defaultExitDuration?: number;
+}>();
+
+const id = useId();
+
+const dialogCaller = useDialogCallerHost(
+  computed(() => ({
+    id,
+    defaultExitDuration: props.defaultExitDuration,
+  })),
+);
+
+provideDialogCallerHostContext(dialogCaller);
+
+const hostProps = computed(() =>
+  mergeProps(dialogCaller.value.getHostProps(), {
+    class: cn(props.class),
+  }),
+);
 
 onMounted(() => {
-  setDialogCallerHostMounted(true);
+  dialogCaller.value.mountHost();
 });
 
 onUnmounted(() => {
-  setDialogCallerHostMounted(false);
+  dialogCaller.value.unmountHost();
 });
 </script>
 
 <template>
   <Teleport to="body">
-    <DialogCallerEntry
-      v-for="(entry, index) in dialogCallerStack"
-      :key="entry.id"
-      :entry="entry"
-      :layer-index="index"
-    />
+    <div v-bind="hostProps" data-slot="dialog-caller-host">
+      <DialogCallerEntry
+        v-for="(entry, index) in dialogCaller.stack"
+        :key="entry.id"
+        :entry="entry"
+        :layer-index="index"
+      />
+    </div>
   </Teleport>
 </template>

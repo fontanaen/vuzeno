@@ -2,8 +2,6 @@
 title: DialogCaller
 description: Vue dialog caller to open components programmatically with a promise-based stack API.
 tag: new
-links:
-  api: https://ark-ui.com/vue/docs/components/dialog
 ---
 
 ::component-preview
@@ -96,6 +94,9 @@ const call = useDialogCallerContext<boolean>();
 ```
 DialogCaller.Host
 └── (dynamic stack entries)
+
+DialogCaller.Provider
+└── custom host wiring via useDialogCallerHost()
 
 DialogCaller.DialogShell
 └── Dialog.Content

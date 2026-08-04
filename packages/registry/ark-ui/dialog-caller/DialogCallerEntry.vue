@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { mergeProps } from "@zag-js/core";
 import { computed } from "vue";
-import { provideDialogCallerContext } from "./context";
-import { rejectDialogCallerCall, resolveDialogCallerCall } from "./store";
+import { injectDialogCallerHostContext, provideDialogCallerContext } from "./context";
 import type { DialogCallerCallEntry } from "./types";
 
 const props = defineProps<{
@@ -9,25 +9,34 @@ const props = defineProps<{
   layerIndex: number;
 }>();
 
+const host = injectDialogCallerHostContext();
+
+const phase = computed(() => props.entry.phase);
+
 provideDialogCallerContext({
   props: props.entry.props,
-  phase: props.entry.phase,
+  phase,
   resolve(data) {
-    resolveDialogCallerCall(props.entry.id, data);
+    host.value.resolve(props.entry.id, data);
   },
   reject(reason) {
-    rejectDialogCallerCall(props.entry.id, reason);
+    host.value.reject(props.entry.id, reason);
   },
   id: props.entry.id,
 });
 
-const layerStyle = computed(() => ({
-  "--layer-index": String(props.layerIndex),
-}));
+const entryProps = computed(() =>
+  mergeProps(
+    host.value.getEntryProps({
+      callId: props.entry.id,
+      layerIndex: props.layerIndex,
+    }),
+  ),
+);
 </script>
 
 <template>
-  <div :style="layerStyle" data-slot="dialog-caller-entry">
+  <div v-bind="entryProps" data-slot="dialog-caller-entry">
     <component :is="entry.component" v-bind="entry.props" />
   </div>
 </template>

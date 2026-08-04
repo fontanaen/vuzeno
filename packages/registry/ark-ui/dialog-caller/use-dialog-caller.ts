@@ -1,5 +1,8 @@
+import { normalizeProps } from "@zag-js/vue";
 import type { Component } from "vue";
-import { callDialogCaller, registerDialogCaller, rejectActiveDialogCallerCall } from "./store";
+import { connect } from "./connect";
+import { registerDialogCaller } from "./registry";
+import { requireDialogCallerHostService } from "./service";
 import type { DialogCallerCancelledResult, DialogCallerDataResult, DialogCallerHandle, DialogCallerOptions } from "./types";
 
 type InferDialogCallerResult<TResult, TShape extends DialogCallerOptions<TResult>["resultShape"]> = TShape extends "data"
@@ -7,6 +10,10 @@ type InferDialogCallerResult<TResult, TShape extends DialogCallerOptions<TResult
   : TShape extends "raw"
     ? TResult
     : DialogCallerCancelledResult<TResult>;
+
+function getHostApi() {
+  return connect(requireDialogCallerHostService(), normalizeProps);
+}
 
 export function useDialogCaller<TProps extends Record<string, unknown>, TResult = unknown, const TShape extends DialogCallerOptions<TResult>["resultShape"] = "cancelled">(
   component: Component,
@@ -16,10 +23,10 @@ export function useDialogCaller<TProps extends Record<string, unknown>, TResult 
 
   return {
     call(props: TProps) {
-      return callDialogCaller<TProps, InferDialogCallerResult<TResult, TShape>>(registration, props);
+      return getHostApi().call<TProps, InferDialogCallerResult<TResult, TShape>>(registration, props);
     },
     reject() {
-      rejectActiveDialogCallerCall(registration.id);
+      getHostApi().rejectActive(registration.id);
     },
   };
 }
