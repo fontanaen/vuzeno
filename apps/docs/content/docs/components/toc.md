@@ -18,6 +18,7 @@ name: basic
 - **Three rail styles** — Continuous (`straight`), 45° circuit (`sharp`), or S-curve circuit (`rounded`)
 - **ScrollSpy aware** — Reads active value from a parent ScrollSpy when present
 - **Depth indent** — `depth` on items offsets labels and the path rail
+- **Zag.js machine** — Headless state via `useToc` / `Toc.Provider`
 
 ## Installation
 
@@ -70,7 +71,7 @@ import { Toc } from "@/components/ui/toc";
 ## Composition
 
 ```
-Toc.Root
+Toc.Root / Toc.Provider
 ├── Toc.Title
 └── Toc.List
     ├── Toc.Indicator
@@ -123,6 +124,36 @@ name: indicator-modes
 | `indicator` | `"segment" \| "fill"` | `"segment"` |
 | `v-model:active-value` | `string` | `""` (used when outside ScrollSpy) |
 
+### useToc / Toc.Provider
+
+Drive the machine imperatively and provide it to parts:
+
+```vue
+<script setup lang="ts">
+import { Toc, useToc } from "@/components/ui/toc";
+
+const toc = useToc({
+  turn: "rounded",
+  defaultActiveValue: "intro",
+  onActiveValueChange(details) {
+    console.log(details.value);
+  },
+});
+</script>
+
+<template>
+  <Toc.Provider :value="toc">
+    <Toc.Title>On this page</Toc.Title>
+    <Toc.List>
+      <Toc.Indicator />
+      <Toc.Item value="intro">
+        <Toc.Link href="#intro">Intro</Toc.Link>
+      </Toc.Item>
+    </Toc.List>
+  </Toc.Provider>
+</template>
+```
+
 ### Toc.Item
 
 | Prop | Type | Default |
@@ -139,6 +170,6 @@ name: indicator-modes
 ## Notes
 
 - Prefer nesting Toc under [ScrollSpy](/docs/components/scroll-spy) so the active section stays in sync automatically.
-- Without ScrollSpy, drive the rail with `v-model:active-value` on `Toc.Root`.
+- Without ScrollSpy, drive the rail with `v-model:active-value` on `Toc.Root`, or use `useToc` + `Toc.Provider`.
 - `straight` is a continuous rail; `sharp` and `rounded` follow sub-item indents with 45° diagonals or S-curve turns. The active indicator rides that same path.
 - `indicator="fill"` grows from the top of the rail to the active item; `indicator="segment"` only highlights the active item itself.

@@ -2980,11 +2980,31 @@
       "type": "registry:component",
       "title": "Scroll Spy",
       "description": "Vue scroll spy that tracks which section is in view and exposes the active value for paired navigation.",
-      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "dependencies": ["@ark-ui/vue", "@zag-js/anatomy", "@zag-js/core", "@zag-js/dom-query", "@zag-js/types", "@zag-js/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
+          "path": "ark-ui/scroll-spy/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/connect.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/dom.ts",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/scroll-spy/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/machine.ts",
           "type": "registry:component"
         },
         {
@@ -3000,11 +3020,23 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/scroll-spy/ScrollSpyRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/scroll-spy/ScrollSpyTarget.vue",
           "type": "registry:component"
         },
         {
           "path": "ark-ui/scroll-spy/ScrollSpyViewport.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/scroll-spy/use-scroll-spy.ts",
           "type": "registry:component"
         }
       ]
@@ -3914,15 +3946,47 @@
       "type": "registry:component",
       "title": "Toc",
       "description": "Vue table of contents with a breadcrumb-style rail indicator and straight or rounded turns toward nested items.",
-      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@zag-js/anatomy", "@zag-js/core", "@zag-js/dom-query", "@zag-js/types", "@zag-js/vue", "cnfast"],
       "registryDependencies": ["scroll-spy"],
       "files": [
+        {
+          "path": "ark-ui/toc/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/connect.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/dom.ts",
+          "type": "registry:component"
+        },
         {
           "path": "ark-ui/toc/index.ts",
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/toc/item-context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/machine.ts",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/toc/toc.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/use-toc.ts",
           "type": "registry:component"
         },
         {
@@ -3943,6 +4007,10 @@
         },
         {
           "path": "ark-ui/toc/TocRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocRootProvider.vue",
           "type": "registry:component"
         },
         {

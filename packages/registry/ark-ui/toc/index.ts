@@ -1,10 +1,20 @@
-export type { TocItemContext } from "./TocItem.vue";
-export { injectTocItemContext, provideTocItemContext } from "./TocItem.vue";
-export type {
-  TocContext,
-  TocIndicatorMode,
-  TocItemRegistration,
-  TocTurn,
-} from "./TocRoot.vue";
-export { injectTocContext, provideTocContext } from "./TocRoot.vue";
+export { anatomy, parts } from "./anatomy";
+export { connect } from "./connect";
+export { injectTocContext, provideTocContext, type TocContext } from "./context";
+export { injectTocItemContext, provideTocItemContext, type TocItemContext } from "./item-context";
+export { machine } from "./machine";
 export { Toc } from "./toc";
+export type {
+  ActiveValueChangeDetails,
+  ItemProps,
+  LinkProps,
+  TocApi,
+  TocIndicatorMode,
+  TocItemData,
+  TocMachine,
+  TocProps,
+  TocSchema,
+  TocService,
+  TocTurn,
+} from "./types";
+export { type UseTocProps, type UseTocReturn, useToc } from "./use-toc";

@@ -1,36 +1,27 @@
 <script setup lang="ts">
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import { type HTMLAttributes, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
-import { injectScrollSpyContext } from "./ScrollSpyRoot.vue";
+import { computed, type HTMLAttributes, onMounted } from "vue";
+import { injectScrollSpyContext } from "./context";
 
-const props = defineProps<{
-  class?: HTMLAttributes["class"];
-}>();
+const props = defineProps<{ class?: HTMLAttributes["class"] } & PolymorphicProps>();
 
 const scrollSpy = injectScrollSpyContext();
-const viewportRef = useTemplateRef<HTMLElement>("viewportRef");
-
-function onScroll() {
-  scrollSpy.requestUpdate();
-}
 
 onMounted(() => {
-  scrollSpy.setViewport(viewportRef.value);
-  scrollSpy.requestUpdate();
+  scrollSpy.value.requestUpdate();
 });
 
-onBeforeUnmount(() => {
-  scrollSpy.setViewport(null);
-});
+const viewportProps = computed(() =>
+  mergeProps(scrollSpy.value.getViewportProps(), {
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
-  <div
-    ref="viewportRef"
-    data-slot="scroll-spy-viewport"
-    :class="cn(props.class)"
-    @scroll.passive="onScroll"
-  >
+  <ark.div v-bind="viewportProps" :as-child="asChild" data-slot="scroll-spy-viewport">
     <slot />
-  </div>
+  </ark.div>
 </template>

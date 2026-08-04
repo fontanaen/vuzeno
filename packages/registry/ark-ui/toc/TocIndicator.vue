@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { ark } from "@ark-ui/vue";
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
 import { useResizeObserver } from "@vueuse/core";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import { type HTMLAttributes, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from "vue";
-import { injectTocContext } from "./TocRoot.vue";
+import { computed, type HTMLAttributes, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from "vue";
+import { injectTocContext } from "./context";
 
-const props = defineProps<{
-  class?: HTMLAttributes["class"];
-}>();
+const props = defineProps<
+  {
+    class?: HTMLAttributes["class"];
+  } & PolymorphicProps
+>();
 
 type Marker = {
   value: string;
@@ -42,7 +45,7 @@ function depthX(depth: number) {
 }
 
 function collectMarkers() {
-  const list = toc.listElement.value;
+  const list = toc.value.getListEl();
   if (!list) {
     return [] as Marker[];
   }
@@ -50,12 +53,13 @@ function collectMarkers() {
   const listRect = list.getBoundingClientRect();
   const markers: Marker[] = [];
 
-  for (const item of toc.items.value.values()) {
-    if (!item.element.isConnected) {
+  for (const item of toc.value.items) {
+    const element = toc.value.getItemEl(item.value);
+    if (!element?.isConnected) {
       continue;
     }
 
-    const rect = item.element.getBoundingClientRect();
+    const rect = element.getBoundingClientRect();
     markers.push({
       value: item.value,
       x: depthX(item.depth),
@@ -138,10 +142,10 @@ function measurePathLength(pathD: string) {
 
 async function updateGeometry() {
   const markers = collectMarkers();
-  const activeValue = toc.activeValue.value;
+  const activeValue = toc.value.activeValue;
   const activeIndex = markers.findIndex((marker) => marker.value === activeValue);
-  const turn = toc.turn.value;
-  const fill = toc.indicator.value === "fill";
+  const turn = toc.value.turn;
+  const fill = toc.value.indicator === "fill";
 
   if (markers.length === 0) {
     trackPath.value = "";
@@ -221,14 +225,14 @@ async function updateGeometry() {
 }
 
 useResizeObserver(
-  () => toc.listElement.value,
+  () => toc.value.getListEl(),
   () => {
     updateGeometry();
   },
 );
 
 watch(
-  () => [toc.activeValue.value, toc.items.value, toc.turn.value, toc.indicator.value, toc.listElement.value] as const,
+  () => [toc.value.activeValue, toc.value.items, toc.value.turn, toc.value.indicator] as const,
   async () => {
     await nextTick();
     await updateGeometry();
@@ -257,15 +261,19 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", onScrollOrResize, true);
   window.removeEventListener("resize", onScrollOrResize);
 });
+
+const indicatorProps = computed(() =>
+  mergeProps(toc.value.getIndicatorProps(), {
+    class: cn("pointer-events-none absolute inset-0 overflow-visible", props.class),
+  }),
+);
 </script>
 
 <template>
-  <div
+  <ark.div
+    v-bind="indicatorProps"
+    :as-child="asChild"
     data-slot="toc-indicator"
-    :data-turn="toc.turn.value"
-    :data-indicator="toc.indicator.value"
-    aria-hidden="true"
-    :class="cn('pointer-events-none absolute inset-0 overflow-visible', props.class)"
   >
     <svg
       class="absolute inset-0 size-full overflow-visible"
@@ -281,15 +289,15 @@ onBeforeUnmount(() => {
         class="stroke-border"
         stroke-width="2"
         stroke-linecap="round"
-        :stroke-linejoin="toc.turn.value === 'sharp' ? 'miter' : 'round'"
+        :stroke-linejoin="toc.turn === 'sharp' ? 'miter' : 'round'"
       />
       <path
-        v-if="toc.turn.value !== 'straight' && trackPath && activeEnd > 0"
+        v-if="toc.turn !== 'straight' && trackPath && activeEnd > 0"
         :d="trackPath"
         class="stroke-primary"
         stroke-width="2"
         stroke-linecap="round"
-        :stroke-linejoin="toc.turn.value === 'sharp' ? 'miter' : 'round'"
+        :stroke-linejoin="toc.turn === 'sharp' ? 'miter' : 'round'"
         :style="{
           strokeDasharray: `${Math.max(activeEnd - activeStart, 0)} ${Math.max(pathLength, 1)}`,
           strokeDashoffset: -activeStart,
@@ -311,5 +319,5 @@ onBeforeUnmount(() => {
           : 'none',
       }"
     />
-  </div>
+  </ark.div>
 </template>

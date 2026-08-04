@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
-import { injectScrollSpyContext } from "./ScrollSpyRoot.vue";
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { injectScrollSpyContext } from "./context";
 
-const props = defineProps<{
-  /**
-   * Section value and matching document element id to track.
-   */
-  value: string;
-}>();
+const props = defineProps<
+  {
+    /**
+     * Section value and matching document element id to track.
+     */
+    value: string;
+  } & PolymorphicProps
+>();
 
 const scrollSpy = injectScrollSpyContext();
 const registeredValue = ref<string | null>(null);
@@ -22,14 +26,14 @@ function clearRetry() {
 
 function sync() {
   if (registeredValue.value && registeredValue.value !== props.value) {
-    scrollSpy.unregisterItem(registeredValue.value);
+    scrollSpy.value.unregisterItem(registeredValue.value);
     registeredValue.value = null;
   }
 
   const element = document.getElementById(props.value);
   if (!element) {
     if (registeredValue.value) {
-      scrollSpy.unregisterItem(registeredValue.value);
+      scrollSpy.value.unregisterItem(registeredValue.value);
       registeredValue.value = null;
     }
 
@@ -42,9 +46,8 @@ function sync() {
   }
 
   clearRetry();
-  scrollSpy.registerItem(props.value, element);
+  scrollSpy.value.registerItem(props.value, element);
   registeredValue.value = props.value;
-  scrollSpy.requestUpdate();
 }
 
 onMounted(() => {
@@ -62,15 +65,13 @@ watch(
 onBeforeUnmount(() => {
   clearRetry();
   if (registeredValue.value) {
-    scrollSpy.unregisterItem(registeredValue.value);
+    scrollSpy.value.unregisterItem(registeredValue.value);
   }
 });
+
+const targetProps = computed(() => mergeProps(scrollSpy.value.getTargetProps({ value: props.value }), {}));
 </script>
 
 <template>
-  <span
-    data-slot="scroll-spy-target"
-    :data-value="props.value"
-    hidden
-  />
+  <ark.span v-bind="targetProps" :as-child="asChild" data-slot="scroll-spy-target" />
 </template>

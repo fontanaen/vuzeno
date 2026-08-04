@@ -1,125 +1,66 @@
-<script lang="ts">
-import { ark, createContext } from "@ark-ui/vue";
-import type { ScrollSpyContext } from "@vuzeno/registry/ui/scroll-spy";
-import type { ComputedRef, Ref } from "vue";
-
-/**
- * - `straight` — continuous vertical rail with an active highlight segment
- * - `sharp` — path follows nested depth offsets with 45° diagonal turns
- * - `rounded` — path follows nested depth offsets with smooth S-curve turns
- */
-export type TocTurn = "straight" | "sharp" | "rounded";
-
-/**
- * - `segment` — primary highlight covers only the active item
- * - `fill` — primary highlight fills the rail from the start up to the active item
- */
-export type TocIndicatorMode = "segment" | "fill";
-
-export type TocItemRegistration = {
-  value: string;
-  depth: number;
-  element: HTMLElement;
-};
-
-export type TocContext = {
-  turn: ComputedRef<TocTurn>;
-  indicator: ComputedRef<TocIndicatorMode>;
-  activeValue: ComputedRef<string>;
-  setActiveValue: (value: string) => void;
-  registerItem: (item: TocItemRegistration) => void;
-  unregisterItem: (value: string) => void;
-  items: Ref<Map<string, TocItemRegistration>>;
-  listElement: Ref<HTMLElement | null>;
-  setListElement: (element: HTMLElement | null) => void;
-};
-
-export const [provideTocContext, injectTocContext] = createContext<TocContext>("TocContext");
-</script>
-
 <script setup lang="ts">
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import type { ScrollSpyContext } from "@vuzeno/registry/ui/scroll-spy";
 import { injectScrollSpyContext } from "@vuzeno/registry/ui/scroll-spy";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import { computed, type HTMLAttributes, ref, shallowRef } from "vue";
+import { computed, type HTMLAttributes, useId } from "vue";
+import { provideTocContext } from "./context";
+import type { ActiveValueChangeDetails, TocIndicatorMode, TocTurn } from "./types";
+import { useToc } from "./use-toc";
+
+const activeValue = defineModel<string>("activeValue", { default: "" });
 
 const props = withDefaults(
-  defineProps<{
-    turn?: TocTurn;
-    indicator?: TocIndicatorMode;
-    class?: HTMLAttributes["class"];
-  }>(),
+  defineProps<
+    {
+      turn?: TocTurn;
+      indicator?: TocIndicatorMode;
+      class?: HTMLAttributes["class"];
+    } & PolymorphicProps
+  >(),
   {
     turn: "rounded",
     indicator: "segment",
   },
 );
 
-const modelValue = defineModel<string>("activeValue", { default: "" });
+const emits = defineEmits<(event: "activeValueChange", details: ActiveValueChangeDetails) => void>();
 
+const id = useId();
 const scrollSpy = injectScrollSpyContext(undefined as unknown as ScrollSpyContext | undefined);
 
-const activeValue = computed(() => {
-  if (scrollSpy) {
-    return scrollSpy.activeValue.value;
-  }
+const toc = useToc(
+  computed(() => ({
+    id,
+    turn: props.turn,
+    indicator: props.indicator,
+    activeValue: scrollSpy ? scrollSpy.value.activeValue : activeValue.value,
+    onActiveValueChange(details) {
+      if (scrollSpy) {
+        scrollSpy.value.setActiveValue(details.value);
+      } else {
+        activeValue.value = details.value;
+      }
+      emits("activeValueChange", details);
+    },
+  })),
+);
 
-  return modelValue.value;
-});
+provideTocContext(toc);
 
-function setActiveValue(value: string) {
-  if (scrollSpy) {
-    scrollSpy.setActiveValue(value);
-    return;
-  }
-
-  modelValue.value = value;
-}
-
-const items = shallowRef(new Map<string, TocItemRegistration>());
-const listElement = ref<HTMLElement | null>(null);
-
-function registerItem(item: TocItemRegistration) {
-  const next = new Map(items.value);
-  next.set(item.value, item);
-  items.value = next;
-}
-
-function unregisterItem(value: string) {
-  if (!items.value.has(value)) {
-    return;
-  }
-
-  const next = new Map(items.value);
-  next.delete(value);
-  items.value = next;
-}
-
-function setListElement(element: HTMLElement | null) {
-  listElement.value = element;
-}
-
-const turn = computed(() => props.turn);
-const indicator = computed(() => props.indicator);
-
-provideTocContext({
-  turn,
-  indicator,
-  activeValue,
-  setActiveValue,
-  registerItem,
-  unregisterItem,
-  items,
-  listElement,
-  setListElement,
-});
+const rootProps = computed(() =>
+  mergeProps(toc.value.getRootProps(), {
+    class: cn("text-sm", props.class),
+  }),
+);
 </script>
 
 <template>
   <ark.nav
+    v-bind="rootProps"
+    :as-child="asChild"
     data-slot="toc"
-    :data-turn="turn"
-    :data-indicator="indicator"
-    :class="cn('text-sm', props.class)"
   >
     <slot />
   </ark.nav>

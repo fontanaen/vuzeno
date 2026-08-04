@@ -1,37 +1,34 @@
 <script setup lang="ts">
-import { ark } from "@ark-ui/vue";
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
 import { computed, type HTMLAttributes } from "vue";
-import { injectTocItemContext } from "./TocItem.vue";
-import { injectTocContext } from "./TocRoot.vue";
+import { injectTocContext } from "./context";
+import { injectTocItemContext } from "./item-context";
 
-const props = defineProps<{
-  href?: string;
-  class?: HTMLAttributes["class"];
-}>();
+const props = defineProps<
+  {
+    href?: string;
+    class?: HTMLAttributes["class"];
+  } & PolymorphicProps
+>();
 
 const toc = injectTocContext();
 const item = injectTocItemContext();
 
-const isActive = computed(() => item.isActive.value);
-
-function onClick() {
-  toc.setActiveValue(item.value.value);
-}
+const linkProps = computed(() =>
+  mergeProps(toc.value.getLinkProps({ value: item.value.value }), {
+    href: props.href,
+    class: cn("text-muted-foreground hover:text-foreground block text-[0.8rem] no-underline transition-colors", props.class),
+  }),
+);
 </script>
 
 <template>
   <ark.a
-    :href="props.href"
+    v-bind="linkProps"
+    :as-child="asChild"
     data-slot="toc-link"
-    :data-active="isActive || undefined"
-    :class="
-      cn(
-        'text-muted-foreground hover:text-foreground block text-[0.8rem] no-underline transition-colors',
-        props.class,
-      )
-    "
-    @click="onClick"
   >
     <slot />
   </ark.a>

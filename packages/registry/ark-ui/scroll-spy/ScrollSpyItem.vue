@@ -1,41 +1,55 @@
 <script setup lang="ts">
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import { computed, type HTMLAttributes, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
-import { injectScrollSpyContext } from "./ScrollSpyRoot.vue";
+import { type ComponentPublicInstance, computed, type HTMLAttributes, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
+import { injectScrollSpyContext } from "./context";
 
-const props = defineProps<{
-  value: string;
-  class?: HTMLAttributes["class"];
-}>();
+const props = defineProps<
+  {
+    value: string;
+    class?: HTMLAttributes["class"];
+  } & PolymorphicProps
+>();
 
 const scrollSpy = injectScrollSpyContext();
-const itemRef = useTemplateRef<HTMLElement>("itemRef");
+const itemRef = useTemplateRef<HTMLElement | ComponentPublicInstance>("itemRef");
 
-const isActive = computed(() => scrollSpy.activeValue.value === props.value);
+function resolveElement(value: HTMLElement | ComponentPublicInstance | null) {
+  if (value instanceof HTMLElement) {
+    return value;
+  }
+
+  const element = value?.$el;
+  if (element instanceof HTMLElement) {
+    return element;
+  }
+
+  return null;
+}
 
 onMounted(() => {
-  const element = itemRef.value;
+  const element = resolveElement(itemRef.value);
   if (!element) {
     return;
   }
 
-  scrollSpy.registerItem(props.value, element);
-  scrollSpy.requestUpdate();
+  scrollSpy.value.registerItem(props.value, element);
 });
 
 onBeforeUnmount(() => {
-  scrollSpy.unregisterItem(props.value);
+  scrollSpy.value.unregisterItem(props.value);
 });
+
+const itemProps = computed(() =>
+  mergeProps(scrollSpy.value.getItemProps({ value: props.value }), {
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
-  <div
-    ref="itemRef"
-    data-slot="scroll-spy-item"
-    :data-value="props.value"
-    :data-active="isActive || undefined"
-    :class="cn(props.class)"
-  >
+  <ark.div ref="itemRef" v-bind="itemProps" :as-child="asChild" data-slot="scroll-spy-item">
     <slot />
-  </div>
+  </ark.div>
 </template>

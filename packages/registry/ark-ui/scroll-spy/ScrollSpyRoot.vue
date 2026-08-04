@@ -1,38 +1,23 @@
-<script lang="ts">
-import { createContext } from "@ark-ui/vue";
-import type { ComputedRef, Ref } from "vue";
-
-export type ScrollSpyOrientation = "vertical" | "horizontal";
-
-export type ScrollSpyContext = {
-  orientation: ComputedRef<ScrollSpyOrientation>;
-  activeValue: Ref<string>;
-  setActiveValue: (value: string) => void;
-  registerItem: (value: string, element: HTMLElement) => void;
-  unregisterItem: (value: string) => void;
-  setViewport: (element: HTMLElement | null) => void;
-  requestUpdate: () => void;
-  offset: ComputedRef<number>;
-};
-
-export const [provideScrollSpyContext, injectScrollSpyContext] = createContext<ScrollSpyContext>("ScrollSpyContext");
-</script>
-
 <script setup lang="ts">
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import { computed, type HTMLAttributes, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, triggerRef, watch } from "vue";
+import { computed, type HTMLAttributes, useId } from "vue";
+import { provideScrollSpyContext } from "./context";
+import type { ScrollSpyOrientation, ValueChangeDetails } from "./types";
+import { useScrollSpy } from "./use-scroll-spy";
+
+const value = defineModel<string>({ default: "" });
 
 const props = withDefaults(
-  defineProps<{
-    orientation?: ScrollSpyOrientation;
-    /**
-     * Distance from the top of the scroll root (px or ratio 0–1) used as the active threshold.
-     * @default 0.25
-     */
-    offset?: number;
-    root?: HTMLElement | null;
-    class?: HTMLAttributes["class"];
-  }>(),
+  defineProps<
+    {
+      orientation?: ScrollSpyOrientation;
+      offset?: number;
+      root?: HTMLElement | null;
+      class?: HTMLAttributes["class"];
+    } & PolymorphicProps
+  >(),
   {
     orientation: "vertical",
     offset: 0.25,
@@ -40,135 +25,35 @@ const props = withDefaults(
   },
 );
 
-const activeValue = defineModel<string>({ default: "" });
+const emits = defineEmits<(event: "valueChange", details: ValueChangeDetails) => void>();
 
-const items = shallowRef(new Map<string, HTMLElement>());
-const viewportElement = ref<HTMLElement | null>(null);
-const orientation = computed(() => props.orientation);
-const offset = computed(() => props.offset);
+const id = useId();
 
-function setActiveValue(value: string) {
-  if (!value || activeValue.value === value) {
-    return;
-  }
-
-  activeValue.value = value;
-}
-
-function registerItem(value: string, element: HTMLElement) {
-  items.value.set(value, element);
-  triggerRef(items);
-}
-
-function unregisterItem(value: string) {
-  if (!items.value.has(value)) {
-    return;
-  }
-
-  items.value.delete(value);
-  triggerRef(items);
-}
-
-function setViewport(element: HTMLElement | null) {
-  viewportElement.value = element;
-}
-
-function resolveScrollRoot() {
-  return viewportElement.value ?? props.root;
-}
-
-function resolveThreshold(rootElement: HTMLElement | null) {
-  const raw = props.offset;
-  if (raw > 0 && raw <= 1) {
-    const height = rootElement?.clientHeight ?? window.innerHeight;
-    return height * raw;
-  }
-
-  return raw;
-}
-
-function updateActiveValue() {
-  if (items.value.size === 0) {
-    return;
-  }
-
-  const rootElement = resolveScrollRoot();
-  const sorted = [...items.value.entries()].sort((left, right) => {
-    return left[1].getBoundingClientRect().top - right[1].getBoundingClientRect().top;
-  });
-
-  const rootTop = rootElement?.getBoundingClientRect().top ?? 0;
-  const threshold = rootTop + resolveThreshold(rootElement);
-  let next = sorted[0]?.[0] ?? "";
-
-  for (const [value, element] of sorted) {
-    if (element.getBoundingClientRect().top <= threshold) {
-      next = value;
-      continue;
-    }
-
-    break;
-  }
-
-  if (next) {
-    setActiveValue(next);
-  }
-}
-
-const frame = shallowRef(0);
-
-function requestUpdate() {
-  cancelAnimationFrame(frame.value);
-  frame.value = requestAnimationFrame(updateActiveValue);
-}
-
-function onWindowScroll() {
-  if (resolveScrollRoot()) {
-    return;
-  }
-
-  requestUpdate();
-}
-
-watch(
-  () => [props.root, props.offset] as const,
-  () => {
-    requestUpdate();
-  },
+const scrollSpy = useScrollSpy(
+  computed(() => ({
+    id,
+    value: value.value,
+    orientation: props.orientation,
+    offset: props.offset,
+    root: props.root,
+    onValueChange(details) {
+      value.value = details.value;
+      emits("valueChange", details);
+    },
+  })),
 );
 
-onMounted(() => {
-  nextTick(() => {
-    requestUpdate();
-  });
-  window.addEventListener("scroll", onWindowScroll, { passive: true });
-  window.addEventListener("resize", requestUpdate, { passive: true });
-});
+provideScrollSpyContext(scrollSpy);
 
-onBeforeUnmount(() => {
-  cancelAnimationFrame(frame.value);
-  window.removeEventListener("scroll", onWindowScroll);
-  window.removeEventListener("resize", requestUpdate);
-});
-
-provideScrollSpyContext({
-  orientation,
-  activeValue,
-  setActiveValue,
-  registerItem,
-  unregisterItem,
-  setViewport,
-  requestUpdate,
-  offset,
-});
+const rootProps = computed(() =>
+  mergeProps(scrollSpy.value.getRootProps(), {
+    class: cn(props.class),
+  }),
+);
 </script>
 
 <template>
-  <div
-    data-slot="scroll-spy"
-    :data-orientation="orientation"
-    :class="cn(props.class)"
-  >
+  <ark.div v-bind="rootProps" :as-child="asChild" data-slot="scroll-spy">
     <slot />
-  </div>
+  </ark.div>
 </template>

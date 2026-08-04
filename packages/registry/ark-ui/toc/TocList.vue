@@ -1,30 +1,31 @@
 <script setup lang="ts">
+import { ark, type PolymorphicProps } from "@ark-ui/vue";
+import { mergeProps } from "@zag-js/core";
 import { cn } from "cnfast";
-import { type HTMLAttributes, onBeforeUnmount, onMounted, useTemplateRef } from "vue";
-import { injectTocContext } from "./TocRoot.vue";
+import { computed, type HTMLAttributes } from "vue";
+import { injectTocContext } from "./context";
 
-const props = defineProps<{
-  class?: HTMLAttributes["class"];
-}>();
+const props = defineProps<
+  {
+    class?: HTMLAttributes["class"];
+  } & PolymorphicProps
+>();
 
 const toc = injectTocContext();
-const listRef = useTemplateRef<HTMLElement>("listRef");
 
-onMounted(() => {
-  toc.setListElement(listRef.value);
-});
-
-onBeforeUnmount(() => {
-  toc.setListElement(null);
-});
+const listProps = computed(() =>
+  mergeProps(toc.value.getListProps(), {
+    class: cn("relative m-0 flex list-none flex-col gap-3 p-0 pl-3", props.class),
+  }),
+);
 </script>
 
 <template>
-  <ul
-    ref="listRef"
+  <ark.ul
+    v-bind="listProps"
+    :as-child="asChild"
     data-slot="toc-list"
-    :class="cn('relative m-0 flex list-none flex-col gap-3 p-0 pl-3', props.class)"
   >
     <slot />
-  </ul>
+  </ark.ul>
 </template>

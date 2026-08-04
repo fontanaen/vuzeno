@@ -15,6 +15,7 @@ name: basic
 
 - **Active tracking** — Scroll position updates `v-model` from a configurable top offset threshold
 - **Viewport** — `ScrollSpy.Viewport` is the scroll container that drives tracking
+- **Zag machine** — Behavior is owned by a Zag.js state machine (`useScrollSpy`, Provider)
 - **Composable** — Provide active state to Toc (or custom UI) through context
 
 ## Installation
@@ -54,10 +55,30 @@ const active = ref("intro");
 </template>
 ```
 
+### Root provider
+
+Drive the machine yourself with `useScrollSpy` and mount parts under `ScrollSpy.Provider`:
+
+```vue
+<script setup lang="ts">
+import { ScrollSpy, useScrollSpy } from "@/components/ui/scroll-spy";
+
+const api = useScrollSpy({ defaultValue: "intro" });
+</script>
+
+<template>
+  <ScrollSpy.Provider :value="api">
+    <ScrollSpy.Viewport class="h-96 overflow-y-auto">
+      <ScrollSpy.Item value="intro">Intro</ScrollSpy.Item>
+    </ScrollSpy.Viewport>
+  </ScrollSpy.Provider>
+</template>
+```
+
 ## Composition
 
 ```
-ScrollSpy.Root
+ScrollSpy.Root / ScrollSpy.Provider
 ├── ScrollSpy.Viewport
 │   └── ScrollSpy.Item
 └── ScrollSpy.Target
@@ -71,8 +92,9 @@ ScrollSpy.Root
 | --- | --- | --- |
 | `v-model` | `string` | `""` |
 | `offset` | `number` | `0.25` |
+| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` |
 
-`offset` accepts a ratio (`0`–`1`) of the scroll root height, or an absolute pixel value.
+`offset` accepts a ratio (`0`–`1`) of the scroll root size, or an absolute pixel value.
 
 ### ScrollSpy.Item
 
@@ -93,3 +115,4 @@ Registers an existing document element by id (`document.getElementById(value)`).
 - Pair with [Toc](/docs/components/toc) for a sidebar rail that follows the active section.
 - Prefer `ScrollSpy.Viewport` as the scroll container so tracking binds reliably.
 - Use `ScrollSpy.Target` when you cannot wrap the scrolled content in `ScrollSpy.Item`.
+- Export `useScrollSpy`, `machine`, `connect`, and `anatomy` for headless composition.
