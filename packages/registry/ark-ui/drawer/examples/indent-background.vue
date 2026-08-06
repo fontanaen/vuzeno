@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { XIcon } from "@lucide/vue";
+import { Button } from "@vuzeno/registry/ui/button";
 import { Drawer } from "@vuzeno/registry/ui/drawer";
 </script>
 
@@ -8,7 +9,12 @@ import { Drawer } from "@vuzeno/registry/ui/drawer";
     <Drawer.IndentBackground class="rounded-lg bg-muted" />
     <Drawer.Indent class="rounded-lg border border-border p-8">
       <Drawer.Root>
-        <Drawer.Trigger>Open Drawer</Drawer.Trigger>
+        <Drawer.Trigger>
+          <Button variant="outline" size="sm">
+            Open Drawer
+          </Button>
+        </Drawer.Trigger>
+
         <Drawer.Content>
           <Drawer.Grabber>
             <Drawer.GrabberIndicator />

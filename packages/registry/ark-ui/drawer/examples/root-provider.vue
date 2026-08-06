@@ -12,15 +12,15 @@ const drawer = useDrawer({
 <template>
   <div class="flex flex-col gap-4">
     <div class="flex flex-wrap gap-2">
-      <Button variant="outline" @click="drawer.setOpen(true)"
-        >Open via API</Button
-      >
-      <Button variant="outline" @click="drawer.setSnapPoint(0.25)"
-        >Set to 25%</Button
-      >
-      <Button variant="outline" @click="drawer.setSnapPoint(1)"
-        >Set to 100%</Button
-      >
+      <Button variant="outline" @click="drawer.setOpen(true)">
+        Open via API
+      </Button>
+      <Button variant="outline" @click="drawer.setSnapPoint(0.25)">
+        Set to 25%
+      </Button>
+      <Button variant="outline" @click="drawer.setSnapPoint(1)">
+        Set to 100%
+      </Button>
     </div>
 
     <Drawer.RootProvider :value="drawer">
