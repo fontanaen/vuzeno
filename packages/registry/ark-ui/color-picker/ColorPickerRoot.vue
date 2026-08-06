@@ -16,7 +16,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
   <ColorPicker.Root
     v-bind="forwarded"
     :class="cn(
-      'flex w-full max-w-xs flex-col gap-2 text-foreground',
+      'flex flex-col gap-2 text-foreground',
       props.class,
     )"
     data-slot="color-picker"

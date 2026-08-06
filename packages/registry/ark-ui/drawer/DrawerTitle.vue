@@ -9,7 +9,7 @@ const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 <template>
   <Drawer.Title
     :class="cn(
-      'm-0 mb-2 text-lg leading-7 font-medium text-foreground',
+      'text-lg leading-7 font-medium text-foreground',
       props.class,
     )"
   >

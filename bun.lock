@@ -32,6 +32,7 @@
         "@vueuse/core": "catalog:",
         "@vuzeno/registry": "workspace:*",
         "@vuzeno/tailwind-config": "workspace:*",
+        "@vuzeno/theme": "workspace:*",
         "@vuzeno/ui": "workspace:*",
         "cnfast": "^0.0.8",
         "nuxt": "4.5.0",
@@ -123,6 +124,15 @@
         "libphonenumber-js": "catalog:",
         "vue": "catalog:",
       },
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
+    "packages/theme": {
+      "name": "@vuzeno/theme",
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -1040,6 +1050,8 @@
     "@vuzeno/registry": ["@vuzeno/registry@workspace:packages/registry"],
 
     "@vuzeno/tailwind-config": ["@vuzeno/tailwind-config@workspace:tools/tailwind"],
+
+    "@vuzeno/theme": ["@vuzeno/theme@workspace:packages/theme"],
 
     "@vuzeno/ui": ["@vuzeno/ui@workspace:packages/ui"],
 

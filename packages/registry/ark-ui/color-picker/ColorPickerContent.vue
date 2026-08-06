@@ -7,18 +7,20 @@ const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 </script>
 
 <template>
-  <ColorPicker.Positioner data-slot="color-picker-positioner">
-    <ColorPicker.Content
-      :class="cn(
-        'relative z-[calc(var(--demo-popover-z-index)+var(--layer-index,0))] flex w-64 flex-col gap-3 rounded-lg border border-border bg-popover p-3 outline-none',
-        'origin-[var(--transform-origin)] drop-shadow-md',
-        props.class,
-      )"
-      data-slot="color-picker-content"
-    >
-      <slot />
-    </ColorPicker.Content>
-  </ColorPicker.Positioner>
+  <Teleport to="body">
+    <ColorPicker.Positioner data-slot="color-picker-positioner">
+      <ColorPicker.Content
+        :class="cn(
+          'relative z-[calc(50+var(--layer-index,0))] flex w-64 flex-col gap-3 rounded-lg border border-border bg-popover p-3 outline-none',
+          'origin-(--transform-origin) drop-shadow-md',
+          props.class,
+        )"
+        data-slot="color-picker-content"
+      >
+        <slot />
+      </ColorPicker.Content>
+    </ColorPicker.Positioner>
+  </Teleport>
 </template>
 
 <style scoped>
