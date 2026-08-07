@@ -16,7 +16,7 @@ export const appThemes = [
 
 export type AppThemeId = (typeof appThemes)[number]["id"];
 
-export const defaultAppThemeId: AppThemeId = "dark-forge";
+export const defaultAppThemeId: AppThemeId = "shadcn";
 
 const legacyAppThemeIds = {
   default: "shadcn",
@@ -44,7 +44,7 @@ export function getAppThemePreset(presetId: string) {
   const preset = appThemes.find((theme) => theme.id === normalizedId);
 
   if (!preset) {
-    return darkForgePreset;
+    return shadcnPreset;
   }
 
   return preset;
