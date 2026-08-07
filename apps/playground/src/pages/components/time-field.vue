@@ -3,7 +3,7 @@ import { CalendarDateTime, getLocalTimeZone } from "@internationalized/date";
 import { TimeField, TimeFieldInput, TimeFieldSeparator } from "@vuzeno/registry/ui/time-field";
 import { Calendar } from "@vuzeno/ui/components/calendar";
 import { Field, FieldGroup, FieldLabel } from "@vuzeno/ui/components/field";
-import { Clock10Icon } from "lucide-vue-next";
+import { Clock10Icon } from "@lucide/vue";
 import { ref } from "vue";
 
 definePage({

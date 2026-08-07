@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { reactiveOmit } from "@vueuse/core";
-import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon, XIcon } from "lucide-vue-next";
+import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon, XIcon } from "@lucide/vue";
 import type { ToasterProps } from "vue-sonner";
 import { Toaster as Sonner } from "vue-sonner";
 

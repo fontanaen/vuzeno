@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from "../../lib/utils";
+import { cn } from "cnfast";
 import { Sheet, SheetContent } from "../sheet";
 import SheetDescription from "../sheet/SheetDescription.vue";
 import SheetHeader from "../sheet/SheetHeader.vue";

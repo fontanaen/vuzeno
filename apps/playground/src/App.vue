@@ -16,7 +16,7 @@ import {
   SidebarTrigger,
 } from "@vuzeno/ui/components/sidebar";
 import { Toaster } from "@vuzeno/ui/components/sonner";
-import { Moon, Sun } from "lucide-vue-next";
+import { Moon, Sun } from "@lucide/vue";
 import { RouterLink } from "vue-router";
 import { useTheme } from "./composables/useDark";
 

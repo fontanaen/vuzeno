@@ -1,38 +1,43 @@
 <script setup lang="ts">
+import { CheckIcon, ChevronDownIcon, CopyIcon } from "@lucide/vue";
 import type { ContentCollectionItem } from "@nuxt/content";
-import { isClient, useClipboard } from "@vueuse/core";
-import { Button } from "@vuzeno/ui/components/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@vuzeno/ui/components/dropdown-menu";
-import { Popover, PopoverContent, PopoverTrigger } from "@vuzeno/ui/components/popover";
-import { Separator } from "@vuzeno/ui/components/separator";
-import { CheckIcon, ChevronDownIcon, CopyIcon } from "lucide-vue-next";
+import { isClient, useClipboard, useMediaQuery } from "@vueuse/core";
+import { Button } from "@vuzeno/registry/ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "@vuzeno/registry/ui/button-group";
+import { Menu } from "@vuzeno/registry/ui/menu";
+import { Popover } from "@vuzeno/registry/ui/popover";
+import { h } from "vue";
 
 const props = defineProps<{
   page: ContentCollectionItem;
 }>();
 
+const { copy, copied } = useClipboard();
+const isDesktop = useMediaQuery("(min-width: 768px)");
+const route = useRoute();
+
 const url = computed(() => {
   return isClient ? window.location.href : "";
 });
 
-const route = useRoute();
+const origin = computed(() => {
+  return isClient ? window.location.origin : "";
+});
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I’m looking at this shadcn-vue documentation: ${url}.
+    `I'm looking at this Vuzeno documentation: ${url}.
 Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
   `,
   )}`;
 }
-
-import { h } from "vue";
 
 const menuItems = {
   markdown: () =>
     h(
       "a",
       {
-        href: `${window.location.origin}/raw${route.path}.md`,
+        href: `${origin.value}/raw${route.path}.md`,
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -102,55 +107,58 @@ const menuItems = {
       ],
     ),
 };
-
-const { copy, copied } = useClipboard();
 </script>
 
 <template>
-  <Popover>
-    <div class="bg-secondary group/buttons relative flex rounded-lg *:data-[slot=button]:focus-visible:relative *:data-[slot=button]:focus-visible:z-10">
+  <Popover.Root lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-start' }">
+    <ButtonGroup>
       <Button
         variant="secondary"
         size="sm"
-        class="h-8 shadow-none md:h-7 md:text-[0.8rem]"
+        class="h-8 md:h-7 md:text-[0.8rem]"
         @click="copy(page.rawbody)"
       >
         <CheckIcon v-if="copied" /> 
         <CopyIcon v-else />
         Copy Page
       </Button>
-      <DropdownMenu>
-        <DropdownMenuTrigger as-child class="hidden sm:flex">
+
+      <ButtonGroupSeparator orientation="vertical" />
+
+      <Menu.Root v-if="isDesktop" lazy-mount unmount-on-exit :positioning="{ placement: 'bottom-end' }">
+        <Menu.Trigger as-child>
           <Button
             variant="secondary"
             size="sm"
-            class="peer -ml-0.5 size-8 shadow-none md:size-7 md:text-[0.8rem]"
+            class="size-8 md:size-7 md:text-[0.8rem]"
           >
             <ChevronDownIcon class="rotate-180 sm:rotate-0" />
           </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" class="shadow-none">
-          <DropdownMenuItem v-for="[key, value] in Object.entries(menuItems)" :key="key" as-child>
+        </Menu.Trigger>
+        <Menu.Content class="shadow-none">
+          <Menu.Item
+            v-for="[key, value] in Object.entries(menuItems)"
+            :key="key"
+            :value="key"
+            as-child
+          >
             <component :is="value(url)" />
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <Separator
-        orientation="vertical"
-        class="bg-foreground/10! absolute top-0 right-8 z-0 h-8! peer-focus-visible:opacity-0 sm:right-7 sm:h-7!"
-      />
-      <PopoverTrigger as-child class="flex sm:hidden">
+          </Menu.Item>
+        </Menu.Content>
+      </Menu.Root>
+
+      <Popover.Trigger v-else as-child>
         <Button
           variant="secondary"
           size="sm"
-          class="peer -ml-0.5 size-8 shadow-none md:size-7 md:text-[0.8rem]"
+          class="size-8 shadow-none md:size-7 md:text-[0.8rem]"
         >
           <ChevronDownIcon class="rotate-180 sm:rotate-0" />
         </Button>
-      </PopoverTrigger>
-      <PopoverContent
+      </Popover.Trigger>
+
+      <Popover.Content
         class="bg-background/70 dark:bg-background/60 w-52 origin-center! rounded-lg p-1 shadow-sm backdrop-blur-sm"
-        align="start"
       >
         <Button
           v-for="[key, value] in Object.entries(menuItems)"
@@ -162,7 +170,7 @@ const { copy, copied } = useClipboard();
         >
           <component :is="value(url)" />
         </Button>
-      </PopoverContent>
-    </div>
-  </Popover>
+      </Popover.Content>
+    </ButtonGroup>
+  </Popover.Root>
 </template>

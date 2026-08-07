@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { DropdownMenuContentEmits, DropdownMenuContentProps } from "reka-ui";
 import { DropdownMenuContent, DropdownMenuPortal, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = withDefaults(defineProps<DropdownMenuContentProps & { class?: HTMLAttributes["class"] }>(), {
   sideOffset: 4,

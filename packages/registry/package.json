@@ -3,11 +3,12 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./ui/*": "./default/*/index.ts",
-    "./blocks/*": "./default/*/index.ts"
+    "./ui/*": "./ark-ui/*/index.ts",
+    "./blocks/*": "./ark-ui/*/index.ts"
   },
   "scripts": {
-    "build": "shadcn-vue build --output ../../apps/docs/public/r"
+    "build": "shadcn-vue build --output ../../apps/docs/public/r",
+    "generate:ark-ui": "bun run scripts/generate-ark-ui.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -16,13 +17,25 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@vuzeno/ui": "workspace:*",
-    "@vueuse/core": "catalog:",
+    "@ark-ui/vue": "catalog:",
     "@internationalized/date": "catalog:",
-    "libphonenumber-js": "catalog:",
-    "reka-ui": "catalog:",
+    "@lucide/vue": "^1.17.0",
+    "@vueuse/core": "catalog:",
+    "@vuzeno/ui": "workspace:*",
+    "@zag-js/anatomy": "1.41.2",
+    "@zag-js/aria-hidden": "1.41.2",
+    "@zag-js/core": "1.41.2",
+    "@zag-js/dismissable": "1.41.2",
+    "@zag-js/dom-query": "1.41.2",
+    "@zag-js/focus-trap": "1.41.2",
+    "@zag-js/presence": "1.41.2",
+    "@zag-js/remove-scroll": "1.41.2",
+    "@zag-js/types": "1.41.2",
+    "@zag-js/utils": "1.41.2",
+    "@zag-js/vue": "1.41.2",
     "class-variance-authority": "^0.7.1",
-    "lucide-vue-next": "^0.562.0",
-    "vue": "^3.5.24"
+    "cnfast": "^0.0.8",
+    "libphonenumber-js": "catalog:",
+    "vue": "catalog:"
   }
 }

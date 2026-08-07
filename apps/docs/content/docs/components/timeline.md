@@ -1,11 +1,13 @@
 ---
 title: Timeline
-description: A vertical or horizontal thread for displaying sequential data with composable items, markers, and content.
+description: Vue timeline for sequential events with items, markers, and content in vertical or horizontal layouts.
+tag: new
 ---
 
 ::component-preview
 ---
-name: TimelineDemo
+component: timeline
+name: basic
 ---
 ::
 
@@ -14,11 +16,11 @@ name: TimelineDemo
 - **Two directions** — Stack items top-to-bottom (`vertical`) or left-to-right (`horizontal`)
 - **Side control** — Place content on either side of the thread (`left`/`right` for vertical, `top`/`bottom` for horizontal)
 - **Centered thread** — Opt-in alternating layout with `align="center"` for zigzag timelines
-- **Dot or icon markers** — Switch between a small dot or an icon slot via `TimelineMedia`'s `variant` prop
+- **Dot or icon markers** — Switch between a small dot or an icon slot via `Timeline.Media`'s `variant` prop
 
 ## Installation
 
-Install from the Vuzeno registry with the shadcn-vue CLI:
+Install from the Vuzeno registry:
 
 ::installation-tabs
 ---
@@ -27,38 +29,58 @@ exec: true
 ---
 ::
 
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Timeline } from "@/components/ui/timeline";
+</script>
+
+<template>
+  <Timeline.Root>
+    <Timeline.Item>
+      <Timeline.Media />
+      <Timeline.Content>
+        <Timeline.Header>
+          <Timeline.Title>Title</Timeline.Title>
+          <Timeline.Description>Description</Timeline.Description>
+        </Timeline.Header>
+      </Timeline.Content>
+    </Timeline.Item>
+  </Timeline.Root>
+</template>
+```
+
 ## Composition
 
-Use the following composition to build a Timeline:
-
 ```
-Timeline
-└── TimelineItem
-    ├── TimelineMedia
-    └── TimelineContent
-        └── TimelineHeader
-            ├── TimelineTitle
-            └── TimelineDescription
+Timeline.Root
+└── Timeline.Item
+    ├── Timeline.Media
+    └── Timeline.Content
+        └── Timeline.Header
+            ├── Timeline.Title
+            └── Timeline.Description
 ```
 
 ## Anatomy
 
 ```vue
 <template>
-  <Timeline direction="vertical">
-    <TimelineItem>
-      <TimelineMedia variant="icon" />
+  <Timeline.Root direction="vertical">
+    <Timeline.Item>
+      <Timeline.Media variant="icon" />
 
-      <TimelineContent>
-        <TimelineHeader>
-          <TimelineTitle />
-          <TimelineDescription />
-        </TimelineHeader>
+      <Timeline.Content>
+        <Timeline.Header>
+          <Timeline.Title />
+          <Timeline.Description />
+        </Timeline.Header>
 
         <!-- Content -->
-      </TimelineContent>
-    </TimelineItem>
-  </Timeline>
+      </Timeline.Content>
+    </Timeline.Item>
+  </Timeline.Root>
 </template>
 ```
 
@@ -70,81 +92,75 @@ Switch the orientation with `direction="horizontal"`. The thread runs left-to-ri
 
 ::component-preview
 ---
-name: TimelineHorizontalDemo
+component: timeline
+name: horizontal
 ---
 ::
 
 ```vue showLineNumbers
 <script setup lang="ts">
-import {
-  Timeline,
-  TimelineContent,
-  TimelineDescription,
-  TimelineHeader,
-  TimelineItem,
-  TimelineMedia,
-  TimelineTitle,
-} from "@vuzeno/registry/ui/timeline";
+import { Timeline } from "@/components/ui/timeline";
 </script>
 
 <template>
-  <Timeline direction="horizontal" class="w-full">
-    <TimelineItem>
-      <TimelineMedia />
-      <TimelineContent>
-        <TimelineHeader>
-          <TimelineTitle>Draft</TimelineTitle>
-          <TimelineDescription>Idea captured</TimelineDescription>
-        </TimelineHeader>
-      </TimelineContent>
-    </TimelineItem>
+  <Timeline.Root direction="horizontal" class="w-full">
+    <Timeline.Item>
+      <Timeline.Media />
+      <Timeline.Content>
+        <Timeline.Header>
+          <Timeline.Title>Draft</Timeline.Title>
+          <Timeline.Description>Idea captured</Timeline.Description>
+        </Timeline.Header>
+      </Timeline.Content>
+    </Timeline.Item>
 
     <!-- more items... -->
-  </Timeline>
+  </Timeline.Root>
 </template>
 ```
 
 ### Alternating sides
 
-Use `align="center"` on `Timeline` to center the thread, then set each `TimelineItem`'s `side` to `left` or `right` (or `top`/`bottom` for horizontal) to build an alternating layout.
+Use `align="center"` on `Timeline.Root` to center the thread, then set each `Timeline.Item`'s `side` to `left` or `right` (or `top`/`bottom` for horizontal) to build an alternating layout.
 
 ::component-preview
 ---
-name: TimelineSideDemo
+component: timeline
+name: side
 ---
 ::
 
 ```vue showLineNumbers
 <template>
-  <Timeline align="center" class="w-full max-w-md">
-    <TimelineItem side="left">
-      <TimelineMedia />
-      <TimelineContent>
-        <TimelineHeader>
-          <TimelineTitle>Project kickoff</TimelineTitle>
-          <TimelineDescription>Monday · 9:00 AM</TimelineDescription>
-        </TimelineHeader>
-      </TimelineContent>
-    </TimelineItem>
+  <Timeline.Root align="center" class="w-full max-w-md">
+    <Timeline.Item side="left">
+      <Timeline.Media />
+      <Timeline.Content>
+        <Timeline.Header>
+          <Timeline.Title>Project kickoff</Timeline.Title>
+          <Timeline.Description>Monday · 9:00 AM</Timeline.Description>
+        </Timeline.Header>
+      </Timeline.Content>
+    </Timeline.Item>
 
-    <TimelineItem side="right">
-      <TimelineMedia />
-      <TimelineContent>
-        <TimelineHeader>
-          <TimelineTitle>Design review</TimelineTitle>
-          <TimelineDescription>Tuesday · 2:30 PM</TimelineDescription>
-        </TimelineHeader>
-      </TimelineContent>
-    </TimelineItem>
+    <Timeline.Item side="right">
+      <Timeline.Media />
+      <Timeline.Content>
+        <Timeline.Header>
+          <Timeline.Title>Design review</Timeline.Title>
+          <Timeline.Description>Tuesday · 2:30 PM</Timeline.Description>
+        </Timeline.Header>
+      </Timeline.Content>
+    </Timeline.Item>
 
     <!-- more items... -->
-  </Timeline>
+  </Timeline.Root>
 </template>
 ```
 
 ## API Reference
 
-### Timeline
+### Timeline.Root
 
 | Prop        | Type                                              | Default      |
 | ----------- | ------------------------------------------------- | ------------ |
@@ -152,13 +168,13 @@ name: TimelineSideDemo
 | `side`      | `"left" \| "right" \| "top" \| "bottom"`          | -            |
 | `align`     | `"start" \| "center"`                             | `"start"`    |
 
-### TimelineItem
+### Timeline.Item
 
 | Prop   | Type                                     | Default |
 | ------ | ---------------------------------------- | ------- |
 | `side` | `"left" \| "right" \| "top" \| "bottom"` | inherit |
 
-### TimelineMedia
+### Timeline.Media
 
 | Prop      | Type              | Default |
 | --------- | ----------------- | ------- |

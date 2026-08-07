@@ -4,7 +4,7 @@ import type { RangeCalendarCellTriggerProps } from "reka-ui";
 import { RangeCalendarCellTrigger, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { buttonVariants } from "#/components/button";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<RangeCalendarCellTriggerProps & { class?: HTMLAttributes["class"] }>();
 

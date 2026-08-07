@@ -1,75 +1,43 @@
-# Nuxt Minimal Starter
+# Vuzeno Docs
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Nuxt documentation site deployed to **Cloudflare Workers**.
 
-## Setup
+## Development
 
-Make sure to install dependencies:
+From the monorepo root:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
+bun run docs:dev
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Build & preview (Workers)
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+bun run registry:build && bun run docs:build
+bun run docs:preview:cf
 ```
 
-## Production
-
-Build the application for production:
+## Deploy
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+bun run docs:deploy
 ```
 
-Locally preview production build:
+### Workers Builds (Git)
 
-```bash
-# npm
-npm run preview
+Configure the Worker `vuzeno-docs` with:
 
-# pnpm
-pnpm preview
+| Setting | Value |
+| --- | --- |
+| Root directory | `/` (repo root) |
+| Build command | `bun run registry:build && bun run docs:build` |
+| Deploy command | `cd apps/docs && bunx wrangler deploy` |
+| `BUN_VERSION` | `1.3.10` |
+| `NODE_OPTIONS` | `--max-old-space-size=8192` |
 
-# yarn
-yarn preview
+Nuxt Content requires the D1 binding `DB` (database `vuzeno-docs`, configured in `nuxt.config.ts`). Attach custom domain `vuzeno.com` in the Worker settings when ready to cut over from Vercel.
 
-# bun
-bun run preview
-```
+### Analytics
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Use [Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/) with automatic snippet injection once `vuzeno.com` is proxied through Cloudflare. No app-side analytics package.

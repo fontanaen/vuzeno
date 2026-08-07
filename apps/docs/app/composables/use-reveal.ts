@@ -1,7 +1,7 @@
 import { useIntersectionObserver } from "@vueuse/core";
-import { onMounted, ref } from "vue";
+import { nextTick, onMounted, ref } from "vue";
 
-interface UseRevealOptions {
+type UseRevealOptions = {
   /** CSS selector (scoped to the root element when provided) of nodes to observe. */
   selector?: string;
   /** Root element to observe within. Defaults to `document`. */
@@ -15,10 +15,10 @@ interface UseRevealOptions {
    * `data-visible` attribute is set and never removed.
    */
   once?: boolean;
-}
+};
 
 export function useReveal(options: UseRevealOptions = {}) {
-  const { selector = ".reveal", rootMargin = "0px 0px -10% 0px", threshold = 0.1, once = true } = options;
+  const { selector = ".reveal", rootMargin = "0px 0px -8% 0px", threshold = 0.05, once = true } = options;
 
   const targets = ref<HTMLElement[]>([]);
 
@@ -26,19 +26,33 @@ export function useReveal(options: UseRevealOptions = {}) {
     targets,
     (entries) => {
       for (const entry of entries) {
-        const el = entry.target as HTMLElement;
+        const element = entry.target as HTMLElement;
+
         if (entry.isIntersecting) {
-          el.dataset.visible = "true";
+          element.dataset.visible = "true";
         } else if (!once) {
-          delete el.dataset.visible;
+          delete element.dataset.visible;
         }
       }
     },
     { rootMargin, threshold },
   );
 
-  onMounted(() => {
+  onMounted(async () => {
+    await nextTick();
+
     const root: Document | HTMLElement = options.root ?? document;
-    targets.value = Array.from(root.querySelectorAll<HTMLElement>(selector));
+    const nodes = Array.from(root.querySelectorAll<HTMLElement>(selector));
+    targets.value = nodes;
+
+    // Above-the-fold nodes can miss the first observer callback on mount.
+    for (const element of nodes) {
+      const rect = element.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (inView) {
+        element.dataset.visible = "true";
+      }
+    }
   });
 }

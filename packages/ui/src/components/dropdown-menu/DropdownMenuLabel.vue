@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { DropdownMenuLabelProps } from "reka-ui";
 import { DropdownMenuLabel, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<DropdownMenuLabelProps & { class?: HTMLAttributes["class"]; inset?: boolean }>();
 

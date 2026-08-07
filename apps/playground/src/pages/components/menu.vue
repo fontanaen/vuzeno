@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { StackMenu, StackMenuContent, StackMenuGroup, StackMenuItem, StackMenuSub, StackMenuSubContent, StackMenuSubTrigger, StackMenuTrigger } from "@vuzeno/registry/ui/stack-menu";
 import { Button } from "@vuzeno/ui/components/button";
-import { BanIcon, DiscIcon, EllipsisIcon, HeartIcon, ListMusicIcon, ListPlusIcon, MicVocalIcon, PlayIcon, PlusCircleIcon, RadioIcon, Share2Icon, ShuffleIcon, UserIcon } from "lucide-vue-next";
+import { BanIcon, DiscIcon, EllipsisIcon, HeartIcon, ListMusicIcon, ListPlusIcon, MicVocalIcon, PlayIcon, PlusCircleIcon, RadioIcon, Share2Icon, ShuffleIcon, UserIcon } from "@lucide/vue";
 import { toast } from "vue-sonner";
 
 definePage({

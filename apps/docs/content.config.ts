@@ -11,6 +11,11 @@ export default defineContentConfig({
       schema: z.object({
         rawbody: z.string(), // reference: https://content.nuxt.com/docs/advanced/raw-content
         tag: z.enum(["new", "alpha", "updated"]).optional(),
+        links: z
+          .object({
+            api: z.string().url().optional(),
+          })
+          .optional(),
       }),
     }),
   },

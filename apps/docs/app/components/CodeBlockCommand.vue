@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vuzeno/ui/components/tabs";
-import { TerminalIcon } from "lucide-vue-next";
+import { TerminalIcon } from "@lucide/vue";
+import { Tabs } from "@vuzeno/registry/ui/tabs";
 
 const props = defineProps<{
   code: string;
@@ -42,24 +42,30 @@ const tabs = computed(() => {
 
 <template>
   <div class="overflow-x-auto">
-    <Tabs :model-value="'bun'" class="gap-0">
+    <Tabs.Root :model-value="'bun'" class="gap-0">
       <div class="border-border/50 flex items-center gap-2 border-b px-3 py-1">
         <div class="bg-foreground flex size-4 items-center justify-center rounded-[1px] opacity-70">
           <TerminalIcon class="text-code size-3" />
         </div>
-        <TabsList class="rounded-none bg-transparent p-0">
-          <TabsTrigger v-for="key in Object.keys(tabs)" :key="key" :value="key" class="data-[state=active]:bg-accent data-[state=active]:border-input h-7 border border-transparent pt-0.5 data-[state=active]:shadow-none">
+        <Tabs.TabList class="rounded-none bg-transparent p-0">
+          <Tabs.TabTrigger
+            v-for="key in Object.keys(tabs)"
+            :key="key"
+            :value="key"
+            class="data-[state=active]:bg-accent data-[state=active]:border-input h-7 border border-transparent pt-0.5 data-[state=active]:shadow-none"
+          >
             {{ key }}
-          </TabsTrigger>
-        </TabsList>
+          </Tabs.TabTrigger>
+          <Tabs.TabIndicator />
+        </Tabs.TabList>
       </div>
 
       <div class="no-scrollbar overflow-x-auto">
-        <TabsContent v-for="([key, value]) in Object.entries(tabs)" :key="key" :value="key" class="mt-0 px-4 py-3.5">
+        <Tabs.TabContent v-for="([key, value]) in Object.entries(tabs)" :key="key" :value="key" class="mt-0 px-4 py-3.5">
           <pre class="language-bash shiki shiki-themes github-light-default github-dark"><code class="relative font-mono text-sm leading-none"><span class="line"><span>{{ value }}</span></span></code></pre>
-        </TabsContent>
+        </Tabs.TabContent>
       </div>
-    </Tabs>
+    </Tabs.Root>
     <CopyButton class="absolute top-2 right-2 z-10 size-7 opacity-70 hover:opacity-100 focus-visible:opacity-100" :value="'bun add'" />
   </div>
 </template>

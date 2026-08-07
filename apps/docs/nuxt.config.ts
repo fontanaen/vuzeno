@@ -1,12 +1,36 @@
+import { fileURLToPath } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import { siteConfig } from "./app/lib/site-config";
+import { getAppThemeFoucScript } from "./app/lib/themes";
 
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
+  compatibilityDate: "2026-07-18",
 
   devtools: { enabled: false },
 
-  modules: ["@nuxt/content", "@nuxtjs/color-mode", "nuxt-shiki", "@nuxt/fonts", "nuxt-llms", "@nuxtjs/sitemap", "@vercel/analytics"],
+  alias: {
+    "#registry-ark": fileURLToPath(new URL("../../packages/registry/ark-ui", import.meta.url)),
+  },
+
+  modules: [
+    "@nuxt/content",
+    "@nuxtjs/color-mode",
+    "nuxt-shiki",
+    "@nuxt/fonts",
+    "nuxt-llms",
+    "@nuxtjs/sitemap",
+    // Runs after content/mdc so we can drop optimizeDeps includes Bun can't resolve
+    // (`parent > child` nested paths don't match bun's flat .bun store).
+    (_options, nuxt) => {
+      nuxt.hook("vite:extendConfig", (config) => {
+        if (!config.optimizeDeps?.include) {
+          return;
+        }
+
+        config.optimizeDeps.include = config.optimizeDeps.include.filter((id) => !id.includes("@nuxtjs/mdc > "));
+      });
+    },
+  ],
 
   css: ["~/assets/main.css"],
 
@@ -15,20 +39,44 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "vercel",
+    preset: "cloudflare-module",
     minify: true,
-    output: {
-      dir: "../../.vercel/output",
+    cloudflare: {
+      deployConfig: true,
+      wrangler: {
+        d1_databases: [
+          {
+            binding: "DB",
+            database_name: "vuzeno-docs",
+            // Set after: bunx wrangler d1 create vuzeno-docs
+            database_id: "",
+          },
+        ],
+      },
+    },
+    // Avoid Nuxt 4.5 fs payload-cache collisions in dev (EEXIST/ENOTDIR on .nuxt/cache/nuxt/payload).
+    // https://github.com/nuxt/nuxt/issues/34961
+    devStorage: {
+      "cache:nuxt:payload": { driver: "memory" },
     },
     prerender: {
       crawlLinks: true,
       routes: ["/"],
       failOnError: false,
       autoSubfolderIndex: false,
-      concurrency: 2,
+      // SSR previews no longer Shiki/raw-load examples; safe to parallelize more.
+      concurrency: 8,
     },
     rollupConfig: {
-      maxParallelFileOps: 2,
+      maxParallelFileOps: 8,
+    },
+  },
+
+  // Nuxt 4.5 ships check-if-page-unused with `export { plugin as default }`, which its own
+  // B2005 detector misreads and replaces with a noop — drop it until fixed upstream.
+  hooks: {
+    "app:resolve"(app) {
+      app.plugins = app.plugins.filter((plugin) => !plugin.src?.includes("check-if-page-unused"));
     },
   },
 
@@ -38,7 +86,7 @@ export default defineNuxtConfig({
     },
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "reka-ui", "class-variance-authority", "@vueuse/core", "lucide-vue-next", "clsx", "tailwind-merge"],
+      include: ["vue3-simple-icons", "@tanstack/vue-hotkeys", "@vueuse/core", "@lucide/vue", "cnfast"],
     },
   },
 
@@ -104,12 +152,21 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
+      script: [
+        {
+          innerHTML: getAppThemeFoucScript(),
+          type: "text/javascript",
+        },
+      ],
       link: [
         { rel: "manifest", href: `${siteConfig.url}/site.webmanifest` },
         { rel: "icon", href: "/favicon.ico" },
       ],
       meta: [
-        { name: "keywords", content: "Vue,Components,shadcn,registry" },
+        { name: "keywords", content: "Vue,Components,Ark UI,design system,registry" },
         { property: "og:type", content: "website" },
         { property: "og:site_name", content: "Vuzeno" },
         { property: "og:image", content: siteConfig.ogImage },

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@vuzeno/ui/components/tabs";
-import { TerminalIcon } from "lucide-vue-next";
+import { TerminalIcon } from "@lucide/vue";
+import { Tabs } from "@vuzeno/registry/ui/tabs";
 
 const props = defineProps<{
   command: string;
@@ -27,47 +27,42 @@ const packageManager = useCookie<(typeof PACKAGE_MANAGERS)[number]>("packageMana
   default: () => "bun",
 });
 
-const currentCommand = computed(() => {
-  const prefix = props.exec ? EXEC_PREFIXES[packageManager.value] : INSTALL_PREFIXES[packageManager.value];
+function getCommand(packageManager: (typeof PACKAGE_MANAGERS)[number]) {
+  const prefix = props.exec ? EXEC_PREFIXES[packageManager] : INSTALL_PREFIXES[packageManager];
   return `${prefix} ${props.command}`;
-});
+}
 </script>
 
 <template>
-  <Tabs
+  <Tabs.Root
     v-model="packageManager"
-    class="bg-muted/75 border border-border rounded-lg overflow-hidden mt-4"
+    class="bg-muted/20 border border-border rounded-lg mt-4 w-full"
   >
-    <div class="flex px-2">
-      <div class="flex items-center gap-2 w-full text-[13px]">
-        <div class="bg-black/90 text-white dark:bg-muted size-7 flex items-center justify-center rounded-sm">
-          <TerminalIcon class="size-4" />
-        </div>
-        <TabsList class="flex gap-2 bg-transparent p-2">
-          <TabsTrigger
-            v-for="(pkg, index) in PACKAGE_MANAGERS"
-            :key="index"
-            :value="pkg"
-            tabindex="-1"
-            class="transition-colors duration-200 bg-transparent data-[state=active]:bg-primary dark:data-[state=active]:bg-primary dark:data-[state=active]:text-primary-foreground py-1 rounded-sm"
-          >
-            {{ pkg }}
-          </TabsTrigger>
-        </TabsList>
+    <Tabs.TabList class="p-2 items-center">
+      <div class="bg-black/90 text-white dark:bg-muted size-7 flex items-center justify-center rounded-sm mr-2">
+        <TerminalIcon class="size-4" />
       </div>
-    </div>
 
-    <TabsContent
+      <Tabs.TabTriggerIndicator
+        v-for="(pkg, index) in PACKAGE_MANAGERS"
+        :key="index"
+        :value="pkg"
+        tabindex="-1"
+      >
+        {{ pkg }}
+      </Tabs.TabTriggerIndicator>
+    </Tabs.TabList>
+
+    <Tabs.TabContent
       v-for="pkg in PACKAGE_MANAGERS"
       :key="pkg"
       tabindex="-1"
       :value="pkg"
-      class="mt-0"
-      as-child
+      class="mt-0 py-0"
     >
-      <div class="**:data-pretty-code-figure:m-0! **:data-pretty-code-figure:rounded-t-none! **:data-pretty-code-figure:border-t">
-        <ProsePre language="bash" :code="currentCommand || ''" />
+      <div class="**:data-pretty-code-figure:m-0! **:data-pretty-code-figure:rounded-t-none!">
+        <ProsePre language="bash" :code="getCommand(pkg) || ''" class="rounded-none border-none" />
       </div>
-    </TabsContent>
-  </Tabs>
+    </Tabs.TabContent>
+  </Tabs.Root>
 </template>

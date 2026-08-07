@@ -6,7 +6,7 @@ import { ToggleGroupItem, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { inject } from "vue";
 import { toggleVariants } from "#/components/toggle";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 

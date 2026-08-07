@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@vuzeno/ui/components/button";
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyTitle } from "@vuzeno/ui/components/empty";
+import { Button } from "@vuzeno/registry/ui/button";
+import { Empty } from "@vuzeno/registry/ui/empty";
 import type { NuxtError } from "#app";
 
 defineProps<{
@@ -10,25 +10,25 @@ defineProps<{
 
 <template>
   <div class="h-screen flex flex-col items-center justify-center">
-    <Empty>
-      <EmptyHeader>
-        <EmptyTitle>
+    <Empty.Root>
+      <Empty.Header>
+        <Empty.Title>
           {{ error.statusCode }}
-        </EmptyTitle>
-      </EmptyHeader>
-      <EmptyDescription>
+        </Empty.Title>
+      </Empty.Header>
+      <Empty.Description>
         {{ error.statusMessage }}
-      </EmptyDescription>
-      <EmptyContent>
+      </Empty.Description>
+      <Empty.Content>
         <div class="flex gap-2">
-          <Button as="a" href="/" variant="outline">
-            Go to home
+          <Button as-child variant="outline">
+            <a href="/">Go to home</a>
           </Button>
-          <Button as="a" href="/docs/getting-started">
-            Get started
+          <Button as-child variant="outline">
+            <a href="/docs/getting-started">Get started</a>
           </Button>
         </div>
-      </EmptyContent>
-    </Empty>
+      </Empty.Content>
+    </Empty.Root>
   </div>
 </template>

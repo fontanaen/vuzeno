@@ -6,7 +6,7 @@ import { ToggleGroupRoot, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
 import { provide } from "vue";
 import type { toggleVariants } from "#/components/toggle";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 type ToggleGroupVariants = VariantProps<typeof toggleVariants>;
 

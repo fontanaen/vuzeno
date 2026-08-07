@@ -1,4 +1,4 @@
-@import "@fontsource-variable/rubik";
+@import "@fontsource-variable/geist";
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -9,47 +9,12 @@
 @source "../../../../packages/registry";
 
 body {
-  font-family: "Rubik Variable", sans-serif;
+  font-family: "Geist Variable", sans-serif;
 }
 
 @theme {
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
   --color-code: var(--code);
@@ -58,28 +23,6 @@ body {
   --color-code-number: var(--code-number);
   --color-selection: var(--selection);
   --color-selection-foreground: var(--selection-foreground);
-}
-
-:root {
-  --surface: oklch(0.98 0 0);
-  --surface-foreground: var(--foreground);
-  --code: var(--surface);
-  --code-foreground: var(--surface-foreground);
-  --code-highlight: oklch(0.27 0 0);
-  --code-number: oklch(0.56 0 0);
-  --selection: oklch(50.329% 0.20654 29.223);
-  --selection-foreground: oklch(1 0 0);
-}
-
-.dark {
-  --surface: oklch(0.2 0 0);
-  --surface-foreground: oklch(0.708 0 0);
-  --code: var(--surface);
-  --code-foreground: var(--surface-foreground);
-  --code-highlight: oklch(39.102% 0.05772 86.149);
-  --code-number: oklch(0.72 0 0);
-  --selection: oklch(0.922 0 0);
-  --selection-foreground: oklch(0.205 0 0);
 }
 
 @layer components {
@@ -102,7 +45,6 @@ body {
   }
 
   [data-pretty-code-figure] {
-    background-color: var(--color-code);
     color: var(--color-code-foreground);
     border-radius: var(--radius-lg);
     border-width: 0px;
@@ -165,12 +107,12 @@ body {
   }
 
   [data-line] span {
-    color: var(--shiki-light);
+    color: var(--muted-foreground);
   }
 
   @variant dark {
     [data-line] span {
-      color: var(--shiki-dark);
+      color: var(--muted-foreground);
     }
   }
 

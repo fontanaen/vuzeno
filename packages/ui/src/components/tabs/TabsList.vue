@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { TabsListProps } from "reka-ui";
 import { TabsList } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<TabsListProps & { class?: HTMLAttributes["class"] }>();
 

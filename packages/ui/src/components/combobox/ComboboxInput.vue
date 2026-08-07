@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { ComboboxInputEmits, ComboboxInputProps } from "reka-ui";
 import { ComboboxInput, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<
   ComboboxInputProps & {

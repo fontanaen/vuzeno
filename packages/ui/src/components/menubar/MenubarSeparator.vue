@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { MenubarSeparatorProps } from "reka-ui";
 import { MenubarSeparator, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<MenubarSeparatorProps & { class?: HTMLAttributes["class"] }>();
 

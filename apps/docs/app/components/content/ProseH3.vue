@@ -1,9 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HeadingAnchor from "./HeadingAnchor.vue";
+
+defineProps<{
+  id?: string;
+}>();
+</script>
 
 <template>
   <h3
-    class="font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl"
+    :id="id"
+    class="group/heading font-heading mt-12 scroll-m-28 text-lg font-medium tracking-tight [&+p]:!mt-4 *:[code]:text-xl"
   >
-    <slot />
+    <HeadingAnchor :id="id">
+      <slot />
+    </HeadingAnchor>
   </h3>
 </template>

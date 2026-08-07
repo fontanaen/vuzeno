@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { reactiveOmit } from "@vueuse/core";
-import { GripVertical } from "lucide-vue-next";
+import { GripVertical } from "@lucide/vue";
 import type { SplitterResizeHandleEmits, SplitterResizeHandleProps } from "reka-ui";
 import { SplitterResizeHandle, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<SplitterResizeHandleProps & { class?: HTMLAttributes["class"]; withHandle?: boolean }>();
 const emits = defineEmits<SplitterResizeHandleEmits>();

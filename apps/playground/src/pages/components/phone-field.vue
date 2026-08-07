@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PhoneField, PhoneFieldCountrySelect, PhoneFieldIndicator, PhoneFieldInput, validatePhoneNumber } from "@vuzeno/registry/ui/phone-field";
+import { PhoneField } from "@vuzeno/registry/ui/phone-field";
 import { Switch } from "@vuzeno/ui/components/switch";
 import { ToggleGroup, ToggleGroupItem } from "@vuzeno/ui/components/toggle-group";
 import { ref } from "vue";
@@ -49,19 +49,19 @@ const buttonSizes: { size: "sm" | "default" | "lg"; variant: "outline" | "defaul
       </ToggleGroupItem>
     </ToggleGroup>
 
-    <PhoneField 
-      v-model="phone" 
-      v-model:country-code="countryCode" 
-      :size="size" 
-      format="international" 
-      :reset-on-country-change="resetOnCountryChange" 
-      :preferred-countries="['FR', 'US']" 
+    <PhoneField.Root
+      v-model="phone"
+      v-model:country-code="countryCode"
+      :size="size"
+      format="international"
+      :reset-on-country-change="resetOnCountryChange"
+      :preferred-countries="['FR', 'US']"
       :ignored-countries="['AC', 'TA', 'DE']"
     >
-        <PhoneFieldCountrySelect :flag-type="flagType" />
-        <PhoneFieldInput>
-          <PhoneFieldIndicator />
-        </PhoneFieldInput>
-    </PhoneField>
+      <PhoneField.CountrySelect :flag-type="flagType" />
+      <PhoneField.Input>
+        <PhoneField.Indicator />
+      </PhoneField.Input>
+    </PhoneField.Root>
   </div>
 </template>

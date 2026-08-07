@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { MenubarRootEmits, MenubarRootProps } from "reka-ui";
 import { MenubarRoot, useForwardPropsEmits } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<MenubarRootProps & { class?: HTMLAttributes["class"] }>();
 const emits = defineEmits<MenubarRootEmits>();

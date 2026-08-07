@@ -3,7 +3,7 @@ import { reactiveOmit } from "@vueuse/core";
 import type { ComboboxTriggerProps } from "reka-ui";
 import { ComboboxTrigger, useForwardProps } from "reka-ui";
 import type { HTMLAttributes } from "vue";
-import { cn } from "#/lib/utils";
+import { cn } from "cnfast";
 
 const props = defineProps<ComboboxTriggerProps & { class?: HTMLAttributes["class"] }>();
 
