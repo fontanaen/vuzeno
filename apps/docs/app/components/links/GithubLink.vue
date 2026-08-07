@@ -3,20 +3,7 @@ import { Button } from "@vuzeno/registry/ui/button";
 import { GitHubIcon } from "vue3-simple-icons";
 import { siteConfig } from "~/lib/site-config";
 
-const { data: repository } = await useFetch("/api/github/repository", {
-  key: "github-repository",
-});
-
-const starCount = computed(() => {
-  if (!repository.value) {
-    return null;
-  }
-
-  return new Intl.NumberFormat("en", {
-    notation: "compact",
-    maximumFractionDigits: 1,
-  }).format(repository.value.stargazersCount);
-});
+const { starCount } = await useGithubRepository();
 </script>
 
 <template>

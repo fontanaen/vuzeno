@@ -17,6 +17,7 @@ export default defineCachedEventHandler(
       headers: {
         Accept: "application/vnd.github+json",
         "User-Agent": "vuzeno-docs",
+        "X-GitHub-Api-Version": "2022-11-28",
       },
     });
 
@@ -26,5 +27,7 @@ export default defineCachedEventHandler(
   },
   {
     maxAge: 60 * 60,
+    swr: true,
+    getKey: () => "github-repository",
   },
 );
