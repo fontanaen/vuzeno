@@ -8,7 +8,7 @@ const props = defineProps<{ class?: HTMLAttributes["class"] }>();
 
 <template>
   <Avatar.Fallback
-    :class="cn('text-xs bg-muted', props.class)"
+    :class="cn('text-xs text-primary', props.class)"
     data-slot="avatar-fallback"
   >
     <slot />
