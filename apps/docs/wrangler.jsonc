@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "vuzeno-docs",
+  "name": "vuzeno",
   "compatibility_date": "2026-07-18",
   "compatibility_flags": ["nodejs_compat"],
   "main": "./.output/server/index.mjs",
@@ -9,7 +9,7 @@
     "binding": "ASSETS",
     // Docs pages are prerendered as HTML; Worker must run first so Accept
     // negotiation can serve text/markdown instead of the static asset.
-    "run_worker_first": ["/docs", "/docs/*"]
+    "run_worker_first": ["/docs", "/docs/*", "/.well-known/api-catalog", "/api/*"]
   },
 
   "observability": {

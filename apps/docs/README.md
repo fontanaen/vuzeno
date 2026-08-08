@@ -26,7 +26,7 @@ bun run docs:deploy
 
 ### Workers Builds (Git)
 
-Configure the Worker `vuzeno-docs` with:
+Configure the Worker `vuzeno` with:
 
 | Setting | Value |
 | --- | --- |

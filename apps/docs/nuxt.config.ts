@@ -52,9 +52,6 @@ export default defineNuxtConfig({
             database_id: "",
           },
         ],
-        assets: {
-          run_worker_first: ["/docs", "/docs/*"],
-        },
       },
     },
 

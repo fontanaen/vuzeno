@@ -1,0 +1,184 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Vuzeno Component Registry",
+    "description": "shadcn-vue compatible registry API for installing Vuzeno Vue components as source.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Vuzeno",
+      "url": "https://vuzeno.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://vuzeno.com"
+    }
+  ],
+  "paths": {
+    "/r/registry.json": {
+      "get": {
+        "operationId": "getRegistryIndex",
+        "summary": "List registry items",
+        "description": "Returns the full Vuzeno registry index (name, homepage, and item metadata).",
+        "responses": {
+          "200": {
+            "description": "Registry index",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistryIndex"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/r/{name}.json": {
+      "get": {
+        "operationId": "getRegistryItem",
+        "summary": "Get a registry item",
+        "description": "Returns a single component (or dependency) registry item for the shadcn-vue CLI.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "description": "Registry item name (for example `button` or `dialog`).",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Registry item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistryItem"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registry item not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegistryIndex": {
+        "type": "object",
+        "required": ["name", "homepage", "items"],
+        "properties": {
+          "$schema": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string"
+          },
+          "homepage": {
+            "type": "string",
+            "format": "uri"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RegistryIndexItem"
+            }
+          }
+        }
+      },
+      "RegistryIndexItem": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "registryDependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "RegistryItem": {
+        "type": "object",
+        "required": ["name", "type", "files"],
+        "properties": {
+          "$schema": {
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "registryDependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["path", "type"],
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "target": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
