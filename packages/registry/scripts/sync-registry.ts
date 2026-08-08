@@ -10,6 +10,7 @@ const IGNORE_FILES = new Set([".DS_Store", "README.md"]);
 const IGNORE_DIRS = new Set(["examples"]);
 const IGNORE_DEP_PACKAGES = new Set(["vue", "@vuzeno/ui"]);
 const KNOWN_NPM = new Set(["@ark-ui/vue", "@vueuse/core", "@internationalized/date", "libphonenumber-js", "cnfast", "class-variance-authority", "@lucide/vue", "reka-ui"]);
+const REGISTRY_NAMESPACE = "@vuzeno";
 
 const DEP_ORDER = ["@ark-ui/vue", "@vueuse/core", "@internationalized/date", "libphonenumber-js", "class-variance-authority", "@lucide/vue", "cnfast"];
 
@@ -83,6 +84,20 @@ function packageName(spec: string): string | null {
   return spec.split("/")[0] ?? null;
 }
 
+function toRegistryDependency(name: string) {
+  return `${REGISTRY_NAMESPACE}/${name}`;
+}
+
+function normalizeRegistryDependency(dep: string, knownNames: Set<string>) {
+  if (dep.startsWith("@") || dep.startsWith("http://") || dep.startsWith("https://") || dep.startsWith("./") || dep.startsWith("../")) {
+    return dep;
+  }
+  if (knownNames.has(dep)) {
+    return toRegistryDependency(dep);
+  }
+  return dep;
+}
+
 function extractFromContent(content: string) {
   const deps = new Set<string>();
   const regDeps = new Set<string>();
@@ -90,9 +105,14 @@ function extractFromContent(content: string) {
   let match: RegExpExecArray | null;
   while ((match = fromRe.exec(content))) {
     const spec = match[1]!;
-    const reg = spec.match(/^@vuzeno\/registry\/ui\/([a-z0-9-]+)/);
-    if (reg) {
-      regDeps.add(reg[1]!);
+    const namespaced = spec.match(/^@vuzeno\/registry\/ui\/([a-z0-9-]+)/);
+    if (namespaced) {
+      regDeps.add(toRegistryDependency(namespaced[1]!));
+      continue;
+    }
+    const relative = spec.match(/^\.\.\/([a-z0-9-]+)(?:\/|$)/);
+    if (relative) {
+      regDeps.add(toRegistryDependency(relative[1]!));
       continue;
     }
     const pkg = packageName(spec);
@@ -123,6 +143,7 @@ const folders = fs
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
   .sort();
+const knownNames = new Set(folders);
 
 const items: Item[] = [];
 
@@ -136,6 +157,7 @@ for (const name of folders) {
 
   const deps = new Set<string>();
   const regDeps = new Set<string>();
+  const selfDep = toRegistryDependency(name);
   for (const fileName of filesOnDisk) {
     const content = fs.readFileSync(path.join(folder, fileName), "utf8");
     const extracted = extractFromContent(content);
@@ -143,7 +165,7 @@ for (const name of folders) {
       deps.add(dep);
     }
     for (const reg of extracted.regDeps) {
-      if (reg !== name) {
+      if (reg !== selfDep) {
         regDeps.add(reg);
       }
     }
@@ -166,7 +188,16 @@ for (const name of folders) {
     description += ".";
   }
 
-  const mergedReg = new Set<string>([...(existing?.registryDependencies ?? []), ...regDeps]);
+  const mergedReg = new Set<string>();
+  for (const dep of existing?.registryDependencies ?? []) {
+    const normalized = normalizeRegistryDependency(dep, knownNames);
+    if (normalized !== selfDep) {
+      mergedReg.add(normalized);
+    }
+  }
+  for (const dep of regDeps) {
+    mergedReg.add(dep);
+  }
   const registryDependencies = [...mergedReg].sort();
 
   items.push({

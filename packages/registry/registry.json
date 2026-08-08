@@ -58,53 +58,11 @@
       "type": "registry:component",
       "title": "ActionSheet",
       "description": "Vue bottom sheet action dialog with a promise-based API for picking an option on mobile and desktop.",
-      "dependencies": [
-        "@ark-ui/vue",
-        "@zag-js/anatomy",
-        "@zag-js/aria-hidden",
-        "@zag-js/core",
-        "@zag-js/dismissable",
-        "@zag-js/dom-query",
-        "@zag-js/focus-trap",
-        "@zag-js/presence",
-        "@zag-js/remove-scroll",
-        "@zag-js/types",
-        "@zag-js/utils",
-        "@zag-js/vue",
-        "cnfast"
-      ],
-      "registryDependencies": ["button"],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/action-sheet/action-sheet.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/anatomy.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/connect.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/context.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/dom.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/machine.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/types.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/action-sheet/use-action-sheet.ts",
           "type": "registry:component"
         },
         {
@@ -140,7 +98,35 @@
           "type": "registry:component"
         },
         {
+          "path": "ark-ui/action-sheet/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/connect.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/dom.ts",
+          "type": "registry:component"
+        },
+        {
           "path": "ark-ui/action-sheet/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/machine.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/action-sheet/use-action-sheet.ts",
           "type": "registry:component"
         }
       ]
@@ -189,7 +175,7 @@
       "title": "Alert Dialog",
       "description": "Vue alert dialog for critical confirmations and destructive actions that require an explicit user decision.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": ["dialog"],
+      "registryDependencies": ["@vuzeno/button", "@vuzeno/dialog"],
       "files": [
         {
           "path": "ark-ui/alert-dialog/alert-dialog.ts",
@@ -281,7 +267,7 @@
       "title": "Autocomplete",
       "description": "Vue autocomplete combobox to search and select from a filtered list of suggestions as you type.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input-group"],
       "files": [
         {
           "path": "ark-ui/autocomplete/autocomplete.ts",
@@ -519,7 +505,7 @@
       "title": "Button Group",
       "description": "Vue button group that joins related actions with shared borders, spacing, and consistent sizing.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "cnfast"],
-      "registryDependencies": ["separator"],
+      "registryDependencies": ["@vuzeno/separator"],
       "files": [
         {
           "path": "ark-ui/button-group/ButtonGroup.vue",
@@ -715,7 +701,7 @@
       "title": "Clipboard",
       "description": "Vue clipboard component to copy text to the clipboard with a trigger and copied-state feedback.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/clipboard/clipboard.ts",
@@ -941,7 +927,7 @@
       "title": "Date Input",
       "description": "Vue date input for typing and parsing calendar dates with accessible, localized field behavior.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/date-input/date-input.ts",
@@ -995,7 +981,7 @@
       "title": "Date Picker",
       "description": "Vue date picker calendar to select a single date or range with keyboard and localization support.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button", "@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/date-picker/date-picker.ts",
@@ -1149,7 +1135,7 @@
       "title": "Dialog",
       "description": "Vue dialog modal overlay for focused tasks, forms, and confirmations above the main page content.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/dialog/dialog.ts",
@@ -1222,8 +1208,8 @@
       "type": "registry:component",
       "title": "DialogCaller",
       "description": "Vue dialog caller to open components programmatically with a promise-based stack API.",
-      "dependencies": ["@ark-ui/vue", "@zag-js/anatomy", "@zag-js/core", "@zag-js/types", "@zag-js/vue", "cnfast"],
-      "registryDependencies": ["dialog"],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
+      "registryDependencies": ["@vuzeno/dialog"],
       "files": [
         {
           "path": "ark-ui/dialog-caller/anatomy.ts",
@@ -1371,7 +1357,7 @@
       "title": "Editable",
       "description": "Vue editable text field that switches between read and edit modes for inline content updates.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/editable/editable.ts",
@@ -1467,7 +1453,7 @@
       "title": "Field",
       "description": "Vue form field wrapper that shares label, helper, and error context with inputs and controls.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/field/field.ts",
@@ -1571,7 +1557,7 @@
       "title": "File Upload",
       "description": "Vue file upload for drag-and-drop or browse selection of single or multiple files with item previews.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/file-upload/file-upload.ts",
@@ -1649,7 +1635,18 @@
       "title": "Filters",
       "description": "Vue filter builder with typed fields, operators, and chips to narrow lists and data tables.",
       "dependencies": ["@ark-ui/vue", "@internationalized/date", "class-variance-authority", "@lucide/vue", "cnfast"],
-      "registryDependencies": ["button", "button-group", "checkbox", "date-picker", "menu", "number-input", "popover", "slider", "switch"],
+      "registryDependencies": [
+        "@vuzeno/button",
+        "@vuzeno/button-group",
+        "@vuzeno/checkbox",
+        "@vuzeno/date-picker",
+        "@vuzeno/input",
+        "@vuzeno/menu",
+        "@vuzeno/number-input",
+        "@vuzeno/popover",
+        "@vuzeno/slider",
+        "@vuzeno/switch"
+      ],
       "files": [
         {
           "path": "ark-ui/filters/context.ts",
@@ -1775,7 +1772,7 @@
       "title": "Floating Panel",
       "description": "Vue floating panel window that can be dragged, resized, and positioned over the main interface.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/floating-panel/floating-panel.ts",
@@ -1898,7 +1895,7 @@
       "type": "registry:component",
       "title": "Image",
       "description": "Vue image component with loading states and fallback support for reliable media rendering.",
-      "dependencies": ["@ark-ui/vue", "@zag-js/anatomy", "@zag-js/core", "@zag-js/dom-query", "@zag-js/types", "@zag-js/vue", "cnfast"],
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -2037,7 +2034,7 @@
       "title": "Input Group",
       "description": "Vue input group to compose inputs with addons, prefix or suffix text, and inline action buttons.",
       "dependencies": ["@ark-ui/vue", "class-variance-authority", "cnfast"],
-      "registryDependencies": ["button", "input", "textarea"],
+      "registryDependencies": ["@vuzeno/button", "@vuzeno/input", "@vuzeno/textarea"],
       "files": [
         {
           "path": "ark-ui/input-group/index.ts",
@@ -2112,11 +2109,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "ark-ui/kbd/Kbd.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/kbd/KbdGroup.vue",
+          "path": "ark-ui/kbd/index.ts",
           "type": "registry:component"
         },
         {
@@ -2124,7 +2117,11 @@
           "type": "registry:component"
         },
         {
-          "path": "ark-ui/kbd/index.ts",
+          "path": "ark-ui/kbd/Kbd.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/kbd/KbdGroup.vue",
           "type": "registry:component"
         }
       ]
@@ -2255,10 +2252,14 @@
       "title": "Menu",
       "description": "Vue menu dropdown for actions and navigation with nested submenus and keyboard shortcuts.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/checkbox", "@vuzeno/radio-group"],
       "files": [
         {
           "path": "ark-ui/menu/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/menu/menu-filter-context.ts",
           "type": "registry:component"
         },
         {
@@ -2362,10 +2363,6 @@
           "type": "registry:component"
         },
         {
-          "path": "ark-ui/menu/menu-filter-context.ts",
-          "type": "registry:component"
-        },
-        {
           "path": "ark-ui/menu/use-menu-filter.ts",
           "type": "registry:component"
         },
@@ -2381,7 +2378,7 @@
       "title": "Number Input",
       "description": "Vue number input with steppers, min and max bounds, and precise numeric entry for forms.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/number-input/index.ts",
@@ -2443,7 +2440,7 @@
       "title": "Pagination",
       "description": "Vue pagination controls to navigate multi-page lists and tables with page size and ranges.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/pagination/index.ts",
@@ -2497,7 +2494,7 @@
       "title": "Password Input",
       "description": "Vue password input with show and hide toggle for secure credential entry in login forms.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input", "@vuzeno/input-group"],
       "files": [
         {
           "path": "ark-ui/password-input/index.ts",
@@ -2539,7 +2536,7 @@
       "title": "Phone Field",
       "description": "Vue phone number input with country selector, libphonenumber validation, and E.164 output.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "libphonenumber-js", "class-variance-authority", "@lucide/vue", "cnfast"],
-      "registryDependencies": ["button", "button-group", "menu"],
+      "registryDependencies": ["@vuzeno/button", "@vuzeno/button-group", "@vuzeno/input-group", "@vuzeno/menu"],
       "files": [
         {
           "path": "ark-ui/phone-field/index.ts",
@@ -3007,8 +3004,8 @@
       "name": "scroll-spy",
       "type": "registry:component",
       "title": "Scroll Spy",
-      "description": "Vue scroll spy that tracks which section is in view and exposes the active value for paired navigation.",
-      "dependencies": ["@ark-ui/vue", "@zag-js/anatomy", "@zag-js/core", "@zag-js/dom-query", "@zag-js/types", "@zag-js/vue", "cnfast"],
+      "description": "Track which section is in view and share the active value with navigation like Toc.",
+      "dependencies": ["@ark-ui/vue", "cnfast"],
       "registryDependencies": [],
       "files": [
         {
@@ -3133,7 +3130,7 @@
       "title": "Select",
       "description": "Vue select dropdown to pick a value from a searchable, keyboard-accessible list of options.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "@lucide/vue", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/input"],
       "files": [
         {
           "path": "ark-ui/select/index.ts",
@@ -3237,7 +3234,7 @@
       "title": "Sidebar",
       "description": "Vue sidebar layout with responsive drawer, icon collapse, and hover flyout submenus for app navigation.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "class-variance-authority", "@lucide/vue", "cnfast"],
-      "registryDependencies": ["button", "collapsible", "drawer", "menu", "tooltip"],
+      "registryDependencies": ["@vuzeno/button", "@vuzeno/collapsible", "@vuzeno/drawer", "@vuzeno/menu", "@vuzeno/tooltip"],
       "files": [
         {
           "path": "ark-ui/sidebar/context.ts",
@@ -3428,11 +3425,11 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "ark-ui/skeleton/Skeleton.vue",
+          "path": "ark-ui/skeleton/index.ts",
           "type": "registry:component"
         },
         {
-          "path": "ark-ui/skeleton/index.ts",
+          "path": "ark-ui/skeleton/Skeleton.vue",
           "type": "registry:component"
         }
       ]
@@ -3917,7 +3914,7 @@
       "title": "Timer",
       "description": "Vue timer for countdowns and elapsed time displays in workflows, quizzes, and live sessions.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/timer/index.ts",
@@ -3965,84 +3962,6 @@
         },
         {
           "path": "ark-ui/timer/TimerSeparator.vue",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "toc",
-      "type": "registry:component",
-      "title": "Toc",
-      "description": "Vue table of contents with a breadcrumb-style rail indicator and straight or rounded turns toward nested items.",
-      "dependencies": ["@ark-ui/vue", "@vueuse/core", "@zag-js/anatomy", "@zag-js/core", "@zag-js/dom-query", "@zag-js/types", "@zag-js/vue", "cnfast"],
-      "registryDependencies": ["scroll-spy"],
-      "files": [
-        {
-          "path": "ark-ui/toc/anatomy.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/connect.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/context.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/dom.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/index.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/item-context.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/machine.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/toc.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/types.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/use-toc.ts",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocIndicator.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocItem.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocLink.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocList.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocRoot.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocRootProvider.vue",
-          "type": "registry:component"
-        },
-        {
-          "path": "ark-ui/toc/TocTitle.vue",
           "type": "registry:component"
         }
       ]
@@ -4097,6 +4016,84 @@
         },
         {
           "path": "ark-ui/toast/variants.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "toc",
+      "type": "registry:component",
+      "title": "Toc",
+      "description": "Table of contents with a rail indicator — continuous, sharp diagonals, or rounded S-curves that follow nested items.",
+      "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
+      "registryDependencies": ["@vuzeno/scroll-spy"],
+      "files": [
+        {
+          "path": "ark-ui/toc/anatomy.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/connect.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/dom.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/index.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/item-context.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/machine.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/toc.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocIndicator.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocItem.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocLink.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocList.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocRoot.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocRootProvider.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/TocTitle.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/types.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "ark-ui/toc/use-toc.ts",
           "type": "registry:component"
         }
       ]
@@ -4225,7 +4222,7 @@
       "title": "Tour",
       "description": "Vue product tour to highlight UI steps with guided tooltips for onboarding and feature discovery.",
       "dependencies": ["@ark-ui/vue", "@vueuse/core", "cnfast"],
-      "registryDependencies": [],
+      "registryDependencies": ["@vuzeno/button"],
       "files": [
         {
           "path": "ark-ui/tour/index.ts",
