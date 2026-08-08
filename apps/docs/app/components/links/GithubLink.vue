@@ -3,7 +3,7 @@ import { Button } from "@vuzeno/registry/ui/button";
 import { GitHubIcon } from "vue3-simple-icons";
 import { siteConfig } from "~/lib/site-config";
 
-const { starCount } = await useGithubRepository();
+const { starCount } = useGithubRepository();
 </script>
 
 <template>

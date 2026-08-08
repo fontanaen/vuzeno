@@ -1,33 +1,16 @@
-type GithubRepository = {
-  stargazersCount: number;
-};
-
-export async function useGithubRepository() {
-  const { data } = await useFetch<GithubRepository>("/api/github/repository", {
-    key: "github-repository",
-    getCachedData(key, nuxtApp) {
-      // Prerender can bake a GitHub rate-limit error into the payload; skip it on the client so we refetch.
-      if (import.meta.client && nuxtApp.payload._errors[key]) {
-        return undefined;
-      }
-
-      return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key];
-    },
-  });
+export function useGithubRepository() {
+  const { data } = useLazyFetch("https://ungh.cc/repos/fontanaen/vuzeno");
 
   const starCount = computed(() => {
-    if (!data.value?.stargazersCount) {
+    const count = (data.value as { repo?: { stars?: number } } | null)?.repo?.stars;
+    if (!count) {
       return null;
     }
 
-    return new Intl.NumberFormat("en", {
-      notation: "compact",
-      maximumFractionDigits: 1,
-    }).format(data.value.stargazersCount);
+    return count >= 1000 ? `${(count / 1000).toFixed(1)}k` : count.toLocaleString();
   });
 
   return {
-    repository: data,
     starCount,
   };
 }
