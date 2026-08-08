@@ -1,10 +1,15 @@
 # robots.txt
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 Sitemap: https://vuzeno.com/sitemap.xml
 
-# For AI crawlers
+# Explicitly welcome major AI crawlers (one User-agent per line; shared rules)
 User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt

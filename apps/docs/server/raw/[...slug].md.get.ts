@@ -11,6 +11,8 @@ export default defineEventHandler(async (event) => {
   }
 
   setHeader(event, "Content-Type", "text/markdown; charset=utf-8");
+  setHeader(event, "Content-Signal", CONTENT_SIGNAL);
+  setHeader(event, "Vary", "Accept");
 
   return page.rawbody;
 });

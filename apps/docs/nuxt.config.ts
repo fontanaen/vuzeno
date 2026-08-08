@@ -52,8 +52,12 @@ export default defineNuxtConfig({
             database_id: "",
           },
         ],
+        assets: {
+          run_worker_first: ["/docs", "/docs/*"],
+        },
       },
     },
+
     // Avoid Nuxt 4.5 fs payload-cache collisions in dev (EEXIST/ENOTDIR on .nuxt/cache/nuxt/payload).
     // https://github.com/nuxt/nuxt/issues/34961
     devStorage: {
