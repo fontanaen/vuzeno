@@ -5,7 +5,6 @@ import DatePickerContext from "./DatePickerContext.vue";
 import DatePickerControl from "./DatePickerControl.vue";
 import DatePickerDayView from "./DatePickerDayView.vue";
 import DatePickerInput from "./DatePickerInput.vue";
-import DatePickerLabel from "./DatePickerLabel.vue";
 import DatePickerMonthSelect from "./DatePickerMonthSelect.vue";
 import DatePickerMonthView from "./DatePickerMonthView.vue";
 import DatePickerNextTrigger from "./DatePickerNextTrigger.vue";
@@ -41,7 +40,6 @@ export const DatePicker = {
   Control: DatePickerControl,
   DayView: DatePickerDayView,
   Input: DatePickerInput,
-  Label: DatePickerLabel,
   MonthSelect: DatePickerMonthSelect,
   MonthView: DatePickerMonthView,
   NextTrigger: DatePickerNextTrigger,

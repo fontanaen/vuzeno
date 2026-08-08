@@ -1016,10 +1016,6 @@
           "type": "registry:component"
         },
         {
-          "path": "ark-ui/date-picker/DatePickerLabel.vue",
-          "type": "registry:component"
-        },
-        {
           "path": "ark-ui/date-picker/DatePickerMonthSelect.vue",
           "type": "registry:component"
         },

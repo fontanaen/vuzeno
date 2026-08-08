@@ -3,6 +3,7 @@ import { CalendarDate, type DateValue } from "@internationalized/date";
 import { CalendarIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
+import { Field } from "@vuzeno/registry/ui/field";
 
 const format = (date: DateValue) => {
   const month = date.month.toString().padStart(2, "0");
@@ -21,29 +22,30 @@ const parse = (value: string) => {
 </script>
 
 <template>
-  <DatePicker.Root
-    :format="format"
-    :parse="parse"
-    default-view="month"
-    min-view="month"
-    placeholder="mm/yyyy"
-   
-  >
-    <DatePicker.Label>Label</DatePicker.Label>
-    <DatePicker.Control>
-      <DatePicker.Input />
-      <DatePicker.Trigger as-child>
-        <Button size="icon-sm" variant="outline">
-          <CalendarIcon />
-        </Button>
-      </DatePicker.Trigger>
-      <DatePicker.ClearTrigger>
-        Clear
-      </DatePicker.ClearTrigger>
-    </DatePicker.Control>
-    <DatePicker.Content>
-      <DatePicker.MonthView />
-      <DatePicker.YearView />
-    </DatePicker.Content>
-  </DatePicker.Root>
+  <Field.Root>
+    <Field.Label>Label</Field.Label>
+    <DatePicker.Root
+      :format="format"
+      :parse="parse"
+      default-view="month"
+      min-view="month"
+      placeholder="mm/yyyy"
+    >
+      <DatePicker.Control>
+        <DatePicker.Input />
+        <DatePicker.Trigger as-child>
+          <Button size="icon" variant="outline">
+            <CalendarIcon />
+          </Button>
+        </DatePicker.Trigger>
+        <DatePicker.ClearTrigger>
+          Clear
+        </DatePicker.ClearTrigger>
+      </DatePicker.Control>
+      <DatePicker.Content>
+        <DatePicker.MonthView />
+        <DatePicker.YearView />
+      </DatePicker.Content>
+    </DatePicker.Root>
+  </Field.Root>
 </template>

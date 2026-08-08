@@ -31,23 +31,26 @@ exec: true
 import { CalendarIcon } from "@lucide/vue";
 import { Button } from "@/components/ui/button";
 import { DatePicker } from "@/components/ui/date-picker";
+import { Field } from "@/components/ui/field";
 </script>
 
 <template>
-  <DatePicker.Root>
-    <DatePicker.Label>Label</DatePicker.Label>
-    <DatePicker.Control>
-      <DatePicker.Input />
-      <DatePicker.Trigger as-child>
-        <Button size="icon-sm" variant="outline">
-          <CalendarIcon />
-        </Button>
-      </DatePicker.Trigger>
-    </DatePicker.Control>
-    <DatePicker.Content>
-      <DatePicker.Calendar />
-    </DatePicker.Content>
-  </DatePicker.Root>
+  <Field.Root>
+    <Field.Label>Label</Field.Label>
+    <DatePicker.Root>
+      <DatePicker.Control>
+        <DatePicker.Input />
+        <DatePicker.Trigger as-child>
+          <Button size="icon-sm" variant="outline">
+            <CalendarIcon />
+          </Button>
+        </DatePicker.Trigger>
+      </DatePicker.Control>
+      <DatePicker.Content>
+        <DatePicker.Calendar />
+      </DatePicker.Content>
+    </DatePicker.Root>
+  </Field.Root>
 </template>
 ```
 
@@ -66,7 +69,6 @@ DatePicker.Root
 ├── DatePicker.Context
 ├── DatePicker.Control
 ├── DatePicker.Input
-├── DatePicker.Label
 ├── DatePicker.MonthSelect
 ├── DatePicker.NextTrigger
 ├── DatePicker.Positioner

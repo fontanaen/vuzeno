@@ -13,7 +13,7 @@ const triggerProps = reactiveOmit(props, "class");
   <DatePicker.Control as-child>
     <DatePicker.Trigger
       v-bind="triggerProps"
-      :class="cn(props.class)"
+      :class="cn('shrink-0', props.class)"
       data-slot="date-picker-trigger"
     >
       <slot />

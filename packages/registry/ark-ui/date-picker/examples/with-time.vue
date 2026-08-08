@@ -4,6 +4,7 @@ import { CalendarDateTime, DateFormatter, getLocalTimeZone } from "@internationa
 import { CalendarIcon } from "@lucide/vue";
 import { Button } from "@vuzeno/registry/ui/button";
 import { DatePicker } from "@vuzeno/registry/ui/date-picker";
+import { Field } from "@vuzeno/registry/ui/field";
 import { computed, ref } from "vue";
 
 const formatter = new DateFormatter("en-US", {
@@ -45,20 +46,22 @@ const onDateChange = (details: DatePickerValueChangeDetails) => {
 </script>
 
 <template>
-  <DatePicker.Root :value="value" :close-on-select="false" @value-change="onDateChange">
-    <DatePicker.Label>Date and time</DatePicker.Label>
-    <DatePicker.Control>
-      <DatePicker.Trigger as-child>
-        <Button variant="outline" size="icon-sm" class="w-full justify-between">
-          {{ formattedValue }}
-          <CalendarIcon />
-        </Button>
-      </DatePicker.Trigger>
-    </DatePicker.Control>
-    <DatePicker.Content>
-      <DatePicker.DayView>
-        <input type="time" :value="timeValue" @input="onTimeChange" />
-      </DatePicker.DayView>
-    </DatePicker.Content>
-  </DatePicker.Root>
+  <Field.Root>
+    <Field.Label>Date and time</Field.Label>
+    <DatePicker.Root :value="value" :close-on-select="false" @value-change="onDateChange">
+      <DatePicker.Control>
+        <DatePicker.Trigger as-child>
+          <Button variant="outline" size="icon" class="w-full justify-between">
+            {{ formattedValue }}
+            <CalendarIcon />
+          </Button>
+        </DatePicker.Trigger>
+      </DatePicker.Control>
+      <DatePicker.Content>
+        <DatePicker.DayView>
+          <input type="time" :value="timeValue" @input="onTimeChange" />
+        </DatePicker.DayView>
+      </DatePicker.Content>
+    </DatePicker.Root>
+  </Field.Root>
 </template>

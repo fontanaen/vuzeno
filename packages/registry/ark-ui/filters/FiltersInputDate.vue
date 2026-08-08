@@ -15,6 +15,10 @@ const props = defineProps<{
   field: DateField;
 }>();
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const { variant, size } = injectFiltersContext();
 
 const pickerValue = computed<DateValue[]>({
@@ -44,7 +48,7 @@ const pickerValue = computed<DateValue[]>({
     :min="props.field.min"
     :max="props.field.max"
   >
-    <DatePicker.Trigger as-child>
+    <DatePicker.Trigger>
       <Button
         :variant="variant"
         :size="size"
