@@ -1,4 +1,4 @@
-export type { CheckedChangeDetails as CheckboxCheckedChangeDetails, CheckedState as CheckboxCheckedState } from "@ark-ui/vue/checkbox";
+export type { CheckboxCheckedChangeDetails, CheckboxCheckedState } from "@ark-ui/vue/checkbox";
 export {
   checkboxAnatomy,
   type UseCheckboxContext,

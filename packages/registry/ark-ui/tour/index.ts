@@ -1,9 +1,9 @@
 export type {
-  FocusOutsideEvent as TourFocusOutsideEvent,
-  InteractOutsideEvent as TourInteractOutsideEvent,
-  PointerDownOutsideEvent as TourPointerDownOutsideEvent,
-  StepDetails as TourStepDetails,
-  StepEffectArgs as TourStepEffectArgs,
+  TourFocusOutsideEvent,
+  TourInteractOutsideEvent,
+  TourPointerDownOutsideEvent,
+  TourStepDetails,
+  TourStepEffectArgs,
 } from "@ark-ui/vue/tour";
 export {
   tourAnatomy,

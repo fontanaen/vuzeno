@@ -1,11 +1,11 @@
 export type {
-  FocusOutsideEvent as TagsInputFocusOutsideEvent,
-  HighlightChangeDetails as TagsInputHighlightChangeDetails,
-  InputValueChangeDetails as TagsInputInputValueChangeDetails,
-  InteractOutsideEvent as TagsInputInteractOutsideEvent,
-  PointerDownOutsideEvent as TagsInputPointerDownOutsideEvent,
-  ValidityChangeDetails as TagsInputValidityChangeDetails,
-  ValueChangeDetails as TagsInputValueChangeDetails,
+  TagsInputFocusOutsideEvent,
+  TagsInputHighlightChangeDetails,
+  TagsInputInputValueChangeDetails,
+  TagsInputInteractOutsideEvent,
+  TagsInputPointerDownOutsideEvent,
+  TagsInputValidityChangeDetails,
+  TagsInputValueChangeDetails,
 } from "@ark-ui/vue/tags-input";
 export {
   tagsInputAnatomy,

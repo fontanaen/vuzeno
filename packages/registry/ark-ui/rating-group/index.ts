@@ -1,4 +1,4 @@
-export type { HoverChangeDetails as RatingGroupHoverChangeDetails, ValueChangeDetails as RatingGroupValueChangeDetails } from "@ark-ui/vue/rating-group";
+export type { RatingGroupHoverChangeDetails, RatingGroupValueChangeDetails } from "@ark-ui/vue/rating-group";
 export {
   ratingGroupAnatomy,
   type UseRatingGroupContext,

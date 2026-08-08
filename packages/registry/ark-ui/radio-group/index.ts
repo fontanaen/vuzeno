@@ -1,4 +1,4 @@
-export type { ValueChangeDetails as RadioGroupValueChangeDetails } from "@ark-ui/vue/radio-group";
+export type { RadioGroupValueChangeDetails } from "@ark-ui/vue/radio-group";
 export {
   radioGroupAnatomy,
   type UseRadioGroupContext,

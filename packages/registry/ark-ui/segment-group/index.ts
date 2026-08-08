@@ -1,4 +1,4 @@
-export type { ValueChangeDetails as SegmentGroupValueChangeDetails } from "@ark-ui/vue/segment-group";
+export type { SegmentGroupValueChangeDetails } from "@ark-ui/vue/segment-group";
 export {
   segmentGroupAnatomy,
   type UseSegmentGroupContext,
