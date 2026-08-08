@@ -20,7 +20,7 @@ const items = computed(() => {
 
   return [
     ...(overview?.children ?? [])
-      .filter((file) => file.stem !== "llms.txt")
+      .filter((file) => file.stem !== "llms.txt" && file.stem !== "llms-full.txt")
       .map((file) => ({
         label: file.title,
         value: file.path,

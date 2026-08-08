@@ -82,6 +82,12 @@ export async function useNavigation() {
                     title: "Llms.txt",
                     type: "asset",
                   },
+                  {
+                    path: "/llms-full.txt",
+                    stem: "llms-full.txt",
+                    title: "Llms-full.txt",
+                    type: "asset",
+                  },
                 ],
               },
               ...nonRootDocs,

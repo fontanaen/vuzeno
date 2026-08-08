@@ -117,6 +117,10 @@ export default defineNuxtConfig({
     domain: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
+    full: {
+      title: `${siteConfig.name} – Full Documentation`,
+      description: siteConfig.description,
+    },
     sections: [
       {
         title: "Contact",
